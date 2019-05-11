@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head prefix="og: http://ogp.me/ns#">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   <title>Box | YXZ's Blog</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,12 +51,12 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Box">
 <meta name="twitter:description" content="Simple inline $a = b + c$.生活不易呢Box is a container used for processing files in a specified folder. Hexo uses two different boxes: hexo.source and hexo.theme. The former is used to process the source f">
-  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <!-- Google Analytics -->
   
 </head>
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+  <div id="container">
     <header id="header" class="wrapper">
   <div id="header-inner" class="inner">
     <h1 id="logo-wrap">
@@ -102,7 +102,6 @@
 <h2 id="Processors" class="article-heading"><a href="#Processors" class="headerlink" title="Processors"></a>Processors<a class="article-anchor" href="#Processors" aria-hidden="true"></a></h2><p>A processor is an essential element of Box and is used to process files. You can use path matching as described above to restrict what exactly the processor should process. Register a new processor with the <code>addProcessor</code> method.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">box.addProcessor(<span class="string">'posts/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">file</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Box passes the content of matched files to processors. This information can then be read straight from the <code>file</code> argument in the callback:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -129,9 +128,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>Box also provides some methods so you don’t have to do file IO by yourself.</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -166,7 +163,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h4 id="如何解决一些常见的错误呢" class="article-heading"><a href="#如何解决一些常见的错误呢" class="headerlink" title="如何解决一些常见的错误呢"></a>如何解决一些常见的错误呢<a class="article-anchor" href="#如何解决一些常见的错误呢" aria-hidden="true"></a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello world"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx xxx</span><br><span class="line">htop</span><br></pre></td></tr></table></figure>
 
@@ -240,24 +236,7 @@
 <script src="/js/mobile_nav.js"></script>
 <!-- endbuild -->
 
-<!-- Algolia --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+<!-- Algolia -->
 
 
 </body>
