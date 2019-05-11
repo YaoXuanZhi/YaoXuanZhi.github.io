@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YXZ&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yaoxuanzhi.github.io/"/>
+  <updated>2019-05-11T14:55:51.202Z</updated>
+  <id>https://yaoxuanzhi.github.io/</id>
+  
+  <author>
+    <name>Hexo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个伪Vim党的习惯养成</title>
+    <link href="https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/"/>
+    <id>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</id>
+    <published>2019-05-10T00:00:00.000Z</published>
+    <updated>2019-05-11T14:55:51.202Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg</p></blockquote><h3 id="常用工具的Vim化"><a href="#常用工具的Vim化" class="headerlink" title="常用工具的Vim化"></a>常用工具的Vim化</h3><ul><li>浏览器<ul><li>Windows：CentBrowser + Vimium extension(Crx4Chrome)</li><li>Osx：Chrome + Vimium extension(Crx4Chrome)</li></ul></li><li>IDE<ul><li>Idea + IdeaVim</li><li>VS + VsVim</li></ul></li><li>Editor<ul><li>VSCode + Vim</li><li>Sublime修改配置即可<blockquote><p>在<code>Preferences -&gt; Settings</code>里如下设置：</p><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ignored_packages"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote></li></ul></li></ul><h3 id="键盘控制鼠标"><a href="#键盘控制鼠标" class="headerlink" title="键盘控制鼠标"></a>键盘控制鼠标</h3><blockquote><p>目前常用的工具安装了Vim插件后，并不能控制应用里的所有东西，比如在Chrome浏览器上查看视频时，Vimium插件是无法控制视频的播放/暂停的，因此有必要提供一个键盘控制鼠标的功能，让双手停留在键盘上</p><ul><li>键盘控制鼠标移动、点击<ul><li>Windows：采用AutoHotKey可以实现，ahk如下： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">; 鼠标往下移动</span><br><span class="line">!^down::</span><br><span class="line">mousemove,0,+8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往上移动</span><br><span class="line">!^up::</span><br><span class="line">mousemove,0,-8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往左移动</span><br><span class="line">!^left::</span><br><span class="line">mousemove,-8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往右移动</span><br><span class="line">!^right::</span><br><span class="line">mousemove,+8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; --------------鼠标点击</span><br><span class="line"></span><br><span class="line">; 鼠标左击</span><br><span class="line">!^h::</span><br><span class="line">; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">MouseClick, left, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标右击</span><br><span class="line">!^l::</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">; MouseClick, right, %x%, %y%</span><br><span class="line">; ButtonRight</span><br><span class="line">; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.</span><br><span class="line">MouseClick, right, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br></pre></td></tr></table></figure></li></ul></li></ul></blockquote><ul><li>Osx：采用ApplyScript+MouseTools可以实现： <ul><li><a href="http://www.hamsoftengineering.com/codeSharing/MouseTools/MouseTools.html" target="_blank" rel="noopener">MouseTools</a><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 后续再补充了</span></span><br></pre></td></tr></table></figure></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;常用工具的Vim化&quot;&gt;&lt;a href=&quot;#常用工具的Vim化&quot; class=&quot;headerlink&quot; title=&quot;常用工具的Vim化&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="ahk" scheme="https://yaoxuanzhi.github.io/tags/ahk/"/>
+    
+      <category term="autohotkey" scheme="https://yaoxuanzhi.github.io/tags/autohotkey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谈谈Win10系统的折腾</title>
+    <link href="https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/"/>
+    <id>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</id>
+    <published>2019-05-07T00:00:00.000Z</published>
+    <updated>2019-05-11T14:54:57.620Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近入手了台Surface Pro6，然后又重新捣弄起各种常用的开发环境了，C++、Python、Php的开发环境搞起等，不过很快就遇到了各种状况，这里特此记录下来，以前很多笔记都丢到有道云笔记上了，这里重新拾遗吧。</p></blockquote><h2 id="触摸板无法正常拖动文件和截图了"><a href="#触摸板无法正常拖动文件和截图了" class="headerlink" title="触摸板无法正常拖动文件和截图了"></a>触摸板无法正常拖动文件和截图了</h2><p>其实这个在Win 10里面是可以设置的，通过<strong>开始菜单</strong>  —&gt; <strong>设置</strong> —&gt; <strong>设备</strong> —&gt; <strong>触摸板</strong>，然后勾选 <strong>☐点击两次之后再拖动及可多选</strong> 即可，如下图所示：</p><ul><li><img src="/assets/2019-05-08/1557245985050.png" alt></li></ul><blockquote><p>另外，Win10内置的触摸板手势也可以在这个设置界面上看到哦O(∩_∩)O</p></blockquote><h2 id="无法在第三方应用上打开浏览器"><a href="#无法在第三方应用上打开浏览器" class="headerlink" title="无法在第三方应用上打开浏览器"></a>无法在第三方应用上打开浏览器</h2><blockquote><p>比如QQ、VSCode里面的url，点击之后无反应</p></blockquote><p>这个问题是默认浏览器应用从任务栏上移除导致的，另外也有一种是更改了默认浏览器后，没有及时将这个应用添加到任务栏上</p><h2 id="一些应用无法正常添加到右键菜单，比如TortoiseGit、TortoiseSvn、Cmder"><a href="#一些应用无法正常添加到右键菜单，比如TortoiseGit、TortoiseSvn、Cmder" class="headerlink" title="一些应用无法正常添加到右键菜单，比如TortoiseGit、TortoiseSvn、Cmder"></a>一些应用无法正常添加到右键菜单，比如TortoiseGit、TortoiseSvn、Cmder</h2><p>一般是以下两种情况：</p><ul><li>没有以管理员身份运行，比如Cmder</li><li>没有安装与Windows 系统对应的32bit/64bit版本应用，举个例子，TortoiseGit 32bit是无法在Win10 64bit上添加上右键菜单的</li></ul><blockquote><p><del>如果是电脑小白的话，其实还有一种是被安全管家类软件拦截导致的，这里就不赘述了==!</del></p></blockquote><h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>这个价位下的surface pro已经没啥性价比了，但是作为一枚伪软粉以及颜控党，终究充值了一波信仰（ps:真香定律无处不在啊），另外它的便捷性的确比普通笔记本好多了，作为一个后端狗，算是为自己的背包减肥了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;最近入手了台Surface Pro6，然后又重新捣弄起各种常用的开发环境了，C++、Python、Php的开发环境搞起等，不过很快就遇到了各种状况，这里特此记录下来，以前很多笔记都丢到有道云笔记上了，这里重新拾遗吧。&lt;/p&gt;
+&lt;/blockquot
+      
+    
+    </summary>
+    
+    
+      <category term="win10" scheme="https://yaoxuanzhi.github.io/tags/win10/"/>
+    
+      <category term="surface pro" scheme="https://yaoxuanzhi.github.io/tags/surface-pro/"/>
+    
+      <category term="吐槽" scheme="https://yaoxuanzhi.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://yaoxuanzhi.github.io/news/2018/07/08/hello-world/"/>
+    <id>https://yaoxuanzhi.github.io/news/2018/07/08/hello-world/</id>
+    <published>2018-07-08T00:00:00.000Z</published>
+    <updated>2019-05-11T09:51:52.436Z</updated>
+    
+    <content type="html"><![CDATA[<p>Simple inline $a = b + c$.</p><p>This equation {&#37; math \cos 2\theta = \cos^2 \theta - \sin^2 \theta =  2 \cos^2 \theta - 1 %} is inline.</p><script type="math/tex; mode=display">\frac{\partial u}{\partial t}= h^2 \left( \frac{\partial^2 u}{\partial x^2} +\frac{\partial^2 u}{\partial y^2} +\frac{\partial^2 u}{\partial z^2}\right)</script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Simple inline $a = b + c$.&lt;/p&gt;
+&lt;p&gt;This equation {&amp;#37; math \cos 2\theta = \cos^2 \theta - \sin^2 \theta =  2 \cos^2 \theta - 1 %} is inl
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>faison</title>
+    <link href="https://yaoxuanzhi.github.io/news/2018/07/02/faison/"/>
+    <id>https://yaoxuanzhi.github.io/news/2018/07/02/faison/</id>
+    <published>2018-07-02T00:00:00.000Z</published>
+    <updated>2019-05-07T01:39:36.211Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="test" scheme="https://yaoxuanzhi.github.io/tags/test/"/>
+    
+      <category term="learn" scheme="https://yaoxuanzhi.github.io/tags/learn/"/>
+    
+  </entry>
+  
+</feed>
