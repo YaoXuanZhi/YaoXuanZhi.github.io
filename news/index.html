@@ -83,35 +83,131 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2019/06/08/custom-protable-software-base-on-autohotkey/" class="article-title" itemprop="name">基于AutoHotKey整合自己的常用软件</a>
+        <a href="/news/2019/07/24/usage-habits-of-different-operating-systems/" class="article-title" itemprop="name">不同操作系统的使用习惯备忘录</a>
       </h1>
     
-    <a href="/news/2019/06/08/custom-protable-software-base-on-autohotkey/" class="article-date"><time datetime="2019-06-08T00:00:00.000Z">2019-06-08</time></a>
+    <a href="/news/2019/07/24/usage-habits-of-different-operating-systems/" class="article-date"><time datetime="2019-07-24T00:00:00.000Z">2019-07-24</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <blockquote>
-<p><a href="https://github.com/Lexikos/AutoHotkey_L/releases" target="_blank" rel="noopener">AutoHotkey_L</a></p>
+    <ul>
+<li><p>✔ Office 套件</p>
+<ul>
+<li>Windows：Exe、Zip、7z(官方下载地址：Windows应用商店和各种软件的官网)<blockquote>
+<p>msys2下可以使用<code>pacman -S xxx</code></p>
 </blockquote>
-<h3 id="常用的Ahk函数：" class="article-heading"><a href="#常用的Ahk函数：" class="headerlink" title="常用的Ahk函数："></a>常用的Ahk函数：<a class="article-anchor" href="#常用的Ahk函数：" aria-hidden="true"></a></h3><figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">;获取文件浏览器中被选中的文件路径</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	Library for getting info from a specific explorer window (if window handle not specified, the currently active</span></span><br><span class="line"><span class="comment">	window will be used).  Requires AHK_L or similar.  Works with the desktop.  Does not currently work with save</span></span><br><span class="line"><span class="comment">	dialogs and such.</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	Explorer_GetSelected(hwnd="")   - paths of target window's selected items</span></span><br><span class="line"><span class="comment">	Explorer_GetAll(hwnd="")        - paths of all items in the target window's folder</span></span><br><span class="line"><span class="comment">	Explorer_GetPath(hwnd="")       - path of target window's folder</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	example:</span></span><br><span class="line"><span class="comment">		F1::</span></span><br><span class="line"><span class="comment">			path := Explorer_GetPath()</span></span><br><span class="line"><span class="comment">			all := Explorer_GetAll()</span></span><br><span class="line"><span class="comment">			sel := Explorer_GetSelected()</span></span><br><span class="line"><span class="comment">			MsgBox % path</span></span><br><span class="line"><span class="comment">			MsgBox % all</span></span><br><span class="line"><span class="comment">			MsgBox % sel</span></span><br><span class="line"><span class="comment">		return</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	Joshua A. Kinnison</span></span><br><span class="line"><span class="comment">	2011-04-27, 16:12</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Explorer_GetPath(hwnd=<span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line">    if !(window := Explorer_GetWindow(hwnd))</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">ErrorLevel</span> := <span class="string">"ERROR"</span></span><br><span class="line">    if (window=<span class="string">"desktop"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">A_Desktop</span></span><br><span class="line">    path := window.LocationURL</span><br><span class="line">    path := RegExReplace(path, <span class="string">"ftp://.*@"</span>,<span class="string">"ftp://"</span>)</span><br><span class="line"><span class="built_in">    StringReplace,</span> path, path, file:///</span><br><span class="line"><span class="built_in">    StringReplace,</span> path, path, /, \, All </span><br><span class="line">    </span><br><span class="line">    <span class="comment">; thanks to polyethene</span></span><br><span class="line">    Loop</span><br><span class="line">        If RegExMatch(path, <span class="string">"i)(?&lt;=%)[\da-f]&#123;1,2&#125;"</span>, hex)</span><br><span class="line"><span class="built_in">            StringReplace,</span> path, path, `%%hex%, % Chr(<span class="string">"0x"</span> . hex), All</span><br><span class="line">        Else <span class="keyword">Break</span></span><br><span class="line">    <span class="keyword">return</span> path</span><br><span class="line">&#125;</span><br><span class="line">Explorer_GetAll(hwnd=<span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> Explorer_Get(hwnd)</span><br><span class="line">&#125;</span><br><span class="line">Explorer_GetSelected(hwnd=<span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> Explorer_Get(hwnd,<span class="literal">true</span>)</span><br><span class="line">&#125;</span><br><span class="line">Explorer_GetWindow(hwnd=<span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">; thanks to jethrow for some pointers here</span></span><br><span class="line"><span class="built_in">    WinGet,</span> process, processName, % <span class="string">"ahk_id"</span> hwnd := hwnd? hwnd:WinExist(<span class="string">"A"</span>)</span><br><span class="line">    WinGetClass class, <span class="keyword">ahk_id</span> %hwnd%</span><br><span class="line">    </span><br><span class="line">    if (process!=<span class="string">"explorer.exe"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    if (class ~= <span class="string">"(Cabinet|Explore)WClass"</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        for window in ComObjCreate(<span class="string">"Shell.Application"</span>).Windows</span><br><span class="line">            if (window.hwnd==hwnd)</span><br><span class="line">                <span class="keyword">return</span> window</span><br><span class="line">    &#125;</span><br><span class="line">    else if (class ~= <span class="string">"Progman|WorkerW"</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="string">"desktop"</span> <span class="comment">; desktop found</span></span><br><span class="line">&#125;</span><br><span class="line">Explorer_Get(hwnd=<span class="string">""</span>,selection=<span class="literal">false</span>)</span><br><span class="line">&#123;</span><br><span class="line">    if !(window := Explorer_GetWindow(hwnd))</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">ErrorLevel</span> := <span class="string">"ERROR"</span></span><br><span class="line">    if (window=<span class="string">"desktop"</span>)</span><br><span class="line">    &#123;</span><br><span class="line"><span class="built_in">        ControlGet,</span> hwWindow, HWND,, SysListView321, <span class="keyword">ahk_class</span> Progman</span><br><span class="line">        if !hwWindow <span class="comment">; #D mode</span></span><br><span class="line"><span class="built_in">            ControlGet,</span> hwWindow, HWND,, SysListView321, <span class="literal">A</span></span><br><span class="line"><span class="built_in">        ControlGet,</span> files, List, % ( selection ? <span class="string">"Selected"</span>:<span class="string">""</span>) <span class="string">"Col1"</span>,,<span class="keyword">ahk_id</span> %hwWindow%</span><br><span class="line">        base := SubStr(<span class="built_in">A_Desktop</span>,<span class="number">0</span>,<span class="number">1</span>)==<span class="string">"\" ? SubStr(A_Desktop,1,-1) : A_Desktop</span></span><br><span class="line"><span class="string">        Loop, Parse, files, `n, `r</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">            path := base "</span>\<span class="string">" A_LoopField</span></span><br><span class="line"><span class="string">            IfExist %path% ; ignore special icons like Computer (at least for now)</span></span><br><span class="line"><span class="string">                ret .= path "</span>`n<span class="string">"</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">        if selection</span></span><br><span class="line"><span class="string">            collection := window.document.SelectedItems</span></span><br><span class="line"><span class="string">        else</span></span><br><span class="line"><span class="string">            collection := window.document.Folder.Items</span></span><br><span class="line"><span class="string">        for item in collection</span></span><br><span class="line"><span class="string">            ret .= item.path "</span>`n<span class="string">"</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return Trim(ret,"</span>`n<span class="string">")</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">; 设置窗口置顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;激活并置顶当前窗体，直至，esc退出。</span></span><br><span class="line"><span class="symbol">#t::</span></span><br><span class="line"><span class="built_in">WinGetActiveTitle,</span> OutputVar</span><br><span class="line"><span class="built_in">WinSet,</span> AlwaysOnTop, On,%OutputVar%</span><br><span class="line"><span class="keyword">Return</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">$#+t::</span></span><br><span class="line"><span class="built_in">WinSet,</span> AlwaysOnTop, Off,%OutputVar%</span><br><span class="line"><span class="keyword">Return</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">; 修改窗口透明度</span></span><br><span class="line"><span class="comment">;左侧shift+鼠标滚轮调整窗口透明度（设置30-255的透明度，低于30基本上就看不见了，如需要可自行修改）2016.09.20.by M.（2017.01.11__1635 edit again.M）</span></span><br><span class="line"><span class="comment">;</span></span><br><span class="line"><span class="comment">;使用说明：</span></span><br><span class="line"><span class="comment">;   ◆左侧shift+滚轮下滑：减少透明度，一次10</span></span><br><span class="line"><span class="comment">;   ◆左侧shift+滚轮上滑：增加透明度，一次20</span></span><br><span class="line"><span class="comment">;   ◆左侧shift+中键按下：恢复透明度至255(完全不透明).</span></span><br><span class="line"><span class="comment">;</span></span><br><span class="line"><span class="symbol">~LShift &amp; WheelUp::</span></span><br><span class="line"><span class="comment">; 透明度调整，增加。</span></span><br><span class="line"><span class="built_in">WinGet,</span> Transparent, Transparent,<span class="literal">A</span></span><br><span class="line">If (Transparent=<span class="string">""</span>)</span><br><span class="line">    Transparent=<span class="number">255</span></span><br><span class="line">    <span class="comment">;Transparent_New:=Transparent+10</span></span><br><span class="line">    Transparent_New:=Transparent+<span class="number">20</span>    <span class="comment">;◆透明度增加速度。</span></span><br><span class="line">    If (Transparent_New &gt; <span class="number">254</span>)</span><br><span class="line">                    Transparent_New =<span class="number">255</span></span><br><span class="line"><span class="built_in">    WinSet,</span>Transparent,%Transparent_New%,<span class="literal">A</span></span><br><span class="line"> </span><br><span class="line"><span class="symbol">    tooltip now: ▲%Transparent_New%`nmae:</span> __%Transparent%  <span class="comment">;查看当前透明度（操作之后的）。</span></span><br><span class="line">    <span class="comment">;sleep 1500</span></span><br><span class="line"><span class="built_in">    SetTimer,</span> RemoveToolTip_transparent_Lwin__2016.<span class="number">09.20</span>, <span class="number">1500</span>  <span class="comment">;设置统一的这个格式，label在最后。</span></span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">; 用键盘控制鼠标方向移动</span></span><br><span class="line"><span class="comment">; 鼠标往下移动</span></span><br><span class="line"><span class="symbol">!^down::</span></span><br><span class="line"><span class="built_in">mousemove,</span><span class="number">0</span>,+<span class="number">8</span>,<span class="number">0</span>,R</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 鼠标往上移动</span></span><br><span class="line"><span class="symbol">!^up::</span></span><br><span class="line"><span class="built_in">mousemove,</span><span class="number">0</span>,-<span class="number">8</span>,<span class="number">0</span>,R</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 鼠标往左移动</span></span><br><span class="line"><span class="symbol">!^left::</span></span><br><span class="line"><span class="built_in">mousemove,</span>-<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,R</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 鼠标往右移动</span></span><br><span class="line"><span class="symbol">!^right::</span></span><br><span class="line"><span class="built_in">mousemove,</span>+<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,R</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">; 鼠标点击</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 鼠标左击</span></span><br><span class="line"><span class="symbol">!^h::</span></span><br><span class="line"><span class="comment">; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.</span></span><br><span class="line"><span class="built_in">MouseGetPos,</span> x, y</span><br><span class="line"><span class="built_in">MouseClick,</span> left, %x%, %y%</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 鼠标右击</span></span><br><span class="line"><span class="symbol">!^l::</span></span><br><span class="line"><span class="built_in">MouseGetPos,</span> x, y</span><br><span class="line"><span class="comment">; MouseClick, right, %x%, %y%</span></span><br><span class="line"><span class="comment">; ButtonRight</span></span><br><span class="line"><span class="comment">; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.</span></span><br><span class="line"><span class="built_in">MouseClick,</span> right, %x%, %y%</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="文档转换类" class="article-heading"><a href="#文档转换类" class="headerlink" title="文档转换类"></a>文档转换类<a class="article-anchor" href="#文档转换类" aria-hidden="true"></a></h3><p><strong>pdf -&gt; html</strong></p>
+</li>
+<li>Mac：Dmg、Pkg(官方软件包：App Store)</li>
+<li>Linux(Ubuntu)：<code>apt-get install xxx</code></li>
+<li>Linux(CentOS)：<code>yum install -g xxx</code></li>
+</ul>
+</li>
+<li><p>✔ Office 套件</p>
+<ul>
+<li>Windows：Wps Office</li>
+<li>Mac：Wps Office</li>
+<li>Linux(Ubuntu)：Wps Office</li>
+</ul>
+</li>
+<li><p>✔ App Package</p>
+<ul>
+<li>Windows：Exe、Zip、7z(官方下载地址：Windows应用商店和各种软件的官网)</li>
+<li>Mac：Dmg、Pkg(官方软件包：App Store)，和homebrew</li>
+<li>Linux(Ubuntu)：apt-get install xxx</li>
+<li>Linux(CentOS)：yum install -g xxx</li>
+</ul>
+</li>
+<li><p>✔ 浏览器</p>
+<ul>
+<li>Windows：CentBrowser、Chrome</li>
+<li>Mac：Chrome</li>
+<li>Ubuntu：Chrome<blockquote>
+<p>注意，还需要搭配<code>Vimium</code>插件</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>❑ Gif录制工具：</p>
+<ul>
+<li>Windows：Licecap</li>
+<li>Mac：Licecap<blockquote>
+<p>不能全屏录制啥的，还有不能将应用程序的顶部菜单栏进行绘制</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>❑ 截图／贴图工具</p>
+<ul>
+<li>Windows：Snipaste</li>
+<li>Mac：Snipaste</li>
+</ul>
+</li>
+<li><p>✔ 高级编辑器：VSCode、Vim</p>
+</li>
+<li><p>✔ 开发工具：IdeaU(包含了Java、Python、Php、Lua、Erlang、Golang、Rust等多种语言) CLion(C++)</p>
 <blockquote>
-<p>采用pdf2html来实现将pdf文档转换为html，好处是可以直接利用Chrome的翻译插件来辅助查看pdf文档内容，并且在分屏的时候可以少开一个pdf阅读器，直接新开一个浏览器页签就行了<br><figure class="highlight ahk"><table><tr><td class="code"><pre><span class="line"><span class="comment">; 为pdf2htmlex添加全局快捷键执行</span></span><br><span class="line"><span class="symbol">#p::</span></span><br><span class="line">    sel := Explorer_GetSelected()</span><br><span class="line">    #支持外部输入页面缩放比例</span><br><span class="line"><span class="built_in">    InputBox,</span> zoom, 输入缩放倍数，如<span class="number">1.3</span></span><br><span class="line">    Run <span class="string">"xxx\pdf2htmlEx\pdf2html.bat"</span> <span class="string">"%sel%"</span> %zoom%</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p>
+<p>注意，还需要搭配<code>ideaVim</code>插件</p>
 </blockquote>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pdf2html.bat</span></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> [%2] == [] (<span class="built_in">set</span> zoom_param=1.3) <span class="keyword">else</span> (<span class="built_in">set</span> zoom_param=%2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> source_path=%1</span><br><span class="line">call :get_out_dir %source_path%</span><br><span class="line"><span class="built_in">cd</span> /d %~dp0</span><br><span class="line">pdf2htmlEX --zoom %zoom_param% --dest-dir %out_dir% %source_path%</span><br><span class="line">REM  <span class="built_in">echo</span> pdf2htmlEX --zoom %zoom_param% --dest-dir %out_dir% %source_path%</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:get_out_dir</span><br><span class="line"><span class="built_in">set</span> out_dir=%~dp1</span><br><span class="line"><span class="built_in">set</span> out_dir=%out_dir:~,-1% </span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:end</span><br></pre></td></tr></table></figure>
-<p><strong>markdown -&gt; word/pdf/html</strong></p>
+</li>
+<li><p>✔ 热键辅助工具：</p>
+<ul>
+<li>Windows：AutoHotKey</li>
+<li>Mac：AppleScript</li>
+</ul>
+</li>
+<li><p>✔ 进入终端操作</p>
+<ul>
+<li>Mac：<strong>【Mac+Shift+ `】</strong></li>
+<li>Windows：<strong>【Win+R】</strong>，然后输入<code>cmd</code></li>
+<li>Linux(Utuntu)：<strong>【Ctrl+Alt+T】</strong></li>
+</ul>
+</li>
+<li><p>✔ 强制关闭某个进程(ps：注意，这个要用Gif来进行演示哦)</p>
+<ul>
+<li>Windows:<strong>【Shift+Ctl+Esc】</strong>打开任务管理器，然后找到对应的进程关闭</li>
+<li>Mac: 鼠标点击左上角的 <code>苹果图标</code>，然后左击打开菜单，找到 <code>强制退出</code> 菜单项进行退出</li>
+</ul>
+</li>
+<li><p>✔ 在终端打开文件夹所在窗口</p>
+<ul>
+<li>Windows：<code>explorer .</code></li>
+<li>Mac：<code>open .</code></li>
+</ul>
+</li>
+<li><p>❑ 安装随身WiFI驱动</p>
 <blockquote>
-<p>采用<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">pandoc</a>来实现，目前官方支持多种markdown的导出格式，如：<code>word</code>、<code>pdf</code>、<code>html</code>等</p>
+<p>包括但不限于360随身WIFI</p>
+<ul>
+<li>Windows：<ul>
+<li><a href="http://wifi.360.cn/easy/pc/" target="_blank" rel="noopener">360随身WIFI官网</a></li>
+</ul>
+</li>
+<li>Ubuntu：<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:thopiekar/mt7601</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mt7601-sta-dkms</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </blockquote>
+<ul>
+<li>参考资料<ul>
+<li><a href="https://blog.csdn.net/mdjxy63/article/details/78304708/" target="_blank" rel="noopener">双系统win+ubuntu14.04使用360随身wifi 3代</a></li>
+<li><a href="https://www.cnblogs.com/platero/p/4417458.html" target="_blank" rel="noopener">360/小米/百度 随身wifi Ubuntu下作为无线网卡使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
   </div>
   
 </article>
 
+        
+      
+        
+          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
+            <a class="archive-post-link" href="/news/2019/06/08/custom-protable-software-base-on-autohotkey/">
+              <strong class="archive-post-title" itemprop="name">基于AutoHotKey整合自己的常用软件</strong>
+              <span class="archive-post-date"><time datetime="2019-06-08T00:00:00.000Z">2019-06-08</time></span>
+            </a>
+          </article>
         
       
         
