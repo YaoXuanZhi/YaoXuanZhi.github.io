@@ -2,58 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
+    <loc>https://yaoxuanzhi.github.io/news/2019/09/01/auto-download-xdebug-for-php/</loc>
     
-    <lastmod>2019-07-30T08:18:47.628Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</loc>
-    
-    <lastmod>2019-07-17T09:28:26.315Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/06/08/custom-protable-software-base-on-autohotkey/</loc>
-    
-    <lastmod>2019-07-05T03:46:47.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
-    
-    <lastmod>2019-05-11T14:55:51.202Z</lastmod>
+    <lastmod>2019-09-01T06:31:34.342Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/index.html</loc>
     
-    <lastmod>2019-05-07T01:39:36.375Z</lastmod>
+    <lastmod>2019-09-01T06:29:20.067Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
     
-    <lastmod>2019-05-07T01:39:36.266Z</lastmod>
+    <lastmod>2019-09-01T06:29:20.054Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/docs/demo.html</loc>
     
-    <lastmod>2019-05-07T01:39:36.255Z</lastmod>
+    <lastmod>2019-09-01T06:29:20.053Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
     
-    <lastmod>2019-05-07T01:39:36.234Z</lastmod>
+    <lastmod>2019-09-01T06:29:19.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
+    
+    <lastmod>2019-09-01T06:29:19.988Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/06/08/custom-protable-software-base-on-autohotkey/</loc>
+    
+    <lastmod>2019-09-01T06:29:19.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</loc>
+    
+    <lastmod>2019-09-01T06:29:19.986Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
+    
+    <lastmod>2019-09-01T06:29:19.985Z</lastmod>
     
   </url>
   
