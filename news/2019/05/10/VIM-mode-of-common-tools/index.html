@@ -36,18 +36,18 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
   <!-- Open Graph -->
-  <meta name="description" content="作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg  常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime">
-<meta name="keywords" content="ahk,autohotkey">
+  <meta name="description" content="常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime修改配置即可 在Preferences -&amp;gt; Settin">
+<meta name="keywords" content="ahk,autohotkey,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个伪Vim党的习惯养成">
 <meta property="og:url" content="https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/index.html">
 <meta property="og:site_name" content="YXZ&#39;s Blog">
-<meta property="og:description" content="作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg  常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime">
+<meta property="og:description" content="常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime修改配置即可 在Preferences -&amp;gt; Settin">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-01T06:29:19.985Z">
+<meta property="og:updated_time" content="2019-09-22T00:28:17.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个伪Vim党的习惯养成">
-<meta name="twitter:description" content="作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg  常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime">
+<meta name="twitter:description" content="常用工具的Vim化 浏览器 Windows：CentBrowser + Vimium extension(Crx4Chrome) Osx：Chrome + Vimium extension(Crx4Chrome)   IDE Idea + IdeaVim VS + VsVim   Editor VSCode + Vim Sublime修改配置即可 在Preferences -&amp;gt; Settin">
   <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head>
@@ -89,10 +89,7 @@
     <a href="/news/2019/05/10/VIM-mode-of-common-tools/" class="article-date"><time datetime="2019-05-10T00:00:00.000Z">2019-05-10</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <blockquote>
-<p>作为一个伪Vim党，看个视频还要碰下鼠标太不舒服啦.jpg</p>
-</blockquote>
-<h3 id="常用工具的Vim化" class="article-heading"><a href="#常用工具的Vim化" class="headerlink" title="常用工具的Vim化"></a>常用工具的Vim化<a class="article-anchor" href="#常用工具的Vim化" aria-hidden="true"></a></h3><ul>
+    <h3 id="常用工具的Vim化" class="article-heading"><a href="#常用工具的Vim化" class="headerlink" title="常用工具的Vim化"></a>常用工具的Vim化<a class="article-anchor" href="#常用工具的Vim化" aria-hidden="true"></a></h3><ul>
 <li>浏览器<ul>
 <li>Windows：CentBrowser + Vimium extension(Crx4Chrome)</li>
 <li>Osx：Chrome + Vimium extension(Crx4Chrome)</li>
@@ -107,17 +104,163 @@
 <li>VSCode + Vim</li>
 <li>Sublime修改配置即可<blockquote>
 <p>在<code>Preferences -&gt; Settings</code>里如下设置：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ignored_packages"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ignored_packages"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
 </li>
 </ul>
+<hr>
+<h3 id="常用的Vim命令：" class="article-heading"><a href="#常用的Vim命令：" class="headerlink" title="常用的Vim命令："></a>常用的Vim命令：<a class="article-anchor" href="#常用的Vim命令：" aria-hidden="true"></a></h3><ul>
+<li>切换到常态：<code>Esc</code>或<code>Ctrl+O</code></li>
+<li>显示行号：<code>:set nu</code></li>
+<li>取消行号：<code>:set nonu</code></li>
+<li>往下查找：<code>/word</code> 配合n或N来索引下一个匹配项</li>
+<li>往上查找：<code>?word</code> 配合n或N来索引下一个匹配项</li>
+<li>创建文件：<code>:new filename</code> - 打开文件：<code>:vim filepath</code></li>
+<li>重新加载文件<code>:e!</code></li>
+<li>保存文件并退出：<code>:wq!</code></li>
+<li>不保存文件直接退出：<code>:q!</code></li>
+<li>打开函数列表：<code>tb</code></li>
+<li>切换窗口：<code>Ctrl+W</code> [j k l n]</li>
+<li>在文件夹文件夹下查找文库本：<code>:Ag word</code></li>
+<li>不采用插件直接自动补全：<code>Ctr+N</code> <code>Ctrl+P</code></li>
+<li>快速输入文件名：在插入模式下，按下<code>Ctrl+X</code> <code>Ctrl+F</code></li>
+<li>设置搜索时忽略字母的大小写差异：<code>:set ic</code></li>
+<li>设置搜索使用字母的大小写匹配；<code>:set noic</code></li>
+<li>搜索当前文件夹的文件：<code>;p</code>(常态下)</li>
+<li>回到刚才编辑的文件：<code>:e#</code>(常态下)</li>
+<li>进入块模式编辑：<code>Ctrl+v</code><ul>
+<li>在块的前面插入字符：<code>Shift+i</code></li>
+<li>在块的后面插入字符：<code>Shift+a</code></li>
+</ul>
+</li>
+<li>假设安装了 <strong>NERD Commenter</strong> 插件，那么可以使用下列方式来进行代码注释：<ul>
+<li>设置光标所在行的注释：<code>;cc</code></li>
+<li>取消光标所在行的注释：<code>;cu</code></li>
+<li>切换光标所在行的注释/非注释状态；<code>;c&lt;space&gt;</code></li>
+</ul>
+</li>
+<li>切换tab<ul>
+<li>关闭当前的tab：<code>:tabc</code></li>
+<li>关闭所有其他的tab：<code>:tabo</code></li>
+<li>查看所有打开的tab：<code>:tabs</code></li>
+<li>前一个：<code>:tabp</code></li>
+<li>后一个：<code>:tabn</code></li>
+</ul>
+</li>
+<li>设置Vim的快捷键，直接在_VIMRC上插入这些语句即可：<code>map &lt;F10&gt; &lt;Esc&gt;:!explorer %:p:h&lt;CR&gt;</code></li>
+<li>在资源管理器上显示(仅Windows)：<code>map &lt;F10&gt; &lt;Esc&gt;:!explorer /select, %:p&lt;CR&gt;</code></li>
+<li>代码折叠<ul>
+<li>打开关闭折叠：<code>zi</code></li>
+<li>查看此行：<code>zv</code></li>
+<li>关闭折叠：<code>zm</code></li>
+<li>关闭所有：<code>zM</code></li>
+<li>打开：<code>zr</code></li>
+<li>打开所有：<code>zR</code></li>
+<li>折叠当前行：<code>zc</code></li>
+<li>打开当前折叠：<code>zo</code></li>
+<li>删除折叠：<code>zd</code></li>
+<li>删除所有折叠：<code>zD</code></li>
+</ul>
+</li>
+<li>命令集<ul>
+<li>替换文本所有字符串：<code>:%s/oldstr/newstr/g</code></li>
+<li>搜索文件夹的字符串：<code>:lv /正则表达式/gj *</code>，注意需要配合<code>:lw</code>来查看搜索结果</li>
+</ul>
+</li>
+<li>分割窗口调整<ul>
+<li>纵向调整<ul>
+<li>纵向扩大(行数增加)：<code>:ctrl+w +</code></li>
+<li>纵向缩小(行数减少)：<code>:ctrl+w -</code> </li>
+<li>显示行数调整为num行：<code>:res(ize) num</code></li>
+<li>把当前窗口高度增加num行：<code>:res(ize)+num</code> </li>
+<li>把当前窗口高度减少num行：<code>:res(ize)-num</code> </li>
+</ul>
+</li>
+<li>横向调整<ul>
+<li>指定当前窗口为num列：<code>:vertical res(ize) num</code></li>
+<li>把当前窗口增加num列：<code>:vertical res(ize)+num</code> </li>
+<li>把当前窗口减少num列：<code>:vertical res(ize)-num</code> </li>
+</ul>
+</li>
+<li>文件浏览<ul>
+<li>在侧边栏中打开目录树：<code>:NERDTREE</code></li>
+<li>显示当前文件所在侧边栏：<code>:NERDTreeFind</code></li>
+<li>打开当前文件所在目录树(窗口不分割)：<code>:Ex(plore)</code></li>
+<li>打开当前文件所在目录树(水平分割窗口)：<code>:Se(xplore)</code></li>
+<li>打开当前文件所在目录树(垂直分割窗口)：<code>:Ve(xplore)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Chrome浏览器下的Vim模式" class="article-heading"><a href="#Chrome浏览器下的Vim模式" class="headerlink" title="Chrome浏览器下的Vim模式"></a>Chrome浏览器下的Vim模式<a class="article-anchor" href="#Chrome浏览器下的Vim模式" aria-hidden="true"></a></h3><blockquote>
+<p>在Chrome浏览器的应用商店里安装<strong>Vimium</strong>插件即可，不过，由于众所周知的原因，如果不自建梯子是访问不了的，此时可以到<a href="https://www.crx4chrome.com/crx" target="_blank" rel="noopener">Crx4Chrome</a>上下载并安装此插件。以下罗列一些常用的快捷键操作：</p>
+</blockquote>
+<ul>
+<li><p>标签页间操作</p>
+<ul>
+<li>跳到左侧标签页(Vimium)：<code>J(Shift+h)</code></li>
+<li>跳到右侧标签页(Vimium)：<code>K(Shift+j)</code></li>
+<li>跳到最左端标签页(Vimium)：<code>g0</code></li>
+<li>跳到最右端标签页(Vimium)：<code>g$</code></li>
+<li>查找已打开的标签页：<code>T(Shift+t)</code></li>
+<li>关闭标签页(Vimium)：<code>x</code></li>
+<li>跳到左侧标签页(内置)：<code>Ctrl+Shift+Tab</code></li>
+<li>跳到右侧标签页(内置)：<code>Ctrl+Tab</code></li>
+<li>关闭标签页(内置)：<code>Ctrl+w</code></li>
+</ul>
+</li>
+<li><p>页内移动</p>
+<ul>
+<li>往下移动：<code>j</code></li>
+<li>往上移动：<code>k</code></li>
+<li>往左移动：<code>h</code></li>
+<li>往右移动：<code>h</code></li>
+<li>移动到顶端：<code>gg</code></li>
+<li>移动到底端：<code>G(Shift+g)</code></li>
+</ul>
+</li>
+<li><p>页内操作</p>
+<ul>
+<li>选择文本：<code>v</code></li>
+<li>输入文本：<code>i</code></li>
+<li>复制被选中文本：<code>y</code></li>
+<li>找到当前页面的首个文本框输入：<code>gi</code></li>
+<li>复制当前标签页链接：<code>yy</code></li>
+<li>在本标签页内打开剪贴板上的链接：<code>p</code></li>
+<li>新开标签页来打开剪贴板上的链接：<code>P(Shift+p)</code></li>
+<li>打开可挑选的跳转面板：<code>f</code></li>
+<li>在本标签页内往前跳转：<code>H(Shift+h)</code></li>
+<li>在本标签页内往后跳转：<code>L(Shift+l)</code></li>
+<li>在本标签页内刷新(Vimium)：<code>r</code></li>
+<li>在本标签页内刷新(内置)：<code>F5</code></li>
+</ul>
+</li>
+<li><p>页内查找</p>
+<ul>
+<li>查找文本(Vimium)：<code>/</code></li>
+<li>往下查找匹配项(Vimium)：<code>n</code></li>
+<li>往上查找匹配项(Vimium)：<code>N(Shift+n)</code></li>
+<li>查找文本(内置)：<code>Ctrl+F</code></li>
+</ul>
+</li>
+<li><p>书签/历史</p>
+<ul>
+<li>在本标签页来打开书签/历史的链接：<code>o</code></li>
+<li>新开标签页来打开书签/历史的链接：<code>O(Shift+o)</code></li>
+<li>在本标签页来打开书签的链接：<code>b</code></li>
+<li>新开标签页来打开书签的链接：<code>B(Shift+b)</code></li>
+</ul>
+</li>
+</ul>
+<hr>
 <h3 id="键盘控制鼠标" class="article-heading"><a href="#键盘控制鼠标" class="headerlink" title="键盘控制鼠标"></a>键盘控制鼠标<a class="article-anchor" href="#键盘控制鼠标" aria-hidden="true"></a></h3><blockquote>
 <p>目前常用的工具安装了Vim插件后，并不能控制应用里的所有东西，比如在Chrome浏览器上查看视频时，Vimium插件是无法控制视频的播放/暂停的，因此有必要提供一个键盘控制鼠标的功能，让双手停留在键盘上</p>
 <ul>
 <li>键盘控制鼠标移动、点击<ul>
-<li>Windows：采用AutoHotKey可以实现，ahk如下： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">; 鼠标往下移动</span><br><span class="line">!^down::</span><br><span class="line">mousemove,0,+8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往上移动</span><br><span class="line">!^up::</span><br><span class="line">mousemove,0,-8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往左移动</span><br><span class="line">!^left::</span><br><span class="line">mousemove,-8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往右移动</span><br><span class="line">!^right::</span><br><span class="line">mousemove,+8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; --------------鼠标点击</span><br><span class="line"></span><br><span class="line">; 鼠标左击</span><br><span class="line">!^h::</span><br><span class="line">; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">MouseClick, left, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标右击</span><br><span class="line">!^l::</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">; MouseClick, right, %x%, %y%</span><br><span class="line">; ButtonRight</span><br><span class="line">; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.</span><br><span class="line">MouseClick, right, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br></pre></td></tr></table></figure>
+<li>Windows：采用AutoHotKey可以实现，ahk如下： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">; 鼠标往下移动</span><br><span class="line">!^down::</span><br><span class="line">mousemove,0,+8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往上移动</span><br><span class="line">!^up::</span><br><span class="line">mousemove,0,-8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往左移动</span><br><span class="line">!^left::</span><br><span class="line">mousemove,-8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往右移动</span><br><span class="line">!^right::</span><br><span class="line">mousemove,+8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; --------------鼠标点击</span><br><span class="line"></span><br><span class="line">; 鼠标左击</span><br><span class="line">!^h::</span><br><span class="line">; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">MouseClick, left, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标右击</span><br><span class="line">!^l::</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">; MouseClick, right, %x%, %y%</span><br><span class="line">; ButtonRight</span><br><span class="line">; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.</span><br><span class="line">MouseClick, right, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -125,8 +268,20 @@
 </blockquote>
 <ul>
 <li>Osx：采用ApplyScript+MouseTools可以实现： <ul>
-<li><a href="http://www.hamsoftengineering.com/codeSharing/MouseTools/MouseTools.html" target="_blank" rel="noopener">MouseTools</a><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 后续再补充了</span></span><br></pre></td></tr></table></figure></li>
+<li><a href="http://www.hamsoftengineering.com/codeSharing/MouseTools/MouseTools.html" target="_blank" rel="noopener">MouseTools</a><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 后续再补充了</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+</li>
+</ul>
+<hr>
+<h3 id="FAQ" class="article-heading"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ<a class="article-anchor" href="#FAQ" aria-hidden="true"></a></h3><ul>
+<li>在shell vim上粘贴文本出现缩进错乱的问题<blockquote>
+<p>这个需要设置终端Vim的粘贴模式为粘贴保留格式：<code>:set paste</code></p>
+</blockquote>
+</li>
+<li>如何进行Vim 插件开发<blockquote>
+<p>学习<a href="https://www.w3cschool.cn/vim/gsenvozt.html" target="_blank" rel="noopener">Vimscript 文档</a></p>
+</blockquote>
 </li>
 </ul>
 
