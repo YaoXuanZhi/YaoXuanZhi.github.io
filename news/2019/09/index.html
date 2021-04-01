@@ -83,94 +83,216 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2019/09/01/auto-download-xdebug-for-php/" class="article-title" itemprop="name">一键安装php-xdebug</a>
+        <a href="/news/2019/09/10/simplifying-life/" class="article-title" itemprop="name">我的断舍离实践</a>
       </h1>
     
-    <a href="/news/2019/09/01/auto-download-xdebug-for-php/" class="article-date"><time datetime="2019-09-01T00:00:00.000Z">2019-09-01</time></a>
+    <a href="/news/2019/09/10/simplifying-life/" class="article-date"><time datetime="2019-09-10T00:00:00.000Z">2019-09-10</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <blockquote>
-<p>目前想要调试php，需要安装xdebug，在idea里的php settings上有其安装指导，如下图所示：<br><img src="/assets/2019-09-01/1567309969314.png" alt></p>
-</blockquote>
-<ul>
-<li>归纳起来就三步<ul>
-<li><ol>
-<li>查询phpinfo</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>拿phpinfo去<a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">xdebug wizard</a>查询其匹配的xdebug版本及其下载链接</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>然后下载dll并在<code>php.ini</code>里修改xdebug的配置项</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="动机" class="article-heading"><a href="#动机" class="headerlink" title="动机"></a>动机<a class="article-anchor" href="#动机" aria-hidden="true"></a></h4><p>本人需要在多台机子上快速部署php的开发调试环境</p>
-<h4 id="基本思路" class="article-heading"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路<a class="article-anchor" href="#基本思路" aria-hidden="true"></a></h4><ul>
-<li><ol>
-<li><del>在shell上用<code>which php</code>查找到php的所在路径，并<code>cd $(dirname $(which php))</code></del>（将这个py脚本放置在php.exe的同级目录就行）</li>
-</ol>
-</li>
-<li><ol start="2">
-<li><del>判断这个目录下是否有<code>php.ini</code>文件，如果没有的话，就<code>cp php.development php.ini</code></del>（这部分采用python来实现）</li>
-</ol>
-</li>
-<li><ol start="3">
-<li><del>在shell上执行<code>php -i phpinfo(); &gt; phpinfo.txt</code>，将结果输出到文本上</del>（在python中调用此shell指令，并将输出存放在变量中）</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>用输出的phpinfo信息粘贴在<a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">xdebug.org-custom installation instructions</a>上的文本框上查询，这里面会检测到xdebug版本</li>
-</ol>
-<ul>
-<li><img src="/assets/2019-09-01/1567312543380.png" alt="在wizard上查询xdebug版本"><ul>
-<li>具体的phpinfo的检测条件在<a href="https://github.com/derickr/xdebug.org/blob/master/html/include/phpinfo-scanner.php" target="_blank" rel="noopener">phpinfo-scanner.php</a><blockquote>
-<p>这一步是关键，分析这个查询请求的<code>Responses Headers</code>和<code>Form Data</code></p>
-</blockquote>
-</li>
-<li><img src="/assets/2019-09-01/1567314064999.png" alt></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ol start="5">
-<li>采用bs4从html上提取php_xdebug_xxx.dll的下载链接</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>下载php_xdebug_xxx.dll到ext目录下</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>采用configparser来修改php.ini上的xdebug配置</li>
-</ol>
-</li>
-</ul>
-<h4 id="代码" class="article-heading"><a href="#代码" class="headerlink" title="代码"></a>代码<a class="article-anchor" href="#代码" aria-hidden="true"></a></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment"># !/user/bin/env python</span><br><span class="hljs-comment"># -*- coding:utf-8 -*- </span><br><br><span class="hljs-keyword">import</span> os, sys, subprocess, locale, shutil<br><span class="hljs-keyword">import</span> requests, codecs, urllib, configparser<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><span class="hljs-keyword">from</span> sys <span class="hljs-keyword">import</span> stdout<br><br><span class="hljs-comment"># 拿phpinfo在xdebug.org上查询并提取xdebug.dll的下载链接</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_xdebug_download_page</span><span class="hljs-params">(phpinfo)</span>:</span><br>    url = <span class="hljs-string">'https://xdebug.org/wizard'</span><br>    data = &#123;<br>        <span class="hljs-string">"data"</span>: phpinfo,<br>        <span class="hljs-string">"submit"</span>: <span class="hljs-string">"Analyse my phpinfo() output"</span><br>    &#125;<br>    headers = &#123;<br>        <span class="hljs-string">"User-Agent"</span>: <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"</span>,<br>        <span class="hljs-string">"Origin"</span>: <span class="hljs-string">"https://xdebug.org"</span>,<br>        <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span>,<br>        <span class="hljs-string">"Accept"</span>: <span class="hljs-string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"</span>,<br>        <span class="hljs-string">"Referer"</span>: <span class="hljs-string">"https://xdebug.org/wizard"</span>,<br>        <span class="hljs-string">"Accept-Encoding"</span>: <span class="hljs-string">"gzip, deflate, br"</span>,<br>        <span class="hljs-string">"Accept-Language"</span>: <span class="hljs-string">"zh-CN,zh;q=0.9"</span>,<br>    &#125;<br>    <span class="hljs-keyword">return</span> requests.post(url=url, headers=headers, data=data).text<br><br><span class="hljs-comment"># 从html上提取xdebug的下载链接</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_xdebug_download_link</span><span class="hljs-params">(html)</span>:</span><br>    soup = BeautifulSoup(html, features=<span class="hljs-string">"html.parser"</span>)<br>    <span class="hljs-keyword">return</span> soup.find(<span class="hljs-string">"ol"</span>).find(<span class="hljs-string">"a"</span>)[<span class="hljs-string">"href"</span>]<br><br><span class="hljs-comment"># 获取phpinfo</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_php_info</span><span class="hljs-params">()</span>:</span><br>    phpinfo = read_commandline(<span class="hljs-string">"php -i phpinfo();"</span>)<br>    substr_flag = phpinfo.find(<span class="hljs-string">"___________________"</span>)<br>    <span class="hljs-keyword">return</span> phpinfo[<span class="hljs-number">0</span>:substr_flag]<br><br><span class="hljs-comment"># 获取shell的输出结果</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_commandline</span><span class="hljs-params">(command_str)</span>:</span><br>    output_str = <span class="hljs-string">""</span><br>    ps = subprocess.Popen(command_str, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        data = ps.stdout.readline()<br>        <span class="hljs-keyword">if</span> data == <span class="hljs-string">b''</span>:<br>            <span class="hljs-keyword">if</span> ps.poll() <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            output_str = output_str + data.decode(codecs.lookup(locale.getpreferredencoding()).name)<br>    <span class="hljs-keyword">return</span> output_str<br><br><span class="hljs-comment"># 下载文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_file</span><span class="hljs-params">(url, file_path)</span>:</span><br>    r = requests.get(url)<br>    <span class="hljs-keyword">with</span> codecs.open(file_path,<span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(r.content)<br><br><span class="hljs-comment"># Refer to : https://www.jb51.net/article/167786.htm</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_file_with_process</span><span class="hljs-params">(url, file_path)</span>:</span><br>    <span class="hljs-keyword">with</span> codecs.open(file_path, <span class="hljs-string">"wb"</span>) <span class="hljs-keyword">as</span> fw:<br>        <span class="hljs-keyword">with</span> requests.get(url, stream=<span class="hljs-literal">True</span>) <span class="hljs-keyword">as</span> r:<br>            filesize = r.headers[<span class="hljs-string">"Content-Length"</span>]<br>            chunk_size = <span class="hljs-number">128</span><br>            times = int(filesize) // chunk_size<br>            show = <span class="hljs-number">1</span> / times<br>            show2 = <span class="hljs-number">1</span> / times<br>            start = <span class="hljs-number">1</span><br>            <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> r.iter_content(chunk_size):<br>              fw.write(chunk)<br>              <span class="hljs-keyword">if</span> start &lt;= times:<br>                stdout.write(<span class="hljs-string">f"download process : <span class="hljs-subst">&#123;show:<span class="hljs-number">.2</span>%&#125;</span>\r"</span>)<br>                start += <span class="hljs-number">1</span><br>                show += show2<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_php_cfg</span><span class="hljs-params">(php_cfg)</span>:</span><br>    default_php_cfg = php_cfg+<span class="hljs-string">"-development"</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(php_cfg):<br>        shutil.copy(default_php_cfg, php_cfg)<br><br><span class="hljs-comment"># 更新php.ini上的xdebug配置</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_php_cfg</span><span class="hljs-params">(php_cfg, xdebug_path)</span>:</span><br>    conf = configparser.ConfigParser()<br>    conf.read(php_cfg)<br><br>    xdebug_section_name = <span class="hljs-string">"xdebug"</span><br>    <span class="hljs-keyword">if</span> conf.has_section(xdebug_section_name):<br>        <span class="hljs-keyword">pass</span><br>    <span class="hljs-keyword">else</span>:<br>        conf.add_section(xdebug_section_name)<br>    conf.set(xdebug_section_name, <span class="hljs-string">"zend_extension"</span>, xdebug_path)<br>    conf.set(xdebug_section_name, <span class="hljs-string">"xdebug.remote_enable"</span>, <span class="hljs-string">"1"</span>)<br>    conf.set(xdebug_section_name, <span class="hljs-string">"xdebug.remote_autostart"</span>, <span class="hljs-string">"1"</span>)<br>    <span class="hljs-comment"># conf.set(xdebug_section_name, "xdebug.remote_host", "10.0.2.2")</span><br>    <span class="hljs-comment"># conf.set(xdebug_section_name, "xdebug.remote_port", "9000")</span><br><br>    outfile = codecs.open(php_cfg, <span class="hljs-string">"w"</span>)<br>    conf.write(outfile)<br>    outfile.close()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    php_cfg = <span class="hljs-string">"php.ini"</span><br><br>    print(<span class="hljs-string">"-------------check php.ini---------------"</span>)<br>    check_php_cfg(php_cfg)<br><br>    print(<span class="hljs-string">"-------------fetch phpinfo---------------"</span>)<br>    phpinfo = get_php_info()<br><br>    print(<span class="hljs-string">"-----fetch xdebug.dll download link------"</span>)<br>    html = get_xdebug_download_page(phpinfo)<br>    download_link = find_xdebug_download_link(html)<br><br>    print(<span class="hljs-string">"----------download xdebug.dll------------"</span>)<br>    dir_path = <span class="hljs-string">"./ext"</span><br>    file_name = os.path.basename(download_link) <br>    file_path = os.path.join(dir_path, file_name)<br>    full_file_path = os.path.abspath(file_path)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(file_path):<br>        <span class="hljs-comment"># download_file(download_link, full_file_path)</span><br>        download_file_with_process(download_link, full_file_path)<br>    <span class="hljs-keyword">else</span>:<br>        print(<span class="hljs-string">"%(full_file_path)s already exists, skip download ……"</span> % &#123;<span class="hljs-string">'full_file_path'</span> : full_file_path&#125;)<br><br>    update_php_cfg(php_cfg, full_file_path)<br></code></pre></td></tr></table></figure>
-<ul>
-<li><a href="/assets/2019-09-01/php_xdebug_deploy.zip">php_xdebug_deploy.zip</a></li>
-</ul>
-<h3 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul>
-<li><a href="https://www.jb51.net/article/167786.htm" target="_blank" rel="noopener">Python3 requests文件下载 期间显示文件信息和下载进度代码实例</a></li>
-<li><a href="https://blog.csdn.net/bqw18744018044/article/details/81351137" target="_blank" rel="noopener">Python爬虫之selenium库(三)：Chrome无头模式与操作浏览器</a></li>
-<li><a href="https://blog.csdn.net/qq_26803795/article/details/82467037" target="_blank" rel="noopener">selenium+Headless Chrome实现不弹出浏览器自动化登录–问题总结</a></li>
-<li><a href="https://blog.csdn.net/jjjndk1314/article/details/80540204" target="_blank" rel="noopener">selenium设置谷歌无头浏览器</a></li>
-<li><a href="https://stackoverflow.com/questions/45631715/downloading-with-chrome-headless-and-selenium" target="_blank" rel="noopener">downloading-with-chrome-headless-and-selenium</a></li>
-</ul>
-<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于此方法是完全依赖xdebug.org上的 <strong><a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">custom installation instructions</a></strong> 提供查询功能，如果这个站点的规则变动了，则脚本可能会失效</p>
-<blockquote>
-<p>ps:其实在刚编写此脚本的时候，也曾考虑过采用<code>selenium+headless browser()</code>来处理ajax请求，不过考虑到这个脚本做的就是减法，用headless browser的方案会引入第三方可执行程序，比如<code>chrormedriver.exe</code>，这就太不友好了，所以还是自己分析下ajax请求，提取到<code>[Analyse my phpinfo() output] Button</code>的真正http请求</p>
-</blockquote>
+    <div id="inner-encryted-page">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
+    </head>
+    <style scoped>
+         form {
+            max-width: 330px;
+            margin-top: 17%;
 
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            text-rendering: optimizeLegibility;
+            line-height: 1.6em;
+            color: #444;
+            box-sizing: border-box;
+            margin: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-family: inherit;
+            font-size: 100%;
+            vertical-align: baseline;
+            max-width: 330px;
+            margin-top: 17%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+            width: 100% !important;
+            padding: 1.5rem !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            text-align: left !important;
+        }
+
+        h1 {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            text-rendering: optimizeLegibility;
+            color: #444;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-style: inherit;
+            font-family: inherit;
+            vertical-align: baseline;
+            margin-bottom: 1rem !important;
+            text-align: center !important;
+            font-size: 2em;
+            line-height: 1em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        input {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: inherit;
+            overflow: visible;
+            display: block;
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            border-top-right-radius: .25rem !important;
+            border-bottom-right-radius: .25rem !important;
+        }
+
+        button {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: inherit;
+            overflow: visible;
+            text-transform: none;
+            font-weight: 400;
+            text-align: center;
+            user-select: none;
+            border: 1px solid transparent;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem;
+            display: block;
+            width: 100%;
+            margin-top: 1rem !important;
+            cursor: pointer;
+        } 
+    </style>
+
+    <div class="text-center h-100">
+        <form class="text-left mx-auto card p-4 w-100 p-2" autocomplete="off">
+            <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1>  <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
+            <div id="encoded_text" style="display:none;">
+                WT90Vgwsa0rliK/oqa5SUV0wHVUXMiBLR2vliJvoqahAThMDACJOAEc/IxcBLSQECwAbTUElVEkJMntU5Yio6KmIdFZeQRFR5Yis6KmRARINZXhKFXbovo/nrq/ml6Xnqo7mmZ/mnYPku5vlnbnpmLjor4bjga/ml7roiYvnp43mlZ7nlK3jgZ3kuajkuITkuKXlkb7vvaPmtpDmnZjmhKLop5voganlh47kuY3nm7JZZyZWaFIAUeaXjOiJnOemhuaYkuS5peemmueVmea1jeaBpOW7ru+9muaWiOivmOW2i+S8rOi+t+aZjueVjua0humDgOevpeWMguS7neaaguWkmO+9hOWAjOS5guevouWMu+ebtOS7leWRhm0STVtdeh5XaD8MX0zlr4blsKrnrqZzAwEEdy4EAC5rSkHlr5jlsLXnrqhDcV5RBCQ1S0cgMwkGCwIDCD9WH0UjLwIJLWtK5a+U5bCr5663TV9tElxb5a+h5bCD566xWWc+WlxSAFHlpYbpgrnliLvml4vlgbzvvZvmlbDnu4XmmYrkuYjnppvlpJXkuILmgoHvvbzkvKnlr6LlkZ3moIrkvKfor4zku63ohqznhYDogannhb7nlI/kuaPmmpblpbTnkbblu7vkuYPlvZLnmrnniZTlkqTvvZvlpaHpgp7liaPmlr7lgY/vvaTmibPnm6rnoJ7mmYDoo4rlhKflrr7njpLkvrjoi5Xnmqjjgbfnmp3lhLvotJLor4flipzotJnku7YrKAjnmrnng5DmgqDvvZvkvIDmmZnlv63lvqPvvZrngoXmgqfpga7ljITkuKTlka/vvZ3mnJHor5jkuYflvZTnm4LmnLTniIzlsbnnlI/ku67kuanmnIvvvbzlp63mrIXljpzlpLDvvLHmiZrplqPnm4LmnLTniIzot4LloZDot6LlpbjvvaLnmoTliZ/kuarmrbDmkJHlrovmiKjmuZLnkYDmj7/vvanogYTovo/kuajmrIfvvaLmnZzororlv6nmlrjkubblibDlsZTlu4PorqPml4vooKnnm4xqRxJQelMRb+S4n+W8vuW4k+S5muaZqeS5tuemqOWch+WSl+i1gO+9ruaVkOS5u+iGheW2kOW4p+S4sOmcveinpOebk+eIr+S6gO+9qeWxjuWvleS6hOeUu+e6t+aahOmdr+inoOebleS6h+S5ouadj+WxiuS5i+Wki+OBp+aJnuivruadoeeqh+mfpeS9queXvuaCsO+9neaIrOS7keinpOaBmeahseaIu+iCmOWJrOaXu+i+seS7ueS5jOW9s+S4pOeIiOaZvuWQm+iDgOmBpOWJp+aIhumdtuS4ruS7suaIneS5ouWQgO+9ouWuieS7oei+uOS5keWdqu+8seaViuaLs+Wvm+OBt+W/i+S+qei+j+mGpOmCn+adp+WRtOemouiggueIuOWbo+aUi+eboeWEsuWOpe+9uuS7gee6keS5heS5suebpuadlOaftOWPlOWJp+mEnOaYkuaMh+S5qOmVjuebgu+9uuWnp+aflOimn+W/v+mjpue7iOm7i+eCieebpeiujO+8seS5ouWOiuS6suWxgOi+r+S7vuaciueIv+aNoeeEheaLtuaMr+eppOW7h+WJl+W8veijuOWkmO+9m+aVuOWJhuWfpuWdtuagoOS5he+9ruW+reWsqOWXq+aFru+9neaAhuactOS7n+eVv+S5jOOBtFlnJlZoUgBR6L645pm+55Si5rSG54iM5ZKW5Lmr55uy5peI6ImF56et772k5Lqs6LuF6L+J6ZiF5L2V5ba35Y+O55q55bGq54i+5Lqw5ZO66ZaX57ym6K+u5Lit55umXRPku4jlkqDvvZ3kurHmibblhp/miJx6WRV2XFQSUOWmu+S7oeeIiOWSkOeyg+euve+9qeWxiuS7iOS5lOivm++9hOaGlOS7pui1j+eIh+ezjuevr++9reezr+S6s+eyg+eku+ezqeevhkpKOGhiXgZDTwg1AB/lr5PlsJLnj6nlo7Xnm6HniKHlkpfpgaHln6lMTlMAcVVPADF7VEblr77lsJPnj4flo6Hnm6rniJnlkq7pgajln5ofHQY7JwUWdXQABw8UChM9VFMOdWYCDDw6DV9M5a+G5bCq54+O5aOS55q554mU5ZKk6YGe5Z+NVFt0eQlc5a+Y5bC154+A5aOi55uV54mU5ZO86YGs5Z+celkNe2hUFwJOZV09VAPnj4rkvorpopnnlZ7nu4IYACvpga3mmaDmoLzln4Tvva3php7lpYDmobHlrLXlsa3lrr7or5/lu7Llr77lubjlvrHooqPliITlpI3vvaPljo7kurTmnLTmlbXlsaPpoojniK/muZXmurblkYTmoJrlrLjpm7bnp5XlvbDmnIrvva3luKfkuKnvvLHml5zkv6jmuYPmtaFZZzoBXGRMAwhv5LmO6IOL5p+w772b55uC56CY5p2s5pSA572F6KaL5Luk55yP6Ka55LmC6aOp6YK544C86IS35p6U5Y+c5YudSkokP1ZoUhwGX+iRrOWcjeaUkuafk+ibneW5lu+9uueaneaunOiTj+WOjOWNp+ibpOW5oO+9o+i+uOemnOiat+W4ree6vOS7reebgueojOmWkeaFl+aaoui3m++9ruW4mOS5pOaam+WLgeiJg+mAv++8semBquaxg+aBoeS4qeS5qOmVke+9muadqOWkn+W5iOS5uumZneWxuemgp+i0m+ebq+W5pu+9m+mbkuenjeWjvOeAuOaPn+iRlV5BHAZfWwFRDGnlpYnlrJXlh5XkuZXlhp/luYXvva7nmpbmrqTmmIHpgbvnm5Xnq4TluJDvvanmirLmnY/ovq7kuajplZHnm5LoibrpgaDlu4jvvbzluJnkubXkuZHoiJHmj63kv77nlb/ku4jljJfkvKrlu4Lln73lu73nm6bnup3lrKDvvaPnmpnmroXnq4TluJDvvanlr5Tms6fmnb/nqpzlibLnrJ/mrrPnlqdSXwMIbzcBCT545o206ZOM5b2y5YuN57Ow6IKU772i6L6p56ai5o2j6ZO45Li96IiR5Y6y5YuM5p2P6Zim772p5LyO5pm55Y6H5LqH5ouk5a+z5LqD6LWV5Z255ZC556ew55KS56GB5aOf5aK35Lmv772E5qCa5ay45L+F6L+X77285Y6A5LqE5o2T6ZuV5Lyj44Gk5Lix5Y2D5ZST55uh772E5Lmb6L6v5Lmi6ImC5pyV6K6b772t5Lmc5buH6K6T5bGj5LqB5Lqq5pWI5Z2N5a+x5pmF5Y6/5ryM55uq5Z2A5peW772t5Zqx5LiH5a6E5pm25a6r6Iay6IKA5rGR5aW55pSeVE0CGVFrbVFUW+a5kuaXtuWItOaJs+iBjemnj+iXmO+9ruadp+aUuOaVluWXpeWvteWGuOawqeWQlu+9m+aukuWntOWwquiVteS7kOiGheijvuWsvuOBseWOvumdqOesmOWRjumBrll4Kh9bQmoEC1DmlYbnu5zlhpLlrIES5YKV54iM5Yak772K5Y6Z5LqA5pW+57ul5Lmo5Lu55YaU6ZaY55WH55ul5bGe54mU5LuL772p55Wm5LuI5a+15LqJ5Lmy5LuQ5pWe57uR5pWQ5b2z5Lup5oie6Yac77yx5om95LqA5p276Lut5pmZ5Lmo6YGK5ZGe5Lit5Zyy55uq77285Lmi6L6m5YCL5LiX5o2f6Z+u5Yak6L6e5pmZ5rOE6Zam6aOO55usXkEcBl9bAVEMaeWvnOaWgOW6k+mUt+e7qe+9pOi+u+emo+e7j+WOgOS6hOevsOeQu+S4veS7vuWvoeeVs+ebsuS8mueVoOaWoOmWnO+9rui+tuaZn+aNleWvv+eVueeaue+8seauseWnleiusu+9uuWAv+S5ouW7nOS5ouWxreWRpOaIt+ebq+Wvu+aWp+W8veWFju+9qeixlOWku+aWgOmWkeWvkuaWoOWEm+aPq+mioOaIt++9o+mAnuWEnOaZp+S4t+ecpeWGnnpZCSFoYl4CGVHlkavlnLHlvajpn47nrbHvvZvkuYvkvLDljorkuq3lgIzkuYLmjaDppJ7vvbzovrfogpzlpY7oro3lvajmloDlua/nlZnmtY3kuYjnm4zohrzoqajohojoroPvvbzmibnogaTlkq3llIzllZjnm6HvvZvlvJXnhYDvvanlkaTkubzor5rlu4Xog4Hlr6rkuLDms4Dplr/poqXllZtZeCofW0JqBAtQ5bG/57Cc55WU6KaXFuW6qOW7gu+9m+aXv+S/ieeakeaPreS8qeeVgOaaluWltOS7u+S6meWTreigneS4hwEQO3h8WSQ/VuWxreewneeVheimqeWlt+aPtOmfjuWTsOinpOS4p+S5rCU1DB8u6LyO5o+L5ZiY772j5Lmh6Im95Lmi5Lyn6Zih5bmx5LmG5a6P5ZGp6Ly857up55usXkEcBl9bARIQO3h8WWc6AVxkTAMIb+e+s+W3mOWJpeWTm+WGpuS8o+eVnuact++9muWOh+S6h+WAtOS5sOS7tOaWhOW5qeWwsueJlOS6k+ebkwI/PO+9hOaJgOiBreWAuOS7tee7iOewlOaIquW2tOiJh+WTvFl4Kh9bQmoEC1A7OSzliZbmjZ/lmZXvvanlrq7ku4jli6jlhInmoITogZroqajvva7ljoHkupXnlYfnsJrkva3nmrnovZHmj4Dnu6jmnKPoppXlh5blhLnnlb7plYbnmrrjga/lhIHnlYflsK7luITnmrnpl5Ppo73vvZvmnY/mlL7lhqrlsZnluZXnu5deQRwGX1sBUQxp6JG75Z2G5pWK5p++5buc5Lmi5b+M6aKg5ZG65oio772t5aeT5p6h5Lmb5qCp6ZiT6L6X5rOX5p2s5ZSt5Y655LqN5o2g5ZGk5oi355ur772t6L6I56ew6JCA5Z2V5pW45p+w5paW55e05pmn6ZyI5bmQ5p2r5pSm55u06KaM5YeS5peo5qG1AUo7L0hvdDoBXOiGhOezqOWjtue7me+9neWPkuS7mOaPjOeageS5huS7reagqeWsmOe9rOmYn+W4lOS5uue6r+S5r+aJnumWpemjs+aggeeboeWvieaCpuaXj+agre+9hOS5m+i+r+W6mOivgOS4gOS7tOWvmOaZgumZmeaOtOeboeW9reWJsOaXj+agre+9hOmAqeWEpeWvoeS6guaJoOS5leeIuuebv+iXrgFKOy9Ib3Q6AVznqqXlvb/mjr3lu4bvvZ3mlJLmjLzlpb/npprljormjqTljobjgYnkuZ/mjrrljoHvvaLovqjljoDkuoTmlb7mjLxoNhXkuI3nsI3nm6HvvYTlhpnlsbnluaHnu5HvvbzkuaLovqbovojnp7Dmj6/lu4LvvZvlurzor5jphqLnlaDlhLrniLPniK7lrL7nm7TvvaPluJfkuYXmiYLlj6rnm6HnlaLlj43kubboiYnkuYXpgZTlkaDlpYXli7Hnj7fnlZrlmInvvZ3kvbvmmJLlr4Hlh5LljrbngJnjgaTnlb3ohYfjgannlZfopqjnm7Tli7Dnj6blgYPmmJLmspzplovpo4/nm4JKSiQ/VmhSHAZf5b+/5Z625LiG5p2f772b5LmG6Ima5bqf6K+m5pGI5LmC5Luu5oil55u0IgAyHXAMOS/vvbrmibPogY3nmq7lrpHkv53lr7Lng4nnm6vlv4/ln5rkuIbmnIfvvannmq/mrpLljoblvarmnbLvvZrlr6vovJnltonvvbzlvLznhZfmuanmiLLov6TlnLLlsablia3mgoXmjaLmnZPku5DvvaTkvKTmmYHmlpXluZfmtK7oppnnvazpoYjjgaTnnZzopoDpo6fkuK7nsLPnm5Log4flr7jmmYHljKPljLzmnajkvIjnmrkBSjsvSG90OgFc55Wb6IWh5pmR56Wb5Zi55bGy5aKj6aq95buC5buh77265Y6K5Lqt5pWg57ub6ZWM55q26b2Q5qGo5ZOt5Z+66aul5piD56Wf5Zi/772K5a6P5qCp6Zyq5rmT5rWp6Zy85bmW5p2555WH772t5bin5Lip5Y+S5LqA5p2e5pSO572l6KaG6aOA5qWY55at55um5YaU54+AU049VANvayofW+eQluWiveWHs+WJou+9ouWOn+S6iuimguWHouWkmumDleWJo+WYv+acluebsumWi+mjkO+9muWEnuWvvOS5ruiJnOaRseS5i+eVpOW3mOeujOaakeWkqu+9iuS5u+i+oueVueS7mOS6n+mTk+i/rei1he+9o+WageasteS4sOiAvuiYtO+9m+i+n+S5nOedrumjjOevgeaZh+WRhOi3neWlr+WRiF1+UVRbXXoaDHbkuZbku7Plr5TlsKvlubPlsK/vva3luqvorpPku7Plr7nlr6HnrI/lnYbml5zpho/pmpDmhafopqPlkYlMQA04AzdZOy9I5Y+N5om35LmF55WA55um5oi954Cb5p2V772t5bqr6K6T5by55LmP6ZSo5Zmy55uy5oi254Cj5p2s772k55WK5pyL54OJ54CE55WJ55uVARIJPnh8WWcjBFxkTAdTcVRZWHXli5jlhJrnrqJqaFQDThgdBDcAH0bli4nlhKrnrrFHaDUEAx0DUkM5WFwBMjQaDCY9SkIaGRsNNAAf5Yu75YS7566BVFt0eQlc5Yuw5YSc566oXX5VD1trNkjnlZDohZnnrJ/lkaznpq/nlZvlrKDor5HlpabpgqzmmJLmiKznm6Hli4nlhKrltpPlhJLvvYTogZrovrHlnLXkuLHmmZ/ogpLlgLvlhp7ms6jnmrnjgafkub3ku7zmnbbkuZ/mj6DltZHnm6zlgLjmsrvmmZ/liYbnlYnlkZXnp7DlhbDlr6zoopLltqPlhIHmnIDkubLli4jlhITnlZfohb/lhr/otbDvva3lp5PmnqHmn63ku77lpbDln43nm7LlvaXljpnovLnkup7vva7mrrrlp7ImBTRc44C8MyQFGQEt5Lid57CT55um772i5a+o5peW5o6x5L+KR1QV54if5p2q55uy772p6YOr5Lie5bGZ5bGf5Y6B6IKN5Lmk6Lyc5a+S77yx6ICx5Lmo5pm45Y+95Lm96LyY5a+B6KKT54ig5p2O772i5ZqQ5LmV5Z2J5Y6+5LuY6aK5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
+            </div>
+    </form></div>
+
+    <script type="text/javascript">
+        var Base64WithXOR = {
+            encode: function (input) {
+                return Base64.encode(input);
+            },
+
+            decode: function (input) {
+                return Base64.decode(input);
+            },
+
+            encode_with_xor: function (input, key) {
+                var pwd = this.encode(key)
+                var xor_string = this._xor_handle(input, pwd);
+                return this.encode(xor_string);
+            },
+
+            decode_with_xor: function (input, key) {
+                var pwd = this.encode(key)
+                var decode_string = this.decode(input);
+                return this._xor_handle(decode_string, pwd);
+            },
+
+            _xor_handle: function (source, key) {
+                var result = "";
+                for (var i = 0; i < source.length; i++) {
+                    var source_char = source.charCodeAt(i);
+                    var key_idx = i % key.length;
+                    var xor_char_code = key.charCodeAt(key_idx) ^ source_char;
+                    result += String.fromCharCode(xor_char_code);
+                }
+                return result;
+            },
+        }
+
+        // 密码验证
+        function checkPassword() {
+            var pwd = document.getElementById("password").value;
+            var encoded_content = document.getElementById("encoded_text").innerHTML;
+            var decoded_ele = Base64WithXOR.decode_with_xor(encoded_content, pwd);
+            if (decoded_ele.trim().startsWith('<') && decoded_ele.trim().endsWith('>')) {
+                document.getElementById("inner-encryted-page").outerHTML = decoded_ele;
+            } else {
+                alert("密码错误，请重新输入");
+            }
+        }
+
+    </script>
+
+</div>
   </div>
   
 </article>
 
+        
+      
+        
+          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
+            <a class="archive-post-link" href="/news/2019/09/01/auto-download-xdebug-for-php/">
+              <strong class="archive-post-title" itemprop="name">一键安装php-xdebug</strong>
+              <span class="archive-post-date"><time datetime="2019-09-01T00:00:00.000Z">2019-09-01</time></span>
+            </a>
+          </article>
         
       
     </div>
@@ -217,24 +339,7 @@
 <script src="/js/mobile_nav.js"></script>
 <!-- endbuild -->
 
-<!-- Algolia --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </body>

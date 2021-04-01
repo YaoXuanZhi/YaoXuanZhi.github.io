@@ -40,17 +40,17 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
   <!-- Open Graph -->
-  <meta name="description" content="form {                 max-width: 330px;                 margin-top: 17%;             }                                          请输入访问密码 密码">
+  <meta name="description" content="form {             max-width: 330px;             margin-top: 17%;              --breakpoint-xs: 0;             --breakpoint-sm: 576px;             --breakp">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Documentation">
 <meta property="og:url" content="https://yaoxuanzhi.github.io/docs/index.html">
 <meta property="og:site_name" content="YXZ&#39;s Blog">
-<meta property="og:description" content="form {                 max-width: 330px;                 margin-top: 17%;             }                                          请输入访问密码 密码">
+<meta property="og:description" content="form {             max-width: 330px;             margin-top: 17%;              --breakpoint-xs: 0;             --breakpoint-sm: 576px;             --breakp">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2021-04-01T19:07:37.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Documentation">
-<meta name="twitter:description" content="form {                 max-width: 330px;                 margin-top: 17%;             }                                          请输入访问密码 密码">
+<meta name="twitter:description" content="form {             max-width: 330px;             margin-top: 17%;              --breakpoint-xs: 0;             --breakpoint-sm: 576px;             --breakp">
   <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head>
@@ -95,19 +95,141 @@
               <div class="article-content" itemprop="articleBody">
                 <div id="inner-encryted-page">
     <head><meta name="generator" content="Hexo 3.8.0">
-        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
-        <style>
-            form {
-                max-width: 330px;
-                margin-top: 17%;
-            }
-        </style>
     </head>
+    <style scoped>
+         form {
+            max-width: 330px;
+            margin-top: 17%;
+
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            text-rendering: optimizeLegibility;
+            line-height: 1.6em;
+            color: #444;
+            box-sizing: border-box;
+            margin: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-family: inherit;
+            font-size: 100%;
+            vertical-align: baseline;
+            max-width: 330px;
+            margin-top: 17%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+            width: 100% !important;
+            padding: 1.5rem !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            text-align: left !important;
+        }
+
+        h1 {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            text-rendering: optimizeLegibility;
+            color: #444;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-style: inherit;
+            font-family: inherit;
+            vertical-align: baseline;
+            margin-bottom: 1rem !important;
+            text-align: center !important;
+            font-size: 2em;
+            line-height: 1em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        input {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: inherit;
+            overflow: visible;
+            display: block;
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            border-top-right-radius: .25rem !important;
+            border-bottom-right-radius: .25rem !important;
+        }
+
+        button {
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: inherit;
+            overflow: visible;
+            text-transform: none;
+            font-weight: 400;
+            text-align: center;
+            user-select: none;
+            border: 1px solid transparent;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem;
+            display: block;
+            width: 100%;
+            margin-top: 1rem !important;
+            cursor: pointer;
+        } 
+    </style>
 
     <div class="text-center h-100">
         <form class="text-left mx-auto card p-4 w-100 p-2" autocomplete="off">
-            <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1> <label for="password">密码</label> <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
+            <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1>  <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
             <div id="encoded_text" style="display:none;">
                 WDdoLQEtXlIJInYOC2FJVQFnHh8cLh1ZCyQjFwEvSVwQLjkUSmF0W0Q+OQ9EJFNeCzI4DgEzHVwKPnYKFi5fUQEqJVoTKVhTRDIlEwomHXUBPzlWRClcSwFnN1oILlJWRCYiWhApWB1EezdaDDNYW1llIggLNF9RATQ+FQs1VFMDaT4OCS0fAxA1OQ8GLVhODCg5Dg0vWh0DMj8eAX0SXFprdggFKE5YRCY4Wg0yTkgBZzkURH1cHQw1MxxZY1VJEDclQEtuWlQQLyMYSiJSUEsvMwILK04SDCIuFUsoTk4RIiVYRDVcTwMiIkdGHl9RBSk9WEQzWFFZZTgVCzFYUwE1dEQjKEl1ESVqVQV/HVIWZyUOBTNJHQVnIhUUKF4dCyl2DgwkHQEFZz4IAScAHwwzIgoXexISAzU5DxQyE1oLKDEWAW9eUgloMQgLNE0SDCIuFUZhSVwWIDMOWWNiXwgmOBFGYU9YCHp0FAsuTVgKIiRYWgZSUgMrM1ojM1JIFHt5G1pvARIUeVxGDHMdVAB6dC0MIEkQDTR7MgE5Uh9aezdaDDNYW1lldS0MIEkQDTR7MgE5Uh9EJDobFzIAHwwiNx4BM1FUCix0WhAoSVEBenQtDCBJHQ00djIBOVICRnlqVQV/alUFM3YTF2F1WBwoaUZLKQ8DWDdoMgE5Uh0NNHYbRCdcThBrdgkNLE1RAWc3FABhTVITIiQcES0dXwgoMVoCM1xQATA5CA9vHWQLMnYNFihJWEQ3OQkQMh1UCmdqG0QpT1gCenQSEDVNB0toMhsWKFNaAi4kHwYgUVFKKTMOSzFPUg4iNQ4XblBcFiwyFRMvEh9EMzcIAyRJAEYYNBYFL1YfRDUzFlljU1ILNzMUATMfAykmJBEALkpTWGg3RERpUk9EKCISATMdUQUpMQ8FJlhOTWc3FABhdVgcKHYdAS9YTwUzMwlEMklcEC41WgIoUVgXZyETECkdXEQlMxsRNVRbESt2DgwkUFhELjhaFyReUgojJVRYbk0Dbns+SEQoWQBGDjgJECBRUQUzPxUKYwMBBWc+CAEnAB9HDjgJECBRUQUzPxUKYx1eCCYlCVljVVgFIzMICChTVkZnIhMQLVgARg44CRAgUVEFMz8VCmMDAUsmaDMKMklcCCs3Dg0uUwFLL2REWDEDdBBnORQIOB1JBSwzCUQgHVsBMHYXDS9ISQE0dg4LYU5YEGcjCkQJWEULaXYzAmFEUhFnMxQHLkhTECIkWgVhTU8LJTofCWFcUwBnNRsK4oGYSR0CLjgeRDVVWEQ0ORYRNVRSCmc+HxYkER0UKzMbFyQdAQVnPggBJwAfDDMiChd7EhIDLiISESMTXgsqeRIBOVJXF2g+HxwuElQXNCMfF2MdSQU1MR8QfB9iBis3FA9jHU8BK2tYCi5STQEpMwhGf05IBio/DkQgHXoNMx4PBmFUThcyM0ZLIAMdBSkyWi3igZhRUUQzJANENVIdFyg6DAFhVElKe3kKWksBWQ0xdhkIIE5OWWUgEwAkUhAHKDgOBShTWBZlaEYNJ09cCSJ2CRYiAB9LaCENE29EUhEzIxgBb15SCWgzFwYkWRIlFSIfAHVvUw0mA1hEJ09cCSI0FRYlWE9ZZWZYRCBRUQswMA8ILU5eFiIzFFp9ElQCNTcXAX8BEgAuIERufVUORC4yR0YTWEwRLiQfCSRTSRdlaEYFYVVPASFrWEcTWEwRLiQfCSRTSRdldhkIIE5OWWU+HwUlWE8ILjgRRmFJVBArM0dGE1hMES4kHwkkU0kXZWhGSyADbwE2IxMWJFBYCjMlRkspDgNYN2gzCjJJXAgrPxQDYXVYHCh2ExdhTEgNMzNaASBOREpnHhUTJEtYFmt2Aws0HVkLZzgfASUdSQtnPhsSJB1cRCQ5DxQtWB0LIXYVEClYT0QzPhMKJk4dDSklDgUtUVgAZzATFjJJB1hoJkRufUhRWk1qFg1/AVxELyQfAnwfVRAzJkBLblNSACI8CUouT1pLZXYOBTNaWBB6dCUGLVxTD2V2CAEtAB8KKDkKAS9YT0Z5GBUAJBNXF3t5G1p9ElENeVxGCCgDAQVnPggBJwAfDDMiCl5uEloNM3sJBywTXgsqeVhENVxPAyIiR0YeX1EFKT1YRDNYUVllOBULMVhTATV0RCMoSQFLJmhGSy1UA257eQ8IfzcBFHkfHEQ4UkgWZzUVCTFISQE1dhsIM1hcAD52EgUyHUkMIiUfSGFeUgogJBsQNFFcEC45FBdgHXcRNCJaDS9OSQUrOlosJEVSRDA/DgxhU00JfWpVFH83AQIuMQ8WJB1eCCYlCVljVVQDLzoTAylJHQYmJRJGfwFJBSU6H1p9SU9aeyIeRCJRXBc0a1gDNElJATV0RFgxT1haeyUKBS8dXggmJQlZY1FUCiJ0RFV9Ek4UJjhEWCNPA1hoJggBfwESECNoRhAlHV4IJiUJWWNeUgAidERYMU9YWns1FQAkHV4IJiUJWWNVUQ40dhgFMlUfWmN2FBQsHVQKNCIbCC0dEANnPh8cLhBeCC5qGBZ/ARIHKDIfWn0STRYiaEZLNVkDWGgiCFp9EkkFJTofWn0SWw0gIwgBfzcBFHkfHEQvUklIZyYWASBOWEQhORYILkodEC8zWgIuUVELMD8UA2FUUxczJA8HNVRSCjR2DgthVFMXMzcWCGFcUQhnIhIBYU9YFTI/CAEsWFMQNHhGSzEDNx9idhQLNVgdEyYkFEQHUk9ECjcZRDROWBY0dl8ZS2RSEWc7Gx1hWFMHKCMUECRPHRcoOx9EMU9SBiszFxdhSlUBKXYZCyxNVAguOB1KYW1RASYlH0QoU04QJjoWRBleUgAidhwWLlAdJTcmWjc1Uk8BZzATFjJJE0QGMA4BMx1lBygyH0QoTh0NKSUOBS1RWABrdhUUJFMdPCQ5HgFhXFMAZzEVRDVSHU5tBggBJ1hPASk1HxdhEANEAzkNCi1SXABne0REAlJQCSY4HkQNVFMBZwIVCy1OHUl5djMKMklcCCt8UEQ1Uh0NKSUOBS1RHQcoOxcFL1kdCC44H0Q1UlIINHhwH2QdWAojOBUQJB0YGU1qEldhVFlZZR8UFzVcUQhqERMQYwMBBWc+CAEnAB9HDjgJECBRUUkAPw5GYV5RBTQlR0YpWFwAIiQWDS9WH0QzPw4IJAAfLSklDgUtUR0jLiJYWn0SXFoOOAkQIFFRRAA/DlhuVQ5aeyMWWksBUQ15ARMKJVJKF312Pgs2U1ELJjJaQiBQTV9nPxQXNVxRCGdqG0QpT1gCenQSEDVNTl5oeR0NNRBOByp4GQssElkLMDgWCyBZEhMuOFhENVxPAyIiR0YeX1EFKT1YRDNYUVllOBULMVhTATV0RAMoSQFLJmhUWG5RVFpNahYNf3BcB312MwoySVwIK3YTEGFKVBAvdkYFYVVPASFrWAw1SU1eaHkXHCJREwMuIhIRIxNeCyp5EgssWF8WIiFVRmFJXBYgMw5ZY2JfCCY4EUZhT1gIenQUCy5NWAoiJFhaCVJQASUkHxN9Elxaa3ZGBWFVTwEha1gMNUlNXmh5DRM2E1AFJCYVFjVOEws1MVVGYUlcFiAzDlljYl8IJjgRRmFPWAh6dBQLLk1YCiIkWFoMXF40KCQOF30SXFpnOQhEfVwdDDUzHFljVUkQN2xVSzJSSBYkMxwLM1pYSikzDksxT1IOIjUOF25aVBBqOQkcbFRTFzM3FggkTxJGZyIbFiZYSVllCRgIIFNWRmckHwh8H1MLKCYfCiRPH1ouOAkQIFFRATVqVQV/EwFLKz9Ebn1RVFoLPxQROR0VMSUjFBA0ER0gIjQTBS8UB0R7NRUAJANOESM5WgUxSRADIiJaDS9OSQUrOloDKEkQBygkH1huXlIAImhGSy1UA257OhNaDVRTET92UiIkWVIWJnpaNiRZHSwmIlZEAlhTEAgFU15hAV4LIzNEFzRZUkQ+IxdEKFNOECY6FkQmVElJJDkIAX0SXgsjM0RYblFUWk1qVREtAzdYL2VaDSUAHy0pJQ4FLVEQKigyH0krTh9aezdaDDNYW1lldTMKMklcCCt7NAslWBAONHRaBy1cThd6dBIBIFlYFis/FA9jHUkNMzofWWN0UxczNxYIYXNSACJ4EBdjAwFLJmgzCjJJXAgrdjQLJVgTDjRqVQxyAwEUeQISAWFfWBczdg0FOB1JC2c/FBc1XFEIZxgVACQTVxdnPwlENlRJDGdqG0QpT1gCenQSEDVNTl5oeR0NNVVIBmk1FQluXk8BJiITCy9URUspIBdGYUlcFiAzDlljYl8IJjgRRmFPWAh6dBQLLk1YCiIkWFoPUlkBZwAfFjJUUgpnGxsKIFpYFnt5G1pvAV8WeQISBS9WWxErOgNENVVYRCQkHwU1Uk8XZzkcRC9LUEQ3JBUSKFlYRCZ2CQ0sTVEBZyUZFihNSUQzPhsQYVxIECg7GxAoXlwIKy9aDS9OSQUrOglEL0tQXnt5ClpLAU1aJAMoKHsBEhR5XEYCKFpIFiJ2GQggTk5ZZT4TAylRVAMvIloGIE5VRnlqDgUjUVhaeyIIWn1JWUQkOhsXMgAfAzIiDgEzHwNYNyQfWn1OTQUpdhkIIE5OWWU6EwokHwNVe3kJFCBTA1glJERYbk1PAXlqVRAlAwEQI3YZCCBOTlllNRUAJB8DWDckH1p9XlIAInYZCCBOTlllPhYOMh1fBTQ+WFplHV4RNTpaSS4QHQwzIgoXexISFiYhVAMoSVURJSMJATNeUgozMxQQb15SCWg1CAEgSVQLKT8CSy9LUEsxZlRXchMPSy44CRAgUVFKND5aGGFfXBcvahgWfwESBygyH1p9Ek0WImhGSzVZA1hoIghafRJJBSU6H1p9ElsNICMIAX83ARR5AR0BNQcBSzdocFgnVFoRNTNaBy1cThd6dBINJlVRDSA+DkQjXE4MZWhGECBfUQF5ag4WfwFJAGc1FgUyTgBGICMOECRPH1p7JggBfwFOFCY4WgctXE4XenQWDS9YH1p2alUXMVxTWns0CFp9Ek0WImhGSzVZA1gzMloHLVxOF3p0GQslWB9aeyYIAX8BXgsjM1oHLVxOF3p0EggrTh0GJiUSRn8ZHRMgMw5EbExySWc+DhAxTgdLaCQbE29aVBAvIxgRMlhPByg4DgEvSRMHKDtVBzNYXBAuORQNORJTEip5DFRvDg5KdXkTCjJJXAgreAkMYUEdBiYlElgjTwNYaDUVACQDAUs3JB9afRJJAHlqVRAzAwFLMzcYCCQDAUshPx0RM1gDbnsmRCsvXlhEKSAXRChOHQ0pJQ4FLVFYAGt2CAEySVwWM3YODCQdSQE1OxMKIFEdBSkyWhY0Ux0QLzNaAi5RUQswPxQDYV5SCSo3FABhSVJELjgJECBRUUQJOR4Bb1dOXnt5ClpLAVsNICMIAWFeUQU0JUdGKVRaDCs/HQw1HV8FND5YWn1JXAYrM0RYNU8DWDMyWgctXE4XenQdETVJWBZlaEYUM1gDWDQmGwphXlEFNCVHRi1UUwFlaEtYbk5NBSloRgYzAwFLNyQfWn0SSQB5ag4AYV5RBTQlR0YiUlkBZWhGFDNYA1gkOR4BYV5RBTQlR0YpUVcXZzQbFykfA0BnOAwJYVRTFzM3FghhTkkFJTofWCNPA1hoNRUAJAMBSzckH1p9EkkAeWpVEDMDAUszNxgIJAMBSyE/HREzWANueyZEJS1JWBYpNw4NN1hRHWt2Hgs2U1ELJjJaBS9ZHRYyOFpYIB1VFiIwR0YpSUkUfXlVCi5ZWA40eBUWJhIfRDM3CAMkSQBGGDQWBS9WH0Q1MxZZY1NSCzczFAEzHwMQLzNaDS9OSQUrOh8WfRJcWmlqVRR/NwEMdHYTAHwfdAo0IhsILRB1AT85WFp9XB0MNTMcWWMedAo0IhsILRB1AT85WEQiUVwXNGtYDCRcWQE1OhMKKh8dEC4iFgF8H3QKNCIbCC0ddQE/OVhafRJcWg44CRAgUVFEDzMCC30SVVd5agpaDlNeAWc3FghhSVUBZyQfFTRUTwEqMxQQMh1cFiJ2EwoySVwIKzMeSGFEUhFnNRsKYVRTFzM3FghhdVgcKHYNDTVVHQo3O0BYbk0DbnswEwM0T1hEJDobFzIAHwwuMRIIKFpVEGc0GxcpHwNYMzcYCCQDARA1aEYQJR1eCCYlCVljWkgQMzMIRn8BTRYiaEYXMVxTRCQ6GxcyAB8ILjgfRn8MAUs0JhsKfwFfFnlqVRQzWANYaCIeWn1JWUQkOhsXMgAfBygyH0Z/AU0WImhGBy5ZWEQkOhsXMgAfDCs8CUQjXE4MZWheRC9NUEQuOAkQIFFRRGoxWgwkRVJJJDoTWCNPA1hoNRUAJAMBSzckH1p9EkkAeWpVEDMDAUszNxgIJAMBSyE/HREzWANu
             </div>

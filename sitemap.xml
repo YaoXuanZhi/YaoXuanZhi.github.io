@@ -2,37 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
+    <loc>https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/</loc>
     
-    <lastmod>2021-04-01T19:07:37.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2021/04/02/simplifying-life/</loc>
-    
-    <lastmod>2021-04-01T19:07:37.116Z</lastmod>
+    <lastmod>2021-04-01T19:24:52.415Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
+    <loc>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</loc>
     
-    <lastmod>2021-04-01T19:07:37.116Z</lastmod>
+    <lastmod>2021-04-01T19:22:41.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
+    
+    <lastmod>2021-04-01T19:22:24.285Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/news/2021/03/25/how-to-write-a-hexo-plugin/</loc>
     
-    <lastmod>2021-04-01T19:07:37.115Z</lastmod>
+    <lastmod>2021-04-01T19:21:31.269Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2021/04/02/my-music-play-list/</loc>
+    <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
     
-    <lastmod>2021-04-01T19:07:37.115Z</lastmod>
+    <lastmod>2021-04-01T19:21:25.565Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/07/20/my-music-play-list/</loc>
+    
+    <lastmod>2021-04-01T19:20:45.822Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/09/10/simplifying-life/</loc>
+    
+    <lastmod>2021-04-01T19:20:41.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
+    
+    <lastmod>2021-04-01T19:19:41.882Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
+    
+    <lastmod>2021-04-01T19:07:37.119Z</lastmod>
     
   </url>
   
@@ -58,27 +86,6 @@
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</loc>
-    
-    <lastmod>2021-04-01T19:07:37.112Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/</loc>
-    
-    <lastmod>2021-04-01T19:07:37.112Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
-    
-    <lastmod>2021-04-01T19:07:37.111Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yaoxuanzhi.github.io/index.html</loc>
     
     <lastmod>2021-04-01T19:05:54.818Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>https://yaoxuanzhi.github.io/docs/demo.html</loc>
     
     <lastmod>2021-04-01T19:05:54.805Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
-    
-    <lastmod>2021-04-01T19:05:54.687Z</lastmod>
     
   </url>
   

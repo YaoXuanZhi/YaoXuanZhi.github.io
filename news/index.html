@@ -83,103 +83,68 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2021/04/02/simplifying-life/" class="article-title" itemprop="name">我的断舍离实践</a>
+        <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-title" itemprop="name">开发一款用于正文加密的Hexo插件</a>
       </h1>
     
-    <a href="/news/2021/04/02/simplifying-life/" class="article-date"><time datetime="2021-04-01T19:07:37.115Z">2021-04-01</time></a>
+    <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <div id="inner-encryted-page">
-    <head><meta name="generator" content="Hexo 3.8.0">
-        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
-        <style>
-            form {
-                max-width: 330px;
-                margin-top: 17%;
-            }
-        </style>
-    </head>
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>上一篇<a href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/">文章</a>谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<h3 id="需求" class="article-heading"><a href="#需求" class="headerlink" title="需求"></a>需求<a class="article-anchor" href="#需求" aria-hidden="true"></a></h3><p>本人希望借助这款插件，只需要让哪些想要加密的md的文件头上添加<code>password: your_pwd</code>，即可在执行<code>hexo g</code>的时候，自动对生成的html的文章正文进行加密</p>
+<h3 id="插件开发记录" class="article-heading"><a href="#插件开发记录" class="headerlink" title="插件开发记录"></a>插件开发记录<a class="article-anchor" href="#插件开发记录" aria-hidden="true"></a></h3><p>由于具体的Hexo插件开发博客已经汗牛充栋了，这里就没必要赘述了，仅仅罗列一下本人开发插件过程中用到的资料和相关链接吧</p>
+<ul>
+<li><ol>
+<li>了解hexo的插件工作机制</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>找出处理文章正文的插件接口或示例</li>
+</ol>
+<ul>
+<li>在 <strong><a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></strong>里找到了关键接口</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>新建一个插件项目</li>
+</ol>
+<ul>
+<li><a href="http://www.sumoon.com/hexo/hexo-simple-plugin/" target="_blank" rel="noopener">《hexo教程之为hexo编写一个插件》</a></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>整合加密打包功能到这个插件项目上</li>
+</ol>
+<ul>
+<li>已上传到 <strong><a href="https://hub.fastgit.org/yaoxuanzhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></strong>仓库上了</li>
+</ul>
+</li>
+<li><ol start="5">
+<li>将这款插件发布到<a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>上</li>
+</ol>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/44156668" target="_blank" rel="noopener">《如何发布自己的NPM包（模块）？》</a></li>
+</ul>
+</li>
+<li><ol start="6">
+<li>将这款插件发布到hexo插件市场上</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="插件调试" class="article-heading"><a href="#插件调试" class="headerlink" title="插件调试"></a>插件调试<a class="article-anchor" href="#插件调试" aria-hidden="true"></a></h4><p>目前没有找到vscode直接断点调试hexo插件的方式以及相关的文章教程，这里采用的是根据<code>hexo.log()</code>或<code>console.log()</code>的日志输出来跟踪问题的</p>
+<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于GithubPage是部署在墙外的，部分国内的cdn国外无法正常访问，所以需将<code>bootstrap.min.css</code>的<a href="http://cdn.bootstrapmb.com/bootstrap/4.4.0/css/bootstrap.min.css" target="_blank" rel="noopener">国内url</a>要改成<a href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" target="_blank" rel="noopener">国外url</a></p>
+<h2 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h2><p>其实hexo 插件市场上也有好几款文章正文加密插件，本人开发的这款加密插件可当作另一种实现思路</p>
+<p><img src="/assets/2021-03-25/1616647855692.png" alt></p>
 
-    <div class="text-center h-100">
-        <form class="text-left mx-auto card p-4 w-100 p-2" autocomplete="off">
-            <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1> <label for="password">密码</label> <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
-            <div id="encoded_text" style="display:none;">
-                WT90Vgwsa0rliK/oqa5SUV0wHVUXMiBLR2vliJvoqahAThMDACJOAEc/IxcBLSQECwAbTUElVEkJMntU5Yio6KmIdFZeQRFR5Yis6KmRARINZXhKFXbovo/nrq/ml6Xnqo7mmZ/mnYPku5vlnbnpmLjor4bjga/ml7roiYvnp43mlZ7nlK3jgZ3kuajkuITkuKXlkb7vvaPmtpDmnZjmhKLop5voganlh47kuY3nm7JZZyZWaFIAUeaXjOiJnOemhuaYkuS5peemmueVmea1jeaBpOW7ru+9muaWiOivmOW2i+S8rOi+t+aZjueVjua0humDgOevpeWMguS7neaaguWkmO+9hOWAjOS5guevouWMu+ebtOS7leWRhm0STVtdeh5XaD8MX0zlr4blsKrnrqZzAwEEdy4EAC5rSkHlr5jlsLXnrqhDcV5RBCQ1S0cgMwkGCwIDCD9WH0UjLwIJLWtK5a+U5bCr5663TV9tElxb5a+h5bCD566xWWc+WlxSAFHlpYbpgrnliLvml4vlgbzvvZvmlbDnu4XmmYrkuYjnppvlpJXkuILmgoHvvbzkvKnlr6LlkZ3moIrkvKfor4zku63ohqznhYDogannhb7nlI/kuaPmmpblpbTnkbblu7vkuYPlvZLnmrnniZTlkqTvvZvlpaHpgp7liaPmlr7lgY/vvaTmibPnm6rnoJ7mmYDoo4rlhKflrr7njpLkvrjoi5Xnmqjjgbfnmp3lhLvotJLor4flipzotJnku7YrKAjnmrnng5DmgqDvvZvkvIDmmZnlv63lvqPvvZrngoXmgqfpga7ljITkuKTlka/vvZ3mnJHor5jkuYflvZTnm4LmnLTniIzlsbnnlI/ku67kuanmnIvvvbzlp63mrIXljpzlpLDvvLHmiZrplqPnm4LmnLTniIzot4LloZDot6LlpbjvvaLnmoTliZ/kuarmrbDmkJHlrovmiKjmuZLnkYDmj7/vvanogYTovo/kuajmrIfvvaLmnZzororlv6nmlrjkubblibDlsZTlu4PorqPml4vooKnnm4xqRxJQelMRb+S4n+W8vuW4k+S5muaZqeS5tuemqOWch+WSl+i1gO+9ruaVkOS5u+iGheW2kOW4p+S4sOmcveinpOebk+eIr+S6gO+9qeWxjuWvleS6hOeUu+e6t+aahOmdr+inoOebleS6h+S5ouadj+WxiuS5i+Wki+OBp+aJnuivruadoeeqh+mfpeS9queXvuaCsO+9neaIrOS7keinpOaBmeahseaIu+iCmOWJrOaXu+i+seS7ueS5jOW9s+S4pOeIiOaZvuWQm+iDgOmBpOWJp+aIhumdtuS4ruS7suaIneS5ouWQgO+9ouWuieS7oei+uOS5keWdqu+8seaViuaLs+Wvm+OBt+W/i+S+qei+j+mGpOmCn+adp+WRtOemouiggueIuOWbo+aUi+eboeWEsuWOpe+9uuS7gee6keS5heS5suebpuadlOaftOWPlOWJp+mEnOaYkuaMh+S5qOmVjuebgu+9uuWnp+aflOimn+W/v+mjpue7iOm7i+eCieebpeiujO+8seS5ouWOiuS6suWxgOi+r+S7vuaciueIv+aNoeeEheaLtuaMr+eppOW7h+WJl+W8veijuOWkmO+9m+aVuOWJhuWfpuWdtuagoOS5he+9ruW+reWsqOWXq+aFru+9neaAhuactOS7n+eVv+S5jOOBtFlnJlZoUgBR6L645pm+55Si5rSG54iM5ZKW5Lmr55uy5peI6ImF56et772k5Lqs6LuF6L+J6ZiF5L2V5ba35Y+O55q55bGq54i+5Lqw5ZO66ZaX57ym6K+u5Lit55umXRPku4jlkqDvvZ3kurHmibblhp/miJx6WRV2XFQSUOWmu+S7oeeIiOWSkOeyg+euve+9qeWxiuS7iOS5lOivm++9hOaGlOS7pui1j+eIh+ezjuevr++9reezr+S6s+eyg+eku+ezqeevhkpKOGhiXgZDTwg1AB/lr5PlsJLnj6nlo7Xnm6HniKHlkpfpgaHln6lMTlMAcVVPADF7VEblr77lsJPnj4flo6Hnm6rniJnlkq7pgajln5ofHQY7JwUWdXQABw8UChM9VFMOdWYCDDw6DV9M5a+G5bCq54+O5aOS55q554mU5ZKk6YGe5Z+NVFt0eQlc5a+Y5bC154+A5aOi55uV54mU5ZO86YGs5Z+celkNe2hUFwJOZV09VAPnj4rkvorpopnnlZ7nu4IYACvpga3mmaDmoLzln4Tvva3php7lpYDmobHlrLXlsa3lrr7or5/lu7Llr77lubjlvrHooqPliITlpI3vvaPljo7kurTmnLTmlbXlsaPpoojniK/muZXmurblkYTmoJrlrLjpm7bnp5XlvbDmnIrvva3luKfkuKnvvLHml5zkv6jmuYPmtaFZZzoBXGRMAwhv5LmO6IOL5p+w772b55uC56CY5p2s5pSA572F6KaL5Luk55yP6Ka55LmC6aOp6YK544C86IS35p6U5Y+c5YudSkokP1ZoUhwGX+iRrOWcjeaUkuafk+ibneW5lu+9uueaneaunOiTj+WOjOWNp+ibpOW5oO+9o+i+uOemnOiat+W4ree6vOS7reebgueojOmWkeaFl+aaoui3m++9ruW4mOS5pOaam+WLgeiJg+mAv++8semBquaxg+aBoeS4qeS5qOmVke+9muadqOWkn+W5iOS5uumZneWxuemgp+i0m+ebq+W5pu+9m+mbkuenjeWjvOeAuOaPn+iRlV5BHAZfWwFRDGnlpYnlrJXlh5XkuZXlhp/luYXvva7nmpbmrqTmmIHpgbvnm5Xnq4TluJDvvanmirLmnY/ovq7kuajplZHnm5LoibrpgaDlu4jvvbzluJnkubXkuZHoiJHmj63kv77nlb/ku4jljJfkvKrlu4Lln73lu73nm6bnup3lrKDvvaPnmpnmroXnq4TluJDvvanlr5Tms6fmnb/nqpzlibLnrJ/mrrPnlqdSXwMIbzcBCT545o206ZOM5b2y5YuN57Ow6IKU772i6L6p56ai5o2j6ZO45Li96IiR5Y6y5YuM5p2P6Zim772p5LyO5pm55Y6H5LqH5ouk5a+z5LqD6LWV5Z255ZC556ew55KS56GB5aOf5aK35Lmv772E5qCa5ay45L+F6L+X77285Y6A5LqE5o2T6ZuV5Lyj44Gk5Lix5Y2D5ZST55uh772E5Lmb6L6v5Lmi6ImC5pyV6K6b772t5Lmc5buH6K6T5bGj5LqB5Lqq5pWI5Z2N5a+x5pmF5Y6/5ryM55uq5Z2A5peW772t5Zqx5LiH5a6E5pm25a6r6Iay6IKA5rGR5aW55pSeVE0CGVFrbVFUW+a5kuaXtuWItOaJs+iBjemnj+iXmO+9ruadp+aUuOaVluWXpeWvteWGuOawqeWQlu+9m+aukuWntOWwquiVteS7kOiGheijvuWsvuOBseWOvumdqOesmOWRjumBrll4Kh9bQmoEC1DmlYbnu5zlhpLlrIES5YKV54iM5Yak772K5Y6Z5LqA5pW+57ul5Lmo5Lu55YaU6ZaY55WH55ul5bGe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5pWg57ub6ZWM55q26b2Q5qGo5ZOt5Z+66aul5piD56Wf5Zi/772K5a6P5qCp6Zyq5rmT5rWp6Zy85bmW5p2555WH772t5bin5Lip5Y+S5LqA5p2e5pSO572l6KaG6aOA5qWY55at55um5YaU54+AU049VANvayofW+eQluWiveWHs+WJou+9ouWOn+S6iuimguWHouWkmumDleWJo+WYv+acluebsumWi+mjkO+9muWEnuWvvOS5ruiJnOaRseS5i+eVpOW3mOeujOaakeWkqu+9iuS5u+i+oueVueS7mOS6n+mTk+i/rei1he+9o+WageasteS4sOiAvuiYtO+9m+i+n+S5nOedrumjjOevgeaZh+WRhOi3neWlr+WRiF1+UVRbXXoaDHbkuZbku7Plr5TlsKvlubPlsK/vva3luqvorpPku7Plr7nlr6HnrI/lnYbml5zpho/pmpDmhafopqPlkYlMQA04AzdZOy9I5Y+N5om35LmF55WA55um5oi954Cb5p2V772t5bqr6K6T5by55LmP6ZSo5Zmy55uy5oi254Cj5p2s772k55WK5pyL54OJ54CE55WJ55uVARIJPnh8WWcjBFxkTAdTcVRZWHXli5jlhJrnrqJqaFQDThgdBDcAH0bli4nlhKrnrrFHaDUEAx0DUkM5WFwBMjQaDCY9SkIaGRsNNAAf5Yu75YS7566BVFt0eQlc5Yuw5YSc566oXX5VD1trNkjnlZDohZnnrJ/lkaznpq/nlZvlrKDor5HlpabpgqzmmJLmiKznm6Hli4nlhKrltpPlhJLvvYTogZrovrHlnLXkuLHmmZ/ogpLlgLvlhp7ms6jnmrnjgafkub3ku7zmnbbkuZ/mj6DltZHnm6zlgLjmsrvmmZ/liYbnlYnlkZXnp7DlhbDlr6zoopLltqPlhIHmnIDkubLli4jlhITnlZfohb/lhr/otbDvva3lp5PmnqHmn63ku77lpbDln43nm7LlvaXljpnovLnkup7vva7mrrrlp7ImBTRc44C8MyQFGQEt5Lid57CT55um772i5a+o5peW5o6x5L+KR1QV54if5p2q55uy772p6YOr5Lie5bGZ5bGf5Y6B6IKN5Lmk6Lyc5a+S77yx6ICx5Lmo5pm45Y+95Lm96LyY5a+B6KKT54ig5p2O772i5ZqQ5LmV5Z2J5Y6+5LuY6aK5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
-            </div>
-    </form></div>
-
-    <script type="text/javascript">
-        var Base64WithXOR = {
-            encode: function (input) {
-                return Base64.encode(input);
-            },
-
-            decode: function (input) {
-                return Base64.decode(input);
-            },
-
-            encode_with_xor: function (input, key) {
-                var pwd = this.encode(key)
-                var xor_string = this._xor_handle(input, pwd);
-                return this.encode(xor_string);
-            },
-
-            decode_with_xor: function (input, key) {
-                var pwd = this.encode(key)
-                var decode_string = this.decode(input);
-                return this._xor_handle(decode_string, pwd);
-            },
-
-            _xor_handle: function (source, key) {
-                var result = "";
-                for (var i = 0; i < source.length; i++) {
-                    var source_char = source.charCodeAt(i);
-                    var key_idx = i % key.length;
-                    var xor_char_code = key.charCodeAt(key_idx) ^ source_char;
-                    result += String.fromCharCode(xor_char_code);
-                }
-                return result;
-            },
-        }
-
-        // 密码验证
-        function checkPassword() {
-            var pwd = document.getElementById("password").value;
-            var encoded_content = document.getElementById("encoded_text").innerHTML;
-            var decoded_ele = Base64WithXOR.decode_with_xor(encoded_content, pwd);
-            if (decoded_ele.trim().startsWith('<') && decoded_ele.trim().endsWith('>')) {
-                document.getElementById("inner-encryted-page").outerHTML = decoded_ele;
-            } else {
-                alert("密码错误，请重新输入");
-            }
-        }
-
-    </script>
-
-</div>
   </div>
   
 </article>
 
-        
-      
-        
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="/news/2021/04/02/my-music-play-list/">
-              <strong class="archive-post-title" itemprop="name">我的音乐清单</strong>
-              <span class="archive-post-date"><time datetime="2021-04-01T19:07:37.115Z">2021-04-01</time></span>
-            </a>
-          </article>
-        
-      
-        
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="/news/2021/03/25/how-to-write-a-hexo-plugin/">
-              <strong class="archive-post-title" itemprop="name">开发一款用于正文加密的Hexo插件</strong>
-              <span class="archive-post-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></span>
-            </a>
-          </article>
         
       
         
@@ -202,6 +167,15 @@
       
         
           <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
+            <a class="archive-post-link" href="/news/2019/09/10/simplifying-life/">
+              <strong class="archive-post-title" itemprop="name">我的断舍离实践</strong>
+              <span class="archive-post-date"><time datetime="2019-09-10T00:00:00.000Z">2019-09-10</time></span>
+            </a>
+          </article>
+        
+      
+        
+          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
             <a class="archive-post-link" href="/news/2019/09/01/auto-download-xdebug-for-php/">
               <strong class="archive-post-title" itemprop="name">一键安装php-xdebug</strong>
               <span class="archive-post-date"><time datetime="2019-09-01T00:00:00.000Z">2019-09-01</time></span>
@@ -214,6 +188,15 @@
             <a class="archive-post-link" href="/news/2019/07/24/usage-habits-of-different-operating-systems/">
               <strong class="archive-post-title" itemprop="name">不同操作系统的使用习惯备忘录</strong>
               <span class="archive-post-date"><time datetime="2019-07-24T00:00:00.000Z">2019-07-24</time></span>
+            </a>
+          </article>
+        
+      
+        
+          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
+            <a class="archive-post-link" href="/news/2019/07/20/my-music-play-list/">
+              <strong class="archive-post-title" itemprop="name">我的音乐清单</strong>
+              <span class="archive-post-date"><time datetime="2019-07-20T00:00:00.000Z">2019-07-20</time></span>
             </a>
           </article>
         
