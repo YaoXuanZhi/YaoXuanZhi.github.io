@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>开发一款用于正文加密的Hexo插件 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/news/2021/03/25/how-to-write-a-hexo-plugin/index.html">
+  <!-- Alternative links -->
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="前言上一篇文章谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：hexo-blog-encrypt 需求本人希望借助这款插件，只需要让哪些想要加密的md的文件头">
+<meta name="keywords" content="encrypted html,hexo plugin,base64_with_xor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发一款用于正文加密的Hexo插件">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/news/2021/03/25/how-to-write-a-hexo-plugin/index.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="前言上一篇文章谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：hexo-blog-encrypt 需求本人希望借助这款插件，只需要让哪些想要加密的md的文件头">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2021-03-25/1616647855692.png">
+<meta property="og:updated_time" content="2021-04-01T19:07:37.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发一款用于正文加密的Hexo插件">
+<meta name="twitter:description" content="前言上一篇文章谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：hexo-blog-encrypt 需求本人希望借助这款插件，只需要让哪些想要加密的md的文件头">
+<meta name="twitter:image" content="https://yaoxuanzhi.github.io/assets/2021-03-25/1616647855692.png">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div class="wrapper">
+    <div class="inner">
+      <article class="article post" itemscope itemtype="http://schema.org/Article">
+  <header class="article-header">
+    
+      <h1 class="article-title" itemprop="name">开发一款用于正文加密的Hexo插件</h1>
+    
+    <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></a>
+  </header>
+  <div class="article-content" itemprop="articleBody">
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>上一篇<a href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/">文章</a>谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<h3 id="需求" class="article-heading"><a href="#需求" class="headerlink" title="需求"></a>需求<a class="article-anchor" href="#需求" aria-hidden="true"></a></h3><p>本人希望借助这款插件，只需要让哪些想要加密的md的文件头上添加<code>password: your_pwd</code>，即可在执行<code>hexo g</code>的时候，自动对生成的html的文章正文进行加密</p>
+<h3 id="插件开发记录" class="article-heading"><a href="#插件开发记录" class="headerlink" title="插件开发记录"></a>插件开发记录<a class="article-anchor" href="#插件开发记录" aria-hidden="true"></a></h3><p>由于具体的Hexo插件开发博客已经汗牛充栋了，这里就没必要赘述了，仅仅罗列一下本人开发插件过程中用到的资料和相关链接吧</p>
+<ul>
+<li><ol>
+<li>了解hexo的插件工作机制</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>找出处理文章正文的插件接口或示例</li>
+</ol>
+<ul>
+<li>在 <strong><a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></strong>里找到了关键接口</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>新建一个插件项目</li>
+</ol>
+<ul>
+<li><a href="http://www.sumoon.com/hexo/hexo-simple-plugin/" target="_blank" rel="noopener">《hexo教程之为hexo编写一个插件》</a></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>整合加密打包功能到这个插件项目上</li>
+</ol>
+<ul>
+<li>已上传到 <strong><a href="https://hub.fastgit.org/yaoxuanzhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></strong>仓库上了</li>
+</ul>
+</li>
+<li><ol start="5">
+<li>将这款插件发布到<a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>上</li>
+</ol>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/44156668" target="_blank" rel="noopener">《如何发布自己的NPM包（模块）？》</a></li>
+</ul>
+</li>
+<li><ol start="6">
+<li>将这款插件发布到hexo插件市场上</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="插件调试" class="article-heading"><a href="#插件调试" class="headerlink" title="插件调试"></a>插件调试<a class="article-anchor" href="#插件调试" aria-hidden="true"></a></h4><p>目前没有找到vscode直接断点调试hexo插件的方式以及相关的文章教程，这里采用的是根据<code>hexo.log()</code>或<code>console.log()</code>的日志输出来跟踪问题的</p>
+<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于GithubPage是部署在墙外的，部分国内的cdn国外无法正常访问，所以需将<code>bootstrap.min.css</code>的<a href="http://cdn.bootstrapmb.com/bootstrap/4.4.0/css/bootstrap.min.css" target="_blank" rel="noopener">国内url</a>要改成<a href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" target="_blank" rel="noopener">国外url</a></p>
+<h2 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h2><p>其实hexo 插件市场上也有好几款文章正文加密插件，本人开发的这款加密插件可当作另一种实现思路</p>
+<p><img src="/assets/2021-03-25/1616647855692.png" alt></p>
+
+  </div>
+  
+</article>
+
+    </div>
+  </div>
+</div>
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

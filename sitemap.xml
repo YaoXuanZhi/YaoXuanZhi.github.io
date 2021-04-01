@@ -2,65 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
-    
-    <lastmod>2019-10-02T08:46:19.646Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/06/08/custom-protable-software-base-on-autohotkey/</loc>
-    
-    <lastmod>2019-10-02T08:23:06.494Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/09/01/auto-download-xdebug-for-php/</loc>
-    
-    <lastmod>2019-09-22T01:17:13.425Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/index.html</loc>
-    
-    <lastmod>2019-09-01T06:29:20.067Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
     
-    <lastmod>2019-09-01T06:29:20.054Z</lastmod>
+    <lastmod>2021-04-01T19:07:37.119Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/docs/demo.html</loc>
+    <loc>https://yaoxuanzhi.github.io/news/2021/04/02/simplifying-life/</loc>
     
-    <lastmod>2019-09-01T06:29:20.053Z</lastmod>
+    <lastmod>2021-04-01T19:07:37.116Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
     
-    <lastmod>2019-09-01T06:29:19.990Z</lastmod>
+    <lastmod>2021-04-01T19:07:37.116Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
+    <loc>https://yaoxuanzhi.github.io/news/2021/03/25/how-to-write-a-hexo-plugin/</loc>
     
-    <lastmod>2019-09-01T06:29:19.988Z</lastmod>
+    <lastmod>2021-04-01T19:07:37.115Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2021/04/02/my-music-play-list/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.115Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/10/05/how-to-write-idea-plugin/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.114Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/06/08/custom-protable-software-base-on-autohotkey/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.114Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/09/01/auto-download-xdebug-for-php/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.113Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yaoxuanzhi.github.io/news/2019/05/07/about-deploy-win10-environment/</loc>
     
-    <lastmod>2019-09-01T06:29:19.986Z</lastmod>
+    <lastmod>2021-04-01T19:07:37.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
+    
+    <lastmod>2021-04-01T19:07:37.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/index.html</loc>
+    
+    <lastmod>2021-04-01T19:05:54.818Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/docs/demo.html</loc>
+    
+    <lastmod>2021-04-01T19:05:54.805Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/07/24/usage-habits-of-different-operating-systems/</loc>
+    
+    <lastmod>2021-04-01T19:05:54.687Z</lastmod>
     
   </url>
   

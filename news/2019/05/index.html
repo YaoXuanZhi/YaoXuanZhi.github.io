@@ -55,7 +55,7 @@
       <a href="/" id="logo">YXZ's Blog</a>
     </h1>
     <nav id="main-nav">
-      <a href="/docs/" class="main-nav-link">文档</a><a href="/news/" class="main-nav-link">随笔</a><a href="/about/" class="main-nav-link">关于我</a>
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/about/" class="main-nav-link">关于我</a>
     </nav>
     <div id="lang-select-wrap">
       <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
@@ -104,7 +104,7 @@
 <li>VSCode + Vim</li>
 <li>Sublime修改配置即可<blockquote>
 <p>在<code>Preferences -&gt; Settings</code>里如下设置：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ignored_packages"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"ignored_packages"</span>: []<br>&#125;<br></code></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
@@ -260,7 +260,7 @@
 <p>目前常用的工具安装了Vim插件后，并不能控制应用里的所有东西，比如在Chrome浏览器上查看视频时，Vimium插件是无法控制视频的播放/暂停的，因此有必要提供一个键盘控制鼠标的功能，让双手停留在键盘上</p>
 <ul>
 <li>键盘控制鼠标移动、点击<ul>
-<li>Windows：采用AutoHotKey可以实现，ahk如下： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">; 鼠标往下移动</span><br><span class="line">!^down::</span><br><span class="line">mousemove,0,+8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往上移动</span><br><span class="line">!^up::</span><br><span class="line">mousemove,0,-8,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往左移动</span><br><span class="line">!^left::</span><br><span class="line">mousemove,-8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标往右移动</span><br><span class="line">!^right::</span><br><span class="line">mousemove,+8,0,0,R</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; --------------鼠标点击</span><br><span class="line"></span><br><span class="line">; 鼠标左击</span><br><span class="line">!^h::</span><br><span class="line">; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">MouseClick, left, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br><span class="line"></span><br><span class="line">; 鼠标右击</span><br><span class="line">!^l::</span><br><span class="line">MouseGetPos, x, y</span><br><span class="line">; MouseClick, right, %x%, %y%</span><br><span class="line">; ButtonRight</span><br><span class="line">; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.</span><br><span class="line">MouseClick, right, %x%, %y%</span><br><span class="line"><span class="built_in">return</span></span><br></pre></td></tr></table></figure>
+<li>Windows：采用AutoHotKey可以实现，ahk如下： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs sh">; 鼠标往下移动<br>!^down::<br>mousemove,0,+8,0,R<br><span class="hljs-built_in">return</span><br><br>; 鼠标往上移动<br>!^up::<br>mousemove,0,-8,0,R<br><span class="hljs-built_in">return</span><br><br>; 鼠标往左移动<br>!^left::<br>mousemove,-8,0,0,R<br><span class="hljs-built_in">return</span><br><br>; 鼠标往右移动<br>!^right::<br>mousemove,+8,0,0,R<br><span class="hljs-built_in">return</span><br><br>; --------------鼠标点击<br><br>; 鼠标左击<br>!^h::<br>; MouseClick, left,,, 1, 0, D  ; Hold down the left mouse button.<br>MouseGetPos, x, y<br>MouseClick, left, %x%, %y%<br><span class="hljs-built_in">return</span><br><br>; 鼠标右击<br>!^l::<br>MouseGetPos, x, y<br>; MouseClick, right, %x%, %y%<br>; ButtonRight<br>; MouseClick, right,,, 1, 0, D  ; Hold down the right mouse button.<br>MouseClick, right, %x%, %y%<br><span class="hljs-built_in">return</span><br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -268,29 +268,19 @@
 </blockquote>
 <ul>
 <li>Osx：采用ApplyScript+MouseTools可以实现： <ul>
-<li><a href="http://www.hamsoftengineering.com/codeSharing/MouseTools/MouseTools.html" target="_blank" rel="noopener">MouseTools</a><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 后续再补充了</span></span><br></pre></td></tr></table></figure>
+<li><a href="http://www.hamsoftengineering.com/codeSharing/MouseTools/MouseTools.html" target="_blank" rel="noopener">MouseTools</a><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-comment">-- 后续再补充了</span><br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="FAQ" class="article-heading"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ<a class="article-anchor" href="#FAQ" aria-hidden="true"></a></h3><ul>
-<li>在shell vim上粘贴文本出现缩进错乱的问题<blockquote>
+<h3 id="FAQ" class="article-heading"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ<a class="article-anchor" href="#FAQ" aria-hidden="true"></a></h3><h5 id="在shell-vim上粘贴文本出现缩进错乱的问题" class="article-heading"><a href="#在shell-vim上粘贴文本出现缩进错乱的问题" class="headerlink" title="在shell vim上粘贴文本出现缩进错乱的问题"></a>在shell vim上粘贴文本出现缩进错乱的问题<a class="article-anchor" href="#在shell-vim上粘贴文本出现缩进错乱的问题" aria-hidden="true"></a></h5><blockquote>
 <p>这个需要设置终端Vim的粘贴模式为粘贴保留格式：<code>:set paste</code></p>
 </blockquote>
-</li>
-<li>如何进行Vim 插件开发<blockquote>
+<h5 id="如何进行Vim-插件开发" class="article-heading"><a href="#如何进行Vim-插件开发" class="headerlink" title="如何进行Vim 插件开发"></a>如何进行Vim 插件开发<a class="article-anchor" href="#如何进行Vim-插件开发" aria-hidden="true"></a></h5><blockquote>
 <p>学习<a href="https://www.w3cschool.cn/vim/gsenvozt.html" target="_blank" rel="noopener">Vimscript 文档</a></p>
 </blockquote>
-</li>
-<li>如何查看ahk的内置变量<ul>
-<li><img src="/assets/2019-10-02/1570005377287.png" alt="查看ahk的内置变量"><blockquote>
-<p>比如，<code>%A_WorkingDir%</code>为ahk.exe的工作目录</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
+<h5 id="Windows下如何编译ycm-for-vim" class="article-heading"><a href="#Windows下如何编译ycm-for-vim" class="headerlink" title="Windows下如何编译ycm for vim"></a>Windows下如何编译ycm for vim<a class="article-anchor" href="#Windows下如何编译ycm-for-vim" aria-hidden="true"></a></h5><p>需要安装llvm和python以及vs，以下是ycm的编译脚本<br><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bat">@<span class="hljs-built_in">echo</span> off<br><span class="hljs-comment">REM  配置ycm的编译环境</span><br><span class="hljs-built_in">set</span> llvm_root="D:/ProgramFiles/LLVM"<br><span class="hljs-built_in">set</span> libclang_path="D:/ProgramFiles/LLVM/lib/libclang.lib"<br><span class="hljs-comment"><br>REM  使用py2</span><br><span class="hljs-built_in">set</span> PYTHON_LIBRARY="D:/ProgramFiles/Python27/libs/python27.lib"<br><span class="hljs-built_in">set</span> PYTHON_INCLUDE_DIR="D:/ProgramFiles/Python27/include"<br><span class="hljs-comment"><br>REM  使用py3</span><br><span class="hljs-comment">REM  set USE_PYTHON2=OFF</span><br><span class="hljs-comment">REM  set PYTHON_LIBRARY="C:/Python35/libs/Python35.lib"</span><br><span class="hljs-comment">REM  set PYTHON_INCLUDE_DIR="C:/Python35/include"</span><br><span class="hljs-comment"><br>REM  配置ycm项目导出路径</span><br><span class="hljs-built_in">set</span> ycm_path="D:/GreenFolder/GvimWithYcm/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp"<br><br><span class="hljs-built_in">mkdir</span> build &amp; <span class="hljs-built_in">cd</span> build<br>cmake -G "Visual Studio <span class="hljs-number">15</span> <span class="hljs-number">2017</span> Win64" -DEXTERNAL_LIBCLANG_PATH=<span class="hljs-variable">%libclang_path%</span> -DPATH_TO_LLVM_ROOT=<span class="hljs-variable">%llvm_root%</span>; . <span class="hljs-variable">%ycm_path%</span><br><span class="hljs-built_in">cd</span> ..<br><span class="hljs-built_in">pause</span><br></code></pre></td></tr></table></figure></p>
 
   </div>
   
@@ -313,7 +303,7 @@
     <footer id="footer" class="wrapper">
   <div class="inner">
     <div id="footer-copyright">
-      &copy; 2019 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
       Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
     </div>
     <div id="footer-links">
@@ -328,7 +318,7 @@
   <nav id="mobile-nav">
   <div id="mobile-nav-inner">
     <ul id="mobile-nav-list">
-      <a href="/docs/" class="mobile-nav-link">文档</a><a href="/news/" class="mobile-nav-link">随笔</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/about/" class="mobile-nav-link">关于我</a>
       <li class="mobile-nav-item">
         <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
       </li>

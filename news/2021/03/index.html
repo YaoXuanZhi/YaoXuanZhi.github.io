@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://yaoxuanzhi.github.io/news/2019/07/index.html">
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/news/2021/03/index.html">
   <!-- Alternative links -->
   
   <!-- Icon -->
@@ -38,7 +38,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
 <meta property="og:title" content="News">
-<meta property="og:url" content="https://yaoxuanzhi.github.io/news/2019/07/index.html">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/news/2021/03/index.html">
 <meta property="og:site_name" content="YXZ&#39;s Blog">
 <meta property="og:locale" content="zh-cn">
 <meta name="twitter:card" content="summary">
@@ -83,122 +83,77 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2019/07/24/usage-habits-of-different-operating-systems/" class="article-title" itemprop="name">不同操作系统的使用习惯备忘录</a>
+        <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-title" itemprop="name">开发一款用于正文加密的Hexo插件</a>
       </h1>
     
-    <a href="/news/2019/07/24/usage-habits-of-different-operating-systems/" class="article-date"><time datetime="2019-07-24T00:00:00.000Z">2019-07-24</time></a>
+    <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <ul>
-<li><p>✔ Office 套件</p>
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>上一篇<a href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/">文章</a>谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<h3 id="需求" class="article-heading"><a href="#需求" class="headerlink" title="需求"></a>需求<a class="article-anchor" href="#需求" aria-hidden="true"></a></h3><p>本人希望借助这款插件，只需要让哪些想要加密的md的文件头上添加<code>password: your_pwd</code>，即可在执行<code>hexo g</code>的时候，自动对生成的html的文章正文进行加密</p>
+<h3 id="插件开发记录" class="article-heading"><a href="#插件开发记录" class="headerlink" title="插件开发记录"></a>插件开发记录<a class="article-anchor" href="#插件开发记录" aria-hidden="true"></a></h3><p>由于具体的Hexo插件开发博客已经汗牛充栋了，这里就没必要赘述了，仅仅罗列一下本人开发插件过程中用到的资料和相关链接吧</p>
 <ul>
-<li>Windows：Exe、Zip、7z(官方下载地址：Windows应用商店和各种软件的官网)<blockquote>
-<p>msys2下可以使用<code>pacman -S xxx</code></p>
-</blockquote>
-</li>
-<li>Mac：Dmg、Pkg(官方软件包：App Store)</li>
-<li>Linux(Ubuntu)：<code>apt-get install xxx</code></li>
-<li>Linux(CentOS)：<code>yum install -g xxx</code></li>
-</ul>
-</li>
-<li><p>✔ Office 套件</p>
+<li><ol>
+<li>了解hexo的插件工作机制</li>
+</ol>
 <ul>
-<li>Windows：Wps Office</li>
-<li>Mac：Wps Office</li>
-<li>Linux(Ubuntu)：Wps Office</li>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
 </ul>
 </li>
-<li><p>✔ App Package</p>
+<li><ol start="2">
+<li>找出处理文章正文的插件接口或示例</li>
+</ol>
 <ul>
-<li>Windows：Exe、Zip、7z(官方下载地址：Windows应用商店和各种软件的官网)</li>
-<li>Mac：Dmg、Pkg(官方软件包：App Store)，和homebrew</li>
-<li>Linux(Ubuntu)：apt-get install xxx</li>
-<li>Linux(CentOS)：yum install -g xxx</li>
+<li>在 <strong><a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></strong>里找到了关键接口</li>
 </ul>
 </li>
-<li><p>✔ 浏览器</p>
+<li><ol start="3">
+<li>新建一个插件项目</li>
+</ol>
 <ul>
-<li>Windows：CentBrowser、Chrome</li>
-<li>Mac：Chrome</li>
-<li>Ubuntu：Chrome<blockquote>
-<p>注意，还需要搭配<code>Vimium</code>插件</p>
-</blockquote>
-</li>
+<li><a href="http://www.sumoon.com/hexo/hexo-simple-plugin/" target="_blank" rel="noopener">《hexo教程之为hexo编写一个插件》</a></li>
 </ul>
 </li>
-<li><p>❑ Gif录制工具：</p>
+<li><ol start="4">
+<li>整合加密打包功能到这个插件项目上</li>
+</ol>
 <ul>
-<li>Windows：Licecap</li>
-<li>Mac：Licecap<blockquote>
-<p>不能全屏录制啥的，还有不能将应用程序的顶部菜单栏进行绘制</p>
-</blockquote>
-</li>
+<li>已上传到 <strong><a href="https://hub.fastgit.org/yaoxuanzhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></strong>仓库上了</li>
 </ul>
 </li>
-<li><p>❑ 截图／贴图工具</p>
+<li><ol start="5">
+<li>将这款插件发布到<a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>上</li>
+</ol>
 <ul>
-<li>Windows：Snipaste</li>
-<li>Mac：Snipaste</li>
+<li><a href="https://zhuanlan.zhihu.com/p/44156668" target="_blank" rel="noopener">《如何发布自己的NPM包（模块）？》</a></li>
 </ul>
 </li>
-<li><p>✔ 高级编辑器：VSCode、Vim</p>
-</li>
-<li><p>✔ 开发工具：IdeaU(包含了Java、Python、Php、Lua、Erlang、Golang、Rust等多种语言) CLion(C++)</p>
-<blockquote>
-<p>注意，还需要搭配<code>ideaVim</code>插件</p>
-</blockquote>
-</li>
-<li><p>✔ 热键辅助工具：</p>
+<li><ol start="6">
+<li>将这款插件发布到hexo插件市场上</li>
+</ol>
 <ul>
-<li>Windows：AutoHotKey</li>
-<li>Mac：AppleScript</li>
-</ul>
-</li>
-<li><p>✔ 进入终端操作</p>
-<ul>
-<li>Mac：<strong>【Mac+Shift+ `】</strong></li>
-<li>Windows：<strong>【Win+R】</strong>，然后输入<code>cmd</code></li>
-<li>Linux(Utuntu)：<strong>【Ctrl+Alt+T】</strong></li>
-</ul>
-</li>
-<li><p>✔ 强制关闭某个进程(ps：注意，这个要用Gif来进行演示哦)</p>
-<ul>
-<li>Windows:<strong>【Shift+Ctl+Esc】</strong>打开任务管理器，然后找到对应的进程关闭</li>
-<li>Mac: 鼠标点击左上角的 <code>苹果图标</code>，然后左击打开菜单，找到 <code>强制退出</code> 菜单项进行退出</li>
-</ul>
-</li>
-<li><p>✔ 在终端打开文件夹所在窗口</p>
-<ul>
-<li>Windows：<code>explorer .</code></li>
-<li>Mac：<code>open .</code></li>
-</ul>
-</li>
-<li><p>❑ 安装随身WiFI驱动</p>
-<blockquote>
-<p>包括但不限于360随身WIFI</p>
-<ul>
-<li>Windows：<ul>
-<li><a href="http://wifi.360.cn/easy/pc/" target="_blank" rel="noopener">360随身WIFI官网</a></li>
-</ul>
-</li>
-<li>Ubuntu：<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo add-apt-repository ppa:thopiekar/mt7601<br>sudo apt-get update<br>sudo apt-get install mt7601-sta-dkms<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>参考资料<ul>
-<li><a href="https://blog.csdn.net/mdjxy63/article/details/78304708/" target="_blank" rel="noopener">双系统win+ubuntu14.04使用360随身wifi 3代</a></li>
-<li><a href="https://www.cnblogs.com/platero/p/4417458.html" target="_blank" rel="noopener">360/小米/百度 随身wifi Ubuntu下作为无线网卡使用</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+<h4 id="插件调试" class="article-heading"><a href="#插件调试" class="headerlink" title="插件调试"></a>插件调试<a class="article-anchor" href="#插件调试" aria-hidden="true"></a></h4><p>目前没有找到vscode直接断点调试hexo插件的方式以及相关的文章教程，这里采用的是根据<code>hexo.log()</code>或<code>console.log()</code>的日志输出来跟踪问题的</p>
+<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于GithubPage是部署在墙外的，部分国内的cdn国外无法正常访问，所以需将<code>bootstrap.min.css</code>的<a href="http://cdn.bootstrapmb.com/bootstrap/4.4.0/css/bootstrap.min.css" target="_blank" rel="noopener">国内url</a>要改成<a href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" target="_blank" rel="noopener">国外url</a></p>
+<h2 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h2><p>其实hexo 插件市场上也有好几款文章正文加密插件，本人开发的这款加密插件可当作另一种实现思路</p>
+<p><img src="/assets/2021-03-25/1616647855692.png" alt></p>
 
   </div>
   
 </article>
 
+        
+      
+        
+          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
+            <a class="archive-post-link" href="/news/2021/03/15/a-way-of-html-encryption/">
+              <strong class="archive-post-title" itemprop="name">谈一种页面加密技术</strong>
+              <span class="archive-post-date"><time datetime="2021-03-15T00:00:00.000Z">2021-03-15</time></span>
+            </a>
+          </article>
         
       
     </div>

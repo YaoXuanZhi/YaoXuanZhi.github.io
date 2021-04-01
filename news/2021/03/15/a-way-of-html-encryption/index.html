@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>谈一种页面加密技术 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/index.html">
+  <!-- Alternative links -->
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：  HTML的简单页面加密代码 基本流程上是没啥问题，但是这个示">
+<meta name="keywords" content="html,encrypted,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈一种页面加密技术">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/index.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：  HTML的简单页面加密代码 基本流程上是没啥问题，但是这个示">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2021-04-01T19:07:37.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈一种页面加密技术">
+<meta name="twitter:description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：  HTML的简单页面加密代码 基本流程上是没啥问题，但是这个示">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div class="wrapper">
+    <div class="inner">
+      <article class="article post" itemscope itemtype="http://schema.org/Article">
+  <header class="article-header">
+    
+      <h1 class="article-title" itemprop="name">谈一种页面加密技术</h1>
+    
+    <a href="/news/2021/03/15/a-way-of-html-encryption/" class="article-date"><time datetime="2021-03-15T00:00:00.000Z">2021-03-15</time></a>
+  </header>
+  <div class="article-content" itemprop="articleBody">
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_44548876/article/details/86725023" target="_blank" rel="noopener">HTML的简单页面加密代码</a><blockquote>
+<p>基本流程上是没啥问题，但是这个示例里面，密码完整验证的方式已经被明文存储在页面上了，纵使密码存放在其它地方，采用Ajax方式获取之后再对比也毫无意义，开发者很容易在浏览器上通过F12修改这个密码验证逻辑从而正常浏览到，并且，由于这里面的内容也是明文存放着的，也会被搜索引擎检索到</p>
+</blockquote>
+</li>
+<li><del><a href="http://cha.buyiju.com/tool/cryptogram.htm" target="_blank" rel="noopener">HTML网页加密解密</a></del><blockquote>
+<p>无法正常体验，并且访问体验也不是我想要的</p>
+</blockquote>
+</li>
+</ul>
+<p>总而言之，虽然找到了各种貌似可用的实现，但是都没有get到我的需求痛点，决定自己开搞一个</p>
+<h3 id="基本思路" class="article-heading"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路<a class="article-anchor" href="#基本思路" aria-hidden="true"></a></h3><p>实际上，本人对访问的加密强度没啥追求，只需要以下特性即可：</p>
+<ul>
+<li><em>正文不能被搜索引擎爬虫到</em></li>
+<li><em>需要输入密码访问</em></li>
+</ul>
+<p>针对这两个需求点，采用以下两种加密方式混合使用即可达到：</p>
+<ul>
+<li><strong>base64</strong> (一种可逆加密方式，将明文或字节流转换成base64字符串，在此解决首次xor加密生成的字节流存储在页面的问题)</li>
+<li><strong>xor</strong> (一种可逆加密方式，提供密钥验证支持，在正确的密钥下，进行两次该加密即可获得原文)</li>
+</ul>
+<h4 id="页面加密打包思路" class="article-heading"><a href="#页面加密打包思路" class="headerlink" title="页面加密打包思路"></a>页面加密打包思路<a class="article-anchor" href="#页面加密打包思路" aria-hidden="true"></a></h4><p>读取需要加密的html文件的特定标签内容，将其进行base64+xor加密之后，塞到一个可以进行密码验证访问的模板标签上，删掉这个已加密的正文标签后，将模板标签再重新拼接成新的html。具体流程流程看代码啦，也是比较直观的</p>
+<h4 id="页面验证访问思路" class="article-heading"><a href="#页面验证访问思路" class="headerlink" title="页面验证访问思路"></a>页面验证访问思路<a class="article-anchor" href="#页面验证访问思路" aria-hidden="true"></a></h4><p>游客打开这个加密后的html之后，已加密的标签上会显示一个密码验证的界面，如果密码输入错误，浏览器会弹框提醒，如果输入密码正确，则解密后的正文标签outHtml会直接替换掉这个密码验证标签的outHtml，此时浏览器会自动将正文内容加载出来</p>
+<h4 id="加密-解密思路" class="article-heading"><a href="#加密-解密思路" class="headerlink" title="加密/解密思路"></a>加密/解密思路<a class="article-anchor" href="#加密-解密思路" aria-hidden="true"></a></h4><p>从html上提取到需要加密的正文tag之后，其加密、解密的流程设计如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs text">  html encrytion                        html decrytion<br><br> +--------------+                      +--------------+<br> |              |                      |              |<br> |input html tag|                      |input html tag|<br> |              |                      |              |<br> +--------------+                      +--------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br> +-------v--------+                  +---------v---------+<br> |                |                  |                   |<br> | xor encryption |                  | base64 encryption |<br> |                |                  |                   |<br> +----------------+                  +-------------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br>+--------v----------+                  +-------v--------+<br>|                   |                  |                |<br>| base64 encryption |                  | xor encryption |<br>|                   |                  |                |<br>+-------------------+                  +----------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br>  +------v--------+                     +------v--------+<br>  |               |                     |               |<br>  |output html tag|                     |output html tag|<br>  |               |                     |               |<br>  +---------------+                     +---------------+<br></code></pre></td></tr></table></figure>
+<h4 id="技术选型" class="article-heading"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型<a class="article-anchor" href="#技术选型" aria-hidden="true"></a></h4><p>此工具基于nodejs技术栈实现，经过对比，选择了下面这几个第三方库：</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/js-base64" target="_blank" rel="noopener">js-base64</a><blockquote>
+<p>utf8支持良好的base64库</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="noopener">cheerio</a><blockquote>
+<p>能够解析修改html的html库，多用于爬虫项目</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/yargs" target="_blank" rel="noopener">yargs</a><blockquote>
+<p>能轻松配置命令，解析多个参数，并设置快捷方式等，还能自动生成帮助菜单的命令行辅助库</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="代码实现" class="article-heading"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现<a class="article-anchor" href="#代码实现" aria-hidden="true"></a></h4><ul>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js" target="_blank" rel="noopener">base64+xor加密解密库</a></li>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js" target="_blank" rel="noopener">html加密打包工具</a></li>
+</ul>
+<h4 id="后续迭代" class="article-heading"><a href="#后续迭代" class="headerlink" title="后续迭代"></a>后续迭代<a class="article-anchor" href="#后续迭代" aria-hidden="true"></a></h4><p>由于目前本人的博客都是采用hexo发布的，因此需要将这个加密逻辑整合成hexo插件，期间找到了一款同类型的插件<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a>，这款hexo插件基本满足我最开始的要求了，但由于它是在我完成了<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js" target="_blank" rel="noopener">base64+xor加密解密库</a>和<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js" target="_blank" rel="noopener">html加密打包工具</a>后，打算整合到hexo的时候才找到的，本着不断学习的态度，借鉴这个插件的思路，自己也重写了一个 OMG，感兴趣的可前往<a href="https://github.com/YaoXuanZhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></p>
+
+  </div>
+  
+</article>
+
+    </div>
+  </div>
+</div>
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
