@@ -231,7 +231,7 @@
         <form class="text-left mx-auto card p-4 w-100 p-2" autocomplete="off" target="hide_iframe">
             <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1>  <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
             <div id="encoded_text" style="display:none;">
-                WDdo5Luz5Y6y5YCb5LiX5oe/55W75rW855uSMzDku7sBEhR5XA==
+                DCIuFUkkU14WPiYOASUQTQUkPRsDJBBVECo6RhR/5Lq05Y+r5YC+5Lmt5oaU55Wl5rWf55uFdGnku557eQpaSw==
             </div>
             <iframe id="id_iframe" name="hide_iframe" style="display:none;"></iframe>
     </form></div>
@@ -312,9 +312,12 @@
         function checkPasswordWrapper(pwd, handle_fun, error_fun) {
             var encoded_content = document.getElementById("encoded_text").innerHTML;
             var decoded_ele = Base64WithXOR.decode_with_xor(encoded_content, pwd);
-            if (decoded_ele.trim().startsWith('<') && decoded_ele.trim().endsWith('>')) {
+            var decoded_text = decoded_ele.trim();
+            var prefix = "hexo-encrypted-package-html";
+            decoded_text = decoded_text.substr(prefix.length);
+            if (decoded_text.length == 0 || (decoded_text.startsWith('<') && decoded_text.endsWith('>'))) {
                 if (typeof handle_fun === "function") {
-                    handle_fun(document.getElementById("inner-encryted-page"), decoded_ele);
+                    handle_fun(document.getElementById("inner-encryted-page"), decoded_text);
                 }
                 return true;
             } else {
