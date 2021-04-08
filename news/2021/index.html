@@ -83,273 +83,68 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2021/04/06/try-to-reverse-an-app/" class="article-title" itemprop="name">逆向某款app笔记（仅学习用途）</a>
+        <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-title" itemprop="name">开发一款用于正文加密的Hexo插件</a>
       </h1>
     
-    <a href="/news/2021/04/06/try-to-reverse-an-app/" class="article-date"><time datetime="2021-04-06T00:00:00.000Z">2021-04-06</time></a>
+    <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <div id="inner-encryted-page">
-    <head><meta name="generator" content="Hexo 3.8.0">
-        <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
-    </head>
-    <style scoped>
-         form {
-            max-width: 330px;
-            margin-top: 17%;
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>上一篇<a href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/">文章</a>谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<h3 id="需求" class="article-heading"><a href="#需求" class="headerlink" title="需求"></a>需求<a class="article-anchor" href="#需求" aria-hidden="true"></a></h3><p>本人希望借助这款插件，只需要让哪些想要加密的md的文件头上添加<code>password: your_pwd</code>，即可在执行<code>hexo g</code>的时候，自动对生成的html的文章正文进行加密</p>
+<h3 id="插件开发记录" class="article-heading"><a href="#插件开发记录" class="headerlink" title="插件开发记录"></a>插件开发记录<a class="article-anchor" href="#插件开发记录" aria-hidden="true"></a></h3><p>由于具体的Hexo插件开发博客已经汗牛充栋了，这里就没必要赘述了，仅仅罗列一下本人开发插件过程中用到的资料和相关链接吧</p>
+<ul>
+<li><ol>
+<li>了解hexo的插件工作机制</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>找出处理文章正文的插件接口或示例</li>
+</ol>
+<ul>
+<li>在 <strong><a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></strong>里找到了关键接口</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>新建一个插件项目</li>
+</ol>
+<ul>
+<li><a href="http://www.sumoon.com/hexo/hexo-simple-plugin/" target="_blank" rel="noopener">《hexo教程之为hexo编写一个插件》</a></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>整合加密打包功能到这个插件项目上</li>
+</ol>
+<ul>
+<li>已上传到 <strong><a href="https://hub.fastgit.org/yaoxuanzhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></strong>仓库上了</li>
+</ul>
+</li>
+<li><ol start="5">
+<li>将这款插件发布到<a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>上</li>
+</ol>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/44156668" target="_blank" rel="noopener">《如何发布自己的NPM包（模块）？》</a></li>
+</ul>
+</li>
+<li><ol start="6">
+<li>将这款插件发布到hexo插件市场上</li>
+</ol>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="插件调试" class="article-heading"><a href="#插件调试" class="headerlink" title="插件调试"></a>插件调试<a class="article-anchor" href="#插件调试" aria-hidden="true"></a></h4><p>目前没有找到vscode直接断点调试hexo插件的方式以及相关的文章教程，这里采用的是根据<code>hexo.log()</code>或<code>console.log()</code>的日志输出来跟踪问题的</p>
+<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于GithubPage是部署在墙外的，部分国内的cdn国外无法正常访问，所以需将<code>bootstrap.min.css</code>的<a href="http://cdn.bootstrapmb.com/bootstrap/4.4.0/css/bootstrap.min.css" target="_blank" rel="noopener">国内url</a>要改成<a href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" target="_blank" rel="noopener">国外url</a></p>
+<h2 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h2><p>其实hexo 插件市场上也有好几款文章正文加密插件，本人开发的这款加密插件可当作另一种实现思路</p>
+<p><img src="/assets/2021-03-25/1616647855692.png" alt></p>
 
-            --breakpoint-xs: 0;
-            --breakpoint-sm: 576px;
-            --breakpoint-md: 768px;
-            --breakpoint-lg: 992px;
-            --breakpoint-xl: 1200px;
-            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            text-rendering: optimizeLegibility;
-            line-height: 1.6em;
-            color: #444;
-            box-sizing: border-box;
-            margin: 0;
-            outline: 0;
-            font-weight: inherit;
-            font-style: inherit;
-            font-family: inherit;
-            font-size: 100%;
-            vertical-align: baseline;
-            max-width: 330px;
-            margin-top: 17%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: #fff;
-            background-clip: border-box;
-            border: 1px solid rgba(0, 0, 0, .125);
-            border-radius: .25rem;
-            width: 100% !important;
-            padding: 1.5rem !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-            text-align: left !important;
-        }
-
-        h1 {
-            --breakpoint-xs: 0;
-            --breakpoint-sm: 576px;
-            --breakpoint-md: 768px;
-            --breakpoint-lg: 992px;
-            --breakpoint-xl: 1200px;
-            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            text-rendering: optimizeLegibility;
-            color: #444;
-            word-wrap: break-word;
-            box-sizing: border-box;
-            padding: 0;
-            border: 0;
-            outline: 0;
-            font-style: inherit;
-            font-family: inherit;
-            vertical-align: baseline;
-            margin-bottom: 1rem !important;
-            text-align: center !important;
-            font-size: 2em;
-            line-height: 1em;
-            font-weight: bold;
-            margin: 1em 0;
-        }
-
-        input {
-            --breakpoint-xs: 0;
-            --breakpoint-sm: 576px;
-            --breakpoint-md: 768px;
-            --breakpoint-lg: 992px;
-            --breakpoint-xl: 1200px;
-            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            word-wrap: break-word;
-            box-sizing: border-box;
-            margin: 0;
-            font-family: inherit;
-            overflow: visible;
-            display: block;
-            width: 100%;
-            height: calc(1.5em + .75rem + 2px);
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: .25rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            border-top-right-radius: .25rem !important;
-            border-bottom-right-radius: .25rem !important;
-        }
-
-        button {
-            --breakpoint-xs: 0;
-            --breakpoint-sm: 576px;
-            --breakpoint-md: 768px;
-            --breakpoint-lg: 992px;
-            --breakpoint-xl: 1200px;
-            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            word-wrap: break-word;
-            box-sizing: border-box;
-            margin: 0;
-            font-family: inherit;
-            overflow: visible;
-            text-transform: none;
-            font-weight: 400;
-            text-align: center;
-            user-select: none;
-            border: 1px solid transparent;
-            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            color: #fff;
-            background-color: #007bff;
-            border-color: #007bff;
-            padding: .5rem 1rem;
-            font-size: 1.25rem;
-            line-height: 1.5;
-            border-radius: .3rem;
-            display: block;
-            width: 100%;
-            margin-top: 1rem !important;
-            cursor: pointer;
-        } 
-    </style>
-
-    <div class="text-center h-100">
-        <form class="text-left mx-auto card p-4 w-100 p-2" autocomplete="off" target="hide_iframe">
-            <h1 class="h3 mb-3 text-center article-heading">请输入访问密码<a class="article-anchor" href="#undefined" aria-hidden="true"></a></h1>  <input type="password" id="password" name="current-password" autocomplete="current-password" class="form-control rounded-right input-password" spellcheck="false" autocorrect="off" autocapitalize="off" required> <button class="btn btn-lg btn-primary btn-block mt-3" onclick="checkPassword()"> 验证 </button>
-            <div id="encoded_text" style="display:none;">
-                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
-            </div>
-            <iframe id="id_iframe" name="hide_iframe" style="display:none;"></iframe>
-    </form></div>
-
-    <script type="text/javascript">
-        var Base64WithXOR = {
-            encode: function (input) {
-                return Base64.encode(input);
-            },
-
-            decode: function (input) {
-                return Base64.decode(input);
-            },
-
-            encode_with_xor: function (input, key) {
-                var pwd = this.encode(key);
-                var xor_string = this._xor_handle(input, pwd);
-                return this.encode(xor_string);
-            },
-
-            decode_with_xor: function (input, key) {
-                var pwd = this.encode(key);
-                var decode_string = this.decode(input);
-                return this._xor_handle(decode_string, pwd);
-            },
-
-            _xor_handle: function (source, key) {
-                var result = "";
-                for (var i = 0; i < source.length; i++) {
-                    var source_char = source.charCodeAt(i);
-                    var key_idx = i % key.length;
-                    var xor_char_code = key.charCodeAt(key_idx) ^ source_char;
-                    result += String.fromCharCode(xor_char_code);
-                }
-                return result;
-            },
-        }
-
-        var CachePassword = {
-            cache: window.localStorage,
-            page_key: 'hexo-encrypted-package-html:#' + window.location.pathname,
-            get: function() {
-               var old_password = this.cache.getItem(this.page_key); 
-               if(old_password) {
-                   return old_password;
-               }
-               return "";
-            },
-
-            set: function(new_password) {
-                this.cache.setItem(this.page_key, new_password);
-            },
-        }
-
-        // 自动密码验证
-        function autoCheckPassword() {
-            var old_pwd = CachePassword.get();
-            var handle_fun = function(page_html, decoded_ele) {
-                page_html.outerHTML = decoded_ele;
-            };
-            checkPasswordWrapper(old_pwd, handle_fun, null);
-        }
-
-        // 手动密码验证
-        function checkPassword() {
-            var pwd = document.getElementById("password").value;
-            var handle_fun = function(page_html, decoded_ele) {
-                page_html.outerHTML = decoded_ele;
-                CachePassword.set(pwd);
-            };
-            var error_fun = function() {
-                alert("密码错误，请重新输入");
-            };
-
-            checkPasswordWrapper(pwd, handle_fun, error_fun);
-        }
-
-        function checkPasswordWrapper(pwd, handle_fun, error_fun) {
-            var encoded_content = document.getElementById("encoded_text").innerHTML;
-            var decoded_ele = Base64WithXOR.decode_with_xor(encoded_content, pwd);
-            var full_decoded_text = decoded_ele.trim();
-            var prefix = "hexo-encrypted-package-html";
-            var decoded_text = full_decoded_text.substr(prefix.length);
-            if (decoded_text.length == 0 || full_decoded_text.startsWith(prefix)) {
-                if (typeof handle_fun === "function") {
-                    handle_fun(document.getElementById("inner-encryted-page"), decoded_text);
-                }
-                return true;
-            } else {
-                if (typeof error_fun === "function") {
-                    error_fun();
-                }
-                return false;
-            }
-        }
-
-        autoCheckPassword();
-    </script>
-
-</div>
   </div>
   
 </article>
 
-        
-      
-        
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="/news/2021/04/05/string-encode-convert-note/">
-              <strong class="archive-post-title" itemprop="name">聊下常见的字符编码</strong>
-              <span class="archive-post-date"><time datetime="2021-04-05T00:00:00.000Z">2021-04-05</time></span>
-            </a>
-          </article>
-        
-      
-        
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="/news/2021/03/25/how-to-write-a-hexo-plugin/">
-              <strong class="archive-post-title" itemprop="name">开发一款用于正文加密的Hexo插件</strong>
-              <span class="archive-post-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></span>
-            </a>
-          </article>
         
       
         

@@ -1,0 +1,28 @@
+---
+title: cnocr的部署笔记
+date: 2021-4-8
+tag:
+ - ocr
+ - cnocr
+---
+
+### 在线安装
+ - 1. anaconda3
+ - 2. win32OpenSSL
+
+```sh
+conda create -n cnocr python=3.7
+pip install cnocr
+```
+
+ - ✔ 整合一个ocr快速开发包，起个别名为cnocr-toolkit吧，以后有那些想批量执行的功能就直接接用此开发包来开发我想要的功能吧
+ - ✔ 将之前的ocr识别引擎由Tesseract改成cnocr，并且针对它的最有识别方式进行图像合并转换
+
+## 注意事项
+推荐使用Python3.7及其以下，Python3.8目前部署时候遇到问题，因此不建议
+另外，个人比对了一下，这个引擎的单行文字识别的准确度比较高，训练集应该适合这块，至于多行识别精度一般，不过无论怎样，都是比Tesseract好了不止一丁半点
+
+#### 参考
+ - [cnocr: 极简的中文OCR Python包 单行](https://zhuanlan.zhihu.com/p/60767671)
+ - [cnocr: 极简的中文OCR Python包 多行](https://zhuanlan.zhihu.com/p/134115239)
+ >目前发现，这个ocr引擎的单行识别的精度是最高的，安装起来最为简单方便，不需要继续调教就能开箱即用了，注意，这个最好使用python3.7来使用哦，基本可以做到开箱即用
