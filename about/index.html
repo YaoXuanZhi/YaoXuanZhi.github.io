@@ -312,10 +312,10 @@
         function checkPasswordWrapper(pwd, handle_fun, error_fun) {
             var encoded_content = document.getElementById("encoded_text").innerHTML;
             var decoded_ele = Base64WithXOR.decode_with_xor(encoded_content, pwd);
-            var decoded_text = decoded_ele.trim();
+            var full_decoded_text = decoded_ele.trim();
             var prefix = "hexo-encrypted-package-html";
-            decoded_text = decoded_text.substr(prefix.length);
-            if (decoded_text.length == 0 || (decoded_text.startsWith('<') && decoded_text.endsWith('>'))) {
+            var decoded_text = full_decoded_text.substr(prefix.length);
+            if (decoded_text.length == 0 || full_decoded_text.startsWith(prefix)) {
                 if (typeof handle_fun === "function") {
                     handle_fun(document.getElementById("inner-encryted-page"), decoded_text);
                 }
