@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yaoxuanzhi.github.io/dev/thinking_about_the_concurrency_model.html</loc>
+    
+    <lastmod>2021-05-06T12:44:53.805Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yaoxuanzhi.github.io/tool/char_images_ocr_tool.html</loc>
     
     <lastmod>2021-05-06T12:32:09.260Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://yaoxuanzhi.github.io/tool/how_to_write_a_hexo_plugin.html</loc>
     
     <lastmod>2021-05-06T10:22:35.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/dev/thinking_about_the_concurrency_model.html</loc>
-    
-    <lastmod>2021-05-06T10:17:41.567Z</lastmod>
     
   </url>
   
