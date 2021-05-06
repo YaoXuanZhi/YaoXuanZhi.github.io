@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Hexo使用笔记 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/tool/use_hexo_notes.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/tool/use_hexo_notes.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="前言 Hexo是一个同Jelly类似的博客系统，基于NodeJs实现，目前与Github Page深度结合，因此作为常在Github上翻找的开发人员而言，用它来搭建自己的技术博客是非常常见的。本人早期采用amWiki来搭建自己的私人Wiki，因为Wiki这种形式的确比较适合梳理个人的知识体系，但是目录层级会比较深，因此其实并不方便游客浏览，因此着手基于Hexo搭建一个博客，希望这些知识可以回馈给网">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo使用笔记">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/tool/use_hexo_notes.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="前言 Hexo是一个同Jelly类似的博客系统，基于NodeJs实现，目前与Github Page深度结合，因此作为常在Github上翻找的开发人员而言，用它来搭建自己的技术博客是非常常见的。本人早期采用amWiki来搭建自己的私人Wiki，因为Wiki这种形式的确比较适合梳理个人的知识体系，但是目录层级会比较深，因此其实并不方便游客浏览，因此着手基于Hexo搭建一个博客，希望这些知识可以回馈给网">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2021-04-28T18:44:43.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo使用笔记">
+<meta name="twitter:description" content="前言 Hexo是一个同Jelly类似的博客系统，基于NodeJs实现，目前与Github Page深度结合，因此作为常在Github上翻找的开发人员而言，用它来搭建自己的技术博客是非常常见的。本人早期采用amWiki来搭建自己的私人Wiki，因为Wiki这种形式的确比较适合梳理个人的知识体系，但是目录层级会比较深，因此其实并不方便游客浏览，因此着手基于Hexo搭建一个博客，希望这些知识可以回馈给网">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Hexo使用笔记</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/tool/use_hexo_notes.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+                <footer class="article-footer">
+                  <time class="article-footer-updated">发表于：2018-04-15</time>
+                </footer>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h2><blockquote>
+<p>Hexo是一个同Jelly类似的博客系统，基于NodeJs实现，目前与Github Page深度结合，因此作为常在Github上翻找的开发人员而言，用它来搭建自己的技术博客是非常常见的。本人早期采用amWiki来搭建自己的私人Wiki，因为Wiki这种形式的确比较适合梳理个人的知识体系，但是目录层级会比较深，因此其实并不方便游客浏览，因此着手基于Hexo搭建一个博客，希望这些知识可以回馈给网友</p>
+</blockquote>
+<h2 id="Hexo入门指导" class="article-heading"><a href="#Hexo入门指导" class="headerlink" title="Hexo入门指导"></a>Hexo入门指导<a class="article-anchor" href="#Hexo入门指导" aria-hidden="true"></a></h2><blockquote>
+<p>推荐直接到<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官方</a>上看，这里就不复述了</p>
+<ul>
+<li>快速在浏览器预览博客 <code>hexo clean &amp; hexo g &amp; hexo s</code></li>
+<li>快速将博客发布到Github上 <code>hexo clean &amp; hexo g &amp; hexo d</code></li>
+</ul>
+</blockquote>
+<h2 id="Hexo自定义" class="article-heading"><a href="#Hexo自定义" class="headerlink" title="Hexo自定义"></a>Hexo自定义<a class="article-anchor" href="#Hexo自定义" aria-hidden="true"></a></h2><h3 id="让Hexo支持LaTex公式渲染" class="article-heading"><a href="#让Hexo支持LaTex公式渲染" class="headerlink" title="让Hexo支持LaTex公式渲染"></a>让Hexo支持LaTex公式渲染<a class="article-anchor" href="#让Hexo支持LaTex公式渲染" aria-hidden="true"></a></h3><blockquote>
+<p>目前坊间流传的方案有三个：一是手动添加mathJax的各种链接；二是采用<a href="https://github.com/hexojs/hexo-math" target="_blank" rel="noopener">hexo-math</a>，此作者将手动方案通过Npm插件打包在一起了；三是采用<code>hexo-renderer-mathjax</code></p>
+</blockquote>
+<ol>
+<li><p><strong>采用kramed代替marked，修复一些已知Bug</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm uninstall hexo-renderer-marked --save<br>npm install hexo-renderer-kramed --save<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>解决语义冲突</strong> 修改<code>node_modules\kramed\lib\rules\inline.js</code>中的第11行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="hljs-built_in">escape</span>: <span class="hljs-regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,<br></code></pre></td></tr></table></figure>
+<p>以及第20行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br>em: <span class="hljs-regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="采用hexo-math" class="article-heading"><a href="#采用hexo-math" class="headerlink" title="采用hexo-math"></a>采用hexo-math<a class="article-anchor" href="#采用hexo-math" aria-hidden="true"></a></h4><ol>
+<li><p>安装<code>hexo-math</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install hexo-math --save<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>让Hexo开启MathJax的支持</strong> 在<code>_config.yml</code>中插入以下语句：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">math:</span><br><span class="hljs-attr">  engine:</span> <span class="hljs-string">'mathjax'</span> <span class="hljs-comment"># or 'katex'</span><br>  <span class="hljs-comment"># engine: 'katex'</span><br><span class="hljs-attr">  mathjax:</span><br><span class="hljs-attr">    src:</span> <span class="hljs-string">"//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><br><span class="hljs-attr">    config:</span><br><span class="hljs-attr">       tex2jax:</span> <br><span class="hljs-attr">        inlineMath:</span> <span class="hljs-string">[</span> <span class="hljs-string">['$','$'],</span> <span class="hljs-string">["\\(","\\)"]</span> <span class="hljs-string">]</span><br><span class="hljs-attr">        skipTags:</span> <span class="hljs-string">['script',</span> <span class="hljs-string">'noscript'</span><span class="hljs-string">,</span> <span class="hljs-string">'style'</span><span class="hljs-string">,</span> <span class="hljs-string">'textarea'</span><span class="hljs-string">,</span> <span class="hljs-string">'pre'</span><span class="hljs-string">,</span> <span class="hljs-string">'code'</span><span class="hljs-string">]</span><br><span class="hljs-attr">        processEscapes:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">  katex:</span><br><span class="hljs-attr">    css:</span> <span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"</span><br><span class="hljs-attr">    js:</span> <span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"</span><br><span class="hljs-attr">    config:</span><br><span class="hljs-attr">      throwOnError:</span> <span class="hljs-literal">false</span><br><span class="hljs-attr">      errorColor:</span> <span class="hljs-string">"#cc0000"</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="采用hexo-renderer-mathjax" class="article-heading"><a href="#采用hexo-renderer-mathjax" class="headerlink" title="采用hexo-renderer-mathjax"></a>采用hexo-renderer-mathjax<a class="article-anchor" href="#采用hexo-renderer-mathjax" aria-hidden="true"></a></h4><blockquote>
+<p>Warning:目前已知问题是，无法让heox-site支持渲染latex公式，个人猜测此插件与ejs集成度高，对swing没有做兼容</p>
+</blockquote>
+<ol>
+<li>安装<code>hexo-renderer-mathjax</code></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install hexo-renderer-mathjax --save<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li><p><strong>更换MathJax的CDN</strong> 在<code>/node_modules/hexo-renderer-mathjax/mathjax.html</code>中把<code>&lt;script&gt;</code>更改为：<code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;</code></p>
+</li>
+<li><p><strong>让Hexo开启MathJax的支持</strong> 在<code>_config.yml</code>中插入以下语句：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mathjax:</span><br><span class="hljs-attr">    enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>需要在指定的文章中开启MathJax的支持</strong> 在文章的<code>front-matter</code>中添加<code>mathjax: true</code>，如下所示：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs md">title: Hello World<br>mathjax: true<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="MathJax的例子" class="article-heading"><a href="#MathJax的例子" class="headerlink" title="MathJax的例子"></a>MathJax的例子<a class="article-anchor" href="#MathJax的例子" aria-hidden="true"></a></h4><p>对于不含特殊符号的公式，可以直接使用<code>MathJax</code>的<code>inline math</code>表达式.<br>如果含有特殊符号，则需要人肉<code>escape</code>，如<code>\</code>之类的特殊符号在<code>LaTex</code>表达式中出现频率很高，这样就很麻烦，使用<code>tag</code>能够省不少事。</p>
+<p>MathJax Inline:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs md">Simple inline $a = b + c$.<br></code></pre></td></tr></table></figure></p>
+<p>效果：<br>Simple inline $a = b + c$.</p>
+<p>MathJax Block:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs md">$$\frac&#123;\partial u&#125;&#123;\partial t&#125;<br>= h^2 \left( \frac&#123;\partial^2 u&#125;&#123;\partial x^2&#125; +<br>\frac&#123;\partial^2 u&#125;&#123;\partial y^2&#125; +<br>\frac&#123;\partial^2 u&#125;&#123;\partial z^2&#125;\right)$$<br></code></pre></td></tr></table></figure></p>
+<p>效果：<br>$$\frac{\partial u}{\partial t}<br>= h^2 \left( \frac{\partial^2 u}{\partial x^2} +<br>\frac{\partial^2 u}{\partial y^2} +<br>\frac{\partial^2 u}{\partial z^2}\right)$$</p>
+<h3 id="修改最近更新时间的显示" class="article-heading"><a href="#修改最近更新时间的显示" class="headerlink" title="修改最近更新时间的显示"></a>修改最近更新时间的显示<a class="article-anchor" href="#修改最近更新时间的显示" aria-hidden="true"></a></h3><p>新增一个<code>show_last_updated</code>来控制这个时间的显示，然后找到<code>page.swig</code>，如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs swig">&lt;footer class=&quot;article-footer&quot;&gt;<br>  &#123;% if page.show_last_updated %&#125;<br>    &lt;time class=&quot;article-footer-updated&quot; datetime=&quot;&#123;&#123; date_xml(page.updated) &#125;&#125;&quot; itemprop=&quot;dateModified&quot;&gt;&#123;&#123; __(&apos;page.last_updated&apos;, date(page.updated)) &#125;&#125;&lt;/time&gt;<br>  &#123;% endif %&#125;<br>  &#123;&#123; page_nav() &#125;&#125;<br>&lt;/footer&gt;<br></code></pre></td></tr></table></figure></p>
+<p>其中<code>page.show_last_updated</code>是读取当前markdown上的配置，如果其被设置为<code>show_last_updated: true</code>，那么它将可以正常显示最近更新时间，默认不显示</p>
+<hr>
+<h2 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h2><ul>
+<li><a href="http://catx.me/2014/03/09/hexo-mathjax-plugin/" target="_blank" rel="noopener">Hexo MathJax插件</a></li>
+<li><a href="https://blog.csdn.net/u014630987/article/details/78670258" target="_blank" rel="noopener">如何在 hexo 中支持 Mathjax？</a></li>
+<li><a href="https://blog.csdn.net/u013282174/article/details/80666123" target="_blank" rel="noopener">在Hexo中使用mathjax渲染数学公式</a></li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                <a href="how_to_write_a_hexo_plugin.html" class="article-footer-prev" title="Hexo插件-文章加密"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="use_logseq_notes.html" class="article-footer-next" title="Logseq使用笔记"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo入门指导"><span class="toc-text">Hexo入门指导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo自定义"><span class="toc-text">Hexo自定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#让Hexo支持LaTex公式渲染"><span class="toc-text">让Hexo支持LaTex公式渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#采用hexo-math"><span class="toc-text">采用hexo-math</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#采用hexo-renderer-mathjax"><span class="toc-text">采用hexo-renderer-mathjax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MathJax的例子"><span class="toc-text">MathJax的例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改最近更新时间的显示"><span class="toc-text">修改最近更新时间的显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">自制工具</strong><a href="char_images_ocr_tool.html" class="sidebar-link">字符图片OCR工具</a><a href="auto-download-xdebug-for-php.html" class="sidebar-link">PHP-XDebug安装脚本</a><a href="how_to_write_a_hexo_plugin.html" class="sidebar-link">Hexo插件-文章加密</a><strong class="sidebar-title">常用工具</strong><a href="use_hexo_notes.html" class="sidebar-link current">Hexo使用笔记</a><a href="use_logseq_notes.html" class="sidebar-link">Logseq使用笔记</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">自制工具</strong><a href="char_images_ocr_tool.html" class="mobile-nav-link">字符图片OCR工具</a><a href="auto-download-xdebug-for-php.html" class="mobile-nav-link">PHP-XDebug安装脚本</a><a href="how_to_write_a_hexo_plugin.html" class="mobile-nav-link">Hexo插件-文章加密</a><strong class="mobile-nav-title">常用工具</strong><a href="use_hexo_notes.html" class="mobile-nav-link current">Hexo使用笔记</a><a href="use_logseq_notes.html" class="mobile-nav-link">Logseq使用笔记</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Lua学习笔记 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/dev/lua_learn_notes.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/dev/lua_learn_notes.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="在Lua实现带默认参数的函数在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数SetArgs(arg1...argn)，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持SetArgs(a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lua学习笔记">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/dev/lua_learn_notes.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="在Lua实现带默认参数的函数在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数SetArgs(arg1...argn)，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持SetArgs(a">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2021-04-28T17:50:30.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lua学习笔记">
+<meta name="twitter:description" content="在Lua实现带默认参数的函数在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数SetArgs(arg1...argn)，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持SetArgs(a">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="dev/lua_learn_notes.html">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Lua学习笔记</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/dev/lua_learn_notes.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+                <footer class="article-footer">
+                  <time class="article-footer-updated">发表于：2017-07-12</time>
+                </footer>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h3 id="在Lua实现带默认参数的函数" class="article-heading"><a href="#在Lua实现带默认参数的函数" class="headerlink" title="在Lua实现带默认参数的函数"></a>在Lua实现带默认参数的函数<a class="article-anchor" href="#在Lua实现带默认参数的函数" aria-hidden="true"></a></h3><p>在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数<code>SetArgs(arg1...argn)</code>，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持<code>SetArgs(arg1 = 1,arg2 = 2, argn = n )</code>之类的语句，如下所示：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs lua">myTable = &#123; a= <span class="hljs-number">1</span>, b=<span class="hljs-number">2</span>, c=<span class="hljs-number">3</span>, d=<span class="hljs-number">4</span> &#125; <br><br><span class="hljs-comment">--一种难以言喻的操作</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myTable:SetParam</span><span class="hljs-params">(a1,b1,c1,d1)</span></span><br>    self.a = a1 <span class="hljs-keyword">or</span> <span class="hljs-string">"a1"</span><br>    self.b = b1 <span class="hljs-keyword">or</span> <span class="hljs-string">"b1"</span><br>    self.c = c1 <span class="hljs-keyword">or</span> <span class="hljs-string">"c1"</span><br>    self.d = d1 <span class="hljs-keyword">or</span> <span class="hljs-string">"d1"</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--并没有这种骚操作</span><br><span class="hljs-comment">--function myTable:SetParam(a1 = "a1",b1 = "b1",c1 = "c1",d1 = "c1")</span><br><span class="hljs-comment">--    self.a = a1</span><br><span class="hljs-comment">--    self.b = b1</span><br><span class="hljs-comment">--    self.c = c1</span><br><span class="hljs-comment">--    self.d = d1</span><br><span class="hljs-comment">--end</span><br><br><span class="hljs-keyword">local</span> temp = myTable<br>temp:SetParam(<span class="hljs-string">"Adobe"</span>)<br><span class="hljs-built_in">print</span>(temp.a)<br><span class="hljs-built_in">print</span>(temp.b)<br><span class="hljs-built_in">print</span>(temp.c)<br><span class="hljs-built_in">print</span>(temp.d)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"end"</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="模拟C-的类的继承机制" class="article-heading"><a href="#模拟C-的类的继承机制" class="headerlink" title="模拟C++的类的继承机制"></a>模拟C++的类的继承机制<a class="article-anchor" href="#模拟C-的类的继承机制" aria-hidden="true"></a></h3><p>更多相关资料请看<a href="http://www.cnblogs.com/simonw/archive/2007/01/17/622032.html" target="_blank" rel="noopener">Metatable In Lua 浅尝辄止</a></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-comment">--lua仿写类似C++的类</span><br><span class="hljs-comment">--注意，lua的默认参数比较奇葩，在成员函数内部，直接添加xxx1 or xxx2即可</span><br>people = &#123; &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">people:new</span><span class="hljs-params">( newName, newIdentity )</span></span><br>    obj = &#123;&#125;<br>    obj.name = newName <span class="hljs-keyword">or</span> <span class="hljs-string">"unknown name1"</span><br>    obj.identity = newIdentity <span class="hljs-keyword">or</span> <span class="hljs-string">"unknown identity1"</span><br>    <span class="hljs-built_in">setmetatable</span>(obj,self)<br>    self.<span class="hljs-built_in">__index</span> = self<br>    <span class="hljs-keyword">return</span> obj<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--添加成员函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">people:GetName</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">return</span> self.name<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">people:GetIdentity</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">return</span> self.identity<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">people:PrintInfo</span><span class="hljs-params">()</span></span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"object belong to people"</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--student继承people，此时是相当于将people的元表拷贝到student里面了</span><br>student = people:new()<br><br><span class="hljs-comment">--为了避免类实例在创建的时候修改了类的成员变量，因此采用了临时表obj来作为缓冲</span><br><span class="hljs-comment">--毕竟Lua本身是没有Lua这个概念的，如果不采用临时Table作为缓冲，是无法把类实例和类之间的联系切断</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">student:new</span><span class="hljs-params">( newName, newIdentity, newClassroom, newIndex )</span></span><br>    obj = people:new( newName, newIdentity )<br>    <span class="hljs-built_in">setmetatable</span>(obj, self)<br>    <span class="hljs-comment">--self.__index = self使得自身的属性都能被obj访问到</span><br>    self.<span class="hljs-built_in">__index</span> = self<br><br>    <span class="hljs-comment">--添加成员变量</span><br>    obj.classroom = newClassroom <span class="hljs-keyword">or</span> <span class="hljs-string">"unknown classroom2"</span><br>    obj.index = newIndex <span class="hljs-keyword">or</span> <span class="hljs-string">"unknown index2"</span><br>    <span class="hljs-keyword">return</span> obj<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--添加成员变量到子类里</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">student:GetClassroom</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">return</span>  self.classroom<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">student:GetIndex</span><span class="hljs-params">()</span></span><br>    <span class="hljs-keyword">return</span>  self.index<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--重载基类的成员函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">student:PrintInfo</span><span class="hljs-params">()</span></span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"object belong to student"</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"startup"</span>)<br>temp = student:new(<span class="hljs-string">"childname"</span>, <span class="hljs-number">56579887</span>, <span class="hljs-string">"classroom1st"</span>, <span class="hljs-string">"1"</span>)<br><br><span class="hljs-comment">--开启了下面语句之后可以发现，此时temp的数值会被temp3所影响</span><br>temp3 = student:new(<span class="hljs-string">"childname3"</span>, <span class="hljs-number">4987</span>, <span class="hljs-string">"classroom3rd"</span>, <span class="hljs-number">10</span>)<br><br>baseObj =people:new(<span class="hljs-string">"basename"</span>, <span class="hljs-number">110</span>)<br><br>baseObj3 =people:new(<span class="hljs-string">"basename3"</span>, <span class="hljs-number">10000000</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"---------打印类实例的信息--------"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"在子类实例中调用基类成员函数"</span>)<br><span class="hljs-built_in">print</span>(temp:GetIdentity())<br><span class="hljs-built_in">print</span>(temp:GetName())<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"在子类实例中调用子类成员函数"</span>)<br><span class="hljs-built_in">print</span>(temp:GetClassroom())<br><span class="hljs-built_in">print</span>(temp:GetIndex())<br><br>temp:PrintInfo()<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"调用基类实例的成员函数"</span>)<br><span class="hljs-built_in">print</span>(baseObj:GetName())<br><span class="hljs-built_in">print</span>(baseObj:GetIdentity())<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"---------打印当前定义的基类与子类类型的数据--------"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"以下为基类的信息"</span>)<br><span class="hljs-comment">--而name和name是在执行new函数的时候，才为其类实例追加的成员变量，</span><br><span class="hljs-comment">--而这些成员变量在原本的people里是没有的，因而为nil，正如people = &#123;&#125;</span><br><span class="hljs-built_in">print</span>(people.name)<br><span class="hljs-built_in">print</span>(people.name)<br>people:PrintInfo()<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"以下为子类类型的信息"</span>)<br><span class="hljs-comment">--name和identity是从people继承过来的，并且，在继承的时候，通过new函数临时为其创建的，因此数值有效</span><br><span class="hljs-built_in">print</span>(student.name)<br><span class="hljs-built_in">print</span>(student.identity)<br><span class="hljs-comment">--而classroom和index是在执行new函数的时候，才为其类实例追加的成员变量，</span><br><span class="hljs-comment">--而这些成员变量在原本的student是没有的，因而为nil，正如student = people:new&#123;&#125;</span><br><span class="hljs-built_in">print</span>(student.classroom)<br><span class="hljs-built_in">print</span>(student.index)<br>student:PrintInfo()<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">"end"</span>)<br><span class="hljs-comment">--注意，在new()内，修改self里面的数值的时候，会导致类的成员变量也同时改变，因为，在Lua里面，本身是没有类这个概念的，我们只可以通过Table来模拟类似的类行为，为了绕过Lua的固有限制，我们在通过new()等函数进行类实例创建的时候，使用临时Table来存放此类的特有的成员变量以及成员变量。</span><br><span class="hljs-comment">--在上述代码里面，student里的classroom和index是无效数值，都为nil，在student:new()函数体内，使用了临时变量obj来存放其基类的成员变量以及成员函数，通过setmetatable(obj,self)语句，让obj拥有了student里面的成员函数以及基类的特性。而之所以需要执行student = people:new()语句，这是为了可以让student继承people的特性了，否则，所有调用了student类实例所有用到基类的方法都将无效，总而言之，这个metatable的作用有点像C++里面的虚表，专门用来定位子类实例和基类之间的成员函数以及成员变量的地址的</span><br></code></pre></td></tr></table></figure>
+<h3 id="控制Table类型的访问权限" class="article-heading"><a href="#控制Table类型的访问权限" class="headerlink" title="控制Table类型的访问权限"></a>控制Table类型的访问权限<a class="article-anchor" href="#控制Table类型的访问权限" aria-hidden="true"></a></h3><p>要想实现此效果，需要使用Table里面<code>__index</code>和<code>__newindex</code>变量，更多详情请看<a href="http://www.cnblogs.com/egmkang/archive/2011/09/27/2193096.html" target="_blank" rel="noopener">《用<strong>index和</strong>newindex来限制访问》</a>，如下所示：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-comment">--访问权限控制函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cannotModifyHp</span><span class="hljs-params">(object)</span></span><br>    <span class="hljs-keyword">local</span> proxy = &#123;&#125;<br>    <span class="hljs-keyword">local</span> mt = &#123;<br>        <span class="hljs-built_in">__index</span> = object,<br>    <span class="hljs-built_in">__newindex</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(k,v)</span></span><br>        <span class="hljs-keyword">if</span> k ~= <span class="hljs-string">"hp"</span> <span class="hljs-keyword">then</span><br>        object[k] = v<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    &#125;<br>    <span class="hljs-built_in">setmetatable</span>(proxy,mt)<br>    <span class="hljs-keyword">return</span> proxy<br><span class="hljs-keyword">end</span><br> <br>object = &#123;hp = <span class="hljs-number">10</span>,age = <span class="hljs-number">11</span>&#125;<br><span class="hljs-comment">--function object.sethp(self,newhp)</span><br><span class="hljs-comment">--    self.hp = newhp</span><br><span class="hljs-comment">--end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">object:sethp</span><span class="hljs-params">(newhp)</span></span><br>    self.hp = newhp<br><span class="hljs-keyword">end</span><br> <br>o = cannotModifyHp(object)<br> <br>o.hp = <span class="hljs-number">100</span>    <span class="hljs-comment">--修改失效</span><br><span class="hljs-built_in">print</span>(o.hp)<br> <br>o:sethp(<span class="hljs-number">111</span>)    <span class="hljs-comment">--修改失效</span><br><span class="hljs-built_in">print</span>(o.hp)<br> <br>object:sethp(<span class="hljs-number">100</span>)    <span class="hljs-comment">--修改生效</span><br><span class="hljs-built_in">print</span>(o.hp)<br></code></pre></td></tr></table></figure>
+<h3 id="Lua上的语法糖收集" class="article-heading"><a href="#Lua上的语法糖收集" class="headerlink" title="Lua上的语法糖收集"></a>Lua上的语法糖收集<a class="article-anchor" href="#Lua上的语法糖收集" aria-hidden="true"></a></h3><blockquote>
+<p><code>v:name(args)</code> 可以被解析成 <code>v.name(v,args)</code> 或者 <code>v.name(self,args)</code> </p>
+</blockquote>
+<p>举个栗子，如下所示：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs lua">object = &#123;hp = <span class="hljs-number">10</span>,age = <span class="hljs-number">11</span>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">object.SetHp1st</span><span class="hljs-params">(self,newHp)</span></span><br>    self.hp = newHp<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">object:SetHp2nd</span><span class="hljs-params">(newHp)</span></span><br>    self.hp = newHp<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>function funcname() body end</code> 等效于 <code>funcname = function() body end</code></li>
+<li><code>function table.a.b.c.funcname() body end</code> 等效于 <code>table.a.b.c.funcname = function() body end</code></li>
+<li><code>local function funcname() body end</code> 等效于 <code>local funcname; funcname = function() body end</code> 不等效于 <code>local funcname = function() body end</code>哦</li>
+</ul>
+<h3 id="重载运算符Lua的运算符" class="article-heading"><a href="#重载运算符Lua的运算符" class="headerlink" title="重载运算符Lua的运算符"></a>重载运算符Lua的运算符<a class="article-anchor" href="#重载运算符Lua的运算符" aria-hidden="true"></a></h3><p>在Lua之中，我们可以通过<code>Metatable(元表)</code>来重载非数值运算符，能够重载的运算符如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th style="text-align:center">在Lua里的关键字</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">add</td>
+<td style="text-align:center">加法运算</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">sub</td>
+<td style="text-align:center">减法运算</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">mul</td>
+<td style="text-align:center">乘法运算</td>
+</tr>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:center">div</td>
+<td style="text-align:center">除法运算</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">mod</td>
+<td style="text-align:center">取模运算，获取余值</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">pow</td>
+<td style="text-align:center">幂运算</td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">urm</td>
+<td style="text-align:center">一元<strong>-</strong>操作符</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:center">concat</td>
+<td style="text-align:center">连接操作</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td style="text-align:center">len</td>
+<td style="text-align:center">取数据类型的长度，比如table长度等</td>
+</tr>
+<tr>
+<td style="text-align:center">==</td>
+<td style="text-align:center">eq</td>
+<td style="text-align:center">关系运算符：相等</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">lt</td>
+<td style="text-align:center">关系运算符：小于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">le</td>
+<td style="text-align:center">关系运算符：小于或等于</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">index</td>
+<td style="text-align:center">通过下标访问<code>Table[key]</code>，仅用于读取数据</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">newindex</td>
+<td style="text-align:center">通过下标<code>Table[key]</code> ，仅用于修改数据，如<code>Table[key] = value</code></td>
+</tr>
+<tr>
+<td style="text-align:center">未知</td>
+<td style="text-align:center">call</td>
+<td style="text-align:center">当Lua调用一个值时调用</td>
+</tr>
+</tbody>
+</table>
+<p>以下演示了如何重载支持特定格式的表的运算符操作，如<code>+</code>和<code>-</code></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-comment">--定义2个表</span><br><span class="hljs-comment">--a = &#123;5, 6,10,8,69,10,"hello"&#125;</span><br>a = &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;<br>b = &#123;<span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;<br><br><span class="hljs-comment">--用c来做Metatable</span><br>c = &#123;&#125;<br><span class="hljs-comment">--重定义加法操作</span><br>c.<span class="hljs-built_in">__add</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(op1, op2)</span></span><br><span class="hljs-comment">--    将所有元素进行配对相加</span><br>    <span class="hljs-keyword">local</span> result = &#123;&#125; <br>    <span class="hljs-keyword">local</span> lenght1 = <span class="hljs-built_in">table</span>.<span class="hljs-built_in">maxn</span>(op1)<br>    <span class="hljs-keyword">local</span> lenght2 = <span class="hljs-built_in">table</span>.<span class="hljs-built_in">maxn</span>(op2)<br>    <span class="hljs-keyword">if</span> lenght1 == lenght2 <span class="hljs-keyword">then</span><br>       <span class="hljs-keyword">for</span> index,item <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(op1) <span class="hljs-keyword">do</span><br>           <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(result,op1[index]+op2[index])<br>       <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">return</span> result<br><span class="hljs-comment">--   --枚举op2的所有元素，将其插入到op1之中，相当于C++里面的重载运算符+</span><br><span class="hljs-comment">--   for key, item in ipairs(op2) do</span><br><span class="hljs-comment">--      print("key = "..key)</span><br><span class="hljs-comment">--      print("item = "..item)</span><br><span class="hljs-comment">--      --将item插入到op1之中</span><br><span class="hljs-comment">--      table.insert(op1, item)</span><br><span class="hljs-comment">--   end</span><br><span class="hljs-comment">--   return op1</span><br><span class="hljs-keyword">end</span><br><br>c.<span class="hljs-built_in">__sub</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(op1,op2)</span></span><br>    <span class="hljs-keyword">local</span> result = &#123;&#125; <br>    <span class="hljs-keyword">local</span> lenght1 = <span class="hljs-built_in">table</span>.<span class="hljs-built_in">maxn</span>(op1)<br>    <span class="hljs-keyword">local</span> lenght2 = <span class="hljs-built_in">table</span>.<span class="hljs-built_in">maxn</span>(op2)<br>    <span class="hljs-keyword">if</span> lenght1 == lenght2 <span class="hljs-keyword">then</span><br>       <span class="hljs-keyword">for</span> index,item <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(op1) <span class="hljs-keyword">do</span><br>           <span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(result,op1[index]-op2[index])<br>       <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">return</span> result<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--将a的Metatable设置为c</span><br><span class="hljs-comment">--将__add的方法应用到类b的Table数据中</span><br><span class="hljs-comment">--setmetatable(a, c)</span><br><span class="hljs-built_in">setmetatable</span>(b, c)<br><span class="hljs-comment">--d现在的样子是&#123;5,6,7,8&#125;</span><br>d = a + b<br><span class="hljs-comment">--d = b + a</span><br><span class="hljs-keyword">for</span> key1,value1 <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(d) <span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">print</span>(value1)<br><span class="hljs-keyword">end</span><br><span class="hljs-comment">--print(c.__add(a,b)[1])</span><br><span class="hljs-comment">--print(c.__add(a,b)[1])</span><br>e = a - b<br><span class="hljs-comment">--d = b + a</span><br><span class="hljs-keyword">for</span> key2,value2 <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(e) <span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">print</span>(value2)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="和C-相比，那些常见的知识盲区" class="article-heading"><a href="#和C-相比，那些常见的知识盲区" class="headerlink" title="和C++相比，那些常见的知识盲区"></a>和C++相比，那些常见的知识盲区<a class="article-anchor" href="#和C-相比，那些常见的知识盲区" aria-hidden="true"></a></h3><ol>
+<li>Lua没有关系操作符<code>!=</code>，以<code>~=</code>来代替，其它的倒是和C++一样</li>
+</ol>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-comment">--如果a不为10的话，那么打印a</span><br><span class="hljs-keyword">if</span> a ~= <span class="hljs-number">10</span> <span class="hljs-keyword">then</span><br>  <span class="hljs-built_in">print</span>(a)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>Lua的函数体不要用<code>{body}</code>来包裹起来，只需要在后面添加上<code>end</code>即可，另外在Lua之中，<code>if</code>代码块不需要用<code>(body)</code>来包裹起来，只需要在判断之中，通过空格区分开来，然后在后面添加<code>then</code>即可，注意，有<code>elseif</code>而没有<code>else if</code>的语句哦，比如<code>if exp then body end</code> 和 <code>elseif exp then body</code></li>
+</ol>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">IsMatchedID</span><span class="hljs-params">(oldID, newID)</span></span><br>    <span class="hljs-keyword">if</span> oldID == newID <span class="hljs-keyword">then</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>    <span class="hljs-keyword">elseif</span> oldID &gt; newID <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"oldID &gt; newID"</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"oldID &lt; newID"</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-built_in">print</span>(IsMatchedID(<span class="hljs-number">10</span>,<span class="hljs-number">13</span>))<br><span class="hljs-built_in">print</span>(IsMatchedID(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))<br><span class="hljs-built_in">print</span>(IsMatchedID(<span class="hljs-number">18</span>,<span class="hljs-number">10</span>))<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>获取Table、字符串等类型的长度，不需要<code>length()</code>等函数来获取，直接用<em>#</em>即可</li>
+</ol>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua">tempTable = &#123;<span class="hljs-number">897</span>,<span class="hljs-number">8</span>,<span class="hljs-number">78</span>,<span class="hljs-number">7</span>,<span class="hljs-number">87</span>,<span class="hljs-number">87</span>,<span class="hljs-number">8</span>,<span class="hljs-number">78</span>,<span class="hljs-number">78</span>,<span class="hljs-number">7</span>,<span class="hljs-number">87</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>&#125;<br><span class="hljs-built_in">print</span>(#tempTable)<br>tempString = <span class="hljs-string">"fadfadfadf"</span><br><span class="hljs-built_in">print</span>(#tempString)<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul>
+<li><a href="https://blog.codingnow.com/" target="_blank" rel="noopener">云风的 BLOG</a></li>
+<li><a href="https://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="noopener">Lua 教程</a></li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                <a href="use_cmake_notes.html" class="article-footer-prev" title="CMake学习笔记"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="cplusplus_style_guide.html" class="article-footer-next" title="C++代码风格"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在Lua实现带默认参数的函数"><span class="toc-text">在Lua实现带默认参数的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟C-的类的继承机制"><span class="toc-text">模拟C++的类的继承机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制Table类型的访问权限"><span class="toc-text">控制Table类型的访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua上的语法糖收集"><span class="toc-text">Lua上的语法糖收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重载运算符Lua的运算符"><span class="toc-text">重载运算符Lua的运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#和C-相比，那些常见的知识盲区"><span class="toc-text">和C++相比，那些常见的知识盲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">算法</strong><a href="char_image_merge.html" class="sidebar-link">字符图片合并</a><strong class="sidebar-title">软件工程</strong><a href="design_pattern.html" class="sidebar-link">设计模式</a><a href="use_cmake_notes.html" class="sidebar-link">CMake学习笔记</a><strong class="sidebar-title">编程语言</strong><a href="lua_learn_notes.html" class="sidebar-link current">Lua学习笔记</a><strong class="sidebar-title">代码风格</strong><a href="cplusplus_style_guide.html" class="sidebar-link">C++代码风格</a><strong class="sidebar-title">并发模型</strong><a href="thinking_about_the_concurrency_model.html" class="sidebar-link">关于并发模型的思考</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">算法</strong><a href="char_image_merge.html" class="mobile-nav-link">字符图片合并</a><strong class="mobile-nav-title">软件工程</strong><a href="design_pattern.html" class="mobile-nav-link">设计模式</a><a href="use_cmake_notes.html" class="mobile-nav-link">CMake学习笔记</a><strong class="mobile-nav-title">编程语言</strong><a href="lua_learn_notes.html" class="mobile-nav-link current">Lua学习笔记</a><strong class="mobile-nav-title">代码风格</strong><a href="cplusplus_style_guide.html" class="mobile-nav-link">C++代码风格</a><strong class="mobile-nav-title">并发模型</strong><a href="thinking_about_the_concurrency_model.html" class="mobile-nav-link">关于并发模型的思考</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="dev/lua_learn_notes.html">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

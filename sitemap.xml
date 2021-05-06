@@ -2,6 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yaoxuanzhi.github.io/dev/thinking_about_the_concurrency_model.html</loc>
+    
+    <lastmod>2021-05-06T10:17:41.567Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/open_source/cnocr.html</loc>
+    
+    <lastmod>2021-05-06T10:14:06.825Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/char_images_ocr_tool.html</loc>
+    
+    <lastmod>2021-05-06T09:59:50.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/news/2019/07/20/my-music-play-list/</loc>
+    
+    <lastmod>2021-05-06T09:50:47.754Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/use_logseq_notes.html</loc>
+    
+    <lastmod>2021-05-06T09:43:52.138Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/auto-download-xdebug-for-php.html</loc>
+    
+    <lastmod>2021-04-29T13:18:12.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/use_cmake_notes.html</loc>
+    
+    <lastmod>2021-04-28T19:09:11.406Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/use_hexo_notes.html</loc>
+    
+    <lastmod>2021-04-28T18:44:43.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
+    
+    <lastmod>2021-04-28T18:01:47.743Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/open_source/index.html</loc>
+    
+    <lastmod>2021-04-28T18:01:25.744Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/how_to_write_a_hexo_plugin.html</loc>
+    
+    <lastmod>2021-04-28T17:53:37.817Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/lua_learn_notes.html</loc>
+    
+    <lastmod>2021-04-28T17:50:30.452Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/about/review_career.html</loc>
+    
+    <lastmod>2021-04-28T06:27:50.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/cplusplus_style_guide.html</loc>
+    
+    <lastmod>2021-04-27T05:04:02.567Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/about/review_2020.html</loc>
+    
+    <lastmod>2021-04-26T13:07:40.044Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/char_image_merge.html</loc>
+    
+    <lastmod>2021-04-25T14:05:34.629Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/tool/index.html</loc>
+    
+    <lastmod>2021-04-25T07:33:55.476Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/design_pattern.html</loc>
+    
+    <lastmod>2021-04-24T15:50:00.726Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/dev/index.html</loc>
+    
+    <lastmod>2021-04-24T15:30:08.758Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
+    
+    <lastmod>2021-04-24T08:35:21.656Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/</loc>
     
     <lastmod>2021-04-08T14:36:09.204Z</lastmod>
@@ -30,20 +170,6 @@
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/news/2021/03/25/how-to-write-a-hexo-plugin/</loc>
-    
-    <lastmod>2021-04-01T19:21:31.269Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/about/index.html</loc>
-    
-    <lastmod>2021-04-01T19:21:25.565Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yaoxuanzhi.github.io/news/2019/05/10/VIM-mode-of-common-tools/</loc>
     
     <lastmod>2021-04-01T19:19:41.882Z</lastmod>
@@ -51,23 +177,9 @@
   </url>
   
   <url>
-    <loc>https://yaoxuanzhi.github.io/docs/index.html</loc>
-    
-    <lastmod>2021-04-01T19:07:37.119Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yaoxuanzhi.github.io/news/2019/06/08/custom-protable-software-base-on-autohotkey/</loc>
     
     <lastmod>2021-04-01T19:07:37.114Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoxuanzhi.github.io/news/2019/09/01/auto-download-xdebug-for-php/</loc>
-    
-    <lastmod>2021-04-01T19:07:37.113Z</lastmod>
     
   </url>
   

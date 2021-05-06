@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>CMake学习笔记 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/dev/use_cmake_notes.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/dev/use_cmake_notes.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="前言CMake是一个跨平台项目构建工具，主要对标C/C++项目。其师出于automake，有其独有的DSL，详情请移步到CMake官网 安装CMake对于Linux，这个挺简单的，CentOS执行yum install cmake，Ubuntu执行apt-get install cmake，如果觉得Linux发行版安装的cmake版本太旧，那么从官网上下载源码编译吧，当然，到cmake downl">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CMake学习笔记">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/dev/use_cmake_notes.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="前言CMake是一个跨平台项目构建工具，主要对标C/C++项目。其师出于automake，有其独有的DSL，详情请移步到CMake官网 安装CMake对于Linux，这个挺简单的，CentOS执行yum install cmake，Ubuntu执行apt-get install cmake，如果觉得Linux发行版安装的cmake版本太旧，那么从官网上下载源码编译吧，当然，到cmake downl">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2018-06-25/09-1529930004000.png">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2018-06-25/09-1530522434000.png">
+<meta property="og:updated_time" content="2021-04-28T19:09:11.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CMake学习笔记">
+<meta name="twitter:description" content="前言CMake是一个跨平台项目构建工具，主要对标C/C++项目。其师出于automake，有其独有的DSL，详情请移步到CMake官网 安装CMake对于Linux，这个挺简单的，CentOS执行yum install cmake，Ubuntu执行apt-get install cmake，如果觉得Linux发行版安装的cmake版本太旧，那么从官网上下载源码编译吧，当然，到cmake downl">
+<meta name="twitter:image" content="https://yaoxuanzhi.github.io/assets/2018-06-25/09-1529930004000.png">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="dev/use_cmake_notes.html">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">CMake学习笔记</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/dev/use_cmake_notes.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+                <footer class="article-footer">
+                  <time class="article-footer-updated">发表于：2018-06-19</time>
+                </footer>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>CMake是一个跨平台项目构建工具，主要对标C/C++项目。其师出于automake，有其独有的DSL，详情请移步到<a href="https://cmake.org/" target="_blank" rel="noopener">CMake官网</a></p>
+<h3 id="安装CMake" class="article-heading"><a href="#安装CMake" class="headerlink" title="安装CMake"></a>安装CMake<a class="article-anchor" href="#安装CMake" aria-hidden="true"></a></h3><p>对于Linux，这个挺简单的，CentOS执行<code>yum install cmake</code>，Ubuntu执行<code>apt-get install cmake</code>，如果觉得Linux发行版安装的cmake版本太旧，那么从官网上下载源码编译吧，当然，到<a href="https://cmake.org/download/" target="_blank" rel="noopener">cmake download page</a>上下载也是个不错的途径</p>
+<p>而对于Windows，个人是建议直接到<a href="https://cmake.org/download/" target="_blank" rel="noopener">cmake download page</a>上下载二进制版本，将其添加到系统环境变量path上即可。电脑上安装了Msys2的话，也可以通过<code>pacman -S cmake</code>来安装；安装了cmder的话，在<code>.../vendor/init.bat</code>里插入<code>set path=%path%;xxx:/xxx/cmake-xxx/bin;</code>也是可以的，如下图所示：</p>
+<p><img src="/assets/2018-06-25/09-1529930004000.png" alt></p>
+<h3 id="入门教程" class="article-heading"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程<a class="article-anchor" href="#入门教程" aria-hidden="true"></a></h3><blockquote>
+<p>cmake由于其语法丰富，比较适合管理大型的跨平台c/c++工程，而在轻量级的项目里，premake、xmake、qmake都是不错的方案呢。在终端上输入<code>cmake -h</code>后，可以看到cmake 3.12.0中已经支持了vs、codeblocks、codelite、eclipse等IDE和高级文本编辑器了</p>
+</blockquote>
+<p>至于cmake的入门教程，由于网上相关资料已经汗牛充栋了，这里就不重复了，读者可以直接移步到<a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="noopener">《CMake 入门实战》中文</a>和<a href="https://cmake.org/cmake-tutorial/" target="_blank" rel="noopener">《cmake-tutorial》官方英文</a>，先过一遍中文教程，心里有底之后 ，再过一遍cmake官方教程即可入门了，剩下的知识点在项目需要用到时再学吧，毕竟只是个项目管理工具而已</p>
+<p>下面整理了一些常用的操作命令说明:</p>
+<ul>
+<li>project() —- 指定工程名称，在vs中就是.sln的名字</li>
+<li>add_subdirectory() —- 设置子CMakeLists的所在路径</li>
+<li>configure_file() —- 设置配置文件，一般用来预处理项目版本以及配合find_package、find_library、option等命令控制某些功能是否开启用的</li>
+<li>add_executable() —- 添加一个可执行二进制项目，对应vs里的cli、gui项目</li>
+<li><p>add_library() —- 添加一个动/静态链接库库项目，SHARED是动态链接库，STATIC是静态链接库</p>
+</li>
+<li><p>set() —- 设置变量，如果想多个CMakeLists.txt共用某个变量，那么需要将其指定为CACHE，如<code>set(contribdir ${contribdir} ${CMAKE_CURRENT_SOURCE_DIR}/stb CACHE INTERNAL &quot;contrib library&quot; )</code></p>
+</li>
+<li>unset() —- 删除变量，通常用来删除临时变量</li>
+<li>option() —- 设置操作项，可通过ON/OFF来控制开关，这个配置项在cmake-gui中以复选框的形式显示，通常与configure_file结合使用</li>
+<li><p>message() —- 设置项目生成时的日志输出，甚至可以控制cmake的执行，比如FATAL_ERROR可终止cmake的往下执行</p>
+</li>
+<li><p>source_group() —- 将文件列表设为某个子群组，对应vs里的include、src等目录，如<code>source_group(&quot;contrib/include&quot; ${CURRENT_HEADERS})</code></p>
+</li>
+<li>file() —- 快速搜索文件，将其存放在某个变量里，支持多路径搜索，多用于搜索头文件、资源文件什么的，配合source_group将之添加到工程里</li>
+<li>aux_source_directory() —- 搜索指定路径下的源文件，通常是.cpp、.c、.cxx等后缀名的文件，结果存放在某个变量里</li>
+<li>add_definitions() —- 添加预处理宏，针对当前CMakeLists下的所有项目，如果只想为某个项目添加特定的预处理宏，那么需要使用set_tests_properties，如<code>set_tests_properties(person_dll PROPERTIES COMPILE_DEFINITIONS &quot;DEMO_USE_DLL&quot;)</code></li>
+<li><p>add_custom_command() 添加自定义命令，可以设置执行时机(编译前、链接中、编译后)，比如生成了.dll后，想将其复制到主项目的可执行文件所在目录中，就需要它了，还有各种自定义生成指令也是用到了它</p>
+</li>
+<li><p>target_link_libraries() —- 设置要链接的库文件</p>
+</li>
+<li>include_directories() —- 添加头文件的搜索路径，只对当前CMakeLists.txt生效</li>
+<li><p>link_directories() —- 添加链接库的搜索路径，只对当前CMakeLists.txt生效</p>
+</li>
+<li><p>find_package() —- 查找第三方包，比如某项目依赖了第三方开源库curl来实现一个下载器，那么就可以通过这条指令来判断开发者是否安装了curl，如果 没开启，则禁用下载功能，通常与CMAKE_MODULE_PATH组合使用，如<code>SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)</code></p>
+</li>
+<li>find_path() —- 搜索某路径下的文件，多用于搜索头文件、链接库，以此来控制功能的开关，举个例子，某个项目集成了一个未开源的第三方库svgload，这个第三方库时以显式调用的方式提供，也就是说，提供了.h、.dll和.lib这三个文件，但是不给源码，此时就可以通过这条指令来尝试搜索项目，看有没有这个svgload开发包了，如果没有的话，通过预编译关闭掉svg的加载功能，当然，也可以采用find_package()来实现</li>
+<li>find_library() —- 搜索某路径下的链接库，find_pat其实也可以替代它，两者用法相似</li>
+</ul>
+<h3 id="非官方例子" class="article-heading"><a href="#非官方例子" class="headerlink" title="非官方例子"></a>非官方例子<a class="article-anchor" href="#非官方例子" aria-hidden="true"></a></h3><p>由于工作中用到的东西有点多，脑子记不过来，因此在此特意记下几个常用的例子，这里以图片转换器为例:</p>
+<blockquote>
+<p>基本功能：加载常见的图片格式，如jpg、png、bmp、svg等，将其转换成其它图片格式，目前仅提供CLI版本用作演示</p>
+</blockquote>
+<blockquote>
+<p>技术选型如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs txt">                +--------&gt;ImageLoadModule(gdi+、stb_image.h、libgif、naosvg、skia、freeimage等)，加载磁盘上的图片资源到内存中<br>                |<br>                |<br>ImageConverter--|---------&gt;AutoCompleteModule(linenoise、readline等)，为CLI程序提供命令自动补全的功能<br>                |<br>                |<br>                +--------&gt;ImageSaveModule(gdi+、stb_image_write.h、freeimage等)，将内存中的图片数据保存到磁盘<br></code></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="ImageConverter-0-1" class="article-heading"><a href="#ImageConverter-0-1" class="headerlink" title="ImageConverter 0.1"></a>ImageConverter 0.1<a class="article-anchor" href="#ImageConverter-0-1" aria-hidden="true"></a></h4><blockquote>
+<p>这只是一个初始版，仅仅是搜索项目下的源文件，将其添加到VS上，可以编译执行了，附件：<a href="/assets/2018-06-25/ImageConverter0.1.zip">ImageConverter0.1.zip</a></p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment"># 指定cmake的最小版本</span><br>cmake_minimum_required(VERSION 2.8)<br><span class="hljs-comment"># 指定工程名称，ImageConverter.sln</span><br>project(ImageConverter)<br><span class="hljs-comment"># 搜索当前目录下的源码文件，用srcs存储起来</span><br>aux_source_directory(. srcs)<br><span class="hljs-comment"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj</span><br>add_executable(ImageConverterDemo $&#123;srcs&#125;)<br></code></pre></td></tr></table></figure>
+<h4 id="ImageConverter-0-2" class="article-heading"><a href="#ImageConverter-0-2" class="headerlink" title="ImageConverter 0.2"></a>ImageConverter 0.2<a class="article-anchor" href="#ImageConverter-0-2" aria-hidden="true"></a></h4><blockquote>
+<p>接下来搭建这个项目的基础部分，定好各种组件的接口，这里先以gdi+作为图片的编解码器，附件：<a href="/assets/2018-06-25/ImageConverter0.2.zip">ImageConverter0.2.zip</a></p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment"># 指定cmake的最小版本</span><br>cmake_minimum_required(VERSION 2.8)<br><br><span class="hljs-comment"># 指定工程名称，ImageConverter.sln</span><br>project(ImageConverter)<br><br><span class="hljs-comment"># 搜索目录下的源码文件</span><br>aux_source_directory(. srcs)<br><br>FILE(GLOB_RECURSE coresrcs <br>    ./core/*.cpp<br>)<br><br>FILE(GLOB_RECURSE miscsrcs <br>    ./misc/*.cpp<br>)<br><br><span class="hljs-comment"># 搜索目录下的头文件</span><br>FILE(GLOB_RECURSE coreheaders <br>    ./core/*.h<br>)<br><br>FILE(GLOB_RECURSE mischeaders <br>    ./misc/*.h<br>)<br><br><span class="hljs-comment"># 添加到项目筛选器上</span><br>source_group(<span class="hljs-string">"src"</span> FILES $&#123;srcs&#125;)<br>source_group(<span class="hljs-string">"src\\core"</span> FILES $&#123;coresrcs&#125;)<br>source_group(<span class="hljs-string">"src\\misc"</span> FILES $&#123;miscsrcs&#125;)<br><br>source_group(<span class="hljs-string">"include\\misc"</span> FILES $&#123;mischeaders&#125;) <br>source_group(<span class="hljs-string">"include\\core"</span> FILES $&#123;coreheaders&#125;) <br><br><span class="hljs-comment"># 添加头文件搜索路径</span><br>include_directories(./core)<br>include_directories(./misc)<br><br><span class="hljs-comment"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj</span><br>add_executable(ImageConverterDemo $&#123;srcs&#125; $&#123;coresrcs&#125; $&#123;miscsrcs&#125; $&#123;coreheaders&#125; $&#123;mischeaders&#125;)<br></code></pre></td></tr></table></figure>
+<h4 id="ImageConverter-0-5" class="article-heading"><a href="#ImageConverter-0-5" class="headerlink" title="ImageConverter 0.5"></a>ImageConverter 0.5<a class="article-anchor" href="#ImageConverter-0-5" aria-hidden="true"></a></h4><blockquote>
+<p>这里调用了第三方类库nanosvg来支持svg文件的读取，主要演示了如何通过Git来管理第三方类库，以及如何在cmake里面整合第三方类库源码的过程，简略描述如下：<br>借助option来配置svg的功能开启，如果为ON，则这里以SUPPORT_SVG_TYPE作为开启的条件，通过<code>add_definitions(-DSUPPORT_SVG_TYPE)</code>来添加预处理宏，源码里以<code>SUPPORT_SVG_TYPE</code>作为预编译宏，整理所有与svg相关的代码逻辑，另外，也要在CMakeLists.txt中，以<code>if(SUPPORT_SVG_TYPE)</code>判断是否执行追加相关头文件搜索路径，添加相关文件名到工程等命令<br>借助configure_file来配置一个外部的头文件，用来传入程序的版本号，当然，也可以配合option来做其他事情<br>附件：<a href="/assets/2018-06-25/ImageConverter0.5.zip">ImageConverter0.5.zip</a></p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment"># 指定cmake的最小版本</span><br>cmake_minimum_required(VERSION 2.8)<br><br><span class="hljs-comment"># 指定工程名称，ImageConverter.sln</span><br>project(ImageConverter)<br><br><span class="hljs-comment"># 配置版本号</span><br>set (APP_VERSION_MAJOR 1)<br>set (APP_VERSION_MINOR 0)<br><br><span class="hljs-comment"># 配置是否开启SVG的支持</span><br>option (SUPPORT_SVG_TYPE <span class="hljs-string">"support .svg file"</span> ON)  <br><br><span class="hljs-comment"># 加入一个配置头文件，用于处理 CMake 对源码的设置</span><br>configure_file (<br>  <span class="hljs-string">"$&#123;PROJECT_SOURCE_DIR&#125;/config.h.in"</span><br>  <span class="hljs-string">"$&#123;PROJECT_SOURCE_DIR&#125;/config.h"</span><br> )<br><br>aux_source_directory(. srcs)<br>source_group(<span class="hljs-string">"src"</span> FILES $&#123;srcs&#125;)<br><br>FILE(GLOB_RECURSE coresrcs <br>    ./core/*.cpp<br>)<br>source_group(<span class="hljs-string">"src\\core"</span> FILES $&#123;coresrcs&#125;)<br><br>FILE(GLOB_RECURSE miscsrcs <br>    ./misc/*.cpp<br>)<br>source_group(<span class="hljs-string">"src\\misc"</span> FILES $&#123;miscsrcs&#125;)<br><br>FILE(GLOB_RECURSE coreheaders <br>    ./core/*.h<br>)<br>source_group(<span class="hljs-string">"include\\core"</span> FILES $&#123;coreheaders&#125;) <br><br>FILE(GLOB_RECURSE mischeaders <br>    ./misc/*.h<br>)<br>source_group(<span class="hljs-string">"include\\misc"</span> FILES $&#123;mischeaders&#125;) <br><br>if(SUPPORT_SVG_TYPE)<br>FILE(GLOB_RECURSE nanosvgheaders <br>    ./modules/nanosvg/src/*.h<br>    ./modules/nanosvg/example/*.h<br>)<br>source_group(<span class="hljs-string">"modules\\include\\nanosvg"</span> FILES $&#123;nanosvgheaders&#125;) <br>include_directories(./modules/nanosvg/src)<br>include_directories(./modules/nanosvg/example)<br>add_definitions(-DSUPPORT_SVG_TYPE)<br><span class="hljs-keyword">endif</span>(SUPPORT_SVG_TYPE)<br><br><span class="hljs-comment"># 添加头文件搜索路径</span><br>include_directories(./core)<br>include_directories(./misc)<br><br><span class="hljs-comment"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj</span><br>add_executable(ImageConverterDemo $&#123;srcs&#125; $&#123;coresrcs&#125; $&#123;miscsrcs&#125; $&#123;coreheaders&#125; $&#123;mischeaders&#125; $&#123;nanosvgheaders&#125;)<br></code></pre></td></tr></table></figure>
+<h4 id="ImageConverter-0-6" class="article-heading"><a href="#ImageConverter-0-6" class="headerlink" title="ImageConverter 0.6"></a>ImageConverter 0.6<a class="article-anchor" href="#ImageConverter-0-6" aria-hidden="true"></a></h4><blockquote>
+<p>目前发现Gdiplus里面的图片编码、解码的功能还是太弱了，支持的图片类型太少，比如无法正常加载psd类型，因此打算采用FreeImage来加强这个功能。由于FreeImage是以一个动态库的开发包形式分发的，因此需要更多的指令来控制依赖FreeImage库的工程生成，其中包括项目生成之后的dll文件拷贝、根据.dll、.lib的文件是否存在来判断是否生成ForFreeImage的工程等等，用到的关键指令如下所示：</p>
+<ul>
+<li>Find_Package -&gt; 用来查看cmake目录下的xxx.cmake文件，里面定义了这个模块的源码、开发包的搜索方式，注意，xxx.cmake里定义的参数可以传递到CMakeLists.txt里面哦</li>
+<li>set_target_properties -&gt; 为指定项目配置特有属性，通常用来添加项目特有的宏定义，而add_definitions定义的宏会添加到所有生成的项目中，注意这个的区别哦</li>
+<li>target_link_libraries -&gt; 让指定项目链接静态库/导入库，不是作用到所有项目哦</li>
+<li>add_custom_command -&gt; 自定义生成命令，在此是为了让FreeImage项目生成后，自动拷贝FreeImage开发包下的.dll文件到.exe所在目录下，注意，这里面还用<code>set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)</code>来重定向输出目录了哦</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>附件：<a href="/assets/2018-06-25/ImageConverter0.6.7z">ImageConverter0.6.7z</a></p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment">### 这里仅仅截取CMakeLists.txt的FreeImage配置相关代码段</span><br>SET(CMAKE_MODULE_PATH $&#123;PROJECT_SOURCE_DIR&#125;/cmake)<br><br>FIND_PACKAGE(FREEIMAGEX32)<br>IF(FREEIMAGEX32_FOUND)<br>    include_directories($&#123;FREEIMAGEX32_INCLUDE_DIR&#125;)<br>    FILE(GLOB_RECURSE freeimageheaders <br>        $&#123;FREEIMAGEX32_INCLUDE_DIR&#125;/*.h<br>    )<br>    source_group(<span class="hljs-string">"include\\freeimage"</span> FILES $&#123;freeimageheaders&#125;) <br>    if (FREEIMAGEX32_STATICLIB)<br>        add_executable(ImageConverterForFreeImage <br>            $&#123;srcs&#125; <br>            $&#123;coresrcs&#125; <br>            $&#123;miscsrcs&#125; <br>            $&#123;coreheaders&#125; <br>            $&#123;mischeaders&#125; <br>            $&#123;freeimageheaders&#125;<br>            $&#123;nanosvgheaders&#125;)<br><br>        set_target_properties(ImageConverterForFreeImage PROPERTIES COMPILE_DEFINITIONS <span class="hljs-string">"SUPPORT_FREEIMAGE"</span>)<br>        target_link_libraries(ImageConverterForFreeImage $&#123;FREEIMAGEX32_STATICLIB&#125;)<br>        add_custom_command(TARGET ImageConverterForFreeImage POST_BUILD        <span class="hljs-comment"># Adds a post-build event to MyTest</span><br>            COMMAND $&#123;CMAKE_COMMAND&#125; -E copy_if_different  <span class="hljs-comment"># which executes "cmake - E copy_if_different..."</span><br>                <span class="hljs-string">"$&#123;FREEIMAGEX32_SHAREDLIB&#125;"</span>      <span class="hljs-comment"># &lt;--this is in-file</span><br>                <span class="hljs-string">"$&#123;PROJECT_SOURCE_DIR&#125;/bin/<span class="hljs-variable">$&lt;</span>CONFIGURATION&gt;"</span><br>                )<br>    <span class="hljs-keyword">endif</span>(FREEIMAGEX32_STATICLIB)<br><span class="hljs-keyword">else</span>(FREEIMAGEX32_FOUND)    <br>    MESSAGE(status <span class="hljs-string">"没有找到FreeImage哦，不生成此工程啦"</span>) <br>ENDIF(FREEIMAGEX32_FOUND)<br></code></pre></td></tr></table></figure>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment">### FindFREEIMAGEX32.cmake，此文件是配合Find_Package指令来使用的，目的是搜索指定路径</span><br><span class="hljs-comment">### 看FreeImage开发包是否完整，一般而言，FindXXX.cmake是会主动生成一些静态库、动态库项目的</span><br><span class="hljs-comment">### 当然，这是由源码的前提了，这里是借助了第三方提供的工具包，因此显得有点绕</span><br><span class="hljs-comment"># 设置查找路径</span><br>set (search_header  $&#123;PROJECT_SOURCE_DIR&#125;/modules/FreeImage/x32)<br>set (search_staticlib $&#123;PROJECT_SOURCE_DIR&#125;/modules/FreeImage/x32)<br>set (search_sharedlib $&#123;PROJECT_SOURCE_DIR&#125;/modules/FreeImage/x32)<br><br><span class="hljs-comment"># 搜索头文件</span><br>FIND_PATH(FREEIMAGEX32_INCLUDE_DIR FreeImage.h $&#123;search_header&#125;)<br><br><span class="hljs-comment"># 搜索链接库</span><br>FILE(GLOB_RECURSE FREEIMAGEX32_STATICLIB $&#123;search_staticlib&#125;/FreeImage.lib)<br><br><span class="hljs-comment"># 搜索dll</span><br>FILE(GLOB_RECURSE FREEIMAGEX32_SHAREDLIB $&#123;search_sharedlib&#125;/FreeImage.dll)<br><br>IF (FREEIMAGEX32_INCLUDE_DIR AND FREEIMAGEX32_STATICLIB AND FREEIMAGEX32_SHAREDLIB)<br>    SET(FREEIMAGEX32_FOUND TRUE)<br>ENDIF (FREEIMAGEX32_INCLUDE_DIR AND FREEIMAGEX32_STATICLIB AND FREEIMAGEX32_SHAREDLIB)<br><br><span class="hljs-comment"># 删除临时变量</span><br>unset(search_header)<br>unset(search_staticlib)<br>unset(search_sharedlib)<br></code></pre></td></tr></table></figure>
+<h4 id="配置编译参数" class="article-heading"><a href="#配置编译参数" class="headerlink" title="配置编译参数"></a>配置编译参数<a class="article-anchor" href="#配置编译参数" aria-hidden="true"></a></h4><p>在VS中，需要配置编译参数，如将Debug下的<code>/MDd=&gt;/MTd</code>，Release下的<code>/MD=&gt;/MT</code>可以如下配置:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs makefile">if (MSVC)<br>    set(CompilerFlags<br>        CMAKE_CXX_FLAGS<br>        CMAKE_CXX_FLAGS_DEBUG<br>        CMAKE_CXX_FLAGS_RELEASE<br>        CMAKE_C_FLAGS<br>        CMAKE_C_FLAGS_DEBUG<br>        CMAKE_C_FLAGS_RELEASE<br>        )<br>    foreach(CompilerFlag $&#123;CompilerFlags&#125;)<br>        string(REPLACE <span class="hljs-string">"/MD"</span> <span class="hljs-string">"/MT"</span> $&#123;CompilerFlag&#125; <span class="hljs-string">"$&#123;$&#123;CompilerFlag&#125;&#125;"</span>)<br>    endforeach()<br><span class="hljs-keyword">endif</span>(MSVC)<br></code></pre></td></tr></table></figure>
+<p>参考资料: </p>
+<ul>
+<li><a href="https://blog.csdn.net/frank_liuxing/article/details/74010939" target="_blank" rel="noopener">cmake 设置vs工程的MT、MTd</a></li>
+<li><a href="https://blog.csdn.net/10km/article/details/73750410" target="_blank" rel="noopener">cmake:msvc编译第三方库时使用/MT静态库连接c/c++ runtime library</a></li>
+</ul>
+<hr>
+<h3 id="FAQ" class="article-heading"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ<a class="article-anchor" href="#FAQ" aria-hidden="true"></a></h3><h4 id="不熟悉xxx命令，如何快速检索相关资料呢" class="article-heading"><a href="#不熟悉xxx命令，如何快速检索相关资料呢" class="headerlink" title="不熟悉xxx命令，如何快速检索相关资料呢"></a>不熟悉xxx命令，如何快速检索相关资料呢<a class="article-anchor" href="#不熟悉xxx命令，如何快速检索相关资料呢" aria-hidden="true"></a></h4><blockquote>
+<p>对于不熟悉的cmake command，有两种方法可以快速找到其使用说明，这里以<code>find_path</code>为例</p>
+</blockquote>
+<ul>
+<li>直接在终端上输入<code>cmake -h find_path</code>来查询即可，如下图所示:</li>
+<li>直接问度娘或谷歌，输入<code>cmake find_path</code>来搜索即可，通常搜索引擎前三就是cmake官方的文档，后面的搜索结果是网友的一些博客了</li>
+</ul>
+<p><img src="/assets/2018-06-25/09-1530522434000.png" alt></p>
+<h4 id="SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢" class="article-heading"><a href="#SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢" class="headerlink" title="SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢"></a>SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢<a class="article-anchor" href="#SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢" aria-hidden="true"></a></h4><ul>
+<li>SublimeText—-CMakeEditor</li>
+<li>VSCode—-CMakeTool+CMake</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                <a href="design_pattern.html" class="article-footer-prev" title="设计模式"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="lua_learn_notes.html" class="article-footer-next" title="Lua学习笔记"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装CMake"><span class="toc-text">安装CMake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门教程"><span class="toc-text">入门教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非官方例子"><span class="toc-text">非官方例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageConverter-0-1"><span class="toc-text">ImageConverter 0.1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageConverter-0-2"><span class="toc-text">ImageConverter 0.2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageConverter-0-5"><span class="toc-text">ImageConverter 0.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageConverter-0-6"><span class="toc-text">ImageConverter 0.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置编译参数"><span class="toc-text">配置编译参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不熟悉xxx命令，如何快速检索相关资料呢"><span class="toc-text">不熟悉xxx命令，如何快速检索相关资料呢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢"><span class="toc-text">SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">算法</strong><a href="char_image_merge.html" class="sidebar-link">字符图片合并</a><strong class="sidebar-title">软件工程</strong><a href="design_pattern.html" class="sidebar-link">设计模式</a><a href="use_cmake_notes.html" class="sidebar-link current">CMake学习笔记</a><strong class="sidebar-title">编程语言</strong><a href="lua_learn_notes.html" class="sidebar-link">Lua学习笔记</a><strong class="sidebar-title">代码风格</strong><a href="cplusplus_style_guide.html" class="sidebar-link">C++代码风格</a><strong class="sidebar-title">并发模型</strong><a href="thinking_about_the_concurrency_model.html" class="sidebar-link">关于并发模型的思考</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">算法</strong><a href="char_image_merge.html" class="mobile-nav-link">字符图片合并</a><strong class="mobile-nav-title">软件工程</strong><a href="design_pattern.html" class="mobile-nav-link">设计模式</a><a href="use_cmake_notes.html" class="mobile-nav-link current">CMake学习笔记</a><strong class="mobile-nav-title">编程语言</strong><a href="lua_learn_notes.html" class="mobile-nav-link">Lua学习笔记</a><strong class="mobile-nav-title">代码风格</strong><a href="cplusplus_style_guide.html" class="mobile-nav-link">C++代码风格</a><strong class="mobile-nav-title">并发模型</strong><a href="thinking_about_the_concurrency_model.html" class="mobile-nav-link">关于并发模型的思考</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="dev/use_cmake_notes.html">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

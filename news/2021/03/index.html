@@ -55,7 +55,7 @@
       <a href="/" id="logo">YXZ's Blog</a>
     </h1>
     <nav id="main-nav">
-      <a href="/news/" class="main-nav-link">随笔</a><a href="/about/" class="main-nav-link">关于我</a>
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
     </nav>
     <div id="lang-select-wrap">
       <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
@@ -83,77 +83,68 @@
   <header class="article-header">
     
       <h1>
-        <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-title" itemprop="name">开发一款用于正文加密的Hexo插件</a>
+        <a href="/news/2021/03/15/a-way-of-html-encryption/" class="article-title" itemprop="name">谈一种页面加密技术</a>
       </h1>
     
-    <a href="/news/2021/03/25/how-to-write-a-hexo-plugin/" class="article-date"><time datetime="2021-03-25T00:00:00.000Z">2021-03-25</time></a>
+    <a href="/news/2021/03/15/a-way-of-html-encryption/" class="article-date"><time datetime="2021-03-15T00:00:00.000Z">2021-03-15</time></a>
   </header>
   <div class="article-content" itemprop="articleBody">
-    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>上一篇<a href="https://yaoxuanzhi.github.io/news/2021/03/15/a-way-of-html-encryption/">文章</a>谈到了自己捣弄了一个页面加密方案的实现，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了，在这里也再提一下，现今hexo插件里已经有一款同类加密插件，而且做得也更加完善，具体看这里：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
-<h3 id="需求" class="article-heading"><a href="#需求" class="headerlink" title="需求"></a>需求<a class="article-anchor" href="#需求" aria-hidden="true"></a></h3><p>本人希望借助这款插件，只需要让哪些想要加密的md的文件头上添加<code>password: your_pwd</code>，即可在执行<code>hexo g</code>的时候，自动对生成的html的文章正文进行加密</p>
-<h3 id="插件开发记录" class="article-heading"><a href="#插件开发记录" class="headerlink" title="插件开发记录"></a>插件开发记录<a class="article-anchor" href="#插件开发记录" aria-hidden="true"></a></h3><p>由于具体的Hexo插件开发博客已经汗牛充栋了，这里就没必要赘述了，仅仅罗列一下本人开发插件过程中用到的资料和相关链接吧</p>
+    <h3 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h3><p>这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：</p>
 <ul>
-<li><ol>
-<li>了解hexo的插件工作机制</li>
-</ol>
-<ul>
-<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
-</ul>
+<li><a href="https://blog.csdn.net/weixin_44548876/article/details/86725023" target="_blank" rel="noopener">HTML的简单页面加密代码</a><blockquote>
+<p>基本流程上是没啥问题，但是这个示例里面，密码完整验证的方式已经被明文存储在页面上了，纵使密码存放在其它地方，采用Ajax方式获取之后再对比也毫无意义，开发者很容易在浏览器上通过F12修改这个密码验证逻辑从而正常浏览到，并且，由于这里面的内容也是明文存放着的，也会被搜索引擎检索到</p>
+</blockquote>
 </li>
-<li><ol start="2">
-<li>找出处理文章正文的插件接口或示例</li>
-</ol>
-<ul>
-<li>在 <strong><a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a></strong>里找到了关键接口</li>
-</ul>
-</li>
-<li><ol start="3">
-<li>新建一个插件项目</li>
-</ol>
-<ul>
-<li><a href="http://www.sumoon.com/hexo/hexo-simple-plugin/" target="_blank" rel="noopener">《hexo教程之为hexo编写一个插件》</a></li>
-</ul>
-</li>
-<li><ol start="4">
-<li>整合加密打包功能到这个插件项目上</li>
-</ol>
-<ul>
-<li>已上传到 <strong><a href="https://hub.fastgit.org/yaoxuanzhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></strong>仓库上了</li>
-</ul>
-</li>
-<li><ol start="5">
-<li>将这款插件发布到<a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>上</li>
-</ol>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/44156668" target="_blank" rel="noopener">《如何发布自己的NPM包（模块）？》</a></li>
-</ul>
-</li>
-<li><ol start="6">
-<li>将这款插件发布到hexo插件市场上</li>
-</ol>
-<ul>
-<li><a href="https://hexo.io/zh-cn/docs/plugins.html" target="_blank" rel="noopener">插件|Hexo</a></li>
-</ul>
+<li><del><a href="http://cha.buyiju.com/tool/cryptogram.htm" target="_blank" rel="noopener">HTML网页加密解密</a></del><blockquote>
+<p>无法正常体验，并且访问体验也不是我想要的</p>
+</blockquote>
 </li>
 </ul>
-<h4 id="插件调试" class="article-heading"><a href="#插件调试" class="headerlink" title="插件调试"></a>插件调试<a class="article-anchor" href="#插件调试" aria-hidden="true"></a></h4><p>目前没有找到vscode直接断点调试hexo插件的方式以及相关的文章教程，这里采用的是根据<code>hexo.log()</code>或<code>console.log()</code>的日志输出来跟踪问题的</p>
-<h4 id="注意事项" class="article-heading"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项<a class="article-anchor" href="#注意事项" aria-hidden="true"></a></h4><p>由于GithubPage是部署在墙外的，部分国内的cdn国外无法正常访问，所以需将<code>bootstrap.min.css</code>的<a href="http://cdn.bootstrapmb.com/bootstrap/4.4.0/css/bootstrap.min.css" target="_blank" rel="noopener">国内url</a>要改成<a href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" target="_blank" rel="noopener">国外url</a></p>
-<h2 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h2><p>其实hexo 插件市场上也有好几款文章正文加密插件，本人开发的这款加密插件可当作另一种实现思路</p>
-<p><img src="/assets/2021-03-25/1616647855692.png" alt></p>
+<p>总而言之，虽然找到了各种貌似可用的实现，但是都没有get到我的需求痛点，决定自己开搞一个</p>
+<h3 id="基本思路" class="article-heading"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路<a class="article-anchor" href="#基本思路" aria-hidden="true"></a></h3><p>实际上，本人对访问的加密强度没啥追求，只需要以下特性即可：</p>
+<ul>
+<li><em>正文不能被搜索引擎爬虫到</em></li>
+<li><em>需要输入密码访问</em></li>
+</ul>
+<p>针对这两个需求点，采用以下两种加密方式混合使用即可达到：</p>
+<ul>
+<li><strong>base64</strong> (一种可逆加密方式，将明文或字节流转换成base64字符串，在此解决首次xor加密生成的字节流存储在页面的问题)</li>
+<li><strong>xor</strong> (一种可逆加密方式，提供密钥验证支持，在正确的密钥下，进行两次该加密即可获得原文)</li>
+</ul>
+<h4 id="页面加密打包思路" class="article-heading"><a href="#页面加密打包思路" class="headerlink" title="页面加密打包思路"></a>页面加密打包思路<a class="article-anchor" href="#页面加密打包思路" aria-hidden="true"></a></h4><p>读取需要加密的html文件的特定标签内容，将其进行base64+xor加密之后，塞到一个可以进行密码验证访问的模板标签上，删掉这个已加密的正文标签后，将模板标签再重新拼接成新的html。具体流程流程看代码啦，也是比较直观的</p>
+<h4 id="页面验证访问思路" class="article-heading"><a href="#页面验证访问思路" class="headerlink" title="页面验证访问思路"></a>页面验证访问思路<a class="article-anchor" href="#页面验证访问思路" aria-hidden="true"></a></h4><p>游客打开这个加密后的html之后，已加密的标签上会显示一个密码验证的界面，如果密码输入错误，浏览器会弹框提醒，如果输入密码正确，则解密后的正文标签outHtml会直接替换掉这个密码验证标签的outHtml，此时浏览器会自动将正文内容加载出来</p>
+<h4 id="密码验证思路" class="article-heading"><a href="#密码验证思路" class="headerlink" title="密码验证思路"></a>密码验证思路<a class="article-anchor" href="#密码验证思路" aria-hidden="true"></a></h4><p>核心思路是提供一个 <strong>前缀字符串(prefix_str)</strong>来作为判断依据，最终整个流程如下所示：</p>
+<ul>
+<li>加密打包：<code>base64(xor(prefix_str+content))</code></li>
+<li>解密验证：<code>xor(unbase64(encode_str))</code>，再从中匹配前缀字符串是否刚好为 <strong>prefix_str</strong>，如果是，则密码正确，反之，提醒用户重新输入</li>
+</ul>
+<h4 id="加密-解密思路" class="article-heading"><a href="#加密-解密思路" class="headerlink" title="加密/解密思路"></a>加密/解密思路<a class="article-anchor" href="#加密-解密思路" aria-hidden="true"></a></h4><p>从html上提取到需要加密的正文tag之后，其加密、解密的流程设计如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs text">  html encrytion                        html decrytion<br><br> +--------------+                      +--------------+<br> |              |                      |              |<br> |input html tag|                      |input html tag|<br> |              |                      |              |<br> +--------------+                      +--------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br> +-------v--------+                  +---------v---------+<br> |                |                  |                   |<br> | xor encryption |                  | base64 encryption |<br> |                |                  |                   |<br> +----------------+                  +-------------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br>+--------v----------+                  +-------v--------+<br>|                   |                  |                |<br>| base64 encryption |                  | xor encryption |<br>|                   |                  |                |<br>+-------------------+                  +----------------+<br>         |                                     |<br>         |                                     |<br>         |                                     |<br>  +------v--------+                     +------v--------+<br>  |               |                     |               |<br>  |output html tag|                     |output html tag|<br>  |               |                     |               |<br>  +---------------+                     +---------------+<br></code></pre></td></tr></table></figure>
+<h4 id="技术选型" class="article-heading"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型<a class="article-anchor" href="#技术选型" aria-hidden="true"></a></h4><p>此工具基于nodejs技术栈实现，经过对比，选择了下面这几个第三方库：</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/js-base64" target="_blank" rel="noopener">js-base64</a><blockquote>
+<p>utf8支持良好的base64库</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="noopener">cheerio</a><blockquote>
+<p>能够解析修改html的html库，多用于爬虫项目</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/yargs" target="_blank" rel="noopener">yargs</a><blockquote>
+<p>能轻松配置命令，解析多个参数，并设置快捷方式等，还能自动生成帮助菜单的命令行辅助库</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="代码实现" class="article-heading"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现<a class="article-anchor" href="#代码实现" aria-hidden="true"></a></h4><ul>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js" target="_blank" rel="noopener">base64+xor加密解密库</a></li>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js" target="_blank" rel="noopener">html加密打包工具</a></li>
+</ul>
+<h4 id="后续迭代" class="article-heading"><a href="#后续迭代" class="headerlink" title="后续迭代"></a>后续迭代<a class="article-anchor" href="#后续迭代" aria-hidden="true"></a></h4><p>由于目前本人的博客都是采用hexo发布的，因此需要将这个加密逻辑整合成hexo插件，期间找到了一款同类型的插件<a href="https://github.com/D0n9X1n/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a>，这款hexo插件基本满足我最开始的要求了，但由于它是在我完成了<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js" target="_blank" rel="noopener">base64+xor加密解密库</a>和<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js" target="_blank" rel="noopener">html加密打包工具</a>后，打算整合到hexo的时候才找到的，本着不断学习的态度，借鉴这个插件的思路，自己也重写了一个 OMG，感兴趣的可前往<a href="https://github.com/YaoXuanZhi/hexo-encrypted-package-html" target="_blank" rel="noopener">hexo-encrypted-package-html</a></p>
 
   </div>
   
 </article>
 
-        
-      
-        
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="/news/2021/03/15/a-way-of-html-encryption/">
-              <strong class="archive-post-title" itemprop="name">谈一种页面加密技术</strong>
-              <span class="archive-post-date"><time datetime="2021-03-15T00:00:00.000Z">2021-03-15</time></span>
-            </a>
-          </article>
         
       
     </div>
@@ -177,7 +168,7 @@
   <nav id="mobile-nav">
   <div id="mobile-nav-inner">
     <ul id="mobile-nav-list">
-      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
       <li class="mobile-nav-item">
         <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
       </li>

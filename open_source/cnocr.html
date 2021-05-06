@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>初探cnocr | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/open_source/cnocr.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/open_source/cnocr.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="初探cnocr">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/open_source/cnocr.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2021-05-06T10:14:06.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探cnocr">
+<meta name="twitter:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">初探cnocr</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/open_source/cnocr.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h3 id="在线安装" class="article-heading"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装<a class="article-anchor" href="#在线安装" aria-hidden="true"></a></h3><ul>
+<li><ol>
+<li>virtualenv/anaconda3</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>win32OpenSSL</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda create -n cnocr python=3.7<br>pip install cnocr<br>pip install cnstd<br></code></pre></td></tr></table></figure>
+<p>注意，执行<code>pip install cnstd</code>之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如<a href="https://download.lfd.uci.edu/pythonlibs/w4tscw6k/Shapely-1.7.1-cp37-cp37m-win_amd64.whl" target="_blank" rel="noopener">Shapely-1.7.1-cp37-cp37m-win_amd64.whl</a>)进行离线安装，如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">pip uninstall Shapely<br>pip install your_path/Shapely-1.7.1-cp37-cp37m-win_amd64.whl<br></code></pre></td></tr></table></figure>
+<h3 id="源码安装" class="article-heading"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装<a class="article-anchor" href="#源码安装" aria-hidden="true"></a></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> cnstd/<br>pip install -r requestment.txt<br>python setup.py build<br>python setup.py install<br></code></pre></td></tr></table></figure>
+<h3 id="离线包部署" class="article-heading"><a href="#离线包部署" class="headerlink" title="离线包部署"></a>离线包部署<a class="article-anchor" href="#离线包部署" aria-hidden="true"></a></h3><p>如果不想折腾这个cnocr的环境配置，这里提供了一个本人整合的离线工具包，只需要在一个不包含中文或空格的路径上解压，直接<strong>以管理员身份</strong>执行<strong>ocr_deploy.bat</strong>即可</p>
+<p>下载链接：<a href="https://pan.baidu.com/s/1iIPuTI3OXZca1FqcmgKYEA" target="_blank" rel="noopener">cnocr离线工具包-cnocr_toolkit.zip</a>，提取码：<code>y80u</code></p>
+<blockquote>
+<p>该离线包仅仅支持x64bit Windows系统</p>
+</blockquote>
+<h3 id="代码片段" class="article-heading"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段<a class="article-anchor" href="#代码片段" aria-hidden="true"></a></h3><h4 id="纯文本识别" class="article-heading"><a href="#纯文本识别" class="headerlink" title="纯文本识别"></a>纯文本识别<a class="article-anchor" href="#纯文本识别" aria-hidden="true"></a></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 识别纯文字图片</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ocr_single_png_from_cache</span><span class="hljs-params">(image)</span>:</span><br>    nd_array = np.asarray(image.convert(<span class="hljs-string">'RGB'</span>))<br>    res = cn_ocr.ocr(nd_array) <br>    res = [<span class="hljs-string">''</span>.join(line_p) <span class="hljs-keyword">for</span> line_p <span class="hljs-keyword">in</span> res]<br>    temp_res = <span class="hljs-string">'\n'</span>.join(res)<br>    <span class="hljs-keyword">return</span> temp_res<br><br><span class="hljs-comment"># 识别纯文字图片</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ocr_single_png_from_cache_bak</span><span class="hljs-params">(image)</span>:</span><br>    img_bytes = BytesIO()<br>    image.save(img_bytes, format=<span class="hljs-string">'PNG'</span>)<br>    nd_array = mx.image.imdecode(img_bytes.getvalue())<br>    res = cn_ocr.ocr(nd_array) <br>    res = [<span class="hljs-string">''</span>.join(line_p) <span class="hljs-keyword">for</span> line_p <span class="hljs-keyword">in</span> res]<br>    temp_res = <span class="hljs-string">'\n'</span>.join(res)<br>    <span class="hljs-keyword">return</span> temp_res<br></code></pre></td></tr></table></figure>
+<h4 id="外部调用cnocr" class="article-heading"><a href="#外部调用cnocr" class="headerlink" title="外部调用cnocr"></a>外部调用cnocr<a class="article-anchor" href="#外部调用cnocr" aria-hidden="true"></a></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 读取shell命令输出结果</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">popen_wrapper</span><span class="hljs-params">(cmd_line)</span>:</span><br>    p = subprocess.Popen(cmd_line, shell=<span class="hljs-literal">True</span>, stdout=subprocess.PIPE)<br>    lines = p.stdout.readlines()[<span class="hljs-number">1</span>:]<br>    temp_str = <span class="hljs-string">""</span><br>    <span class="hljs-keyword">for</span> str <span class="hljs-keyword">in</span> lines:<br>        utf8_str = str.decode(<span class="hljs-string">"utf8"</span>)<br>        temp_str = temp_str + utf8_str<br>    <span class="hljs-keyword">return</span> temp_str<br><br><span class="hljs-comment"># 尝试进行OCR识别</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">try_ocr_image</span><span class="hljs-params">(image_path)</span>:</span><br>    cmd_line = <span class="hljs-string">"xxx/try_ocr_image.bat %s"</span> % (image_path)<br>    ocr_str = popen_wrapper(cmd_line).strip()<br>    <span class="hljs-keyword">return</span> ocr_str<br></code></pre></td></tr></table></figure>
+<h4 id="剪贴板OCR" class="article-heading"><a href="#剪贴板OCR" class="headerlink" title="剪贴板OCR"></a>剪贴板OCR<a class="article-anchor" href="#剪贴板OCR" aria-hidden="true"></a></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-keyword">import</span> win32.win32clipboard <span class="hljs-keyword">as</span> win32clipboard<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image, ImageDraw, ImageGrab<br><span class="hljs-keyword">import</span> os<br><br><span class="hljs-comment"># 读取PIL image进行OCR识别</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ocr_image_from_pil</span><span class="hljs-params">(image)</span>:</span><br>    <span class="hljs-keyword">from</span> cnocr <span class="hljs-keyword">import</span> CnOcr <br>    <span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>    cn_ocr = CnOcr() <br>    nd_array = np.asarray(image.convert(<span class="hljs-string">'RGB'</span>))<br>    res_lines = cn_ocr.ocr(nd_array) <br>    res = [<span class="hljs-string">''</span>.join(line_p) <span class="hljs-keyword">for</span> line_p <span class="hljs-keyword">in</span> res_lines]<br>    temp_res = <span class="hljs-string">'\n'</span>.join(res)<br>    <span class="hljs-keyword">return</span> temp_res<br><br><span class="hljs-comment"># 读取剪贴板上的图像数据进行OCR识别</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">try_ocr_clipboard</span><span class="hljs-params">()</span>:</span><br>    ocr_result = <span class="hljs-string">""</span><br>    im = ImageGrab.grabclipboard()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> im == <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> ocr_image_from_pil(im)<br>    <span class="hljs-keyword">return</span> ocr_result<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_text_to_clipboard</span><span class="hljs-params">(text)</span>:</span><br>    text_bytes = bytes(text, encoding=<span class="hljs-string">"utf8"</span>)<br>    win32clipboard.OpenClipboard()<br>    win32clipboard.SetClipboardText(text)<br>    win32clipboard.CloseClipboard()<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ocr_clipboard</span><span class="hljs-params">()</span>:</span><br>    ocr_result = try_ocr_clipboard()<br>    <span class="hljs-keyword">if</span> (len(ocr_result) &gt; <span class="hljs-number">0</span>):<br>        set_text_to_clipboard(ocr_result)<br>        print(<span class="hljs-string">"剪贴板OCR结果：\n%s"</span> % (ocr_result))<br>        os.system(<span class="hljs-string">"pause"</span>)<br><br>ocr_clipboard()<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="/assets/2021-04-11/ocr_clipboard.zip">剪贴板OCR工具-ocr_clipboard.zip</a></p>
+<blockquote>
+<p>注意，Tim上有一个屏幕OCR功能，只需要Ctrl+Alt+O即可唤出，识别准度更高</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="学习计划" class="article-heading"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划<a class="article-anchor" href="#学习计划" aria-hidden="true"></a></h3><ul>
+<li>✔ 跑通cnocr的识别流程</li>
+<li>✔ 制作成离线部署包，方便在其它电脑上快速部署</li>
+<li>✔ 用来制作一些自用小工具，比如剪贴板上的图片OCR识别等</li>
+<li>☐ 跑通它的训练流程，持续改善识别精度</li>
+<li>☐ 尝试改进它的文本方向纠正效果<blockquote>
+<p>现在它的文本校正方向很容易出现180度倒转的情况，看有没有啥办法处理下</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="后记" class="article-heading"><a href="#后记" class="headerlink" title="后记"></a>后记<a class="article-anchor" href="#后记" aria-hidden="true"></a></h3><p>在Python3.8下部署时候遇到问题，因此推荐使用Python3.7及其以下版本，详情看官方教程</p>
+<p>个人比对了一下各个ocr项目，cnocr对纯文本图片的识别的准确度非常高，并且速度较快，但限于文本方向必须正确，一旦出现文本垂直或水平翻转，精度会严重下降；另外它对于那些广告图的识别效果也较差，不过无论如何，肯定甩tesseract不止一条街</p>
+<p>如果你的需求大多集中在广告图等非纯文本图片上，那么建议使用paddleocr或chinesecor-lite，不过这些ocr项目的部署也相对复杂多了</p>
+<blockquote>
+<p>离线工具包是从anaconda3提取出来的，再加上一些系统环境关联的脚本整合而成</p>
+</blockquote>
+<hr>
+<h3 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/134115239" target="_blank" rel="noopener">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a></li>
+<li><a href="https://ocr.space/" target="_blank" rel="noopener">OCRSpace</a><blockquote>
+<p>支持超长图片的OCR识别</p>
+</blockquote>
+</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在线安装"><span class="toc-text">在线安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码安装"><span class="toc-text">源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线包部署"><span class="toc-text">离线包部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-text">代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#纯文本识别"><span class="toc-text">纯文本识别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外部调用cnocr"><span class="toc-text">外部调用cnocr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#剪贴板OCR"><span class="toc-text">剪贴板OCR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习计划"><span class="toc-text">学习计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">OCR</strong><a href="cnocr.html" class="sidebar-link current">cnocr开源框架</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">OCR</strong><a href="cnocr.html" class="mobile-nav-link current">cnocr开源框架</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
