@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Visual Studio使用笔记 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/tool/use_visual_studio_notes.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/tool/use_visual_studio_notes.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="前言宇宙第一IDE，yyds 快捷键配置Visual Studio常用快捷键   快捷键 描述     ctrl+k+ctrl+c 代码注释   ctrl+shift+u 让被选中的文本里的字母全部转换为大写   ctrl+u 让被选中的文本里的字母全部转换为小写   ctrl+shift+space 当光标在函数的小括号里面的时候，会弹出此函数的参数列表   ctrl+i 向前导航跳转   ct">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Visual Studio使用笔记">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/tool/use_visual_studio_notes.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="前言宇宙第一IDE，yyds 快捷键配置Visual Studio常用快捷键   快捷键 描述     ctrl+k+ctrl+c 代码注释   ctrl+shift+u 让被选中的文本里的字母全部转换为大写   ctrl+u 让被选中的文本里的字母全部转换为小写   ctrl+shift+space 当光标在函数的小括号里面的时候，会弹出此函数的参数列表   ctrl+i 向前导航跳转   ct">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2021-05-16T12:51:00.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Visual Studio使用笔记">
+<meta name="twitter:description" content="前言宇宙第一IDE，yyds 快捷键配置Visual Studio常用快捷键   快捷键 描述     ctrl+k+ctrl+c 代码注释   ctrl+shift+u 让被选中的文本里的字母全部转换为大写   ctrl+u 让被选中的文本里的字母全部转换为小写   ctrl+shift+space 当光标在函数的小括号里面的时候，会弹出此函数的参数列表   ctrl+i 向前导航跳转   ct">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Visual Studio使用笔记</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/tool/use_visual_studio_notes.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+                <footer class="article-footer">
+                  <time class="article-footer-updated">发表于：2017-11-15</time>
+                </footer>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h2><p>宇宙第一IDE，yyds</p>
+<h2 id="快捷键配置" class="article-heading"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置<a class="article-anchor" href="#快捷键配置" aria-hidden="true"></a></h2><h3 id="Visual-Studio常用快捷键" class="article-heading"><a href="#Visual-Studio常用快捷键" class="headerlink" title="Visual Studio常用快捷键"></a>Visual Studio常用快捷键<a class="article-anchor" href="#Visual-Studio常用快捷键" aria-hidden="true"></a></h3><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ctrl+k</code>+<code>ctrl+c</code></td>
+<td style="text-align:center">代码注释</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ctrl+shift+u</code></td>
+<td style="text-align:center">让被选中的文本里的字母全部转换为大写</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ctrl+u</code></td>
+<td style="text-align:center">让被选中的文本里的字母全部转换为小写</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ctrl+shift+space</code></td>
+<td style="text-align:center">当光标在函数的小括号里面的时候，会弹出此函数的参数列表</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ctrl+i</code></td>
+<td style="text-align:center">向前导航跳转</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ctrl+o</code></td>
+<td style="text-align:center">向后导航跳转</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Visual-Assist常用快捷键" class="article-heading"><a href="#Visual-Assist常用快捷键" class="headerlink" title="Visual Assist常用快捷键"></a>Visual Assist常用快捷键<a class="article-anchor" href="#Visual-Assist常用快捷键" aria-hidden="true"></a></h3><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>shift+alt+s</code></td>
+<td style="text-align:center">Find Symbol</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>shift+alt+f</code></td>
+<td style="text-align:center">Find References</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>alt+g</code></td>
+<td style="text-align:center">Goto Implementation</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>shift+alt+g</code></td>
+<td style="text-align:center">Goto Related</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>shift+alt+o</code></td>
+<td style="text-align:center">Open File in Solution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Visual-Assist插件配置" class="article-heading"><a href="#Visual-Assist插件配置" class="headerlink" title="Visual Assist插件配置"></a>Visual Assist插件配置<a class="article-anchor" href="#Visual-Assist插件配置" aria-hidden="true"></a></h2><h3 id="C-注释配置" class="article-heading"><a href="#C-注释配置" class="headerlink" title="C++注释配置"></a>C++注释配置<a class="article-anchor" href="#C-注释配置" aria-hidden="true"></a></h3><h4 id="枚举类型注释-e" class="article-heading"><a href="#枚举类型注释-e" class="headerlink" title="枚举类型注释[\e]"></a>枚举类型注释<code>[\e]</code><a class="article-anchor" href="#枚举类型注释-e" aria-hidden="true"></a></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/** @brief $SymbolContext$ */</span><br><span class="hljs-keyword">enum</span> AnotherEnum<br>&#123;<br>    V1,<span class="hljs-comment">/**&lt; value 1 */</span><br>    V2 <span class="hljs-comment">/**&lt; value 2 */</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+<h4 id="函数注释" class="article-heading"><a href="#函数注释" class="headerlink" title="函数注释[\*]"></a>函数注释<code>[\*]</code><a class="article-anchor" href="#函数注释" aria-hidden="true"></a></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/** <br>* @brief: $SymbolContext$<br>* @param[in] 参数类型  参数名  参数说明<br>* @param[in|out] 参数类型  参数名  参数说明<br>* @return 返回值说明<br>* @note   <br>* $end$<br>*/</span><br></code></pre></td></tr></table></figure>
+<h4 id="类注释-c" class="article-heading"><a href="#类注释-c" class="headerlink" title="类注释[\c]"></a>类注释<code>[\c]</code><a class="article-anchor" href="#类注释-c" aria-hidden="true"></a></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**<br>* @class $ClassName$<br>* @brief $SymbolContext$                                                                                         <br>* @note   <br>* $end$<br>*/</span><br></code></pre></td></tr></table></figure>
+<h4 id="文件头注释-h" class="article-heading"><a href="#文件头注释-h" class="headerlink" title="文件头注释[\h]"></a>文件头注释<code>[\h]</code><a class="article-anchor" href="#文件头注释-h" aria-hidden="true"></a></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*****************************************************************************<br>*  @file     $FILE_BASE$.$FILE_EXT$<br>*  @brief    $SymbolContext$<br>*  @note<br>*  $end$<br>*<br>*----------------------------------------------------------------------------*<br>*  Change History :<br>* &lt;Version&gt; |                       &lt;Description&gt;<br>*----------------------------------------------------------------------------*<br>*  0.0.0.1  |                        创建头文件<br>*----------------------------------------------------------------------------*<br>*<br>*****************************************************************************/</span><br></code></pre></td></tr></table></figure>
+<p>注意，需要安装<code>Visual Assist</code>插件哦。具体需要【VAssisX】–&gt;【Tools】–&gt;【Edit VA Snippets】，然后将上面的注释宏添加到打开的<code>VA Snippet Editor</code>之中</p>
+<h2 id="其他功能" class="article-heading"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能<a class="article-anchor" href="#其他功能" aria-hidden="true"></a></h2><h3 id="显示特殊变量" class="article-heading"><a href="#显示特殊变量" class="headerlink" title="显示特殊变量"></a>显示特殊变量<a class="article-anchor" href="#显示特殊变量" aria-hidden="true"></a></h3><p>无需编写插件或修改配置文件，只需要将要显示的变量拉到<code>监视调试窗口(Watch Windows)</code>中，并在变量后面添加<code>,xxx</code>即可显示，目前支持以下功能</p>
+<p>只需要将要显示的字符串拉到Watch中,并在变量后面添加,s8即可显示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量显示标识</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">,数字</td>
+<td style="text-align:center">将变量拆分为数组显示, 数字是要显示多少位, 此法对const char*这类原始字符串非常有用</td>
+</tr>
+<tr>
+<td style="text-align:center">,s8</td>
+<td style="text-align:center">转换为UTF-8字符串查看</td>
+</tr>
+<tr>
+<td style="text-align:center">,x</td>
+<td style="text-align:center">转换成16进制查看</td>
+</tr>
+<tr>
+<td style="text-align:center">,hr</td>
+<td style="text-align:center">转换成Windows HRESULT解释查看</td>
+</tr>
+<tr>
+<td style="text-align:center">,wm</td>
+<td style="text-align:center">转换成<code>Windows消息</code>查看，例如0x0010, wm 显示 WM_CLOSE</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="FAQ" class="article-heading"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ<a class="article-anchor" href="#FAQ" aria-hidden="true"></a></h2><h3 id="编译错误’std-tuple’-too-many-template-arguments" class="article-heading"><a href="#编译错误’std-tuple’-too-many-template-arguments" class="headerlink" title="编译错误’std::tuple’ : too many template arguments"></a>编译错误’std::tuple’ : too many template arguments<a class="article-anchor" href="#编译错误’std-tuple’-too-many-template-arguments" aria-hidden="true"></a></h3><p>在VS 2012编译Gtest源码的时候，遇到了此错误，具体讨论看一下链接：<a href="https://stackoverflow.com/questions/12558327/google-test-in-visual-studio-2012" target="_blank" rel="noopener">《Google Test in Visual Studio 2012》</a></p>
+<p>解决方法</p>
+<p>只需要在VS工程中，添加预处理<code>_VARIADIC_MAX=10</code>即可，如果此VS工程是通过qmake来生成的话，那么需要在指定的<code>xxx.pro</code>文件上添加上<code>DEFINES += _VARIADIC_MAX=10</code>语句即可。</p>
+<h3 id="isnan-和isinf-未定义" class="article-heading"><a href="#isnan-和isinf-未定义" class="headerlink" title="isnan()和isinf()未定义"></a>isnan()和isinf()未定义<a class="article-anchor" href="#isnan-和isinf-未定义" aria-hidden="true"></a></h3><p>此问题是本人在使用VS 2012编译log4z开源库时冒出来的，其实类似的问题集中在VC上出现，这是由于VC支持新标准不及时所引起的，详情可看：<a href="http://blog.csdn.net/sunmenggmail/article/details/7853081" target="_blank" rel="noopener">《isnan isinf》</a></p>
+<p>解决方法</p>
+<p>在报错的所在文件头上添加上以下代码段即可：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">isnan</span><span class="hljs-params">(<span class="hljs-keyword">double</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> x != x; &#125;<br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">isinf</span><span class="hljs-params">(<span class="hljs-keyword">double</span> x)</span> </span>&#123; <span class="hljs-keyword">return</span> !isnan(x) &amp;&amp; isnan(x - x); &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h2><ul>
+<li><a href="http://catx.me/2014/03/09/hexo-mathjax-plugin/" target="_blank" rel="noopener">Hexo MathJax插件</a></li>
+<li><a href="https://blog.csdn.net/u014630987/article/details/78670258" target="_blank" rel="noopener">如何在 hexo 中支持 Mathjax？</a></li>
+<li><a href="https://blog.csdn.net/u013282174/article/details/80666123" target="_blank" rel="noopener">在Hexo中使用mathjax渲染数学公式</a></li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                <a href="use_logseq_notes.html" class="article-footer-prev" title="Logseq使用笔记"><i class="fa fa-chevron-left"></i><span>上一页</span></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键配置"><span class="toc-text">快捷键配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visual-Studio常用快捷键"><span class="toc-text">Visual Studio常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visual-Assist常用快捷键"><span class="toc-text">Visual Assist常用快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visual-Assist插件配置"><span class="toc-text">Visual Assist插件配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-注释配置"><span class="toc-text">C++注释配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#枚举类型注释-e"><span class="toc-text">枚举类型注释[\e]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数注释"><span class="toc-text">函数注释[\*]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类注释-c"><span class="toc-text">类注释[\c]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件头注释-h"><span class="toc-text">文件头注释[\h]</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他功能"><span class="toc-text">其他功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示特殊变量"><span class="toc-text">显示特殊变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编译错误’std-tuple’-too-many-template-arguments"><span class="toc-text">编译错误’std::tuple’ : too many template arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isnan-和isinf-未定义"><span class="toc-text">isnan()和isinf()未定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">自制工具</strong><a href="char_images_ocr_tool.html" class="sidebar-link">字符图片OCR工具</a><a href="auto-download-xdebug-for-php.html" class="sidebar-link">PHP-XDebug安装脚本</a><a href="how_to_write_a_hexo_plugin.html" class="sidebar-link">Hexo插件-文章加密</a><strong class="sidebar-title">常用工具</strong><a href="use_hexo_notes.html" class="sidebar-link">Hexo使用笔记</a><a href="use_logseq_notes.html" class="sidebar-link">Logseq使用笔记</a><a href="use_visual_studio_notes.html" class="sidebar-link current">Visual Studio使用笔记</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">自制工具</strong><a href="char_images_ocr_tool.html" class="mobile-nav-link">字符图片OCR工具</a><a href="auto-download-xdebug-for-php.html" class="mobile-nav-link">PHP-XDebug安装脚本</a><a href="how_to_write_a_hexo_plugin.html" class="mobile-nav-link">Hexo插件-文章加密</a><strong class="mobile-nav-title">常用工具</strong><a href="use_hexo_notes.html" class="mobile-nav-link">Hexo使用笔记</a><a href="use_logseq_notes.html" class="mobile-nav-link">Logseq使用笔记</a><a href="use_visual_studio_notes.html" class="mobile-nav-link current">Visual Studio使用笔记</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
