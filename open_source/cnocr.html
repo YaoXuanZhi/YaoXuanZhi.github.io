@@ -47,7 +47,7 @@
 <meta property="og:site_name" content="YXZ&#39;s Blog">
 <meta property="og:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2021-07-24T16:53:04.077Z">
+<meta property="og:updated_time" content="2022-01-06T18:35:35.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探cnocr">
 <meta name="twitter:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
@@ -154,7 +154,10 @@
 <p>个人比对了一下各个ocr项目，cnocr对纯文本图片的识别的准确度非常高，并且速度较快，但限于文本方向必须正确，一旦出现文本垂直或水平翻转，精度会严重下降；另外它对于那些广告图的识别效果也较差，不过无论如何，肯定甩tesseract不止一条街</p>
 <p>如果你的需求大多集中在广告图等非纯文本图片上，那么建议使用paddleocr或chinesecor-lite，不过这些ocr项目的部署也相对复杂多了</p>
 <blockquote>
-<p>离线工具包是从anaconda3提取出来的，再加上一些系统环境关联的脚本整合而成</p>
+<p>ps:mxnet库有个Warning一直很烦人，但是其不影响使用，直接在<code>site-packages\mxnet\symbol\symbol.py</code>里注释掉<code>line 925</code>的warning输出</p>
+</blockquote>
+<blockquote>
+<p>离线工具包是从anaconda3/minianaconda3提取出来的，再加上一些系统环境关联的脚本整合而成</p>
 </blockquote>
 <hr>
 <h3 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul>
@@ -195,7 +198,7 @@
     <footer id="footer" class="wrapper">
   <div class="inner">
     <div id="footer-copyright">
-      &copy; 2021 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      &copy; 2022 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
       Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
     </div>
     <div id="footer-links">
