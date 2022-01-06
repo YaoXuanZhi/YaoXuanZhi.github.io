@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>AI写作尝鲜 | YXZ's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://yaoxuanzhi.github.io/open_source/ai_writer.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="https://yaoxuanzhi.github.io/open_source/ai_writer.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <meta name="generator" content="Hexo 3.8.0">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
+  <!-- Open Graph -->
+  <meta name="description" content="仓库地址 AI-Writer  环境部署基于anaconda3的集成环境 12345678# 创建独立的python3运行环境conda create -n ai_writer python=3.8conda activate ai_writer# 安装相关依赖包pip install torch==1.9.1pip install numpypip install onnxruntime 克隆仓">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI写作尝鲜">
+<meta property="og:url" content="https://yaoxuanzhi.github.io/open_source/ai_writer.html">
+<meta property="og:site_name" content="YXZ&#39;s Blog">
+<meta property="og:description" content="仓库地址 AI-Writer  环境部署基于anaconda3的集成环境 12345678# 创建独立的python3运行环境conda create -n ai_writer python=3.8conda activate ai_writer# 安装相关依赖包pip install torch==1.9.1pip install numpypip install onnxruntime 克隆仓">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2022-01-06/1641484352617.png">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2022-01-06/1641484403827.png">
+<meta property="og:image" content="https://yaoxuanzhi.github.io/assets/2022-01-06/1641484761493.png">
+<meta property="og:updated_time" content="2022-01-06T19:00:08.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI写作尝鲜">
+<meta name="twitter:description" content="仓库地址 AI-Writer  环境部署基于anaconda3的集成环境 12345678# 创建独立的python3运行环境conda create -n ai_writer python=3.8conda activate ai_writer# 安装相关依赖包pip install torch==1.9.1pip install numpypip install onnxruntime 克隆仓">
+<meta name="twitter:image" content="https://yaoxuanzhi.github.io/assets/2022-01-06/1641484352617.png">
+  <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">YXZ's Blog</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/news/" class="main-nav-link">随笔</a><a href="/dev/" class="main-nav-link">开发</a><a href="/open_source/" class="main-nav-link">开源</a><a href="/tool/" class="main-nav-link">工具</a><a href="/about/" class="main-nav-link">关于我</a>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">AI写作尝鲜</h1>
+                <a href="https://github.com/YaoXuanZhi/mine-site/edit/master/source/open_source/ai_writer.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              
+              <div class="article-content" itemprop="articleBody">
+                <h4 id="仓库地址" class="article-heading"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址<a class="article-anchor" href="#仓库地址" aria-hidden="true"></a></h4><ul>
+<li><a href="https://github.com/BlinkDL/AI-Writer" target="_blank" rel="noopener">AI-Writer</a></li>
+</ul>
+<h4 id="环境部署" class="article-heading"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署<a class="article-anchor" href="#环境部署" aria-hidden="true"></a></h4><p>基于anaconda3的集成环境</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 创建独立的python3运行环境</span><br>conda create -n ai_writer python=3.8<br>conda activate ai_writer<br><br><span class="hljs-comment"># 安装相关依赖包</span><br>pip install torch==1.9.1<br>pip install numpy<br>pip install onnxruntime<br></code></pre></td></tr></table></figure>
+<h4 id="克隆仓库" class="article-heading"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库<a class="article-anchor" href="#克隆仓库" aria-hidden="true"></a></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> https://github.com/BlinkDL/AI-Writer<br></code></pre></td></tr></table></figure>
+<h3 id="模型部署" class="article-heading"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署<a class="article-anchor" href="#模型部署" aria-hidden="true"></a></h3><p><img src="/assets/2022-01-06/1641484352617.png" alt></p>
+<p><img src="/assets/2022-01-06/1641484403827.png" alt></p>
+<h3 id="运行Demo" class="article-heading"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo<a class="article-anchor" href="#运行Demo" aria-hidden="true"></a></h3><p>修改run.py的默认配置，官方默认为gpu运行模式，其运行环境配置复杂，尝鲜还是采用cpu模式更简便</p>
+<p><img src="/assets/2022-01-06/1641484761493.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> AI-Writer<br>python run.py<br></code></pre></td></tr></table></figure>
+<h3 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/423646620" target="_blank" rel="noopener">开源：小说 AI 网文写作（支持N卡A卡I卡和CPU）有玄幻和言情模型</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/394766831" target="_blank" rel="noopener">炼丹分享：AI 写网文小说的 GPT 模型（100M参数量），以及一种新采样方法</a></li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                
+                <a href="cnocr.html" class="article-footer-prev" title="初探cnocr"><i class="fa fa-chevron-left"></i><span>上一页</span></a>
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#仓库地址"><span class="toc-text">仓库地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#环境部署"><span class="toc-text">环境部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#克隆仓库"><span class="toc-text">克隆仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型部署"><span class="toc-text">模型部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行Demo"><span class="toc-text">运行Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">深度学习</strong><a href="cnocr.html" class="sidebar-link">初探cnocr</a><a href="ai_writer.html" class="sidebar-link current">AI写作尝鲜</a>
+  </div>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2022 <a href="https://github.com/hexojs/hexo/graphs/contributors" target="_blank">Hexo</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/news/" class="mobile-nav-link">随笔</a><a href="/dev/" class="mobile-nav-link">开发</a><a href="/open_source/" class="mobile-nav-link">开源</a><a href="/tool/" class="mobile-nav-link">工具</a><a href="/about/" class="mobile-nav-link">关于我</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">深度学习</strong><a href="cnocr.html" class="mobile-nav-link">初探cnocr</a><a href="ai_writer.html" class="mobile-nav-link current">AI写作尝鲜</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

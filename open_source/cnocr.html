@@ -40,17 +40,17 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="YXZ's Blog">
   <!-- Open Graph -->
-  <meta name="description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+  <meta name="description" content="仓库地址 cnocr  在线安装  virtualenv/anaconda3    win32OpenSSL    1234conda create -n cnocr python=3.7conda activate cnocrpip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的s">
 <meta property="og:type" content="website">
 <meta property="og:title" content="初探cnocr">
 <meta property="og:url" content="https://yaoxuanzhi.github.io/open_source/cnocr.html">
 <meta property="og:site_name" content="YXZ&#39;s Blog">
-<meta property="og:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+<meta property="og:description" content="仓库地址 cnocr  在线安装  virtualenv/anaconda3    win32OpenSSL    1234conda create -n cnocr python=3.7conda activate cnocrpip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的s">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2022-01-06T18:35:35.189Z">
+<meta property="og:updated_time" content="2022-01-06T19:00:08.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探cnocr">
-<meta name="twitter:description" content="在线安装  virtualenv/anaconda3    win32OpenSSL    123conda create -n cnocr python=3.7pip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-c">
+<meta name="twitter:description" content="仓库地址 cnocr  在线安装  virtualenv/anaconda3    win32OpenSSL    1234conda create -n cnocr python=3.7conda activate cnocrpip install cnocrpip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的s">
   <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head>
@@ -94,7 +94,10 @@
               </header>
               
               <div class="article-content" itemprop="articleBody">
-                <h3 id="在线安装" class="article-heading"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装<a class="article-anchor" href="#在线安装" aria-hidden="true"></a></h3><ul>
+                <h4 id="仓库地址" class="article-heading"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址<a class="article-anchor" href="#仓库地址" aria-hidden="true"></a></h4><ul>
+<li><a href="https://github.com/breezedeus/cnocr" target="_blank" rel="noopener">cnocr</a></li>
+</ul>
+<h3 id="在线安装" class="article-heading"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装<a class="article-anchor" href="#在线安装" aria-hidden="true"></a></h3><ul>
 <li><ol>
 <li>virtualenv/anaconda3</li>
 </ol>
@@ -104,7 +107,7 @@
 </ol>
 </li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda create -n cnocr python=3.7<br>pip install cnocr<br>pip install cnstd<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda create -n cnocr python=3.7<br>conda activate cnocr<br>pip install cnocr<br>pip install cnstd<br></code></pre></td></tr></table></figure>
 <p>注意，执行<code>pip install cnstd</code>之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如<a href="https://download.lfd.uci.edu/pythonlibs/w4tscw6k/Shapely-1.7.1-cp37-cp37m-win_amd64.whl" target="_blank" rel="noopener">Shapely-1.7.1-cp37-cp37m-win_amd64.whl</a>)进行离线安装，如下所示：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">pip uninstall Shapely<br>pip install your_path/Shapely-1.7.1-cp37-cp37m-win_amd64.whl<br></code></pre></td></tr></table></figure>
 <h3 id="源码安装" class="article-heading"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装<a class="article-anchor" href="#源码安装" aria-hidden="true"></a></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> cnstd/<br>pip install -r requestment.txt<br>python setup.py build<br>python setup.py install<br></code></pre></td></tr></table></figure>
@@ -156,9 +159,7 @@
 <blockquote>
 <p>ps:mxnet库有个Warning一直很烦人，但是其不影响使用，直接在<code>site-packages\mxnet\symbol\symbol.py</code>里注释掉<code>line 925</code>的warning输出</p>
 </blockquote>
-<blockquote>
-<p>离线工具包是从anaconda3/minianaconda3提取出来的，再加上一些系统环境关联的脚本整合而成</p>
-</blockquote>
+<h4 id="离线工具包制作" class="article-heading"><a href="#离线工具包制作" class="headerlink" title="离线工具包制作"></a>离线工具包制作<a class="article-anchor" href="#离线工具包制作" aria-hidden="true"></a></h4><p>python3环境(从anaconda3中提取而得) + 系统环境变量关联脚本 + 官方模型</p>
 <hr>
 <h3 id="参考资料" class="article-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="article-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/134115239" target="_blank" rel="noopener">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a></li>
@@ -171,7 +172,7 @@
               </div>
               <footer class="article-footer">
                 
-                
+                <a href="ai_writer.html" class="article-footer-next" title="AI写作尝鲜"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
               </footer>
               
             </div>
@@ -179,7 +180,7 @@
           <aside id="article-toc" role="navigation">
             <div id="article-toc-inner">
               <strong class="sidebar-title">目录</strong>
-              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在线安装"><span class="toc-text">在线安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码安装"><span class="toc-text">源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线包部署"><span class="toc-text">离线包部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-text">代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#纯文本识别"><span class="toc-text">纯文本识别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外部调用cnocr"><span class="toc-text">外部调用cnocr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#剪贴板OCR"><span class="toc-text">剪贴板OCR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练新字体"><span class="toc-text">训练新字体</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生成新字体的训练集"><span class="toc-text">生成新字体的训练集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在已有的模型上迭代训练"><span class="toc-text">在已有的模型上迭代训练</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用某次迭代的训练模型来进行OCR识别"><span class="toc-text">使用某次迭代的训练模型来进行OCR识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习计划"><span class="toc-text">学习计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#仓库地址"><span class="toc-text">仓库地址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线安装"><span class="toc-text">在线安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码安装"><span class="toc-text">源码安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线包部署"><span class="toc-text">离线包部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-text">代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#纯文本识别"><span class="toc-text">纯文本识别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外部调用cnocr"><span class="toc-text">外部调用cnocr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#剪贴板OCR"><span class="toc-text">剪贴板OCR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练新字体"><span class="toc-text">训练新字体</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生成新字体的训练集"><span class="toc-text">生成新字体的训练集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在已有的模型上迭代训练"><span class="toc-text">在已有的模型上迭代训练</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用某次迭代的训练模型来进行OCR识别"><span class="toc-text">使用某次迭代的训练模型来进行OCR识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习计划"><span class="toc-text">学习计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#离线工具包制作"><span class="toc-text">离线工具包制作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a>
               <a href="#" id="article-toc-top">回到顶部</a>
             </div>
           </aside>
@@ -187,7 +188,7 @@
       </article>
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">OCR</strong><a href="cnocr.html" class="sidebar-link current">cnocr开源框架</a>
+    <strong class="sidebar-title">深度学习</strong><a href="cnocr.html" class="sidebar-link current">初探cnocr</a><a href="ai_writer.html" class="sidebar-link">AI写作尝鲜</a>
   </div>
 </aside>
 
@@ -219,7 +220,7 @@
       </li>
     </ul>
     
-      <strong class="mobile-nav-title">OCR</strong><a href="cnocr.html" class="mobile-nav-link current">cnocr开源框架</a>
+      <strong class="mobile-nav-title">深度学习</strong><a href="cnocr.html" class="mobile-nav-link current">初探cnocr</a><a href="ai_writer.html" class="mobile-nav-link">AI写作尝鲜</a>
     
   </div>
   <div id="mobile-lang-select-wrap">
