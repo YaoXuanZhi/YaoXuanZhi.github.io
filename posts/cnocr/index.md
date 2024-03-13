@@ -489,5 +489,5 @@ python3环境(从anaconda3中提取而得) &#43; 系统环境变量关联脚本 
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/cnocr/  
+> URL: https://yaoxuanzhi.github.io/posts/cnocr/  
 

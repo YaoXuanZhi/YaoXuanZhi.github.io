@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Encrypted - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>https://example.org/tags/encrypted/</link>
+    <link>https://yaoxuanzhi.github.io/tags/encrypted/</link>
     <description>Encrypted - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.org/tags/encrypted/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yaoxuanzhi.github.io/tags/encrypted/" rel="self" type="application/rss+xml" /><item>
   <title>谈一种页面加密技术</title>
-  <link>https://example.org/posts/a_way_of_html_encryption/</link>
+  <link>https://yaoxuanzhi.github.io/posts/a_way_of_html_encryption/</link>
   <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>https://example.org/posts/a_way_of_html_encryption/</guid>
+  <guid>https://yaoxuanzhi.github.io/posts/a_way_of_html_encryption/</guid>
   <description><![CDATA[前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章]]></description>
 </item>
 <item>
   <title>PHP-XDebug安装脚本</title>
-  <link>https://example.org/posts/auto-download-xdebug-for-php/</link>
+  <link>https://yaoxuanzhi.github.io/posts/auto-download-xdebug-for-php/</link>
   <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>https://example.org/posts/auto-download-xdebug-for-php/</guid>
+  <guid>https://yaoxuanzhi.github.io/posts/auto-download-xdebug-for-php/</guid>
   <description><![CDATA[前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查]]></description>
 </item>
 </channel>

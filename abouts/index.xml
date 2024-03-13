@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on YaoXuanZhi&#39;s Blog</title>
-    <link>https://example.org/abouts/</link>
+    <link>https://yaoxuanzhi.github.io/abouts/</link>
     <description>Recent content in Abouts on YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
     <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
     <lastBuildDate>Wed, 13 Mar 2024 11:38:40 +0800</lastBuildDate>
-    <atom:link href="https://example.org/abouts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yaoxuanzhi.github.io/abouts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我的音乐清单</title>
-      <link>https://example.org/abouts/my_music_play_list/</link>
+      <link>https://yaoxuanzhi.github.io/abouts/my_music_play_list/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
-      <guid>https://example.org/abouts/my_music_play_list/</guid>
+      <guid>https://yaoxuanzhi.github.io/abouts/my_music_play_list/</guid>
       <description>&lt;p&gt;这里收集了一些个人喜欢的歌曲列表，仅自用&lt;/p&gt;</description>
     </item>
     <item>
       <title>争取做个懂生活的IT人</title>
-      <link>https://example.org/abouts/about_me/</link>
+      <link>https://yaoxuanzhi.github.io/abouts/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
-      <guid>https://example.org/abouts/about_me/</guid>
+      <guid>https://yaoxuanzhi.github.io/abouts/about_me/</guid>
       <description>关于我 与Bug兄打交道良久~ o(￣▽￣)o熟悉VS、VSCode、Vim、Idea、Sublime等软件的安装/卸载技巧，掌握C/C++、Lua、Erlang、Python、JavaScript等单词的各种拼写方式 世界那么大，总想去看看QAQ希望足迹可以遍布大江南北，目前只是到过广西北海、湖南岳麓书</description>
     </item>
   </channel>

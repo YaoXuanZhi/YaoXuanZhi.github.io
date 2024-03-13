@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>CMake - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>https://example.org/tags/cmake/</link>
+    <link>https://yaoxuanzhi.github.io/tags/cmake/</link>
     <description>CMake - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 20 Jun 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.org/tags/cmake/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 20 Jun 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yaoxuanzhi.github.io/tags/cmake/" rel="self" type="application/rss+xml" /><item>
   <title>CMake学习笔记</title>
-  <link>https://example.org/posts/use_cmake_notes/</link>
+  <link>https://yaoxuanzhi.github.io/posts/use_cmake_notes/</link>
   <pubDate>Wed, 20 Jun 2018 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>https://example.org/posts/use_cmake_notes/</guid>
+  <guid>https://yaoxuanzhi.github.io/posts/use_cmake_notes/</guid>
   <description><![CDATA[<a href="https://cmake.org/" title="documentation of FixIt Theme"target="_blank" rel="external nofollow noopener noreferrer" class="card-link"><span class="cl-backdrop" style="--cl-bg-url: url(/images/fixit.min.svg);"></span>
     <span class="cl-content">
       <span class="cl-text">

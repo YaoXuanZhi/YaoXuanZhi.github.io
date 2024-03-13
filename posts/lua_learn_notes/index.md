@@ -347,5 +347,5 @@ print(#tempString)
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/lua_learn_notes/  
+> URL: https://yaoxuanzhi.github.io/posts/lua_learn_notes/  
 

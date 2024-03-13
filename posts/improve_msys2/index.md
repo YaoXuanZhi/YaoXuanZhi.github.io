@@ -270,5 +270,5 @@ GOTO :eof
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/improve_msys2/  
+> URL: https://yaoxuanzhi.github.io/posts/improve_msys2/  
 

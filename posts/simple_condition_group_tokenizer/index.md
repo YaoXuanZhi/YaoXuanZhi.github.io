@@ -292,5 +292,5 @@ if __name__ == &#39;__main__&#39;:
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/simple_condition_group_tokenizer/  
+> URL: https://yaoxuanzhi.github.io/posts/simple_condition_group_tokenizer/  
 

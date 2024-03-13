@@ -122,5 +122,5 @@ inline int isinf(double x) { return !isnan(x) &amp;&amp; isnan(x - x); }
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/use_visual_studio_notes/  
+> URL: https://yaoxuanzhi.github.io/posts/use_visual_studio_notes/  
 

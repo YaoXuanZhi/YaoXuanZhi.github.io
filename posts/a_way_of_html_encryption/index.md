@@ -87,5 +87,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/a_way_of_html_encryption/  
+> URL: https://yaoxuanzhi.github.io/posts/a_way_of_html_encryption/  
 

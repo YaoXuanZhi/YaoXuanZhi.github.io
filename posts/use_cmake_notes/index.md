@@ -314,5 +314,5 @@ cmake --build .
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/use_cmake_notes/  
+> URL: https://yaoxuanzhi.github.io/posts/use_cmake_notes/  
 

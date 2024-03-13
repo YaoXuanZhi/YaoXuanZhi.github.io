@@ -5,5 +5,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/abouts/my_music_play_list/  
+> URL: https://yaoxuanzhi.github.io/abouts/my_music_play_list/  
 

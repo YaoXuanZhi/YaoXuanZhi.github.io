@@ -407,5 +407,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/cplusplus_style_guide/  
+> URL: https://yaoxuanzhi.github.io/posts/cplusplus_style_guide/  
 

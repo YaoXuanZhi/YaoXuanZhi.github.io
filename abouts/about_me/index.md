@@ -31,5 +31,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/abouts/about_me/  
+> URL: https://yaoxuanzhi.github.io/abouts/about_me/  
 

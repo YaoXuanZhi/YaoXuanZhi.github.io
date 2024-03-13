@@ -48,5 +48,5 @@ python run.py
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/ai_writer/  
+> URL: https://yaoxuanzhi.github.io/posts/ai_writer/  
 

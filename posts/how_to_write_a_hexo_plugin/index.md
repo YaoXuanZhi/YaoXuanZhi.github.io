@@ -48,5 +48,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/how_to_write_a_hexo_plugin/  
+> URL: https://yaoxuanzhi.github.io/posts/how_to_write_a_hexo_plugin/  
 

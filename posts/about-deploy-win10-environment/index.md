@@ -41,5 +41,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://example.org/posts/about-deploy-win10-environment/  
+> URL: https://yaoxuanzhi.github.io/posts/about-deploy-win10-environment/  
 

@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>自述 - 分类 - YaoXuanZhi&#39;s Blog</title>
-    <link>https://example.org/categories/%E8%87%AA%E8%BF%B0/</link>
+    <link>https://yaoxuanzhi.github.io/categories/%E8%87%AA%E8%BF%B0/</link>
     <description>自述 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><atom:link href="https://example.org/categories/%E8%87%AA%E8%BF%B0/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><atom:link href="https://yaoxuanzhi.github.io/categories/%E8%87%AA%E8%BF%B0/" rel="self" type="application/rss+xml" /><item>
   <title>争取做个懂生活的IT人</title>
-  <link>https://example.org/abouts/about_me/</link>
+  <link>https://yaoxuanzhi.github.io/abouts/about_me/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>https://example.org/abouts/about_me/</guid>
+  <guid>https://yaoxuanzhi.github.io/abouts/about_me/</guid>
   <description><![CDATA[关于我 与Bug兄打交道良久~ o(￣▽￣)o熟悉VS、VSCode、Vim、Idea、Sublime等软件的安装/卸载技巧，掌握C/C++、Lua、Erlang、Python、JavaScript等单词的各种拼写方式 世界那么大，总想去看看QAQ希望足迹可以遍布大江南北，目前只是到过广西北海、湖南岳麓书]]></description>
 </item>
 </channel>
