@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>CMake学习笔记 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="
+    
+      
+        CMake官网
+        
+          
+          https://cmake.org/
+        
+      " /><meta name="keywords" content='CMake, 学习笔记' /><meta itemprop="name" content="CMake学习笔记">
+<meta itemprop="description" content="
+    
+      
+        CMake官网
+        
+          
+          https://cmake.org/
+        
+      "><meta itemprop="datePublished" content="2018-06-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-13T11:39:21+08:00" />
+<meta itemprop="wordCount" content="4721">
+<meta itemprop="keywords" content="CMake,学习笔记," /><meta property="og:title" content="CMake学习笔记" />
+<meta property="og:description" content="
+    
+      
+        CMake官网
+        
+          
+          https://cmake.org/
+        
+      " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/use_cmake_notes/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-13T11:39:21+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="CMake学习笔记"/>
+<meta name="twitter:description" content="
+    
+      
+        CMake官网
+        
+          
+          https://cmake.org/
+        
+      "/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://example.org/posts/use_cmake_notes/" /><link rel="prev" href="https://example.org/posts/use_visual_studio_notes/" /><link rel="next" href="https://example.org/posts/about-deploy-win10-environment/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CMake学习笔记",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/example.org\/posts\/use_cmake_notes\/"
+    },"genre": "posts","keywords": "CMake, 学习笔记","wordcount":  4721 ,
+    "url": "https:\/\/example.org\/posts\/use_cmake_notes\/","datePublished": "2018-06-20T00:00:00+00:00","dateModified": "2024-03-13T11:39:21+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>CMake学习笔记</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE/" class="post-category" title="分类 - 开发工具链"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 开发工具链</a></span></div><div class="post-meta-line"><span title="发布于 2018-06-20 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2018-06-20">2018-06-20</time></span>&nbsp;<span title="4721 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4800 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 10 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#安装cmake">安装CMake</a></li>
+        <li><a href="#入门教程">入门教程</a></li>
+        <li><a href="#非官方例子">非官方例子</a>
+          <ul>
+            <li><a href="#imageconverter-01">ImageConverter 0.1</a></li>
+            <li><a href="#imageconverter-02">ImageConverter 0.2</a></li>
+            <li><a href="#imageconverter-05">ImageConverter 0.5</a></li>
+            <li><a href="#imageconverter-06">ImageConverter 0.6</a></li>
+            <li><a href="#配置编译参数">配置编译参数</a></li>
+          </ul>
+        </li>
+        <li><a href="#faq">FAQ</a>
+          <ul>
+            <li><a href="#不熟悉xxx命令如何快速检索相关资料呢">不熟悉xxx命令，如何快速检索相关资料呢</a></li>
+            <li><a href="#sublimetextvscode等编辑器应该安装什么插件来快速编辑cmake呢">SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢</a></li>
+            <li><a href="#如何调用cmake来编译工程">如何调用cmake来编译工程</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考资料">参考资料:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><a href="https://cmake.org/" title="documentation of FixIt Theme"target="_blank" rel="external nofollow noopener noreferrer" class="card-link"><span class="cl-backdrop" style="--cl-bg-url: url(/images/fixit.min.svg);"></span>
+    <span class="cl-content">
+      <span class="cl-text">
+        <span class="cl-title">CMake官网</span>
+        <span class="cl-meta">
+          <svg class="cl-icon-link" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M574 665.4c-3.1-3.1-8.2-3.1-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8c-3.1-3.1-8.2-3.1-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zM832.6 191.4c-84.6-84.6-221.5-84.6-306 0L410.3 307.6c-3.1 3.1-3.1 8.2 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6c-3.1 3.1-3.1 8.2 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1z" fill="#a9a9b3"></path><path d="M610.1 372.3c-3.1-3.1-8.2-3.1-11.3 0L372.3 598.7c-3.1 3.1-3.1 8.2 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" fill="#a9a9b3"></path></svg>
+          <span class="cl-url">https://cmake.org/</span>
+        </span>
+      </span><svg class="cl-icon-globe" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M960 512c0 249.408-203.2 448-448 448-244.778667 0-448-198.592-448-448S262.592 64 512 64s448 198.592 448 448" fill="#2196F3"></path><path d="M507.52 718.08c0-8.96-4.48-13.44-13.44-17.92-26.88-8.96-53.76-8.96-76.16-31.381333-4.48-8.96-4.48-17.92-8.96-26.88-8.96-8.96-31.36-13.44-44.8-17.92h-89.6c-13.44-4.48-22.4-22.4-31.36-35.84 0-4.48 0-13.461333-8.96-13.461334-8.96-4.458667-17.92 4.501333-26.88 0-4.48-4.458667-4.48-8.96-4.48-13.418666 0-13.461333 8.96-26.901333 17.92-35.861334 13.44-8.96 26.88 4.48 40.32 4.48 4.48 0 4.48 0 8.96 4.48 13.44 4.48 17.92 22.4 17.92 35.861334v8.96c0 4.48 4.48 4.48 8.96 4.48 4.48-22.4 4.48-44.821333 8.96-67.2 0-26.88 26.88-53.781333 49.28-62.72 8.96-4.458667 13.44 4.501333 22.4 0 26.88-8.96 94.08-35.84 80.64-71.658667-8.96-31.381333-35.84-62.698667-71.68-58.24-8.96 4.501333-13.44 8.96-22.4 13.461333-13.44 8.96-40.32 35.84-53.76 35.84-22.4-4.48-22.4-35.84-17.92-49.301333 4.48-17.92 44.8-76.138667 71.68-67.178667l17.92 17.92c8.96 4.48 22.4 4.48 35.84 4.48 4.48 0 8.96 0 13.44-4.48 4.48-4.48 4.48-4.48 4.48-8.96 0-13.44-13.44-26.901333-22.4-35.861333s-22.4-17.92-35.84-22.378667c-44.8-13.461333-116.48 4.458667-152.32 35.84-35.84 31.36-62.72 85.12-80.64 129.92-8.96 26.88-17.92 62.698667-22.4 94.08-4.48 22.4-8.96 40.32 4.48 62.698667 13.44 26.88 40.32 53.781333 67.2 71.68 17.92 13.44 53.76 13.44 71.68 35.84 13.44 17.941333 8.96 40.32 8.96 62.72 0 26.88 17.92 49.28 26.88 71.658667 4.48 13.461333 8.96 31.381333 13.44 44.821333 0 4.48 4.48 31.36 4.48 35.84 26.88 13.44 49.28 26.901333 80.64 35.861333 4.48 0 22.4-26.901333 22.4-31.381333 13.44-13.44 22.4-31.36 35.84-40.32 8.96-4.48 17.92-8.96 26.88-17.941333 8.96-8.96 13.44-26.88 17.92-40.32 4.48-8.938667 8.96-26.858667 4.48-40.298667M516.48 305.92c4.48 0 8.96-4.48 17.92-8.96 13.44-8.96 26.901333-22.4 40.32-31.36 13.461333-8.96 26.901333-22.4 35.861333-31.36 13.44-8.96 22.4-26.88 26.88-40.341333 4.48-8.96 17.941333-26.88 13.44-40.32-4.48-8.96-26.88-13.44-35.84-17.92C579.2 126.698667 547.84 122.24 512 122.24c-13.44 0-31.36 4.458667-35.84 17.92-4.48 22.4 13.44 17.92 31.36 22.4 0 0 4.48 35.84 4.48 40.32 4.48 22.421333-8.96 35.84-8.96 58.24 0 13.44 0 35.84 8.96 44.8h4.48zM892.8 619.52c4.501333-8.96 4.501333-22.4 8.96-31.36 4.501333-22.421333 4.501333-44.8 4.501333-67.2 0-44.8-4.501333-89.578667-17.92-129.92-8.96-13.44-13.461333-26.88-17.941333-40.341333-8.96-22.378667-22.4-44.8-40.32-62.698667-17.92-22.4-40.341333-85.12-80.64-67.2-13.44 4.501333-22.4 22.421333-31.36 31.381333l-26.88 40.32c-4.501333 4.48-8.96 13.44-4.501333 17.92 0 4.48 4.501333 4.48 8.96 4.48 8.96 4.501333 13.461333 4.501333 22.421333 8.96 4.48 0 8.96 4.501333 4.48 8.96 0 0 0 4.501333-4.48 4.501334-22.421333 22.4-44.8 40.32-67.2 62.698666-4.48 4.48-8.96 13.44-8.96 17.92s4.48 4.48 4.48 8.96c0 4.501333-4.48 4.501333-8.96 8.96-8.96 4.501333-17.92 8.96-22.4 13.461334-4.48 8.96 0 22.4-4.48 31.36-4.48 22.4-17.941333 40.32-26.901333 62.72-8.96 13.418667-13.418667 26.88-22.378667 40.32 0 17.92-4.501333 31.36 4.458667 44.8 22.421333 31.36 62.72 13.44 94.08 26.901333 8.96 4.458667 17.92 4.458667 22.421333 13.418667 13.418667 13.461333 13.418667 35.861333 17.92 49.301333 4.458667 17.92 8.96 35.84 17.92 53.76 4.48 22.421333 13.44 44.821333 17.92 62.72 40.341333-31.36 76.16-67.178667 103.04-112 26.88-31.424 40.341333-67.242667 53.76-103.104" fill="#CDDC39"></path></svg></span></a>
+<h3 id="前言" class="heading-element">
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark"></a>前言</h3><p>CMake是一个跨平台项目构建工具，主要对标C/C++项目。其师出于automake，有其独有的DSL，详情请移步到<a href="https://cmake.org/"target="_blank" rel="external nofollow noopener noreferrer">CMake官网</a></p>
+<h3 id="安装cmake" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85cmake" class="heading-mark"></a>安装CMake</h3><p>对于Linux，这个挺简单的，CentOS执行 <code>yum install cmake</code>，Ubuntu执行 <code>apt-get install cmake</code>，如果觉得Linux发行版安装的cmake版本太旧，那么从官网上下载源码编译吧，当然，到<a href="https://cmake.org/download/"target="_blank" rel="external nofollow noopener noreferrer">cmake download page</a>上下载也是个不错的途径</p>
+<p>而对于Windows，个人是建议直接到<a href="https://cmake.org/download/"target="_blank" rel="external nofollow noopener noreferrer">cmake download page</a>上下载二进制版本，将其添加到系统环境变量path上即可。电脑上安装了Msys2的话，也可以通过<code>pacman -S cmake</code>来安装；安装了cmder的话，在 <code>.../vendor/init.bat</code> 里插入 <code>set path=%path%;xxx:/xxx/cmake-xxx/bin;</code> 也是可以的，如下图所示：</p>
+<p><img loading="lazy" src="/assets/2018-06-25/09-1529930004000.png" alt="/assets/2018-06-25/09-1529930004000.png" srcset="/assets/2018-06-25/09-1529930004000.png?size=small, /assets/2018-06-25/09-1529930004000.png?size=medium 1.5x, /assets/2018-06-25/09-1529930004000.png?size=large 2x" sizes="auto" data-title="/assets/2018-06-25/09-1529930004000.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="入门教程" class="heading-element">
+  <a href="#%e5%85%a5%e9%97%a8%e6%95%99%e7%a8%8b" class="heading-mark"></a>入门教程</h3><blockquote>
+<p>cmake由于其语法丰富，比较适合管理大型的跨平台c/c++工程，而在轻量级的项目里，premake、xmake、qmake都是不错的方案呢。在终端上输入 <code>cmake -h</code> 后，可以看到cmake 3.12.0中已经支持了vs、codeblocks、codelite、eclipse等IDE和高级文本编辑器了</p>
+</blockquote>
+<p>至于cmake的入门教程，由于网上相关资料已经汗牛充栋了，这里就不重复了，读者可以直接移步到<a href="http://www.hahack.com/codes/cmake/"target="_blank" rel="external nofollow noopener noreferrer">《CMake 入门实战》中文</a>和<a href="https://cmake.org/cmake-tutorial/"target="_blank" rel="external nofollow noopener noreferrer">《cmake-tutorial》官方英文</a>，先过一遍中文教程，心里有底之后 ，再过一遍cmake官方教程即可入门了，剩下的知识点在项目需要用到时再学吧，毕竟只是个项目管理工具而已</p>
+<p>下面整理了一些常用的操作命令说明:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">project()</td>
+<td style="text-align:center">指定工程名称，在vs中就是.sln的名字</td>
+</tr>
+<tr>
+<td style="text-align:center">add_subdirectory()</td>
+<td style="text-align:center">设置子CMakeLists的所在路径</td>
+</tr>
+<tr>
+<td style="text-align:center">configure_file()</td>
+<td style="text-align:center">设置配置文件，一般用来预处理项目版本以及配合find_package、find_library、option等命令控制某些功能是否开启用的</td>
+</tr>
+<tr>
+<td style="text-align:center">add_executable()</td>
+<td style="text-align:center">添加一个可执行二进制项目，对应vs里的cli、gui项目</td>
+</tr>
+<tr>
+<td style="text-align:center">add_library()</td>
+<td style="text-align:center">添加一个动/静态链接库库项目，SHARED是动态链接库，STATIC是静态链接库</td>
+</tr>
+<tr>
+<td style="text-align:center">set()</td>
+<td style="text-align:center">设置变量，如果想多个CMakeLists.txt共用某个变量，那么需要将其指定为CACHE，如<code>set(contribdir ${contribdir} ${CMAKE_CURRENT_SOURCE_DIR}/stb CACHE INTERNAL &quot;contrib library&quot; )</code></td>
+</tr>
+<tr>
+<td style="text-align:center">unset()</td>
+<td style="text-align:center">删除变量，通常用来删除临时变量</td>
+</tr>
+<tr>
+<td style="text-align:center">option()</td>
+<td style="text-align:center">设置操作项，可通过ON/OFF来控制开关，这个配置项在cmake-gui中以复选框的形式显示，通常与configure_file结合使用</td>
+</tr>
+<tr>
+<td style="text-align:center">message()</td>
+<td style="text-align:center">设置项目生成时的日志输出，甚至可以控制cmake的执行，比如FATAL_ERROR可终止cmake的往下执行</td>
+</tr>
+<tr>
+<td style="text-align:center">source_group()</td>
+<td style="text-align:center">将文件列表设为某个子群组，对应vs里的include、src等目录，如<code>source_group(&quot;contrib/include&quot; ${CURRENT_HEADERS})</code></td>
+</tr>
+<tr>
+<td style="text-align:center">file()</td>
+<td style="text-align:center">快速搜索文件，将其存放在某个变量里，支持多路径搜索，多用于搜索头文件、资源文件什么的，配合source_group将之添加到工程里</td>
+</tr>
+<tr>
+<td style="text-align:center">aux_source_directory()</td>
+<td style="text-align:center">搜索指定路径下的源文件，通常是.cpp、.c、.cxx等后缀名的文件，结果存放在某个变量里</td>
+</tr>
+<tr>
+<td style="text-align:center">add_definitions()</td>
+<td style="text-align:center">添加预处理宏，针对当前CMakeLists下的所有项目，如果只想为某个项目添加特定的预处理宏，那么需要使用set_tests_properties，如<code>set_tests_properties(person_dll PROPERTIES COMPILE_DEFINITIONS &quot;DEMO_USE_DLL&quot;)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">add_custom_command()</td>
+<td style="text-align:center">添加自定义命令，可以设置执行时机(编译前、链接中、编译后)，比如生成了.dll后，想将其复制到主项目的可执行文件所在目录中，就需要它了，还有各种自定义生成指令也是用到了它</td>
+</tr>
+<tr>
+<td style="text-align:center">target_link_libraries()</td>
+<td style="text-align:center">设置要链接的库文件</td>
+</tr>
+<tr>
+<td style="text-align:center">include_directories()</td>
+<td style="text-align:center">添加头文件的搜索路径，只对当前CMakeLists.txt生效</td>
+</tr>
+<tr>
+<td style="text-align:center">link_directories()</td>
+<td style="text-align:center">添加链接库的搜索路径，只对当前CMakeLists.txt生效</td>
+</tr>
+<tr>
+<td style="text-align:center">find_package()</td>
+<td style="text-align:center">查找第三方包，比如某项目依赖了第三方开源库curl来实现一个下载器，那么就可以通过这条指令来判断开发者是否安装了curl，如果 没开启，则禁用下载功能，通常与CMAKE_MODULE_PATH组合使用，如<code>SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">find_path()</td>
+<td style="text-align:center">搜索某路径下的文件，多用于搜索头文件、链接库，以此来控制功能的开关，举个例子，某个项目集成了一个未开源的第三方库svgload，这个第三方库时以显式调用的方式提供，也就是说，提供了.h、.dll和.lib这三个文件，但是不给源码，此时就可以通过这条指令来尝试搜索项目，看有没有这个svgload开发包了，如果没有的话，通过预编译关闭掉svg的加载功能，当然，也可以采用find_package()来实现</td>
+</tr>
+<tr>
+<td style="text-align:center">find_library()</td>
+<td style="text-align:center">搜索某路径下的链接库，find_pat其实也可以替代它，两者用法相似</td>
+</tr>
+</tbody>
+</table>
+<h3 id="非官方例子" class="heading-element">
+  <a href="#%e9%9d%9e%e5%ae%98%e6%96%b9%e4%be%8b%e5%ad%90" class="heading-mark"></a>非官方例子</h3><p>由于工作中用到的东西有点多，脑子记不过来，因此在此特意记下几个常用的例子，这里以图片转换器为例:</p>
+<blockquote>
+<p>基本功能：加载常见的图片格式，如jpg、png、bmp、svg等，将其转换成其它图片格式，目前仅提供CLI版本用作演示</p>
+</blockquote>
+<blockquote>
+<p>技术选型如下:</p>
+</blockquote>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">                +--------&gt;ImageLoadModule(gdi+、stb_image.h、libgif、naosvg、skia、freeimage等)，加载磁盘上的图片资源到内存中
+</span></span><span class="line"><span class="cl">                |
+</span></span><span class="line"><span class="cl">                |
+</span></span><span class="line"><span class="cl">ImageConverter--|---------&gt;AutoCompleteModule(linenoise、readline等)，为CLI程序提供命令自动补全的功能
+</span></span><span class="line"><span class="cl">                |
+</span></span><span class="line"><span class="cl">                |
+</span></span><span class="line"><span class="cl">                +--------&gt;ImageSaveModule(gdi+、stb_image_write.h、freeimage等)，将内存中的图片数据保存到磁盘</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="imageconverter-01" class="heading-element">
+  <a href="#imageconverter-01" class="heading-mark"></a>ImageConverter 0.1</h4><blockquote>
+<p>这只是一个初始版，仅仅是搜索项目下的源文件，将其添加到VS上，可以编译执行了，附件：<a href="/assets/2018-06-25/ImageConverter0.1.zip">ImageConverter0.1.zip</a></p>
+</blockquote>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c"># 指定cmake的最小版本
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 指定工程名称，ImageConverter.sln
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">project(ImageConverter)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索当前目录下的源码文件，用srcs存储起来
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">aux_source_directory(.</span> <span class="err">srcs)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">add_executable(ImageConverterDemo</span> <span class="err">${srcs})</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="imageconverter-02" class="heading-element">
+  <a href="#imageconverter-02" class="heading-mark"></a>ImageConverter 0.2</h4><blockquote>
+<p>接下来搭建这个项目的基础部分，定好各种组件的接口，这里先以gdi+作为图片的编解码器，附件：<a href="/assets/2018-06-25/ImageConverter0.2.zip">ImageConverter0.2.zip</a></p>
+</blockquote>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c"># 指定cmake的最小版本
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 指定工程名称，ImageConverter.sln
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">project(ImageConverter)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索目录下的源码文件
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">aux_source_directory(.</span> <span class="err">srcs)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">coresrcs</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./core/*.cpp</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">miscsrcs</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./misc/*.cpp</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索目录下的头文件
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">FILE(GLOB_RECURSE</span> <span class="err">coreheaders</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./core/*.h</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">mischeaders</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./misc/*.h</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 添加到项目筛选器上
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">source_group(</span><span class="s2">&#34;src&#34;</span> <span class="err">FILES</span> <span class="err">${srcs})</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;src\\core&#34;</span> <span class="err">FILES</span> <span class="err">${coresrcs})</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;src\\misc&#34;</span> <span class="err">FILES</span> <span class="err">${miscsrcs})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;include\\misc&#34;</span> <span class="err">FILES</span> <span class="err">${mischeaders})</span> 
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;include\\core&#34;</span> <span class="err">FILES</span> <span class="err">${coreheaders})</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 添加头文件搜索路径
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">include_directories(./core)</span>
+</span></span><span class="line"><span class="cl"><span class="err">include_directories(./misc)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">add_executable(ImageConverterDemo</span> <span class="err">${srcs}</span> <span class="err">${coresrcs}</span> <span class="err">${miscsrcs}</span> <span class="err">${coreheaders}</span> <span class="err">${mischeaders})</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="imageconverter-05" class="heading-element">
+  <a href="#imageconverter-05" class="heading-mark"></a>ImageConverter 0.5</h4><blockquote>
+<p>这里调用了第三方类库nanosvg来支持svg文件的读取，主要演示了如何通过Git来管理第三方类库，以及如何在cmake里面整合第三方类库源码的过程，简略描述如下：
+借助option来配置svg的功能开启，如果为ON，则这里以SUPPORT_SVG_TYPE作为开启的条件，通过<code>add_definitions(-DSUPPORT_SVG_TYPE)</code>来添加预处理宏，源码里以<code>SUPPORT_SVG_TYPE</code>作为预编译宏，整理所有与svg相关的代码逻辑，另外，也要在CMakeLists.txt中，以<code>if(SUPPORT_SVG_TYPE)</code>判断是否执行追加相关头文件搜索路径，添加相关文件名到工程等命令
+借助configure_file来配置一个外部的头文件，用来传入程序的版本号，当然，也可以配合option来做其他事情
+附件：<a href="/assets/2018-06-25/ImageConverter0.5.zip">ImageConverter0.5.zip</a></p>
+</blockquote>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c"># 指定cmake的最小版本
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 指定工程名称，ImageConverter.sln
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">project(ImageConverter)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置版本号
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">set</span> <span class="err">(APP_VERSION_MAJOR</span> <span class="err">1)</span>
+</span></span><span class="line"><span class="cl"><span class="err">set</span> <span class="err">(APP_VERSION_MINOR</span> <span class="err">0)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置是否开启SVG的支持
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">option</span> <span class="err">(SUPPORT_SVG_TYPE</span> <span class="s2">&#34;support .svg file&#34;</span> <span class="err">ON)</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 加入一个配置头文件，用于处理 CMake 对源码的设置
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">configure_file</span> <span class="err">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;${PROJECT_SOURCE_DIR}/config.h.in&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;${PROJECT_SOURCE_DIR}/config.h&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">aux_source_directory(.</span> <span class="err">srcs)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;src&#34;</span> <span class="err">FILES</span> <span class="err">${srcs})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">coresrcs</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./core/*.cpp</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;src\\core&#34;</span> <span class="err">FILES</span> <span class="err">${coresrcs})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">miscsrcs</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./misc/*.cpp</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;src\\misc&#34;</span> <span class="err">FILES</span> <span class="err">${miscsrcs})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">coreheaders</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./core/*.h</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;include\\core&#34;</span> <span class="err">FILES</span> <span class="err">${coreheaders})</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">mischeaders</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./misc/*.h</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;include\\misc&#34;</span> <span class="err">FILES</span> <span class="err">${mischeaders})</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">if(SUPPORT_SVG_TYPE)</span>
+</span></span><span class="line"><span class="cl"><span class="err">FILE(GLOB_RECURSE</span> <span class="err">nanosvgheaders</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">./modules/nanosvg/src/*.h</span>
+</span></span><span class="line"><span class="cl">    <span class="err">./modules/nanosvg/example/*.h</span>
+</span></span><span class="line"><span class="cl"><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">source_group(</span><span class="s2">&#34;modules\\include\\nanosvg&#34;</span> <span class="err">FILES</span> <span class="err">${nanosvgheaders})</span> 
+</span></span><span class="line"><span class="cl"><span class="err">include_directories(./modules/nanosvg/src)</span>
+</span></span><span class="line"><span class="cl"><span class="err">include_directories(./modules/nanosvg/example)</span>
+</span></span><span class="line"><span class="cl"><span class="err">add_definitions(-DSUPPORT_SVG_TYPE)</span>
+</span></span><span class="line"><span class="cl"><span class="err">endif(SUPPORT_SVG_TYPE)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 添加头文件搜索路径
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">include_directories(./core)</span>
+</span></span><span class="line"><span class="cl"><span class="err">include_directories(./misc)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">add_executable(ImageConverterDemo</span> <span class="err">${srcs}</span> <span class="err">${coresrcs}</span> <span class="err">${miscsrcs}</span> <span class="err">${coreheaders}</span> <span class="err">${mischeaders}</span> <span class="err">${nanosvgheaders})</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="imageconverter-06" class="heading-element">
+  <a href="#imageconverter-06" class="heading-mark"></a>ImageConverter 0.6</h4><blockquote>
+<p>目前发现Gdiplus里面的图片编码、解码的功能还是太弱了，支持的图片类型太少，比如无法正常加载psd类型，因此打算采用FreeImage来加强这个功能。由于FreeImage是以一个动态库的开发包形式分发的，因此需要更多的指令来控制依赖FreeImage库的工程生成，其中包括项目生成之后的dll文件拷贝、根据.dll、.lib的文件是否存在来判断是否生成ForFreeImage的工程等等，用到的关键指令如下所示：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FIND_PACKAGE()</td>
+<td style="text-align:center">用来查看cmake目录下的xxx.cmake文件，里面定义了这个模块的源码、开发包的搜索方式，注意，xxx.cmake里定义的参数可以传递到CMakeLists.txt里面哦</td>
+</tr>
+<tr>
+<td style="text-align:center">set_target_properties()</td>
+<td style="text-align:center">为指定项目配置特有属性，通常用来添加项目特有的宏定义，而add_definitions定义的宏会添加到所有生成的项目中，注意这个的区别哦</td>
+</tr>
+<tr>
+<td style="text-align:center">target_link_libraries()</td>
+<td style="text-align:center">让指定项目链接静态库/导入库，不是作用到所有项目哦</td>
+</tr>
+<tr>
+<td style="text-align:center">add_custom_command()</td>
+<td style="text-align:center">自定义生成命令，在此是为了让FreeImage项目生成后，自动拷贝FreeImage开发包下的.dll文件到.exe所在目录下，注意，这里面还用<code>set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) </code>来重定向输出目录了哦</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>附件：<a href="/assets/2018-06-25/ImageConverter0.6.7z">ImageConverter0.6.7z</a></p>
+</blockquote>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c">### 这里仅仅截取CMakeLists.txt的FreeImage配置相关代码段
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">SET(CMAKE_MODULE_PATH</span> <span class="err">${PROJECT_SOURCE_DIR}/cmake)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">FIND_PACKAGE(FREEIMAGEX32)</span>
+</span></span><span class="line"><span class="cl"><span class="err">IF(FREEIMAGEX32_FOUND)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">include_directories(${FREEIMAGEX32_INCLUDE_DIR})</span>
+</span></span><span class="line"><span class="cl">    <span class="err">FILE(GLOB_RECURSE</span> <span class="err">freeimageheaders</span> 
+</span></span><span class="line"><span class="cl">        <span class="err">${FREEIMAGEX32_INCLUDE_DIR}/*.h</span>
+</span></span><span class="line"><span class="cl">    <span class="err">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">source_group(</span><span class="s2">&#34;include\\freeimage&#34;</span> <span class="err">FILES</span> <span class="err">${freeimageheaders})</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">if</span> <span class="err">(FREEIMAGEX32_STATICLIB)</span>
+</span></span><span class="line"><span class="cl">        <span class="err">add_executable(ImageConverterForFreeImage</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${srcs}</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${coresrcs}</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${miscsrcs}</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${coreheaders}</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${mischeaders}</span> 
+</span></span><span class="line"><span class="cl">            <span class="err">${freeimageheaders}</span>
+</span></span><span class="line"><span class="cl">            <span class="err">${nanosvgheaders})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">set_target_properties(ImageConverterForFreeImage</span> <span class="err">PROPERTIES</span> <span class="err">COMPILE_DEFINITIONS</span> <span class="s2">&#34;SUPPORT_FREEIMAGE&#34;</span><span class="err">)</span>
+</span></span><span class="line"><span class="cl">        <span class="err">target_link_libraries(ImageConverterForFreeImage</span> <span class="err">${FREEIMAGEX32_STATICLIB})</span>
+</span></span><span class="line"><span class="cl">        <span class="err">add_custom_command(TARGET</span> <span class="err">ImageConverterForFreeImage</span> <span class="err">POST_BUILD</span>        <span class="c"># Adds a post-build event to MyTest
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>            COMMAND <span class="si">${</span><span class="nv">CMAKE_COMMAND</span><span class="si">}</span> -E copy_if_different  <span class="c1"># which executes &#34;cmake - E copy_if_different...&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="si">${</span><span class="nv">FREEIMAGEX32_SHAREDLIB</span><span class="si">}</span><span class="s2">&#34;</span>      <span class="c1"># &lt;--this is in-file</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span><span class="s2">/bin/</span>$<span class="s2">&lt;CONFIGURATION&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">)</span>
+</span></span><span class="line"><span class="cl">    endif<span class="o">(</span>FREEIMAGEX32_STATICLIB<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">else(FREEIMAGEX32_FOUND)</span>    
+</span></span><span class="line"><span class="cl">    <span class="err">MESSAGE(status</span> <span class="s2">&#34;没有找到FreeImage哦，不生成此工程啦&#34;</span><span class="err">)</span> 
+</span></span><span class="line"><span class="cl"><span class="err">ENDIF(FREEIMAGEX32_FOUND)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c">### FindFREEIMAGEX32.cmake，此文件是配合Find_Package指令来使用的，目的是搜索指定路径
+</span></span></span><span class="line"><span class="cl"><span class="c">### 看FreeImage开发包是否完整，一般而言，FindXXX.cmake是会主动生成一些静态库、动态库项目的
+</span></span></span><span class="line"><span class="cl"><span class="c">### 当然，这是由源码的前提了，这里是借助了第三方提供的工具包，因此显得有点绕
+</span></span></span><span class="line"><span class="cl"><span class="c"># 设置查找路径
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">set</span> <span class="err">(search_header</span>  <span class="err">${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)</span>
+</span></span><span class="line"><span class="cl"><span class="err">set</span> <span class="err">(search_staticlib</span> <span class="err">${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)</span>
+</span></span><span class="line"><span class="cl"><span class="err">set</span> <span class="err">(search_sharedlib</span> <span class="err">${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索头文件
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">FIND_PATH(FREEIMAGEX32_INCLUDE_DIR</span> <span class="err">FreeImage.h</span> <span class="err">${search_header})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索链接库
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">FILE(GLOB_RECURSE</span> <span class="err">FREEIMAGEX32_STATICLIB</span> <span class="err">${search_staticlib}/FreeImage.lib)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 搜索dll
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">FILE(GLOB_RECURSE</span> <span class="err">FREEIMAGEX32_SHAREDLIB</span> <span class="err">${search_sharedlib}/FreeImage.dll)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">IF</span> <span class="err">(FREEIMAGEX32_INCLUDE_DIR</span> <span class="err">AND</span> <span class="err">FREEIMAGEX32_STATICLIB</span> <span class="err">AND</span> <span class="err">FREEIMAGEX32_SHAREDLIB)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">SET(FREEIMAGEX32_FOUND</span> <span class="err">TRUE)</span>
+</span></span><span class="line"><span class="cl"><span class="err">ENDIF</span> <span class="err">(FREEIMAGEX32_INCLUDE_DIR</span> <span class="err">AND</span> <span class="err">FREEIMAGEX32_STATICLIB</span> <span class="err">AND</span> <span class="err">FREEIMAGEX32_SHAREDLIB)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 删除临时变量
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">unset(search_header)</span>
+</span></span><span class="line"><span class="cl"><span class="err">unset(search_staticlib)</span>
+</span></span><span class="line"><span class="cl"><span class="err">unset(search_sharedlib)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="配置编译参数" class="heading-element">
+  <a href="#%e9%85%8d%e7%bd%ae%e7%bc%96%e8%af%91%e5%8f%82%e6%95%b0" class="heading-mark"></a>配置编译参数</h4><p>在VS中，需要配置编译参数，如将Debug下的<code>/MDd=&gt;/MTd</code>，Release下的<code>/MD=&gt;/MT</code>可以如下配置:</p>
+<div class="highlight" id="id-7"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="err">if</span> <span class="err">(MSVC)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">set(CompilerFlags</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_CXX_FLAGS</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_CXX_FLAGS_DEBUG</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_CXX_FLAGS_RELEASE</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_C_FLAGS</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_C_FLAGS_DEBUG</span>
+</span></span><span class="line"><span class="cl">        <span class="err">CMAKE_C_FLAGS_RELEASE</span>
+</span></span><span class="line"><span class="cl">        <span class="err">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">foreach(CompilerFlag</span> <span class="err">${CompilerFlags})</span>
+</span></span><span class="line"><span class="cl">        <span class="err">string(REPLACE</span> <span class="s2">&#34;/MD&#34;</span> <span class="s2">&#34;/MT&#34;</span> <span class="err">${CompilerFlag}</span> <span class="s2">&#34;${${CompilerFlag}}&#34;</span><span class="err">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">endforeach()</span>
+</span></span><span class="line"><span class="cl"><span class="err">endif(MSVC)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="faq" class="heading-element">
+  <a href="#faq" class="heading-mark"></a>FAQ</h3><h4 id="不熟悉xxx命令如何快速检索相关资料呢" class="heading-element">
+  <a href="#%e4%b8%8d%e7%86%9f%e6%82%89xxx%e5%91%bd%e4%bb%a4%e5%a6%82%e4%bd%95%e5%bf%ab%e9%80%9f%e6%a3%80%e7%b4%a2%e7%9b%b8%e5%85%b3%e8%b5%84%e6%96%99%e5%91%a2" class="heading-mark"></a>不熟悉xxx命令，如何快速检索相关资料呢</h4><blockquote>
+<p>对于不熟悉的cmake command，有两种方法可以快速找到其使用说明，这里以<code>find_path</code>为例</p>
+</blockquote>
+<ul>
+<li>直接在终端上输入<code>cmake -h find_path</code>来查询即可，如下图所示:</li>
+<li>直接问度娘或谷歌，输入<code>cmake find_path</code>来搜索即可，通常搜索引擎前三就是cmake官方的文档，后面的搜索结果是网友的一些博客了</li>
+</ul>
+<p><img loading="lazy" src="/assets/2018-06-25/09-1530522434000.png" alt="/assets/2018-06-25/09-1530522434000.png" srcset="/assets/2018-06-25/09-1530522434000.png?size=small, /assets/2018-06-25/09-1530522434000.png?size=medium 1.5x, /assets/2018-06-25/09-1530522434000.png?size=large 2x" sizes="auto" data-title="/assets/2018-06-25/09-1530522434000.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>自2023年之后，可以借助ChatGpt4、Github Copilot之类的问答类大模型来快速查找相关函数用法，这个比搜索引擎更加便捷</p>
+<h4 id="sublimetextvscode等编辑器应该安装什么插件来快速编辑cmake呢" class="heading-element">
+  <a href="#sublimetextvscode%e7%ad%89%e7%bc%96%e8%be%91%e5%99%a8%e5%ba%94%e8%af%a5%e5%ae%89%e8%a3%85%e4%bb%80%e4%b9%88%e6%8f%92%e4%bb%b6%e6%9d%a5%e5%bf%ab%e9%80%9f%e7%bc%96%e8%be%91cmake%e5%91%a2" class="heading-mark"></a>SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢</h4><ul>
+<li>SublimeText&mdash;-CMakeEditor</li>
+<li>VSCode&mdash;-CMakeTool+CMake</li>
+</ul>
+<h4 id="如何调用cmake来编译工程" class="heading-element">
+  <a href="#%e5%a6%82%e4%bd%95%e8%b0%83%e7%94%a8cmake%e6%9d%a5%e7%bc%96%e8%af%91%e5%b7%a5%e7%a8%8b" class="heading-mark"></a>如何调用cmake来编译工程</h4><div class="highlight" id="id-8"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> build/
+</span></span><span class="line"><span class="cl">cmake --build .</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料:</h3><ul>
+<li><a href="https://blog.csdn.net/frank_liuxing/article/details/74010939"target="_blank" rel="external nofollow noopener noreferrer">cmake 设置vs工程的MT、MTd</a></li>
+<li><a href="https://blog.csdn.net/10km/article/details/73750410"target="_blank" rel="external nofollow noopener noreferrer">cmake:msvc编译第三方库时使用/MT静态库连接c/c++ runtime library</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/use_cmake_notes/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://example.org/posts/use_cmake_notes/" data-title="CMake学习笔记" data-hashtags="CMake,学习笔记"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://example.org/posts/use_cmake_notes/" data-hashtag="CMake"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://example.org/posts/use_cmake_notes/" data-title="CMake学习笔记"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/cmake/" class="post-tag" title="标签 - CMake">CMake</a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-tag" title="标签 - 学习笔记">学习笔记</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/use_visual_studio_notes/" class="post-nav-item" rel="prev" title="Visual Studio使用笔记"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Visual Studio使用笔记</a>
+      <a href="/posts/about-deploy-win10-environment/" class="post-nav-item" rel="next" title="谈谈Win10系统的折腾">谈谈Win10系统的折腾<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

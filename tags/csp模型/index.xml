@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Csp模型 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>https://example.org/tags/csp%E6%A8%A1%E5%9E%8B/</link>
+    <description>Csp模型 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 13 Jul 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.org/tags/csp%E6%A8%A1%E5%9E%8B/" rel="self" type="application/rss+xml" /><item>
+  <title>关于并发模型的思考</title>
+  <link>https://example.org/posts/thinking_about_the_concurrency_model/</link>
+  <pubDate>Thu, 13 Jul 2017 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/thinking_about_the_concurrency_model/</guid>
+  <description><![CDATA[<p>当摩尔定律的影响力逐渐消退，我们有必要回顾那段硬件资源受限、成本高昂的岁月。在那个时代，开发者们不得不发挥创造力，深入挖掘机器的潜力，精心优化任务调度，从而孕育出一系列高效的并发处理策略，这里，主要是探讨下主流的Actor模型和CSP模型</p>]]></description>
+</item>
+</channel>
+</rss>

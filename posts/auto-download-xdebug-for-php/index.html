@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>PHP-XDebug安装脚本 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查" /><meta name="keywords" content='html, hexo, encrypted' /><meta itemprop="name" content="PHP-XDebug安装脚本">
+<meta itemprop="description" content="前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-07T12:05:43+08:00" />
+<meta itemprop="wordCount" content="1636">
+<meta itemprop="keywords" content="html,hexo,encrypted," /><meta property="og:title" content="PHP-XDebug安装脚本" />
+<meta property="og:description" content="前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/auto-download-xdebug-for-php/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-07T12:05:43+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="PHP-XDebug安装脚本"/>
+<meta name="twitter:description" content="前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查"/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://example.org/posts/auto-download-xdebug-for-php/" /><link rel="prev" href="https://example.org/abouts/my_music_play_list/" /><link rel="next" href="https://example.org/posts/a_way_of_html_encryption/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "PHP-XDebug安装脚本",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/example.org\/posts\/auto-download-xdebug-for-php\/"
+    },"genre": "posts","keywords": "html, hexo, encrypted","wordcount":  1636 ,
+    "url": "https:\/\/example.org\/posts\/auto-download-xdebug-for-php\/","datePublished": "2019-09-01T00:00:00+00:00","dateModified": "2024-03-07T12:05:43+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>PHP-XDebug安装脚本</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category" title="分类 - 工具"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 工具</a></span></div><div class="post-meta-line"><span title="发布于 2019-09-01 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2019-09-01">2019-09-01</time></span>&nbsp;<span title="1636 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#基本思路">基本思路</a></li>
+        <li><a href="#代码实现">代码实现</a></li>
+        <li><a href="#注意事项">注意事项</a></li>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h3 id="前言" class="heading-element">
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark"></a>前言</h3><p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug</p>
+<p>在idea里的php settings上有其安装指导，如下图所示：</p>
+<p><img loading="lazy" src="/assets/2019-09-01/1567309969314.png" alt="/assets/2019-09-01/1567309969314.png" srcset="/assets/2019-09-01/1567309969314.png?size=small, /assets/2019-09-01/1567309969314.png?size=medium 1.5x, /assets/2019-09-01/1567309969314.png?size=large 2x" sizes="auto" data-title="/assets/2019-09-01/1567309969314.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>经过网上检索可知，安装php-xdebug的步骤如下：</p>
+<ul>
+<li>
+<ol>
+<li>查询phpinfo</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>拿phpinfo去<a href="https://xdebug.org/wizard.php"target="_blank" rel="external nofollow noopener noreferrer">xdebug wizard</a>查询其匹配的xdebug版本及其下载链接</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>然后下载dll并在<code>php.ini</code>里修改xdebug的配置项</li>
+</ol>
+</li>
+</ul>
+<p>但由于本人有多台办公设备，并且其php版本都不太一样，所以需要开发一个快速下载/部署xdebug的脚本，能达到一键部署php的开发调试环境就最好了</p>
+<h3 id="基本思路" class="heading-element">
+  <a href="#%e5%9f%ba%e6%9c%ac%e6%80%9d%e8%b7%af" class="heading-mark"></a>基本思路</h3><ul>
+<li>
+<ol>
+<li><del>在shell上用<code>which php</code>查找到php的所在路径，并<code>cd $(dirname $(which php))</code></del>（将这个py脚本放置在php.exe的同级目录就行）</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><del>判断这个目录下是否有<code>php.ini</code>文件，如果没有的话，就<code>cp php.development php.ini</code></del>（这部分采用python来实现）</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><del>在shell上执行<code>php -i phpinfo(); &gt; phpinfo.txt</code>，将结果输出到文本上</del>（在python中调用此shell指令，并将输出存放在变量中）</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>用输出的phpinfo信息粘贴在<a href="https://xdebug.org/wizard.php"target="_blank" rel="external nofollow noopener noreferrer">xdebug.org-custom installation instructions</a>上的文本框上查询，这里面会检测到xdebug版本</li>
+</ol>
+<ul>
+<li><img loading="lazy" src="/assets/2019-09-01/1567312543380.png" alt="在wizard上查询xdebug版本" srcset="/assets/2019-09-01/1567312543380.png?size=small, /assets/2019-09-01/1567312543380.png?size=medium 1.5x, /assets/2019-09-01/1567312543380.png?size=large 2x" sizes="auto" data-title="在wizard上查询xdebug版本" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>
+<ul>
+<li>具体的phpinfo的检测条件在<a href="https://github.com/derickr/xdebug.org/blob/master/html/include/phpinfo-scanner.php"target="_blank" rel="external nofollow noopener noreferrer">phpinfo-scanner.php</a>
+<blockquote>
+<p>这一步是关键，分析这个查询请求的<code>Responses Headers</code>和<code>Form Data</code></p>
+</blockquote>
+</li>
+<li><img loading="lazy" src="/assets/2019-09-01/1567314064999.png" alt="/assets/2019-09-01/1567314064999.png" srcset="/assets/2019-09-01/1567314064999.png?size=small, /assets/2019-09-01/1567314064999.png?size=medium 1.5x, /assets/2019-09-01/1567314064999.png?size=large 2x" sizes="auto" data-title="/assets/2019-09-01/1567314064999.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ol start="5">
+<li>采用bs4从html上提取php_xdebug_xxx.dll的下载链接</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>下载php_xdebug_xxx.dll到ext目录下</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li>采用configparser来修改php.ini上的xdebug配置</li>
+</ol>
+</li>
+</ul>
+<h3 id="代码实现" class="heading-element">
+  <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" class="heading-mark"></a>代码实现</h3><div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># !/user/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding:utf-8 -*- </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">subprocess</span><span class="o">,</span> <span class="nn">locale</span><span class="o">,</span> <span class="nn">shutil</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">codecs</span><span class="o">,</span> <span class="nn">urllib</span><span class="o">,</span> <span class="nn">configparser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 拿phpinfo在xdebug.org上查询并提取xdebug.dll的下载链接</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_xdebug_download_page</span><span class="p">(</span><span class="n">phpinfo</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://xdebug.org/wizard&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="n">phpinfo</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;submit&#34;</span><span class="p">:</span> <span class="s2">&#34;Analyse my phpinfo() output&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Origin&#34;</span><span class="p">:</span> <span class="s2">&#34;https://xdebug.org&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/x-www-form-urlencoded&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s2">&#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Referer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://xdebug.org/wizard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Accept-Encoding&#34;</span><span class="p">:</span> <span class="s2">&#34;gzip, deflate, br&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Accept-Language&#34;</span><span class="p">:</span> <span class="s2">&#34;zh-CN,zh;q=0.9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从html上提取xdebug的下载链接</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">find_xdebug_download_link</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;ol&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)[</span><span class="s2">&#34;href&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取phpinfo</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_php_info</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">phpinfo</span> <span class="o">=</span> <span class="n">read_commandline</span><span class="p">(</span><span class="s2">&#34;php -i phpinfo();&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">substr_flag</span> <span class="o">=</span> <span class="n">phpinfo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;___________________&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">phpinfo</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">substr_flag</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取shell的输出结果</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_commandline</span><span class="p">(</span><span class="n">command_str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output_str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ps</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">command_str</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">ps</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">output_str</span> <span class="o">=</span> <span class="n">output_str</span> <span class="o">+</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">())</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">output_str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Refer to : https://www.jb51.net/article/167786.htm</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">download_file_with_process</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fw</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">filesize</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Content-Length&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">128</span>
+</span></span><span class="line"><span class="cl">            <span class="n">times</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">filesize</span><span class="p">)</span> <span class="o">//</span> <span class="n">chunk_size</span>
+</span></span><span class="line"><span class="cl">            <span class="n">show</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">times</span>
+</span></span><span class="line"><span class="cl">            <span class="n">show2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">times</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">              <span class="n">fw</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">              <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">times</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;download process : </span><span class="si">{</span><span class="n">show</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="se">\r</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">show</span> <span class="o">+=</span> <span class="n">show2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">check_php_cfg</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">default_php_cfg</span> <span class="o">=</span> <span class="n">php_cfg</span><span class="o">+</span><span class="s2">&#34;-development&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">default_php_cfg</span><span class="p">,</span> <span class="n">php_cfg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 更新php.ini上的xdebug配置</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">update_php_cfg</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">,</span> <span class="n">xdebug_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">xdebug_section_name</span> <span class="o">=</span> <span class="s2">&#34;xdebug&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">has_section</span><span class="p">(</span><span class="n">xdebug_section_name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conf</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">xdebug_section_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xdebug_section_name</span><span class="p">,</span> <span class="s2">&#34;zend_extension&#34;</span><span class="p">,</span> <span class="n">xdebug_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xdebug_section_name</span><span class="p">,</span> <span class="s2">&#34;xdebug.remote_enable&#34;</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xdebug_section_name</span><span class="p">,</span> <span class="s2">&#34;xdebug.remote_autostart&#34;</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># conf.set(xdebug_section_name, &#34;xdebug.remote_host&#34;, &#34;10.0.2.2&#34;)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># conf.set(xdebug_section_name, &#34;xdebug.remote_port&#34;, &#34;9000&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">outfile</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">php_cfg</span> <span class="o">=</span> <span class="s2">&#34;php.ini&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-------------check php.ini---------------&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">check_php_cfg</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-------------fetch phpinfo---------------&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">phpinfo</span> <span class="o">=</span> <span class="n">get_php_info</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-----fetch xdebug.dll download link------&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">get_xdebug_download_page</span><span class="p">(</span><span class="n">phpinfo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">download_link</span> <span class="o">=</span> <span class="n">find_xdebug_download_link</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;----------download xdebug.dll------------&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dir_path</span> <span class="o">=</span> <span class="s2">&#34;./ext&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">download_link</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">full_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># download_file(download_link, full_file_path)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">download_file_with_process</span><span class="p">(</span><span class="n">download_link</span><span class="p">,</span> <span class="n">full_file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%(full_file_path)s</span><span class="s2"> already exists, skip download ……&#34;</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;full_file_path&#39;</span> <span class="p">:</span> <span class="n">full_file_path</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">update_php_cfg</span><span class="p">(</span><span class="n">php_cfg</span><span class="p">,</span> <span class="n">full_file_path</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>附件：<a href="/assets/2019-09-01/php_xdebug_deploy.zip">php_xdebug_deploy.zip</a></p>
+<h3 id="注意事项" class="heading-element">
+  <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark"></a>注意事项</h3><p>由于此脚本是基于xdebug.org里 <strong><a href="https://xdebug.org/wizard.php"target="_blank" rel="external nofollow noopener noreferrer">custom installation instructions</a></strong> 提供的查询功能来实现的，如果这个站点的规则改动了，则脚本可能会失效</p>
+<blockquote>
+<p>ps:其实在刚编写此脚本的时候，也曾考虑过采用<code>selenium+headless browser()</code>来处理ajax请求，不过考虑到这个脚本做的就是减法，用headless browser的方案会引入第三方可执行程序，比如<code>chrormedriver.exe</code>，这就太不友好了，所以还是自己分析下ajax请求，提取到<code>[Analyse my phpinfo() output] Button</code>的真正http请求</p>
+</blockquote>
+<hr>
+<h3 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h3><ul>
+<li><a href="https://www.jb51.net/article/167786.htm"target="_blank" rel="external nofollow noopener noreferrer">Python3 requests文件下载 期间显示文件信息和下载进度代码实例</a></li>
+<li><a href="https://blog.csdn.net/bqw18744018044/article/details/81351137"target="_blank" rel="external nofollow noopener noreferrer">Python爬虫之selenium库(三)：Chrome无头模式与操作浏览器</a></li>
+<li><a href="https://blog.csdn.net/qq_26803795/article/details/82467037"target="_blank" rel="external nofollow noopener noreferrer">selenium+Headless Chrome实现不弹出浏览器自动化登录&ndash;问题总结</a></li>
+<li><a href="https://blog.csdn.net/jjjndk1314/article/details/80540204"target="_blank" rel="external nofollow noopener noreferrer">selenium设置谷歌无头浏览器</a></li>
+<li><a href="https://stackoverflow.com/questions/45631715/downloading-with-chrome-headless-and-selenium"target="_blank" rel="external nofollow noopener noreferrer">downloading-with-chrome-headless-and-selenium</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/auto-download-xdebug-for-php/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://example.org/posts/auto-download-xdebug-for-php/" data-title="PHP-XDebug安装脚本" data-hashtags="html,hexo,encrypted"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://example.org/posts/auto-download-xdebug-for-php/" data-hashtag="html"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://example.org/posts/auto-download-xdebug-for-php/" data-title="PHP-XDebug安装脚本"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/html/" class="post-tag" title="标签 - Html">Html</a><a href="/tags/hexo/" class="post-tag" title="标签 - Hexo">Hexo</a><a href="/tags/encrypted/" class="post-tag" title="标签 - Encrypted">Encrypted</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/about-deploy-win10-environment/" class="post-nav-item" rel="prev" title="谈谈Win10系统的折腾"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>谈谈Win10系统的折腾</a>
+      <a href="/posts/a_way_of_html_encryption/" class="post-nav-item" rel="next" title="谈一种页面加密技术">谈一种页面加密技术<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

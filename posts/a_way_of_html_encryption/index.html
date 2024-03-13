@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>谈一种页面加密技术 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章" /><meta name="keywords" content='html, hexo, encrypted' /><meta itemprop="name" content="谈一种页面加密技术">
+<meta itemprop="description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章"><meta itemprop="datePublished" content="2021-03-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-02-26T14:43:04+08:00" />
+<meta itemprop="wordCount" content="1535">
+<meta itemprop="keywords" content="html,hexo,encrypted," /><meta property="og:title" content="谈一种页面加密技术" />
+<meta property="og:description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/a_way_of_html_encryption/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-26T14:43:04+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="谈一种页面加密技术"/>
+<meta name="twitter:description" content="前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章"/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://example.org/posts/a_way_of_html_encryption/" /><link rel="prev" href="https://example.org/posts/auto-download-xdebug-for-php/" /><link rel="next" href="https://example.org/posts/how_to_write_a_hexo_plugin/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "谈一种页面加密技术",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/example.org\/posts\/a_way_of_html_encryption\/"
+    },"genre": "posts","keywords": "html, hexo, encrypted","wordcount":  1535 ,
+    "url": "https:\/\/example.org\/posts\/a_way_of_html_encryption\/","datePublished": "2021-03-15T00:00:00+00:00","dateModified": "2024-02-26T14:43:04+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>谈一种页面加密技术</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="post-category" title="分类 - 小工具"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 小工具</a></span></div><div class="post-meta-line"><span title="发布于 2021-03-15 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2021-03-15">2021-03-15</time></span>&nbsp;<span title="1535 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#基本思路">基本思路</a>
+          <ul>
+            <li><a href="#页面加密打包思路">页面加密打包思路</a></li>
+            <li><a href="#页面验证访问思路">页面验证访问思路</a></li>
+            <li><a href="#密码验证思路">密码验证思路</a></li>
+            <li><a href="#加密解密思路">加密/解密思路</a></li>
+            <li><a href="#技术选型">技术选型</a></li>
+            <li><a href="#代码实现">代码实现</a></li>
+            <li><a href="#后续迭代">后续迭代</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h3 id="前言" class="heading-element">
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark"></a>前言</h3><p>这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章。然后找到了这些技术博客或在线工具：</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_44548876/article/details/86725023"target="_blank" rel="external nofollow noopener noreferrer">HTML的简单页面加密代码</a>
+<blockquote>
+<p>基本流程上是没啥问题，但是这个示例里面，密码完整验证的方式已经被明文存储在页面上了，纵使密码存放在其它地方，采用Ajax方式获取之后再对比也毫无意义，开发者很容易在浏览器上通过F12修改这个密码验证逻辑从而正常浏览到，并且，由于这里面的内容也是明文存放着的，也会被搜索引擎检索到</p>
+</blockquote>
+</li>
+<li><del><a href="http://cha.buyiju.com/tool/cryptogram.htm"target="_blank" rel="external nofollow noopener noreferrer">HTML网页加密解密</a></del>
+<blockquote>
+<p>无法正常体验，并且访问体验也不是我想要的</p>
+</blockquote>
+</li>
+</ul>
+<p>总而言之，虽然找到了各种貌似可用的实现，但是都没有get到我的需求痛点，决定自己开搞一个</p>
+<h3 id="基本思路" class="heading-element">
+  <a href="#%e5%9f%ba%e6%9c%ac%e6%80%9d%e8%b7%af" class="heading-mark"></a>基本思路</h3><p>实际上，本人对访问的加密强度没啥追求，只需要以下特性即可：</p>
+<ul>
+<li><em>正文不能被搜索引擎爬虫到</em></li>
+<li><em>需要输入密码访问</em></li>
+</ul>
+<p>针对这两个需求点，采用以下两种加密方式混合使用即可达到：</p>
+<ul>
+<li><strong>base64</strong> (一种可逆加密方式，将明文或字节流转换成base64字符串，在此解决首次xor加密生成的字节流存储在页面的问题)</li>
+<li><strong>xor</strong> (一种可逆加密方式，提供密钥验证支持，在正确的密钥下，进行两次该加密即可获得原文)</li>
+</ul>
+<h4 id="页面加密打包思路" class="heading-element">
+  <a href="#%e9%a1%b5%e9%9d%a2%e5%8a%a0%e5%af%86%e6%89%93%e5%8c%85%e6%80%9d%e8%b7%af" class="heading-mark"></a>页面加密打包思路</h4><p>读取需要加密的html文件的特定标签内容，将其进行base64+xor加密之后，塞到一个可以进行密码验证访问的模板标签上，删掉这个已加密的正文标签后，将模板标签再重新拼接成新的html。具体流程流程看代码啦，也是比较直观的</p>
+<h4 id="页面验证访问思路" class="heading-element">
+  <a href="#%e9%a1%b5%e9%9d%a2%e9%aa%8c%e8%af%81%e8%ae%bf%e9%97%ae%e6%80%9d%e8%b7%af" class="heading-mark"></a>页面验证访问思路</h4><p>游客打开这个加密后的html之后，已加密的标签上会显示一个密码验证的界面，如果密码输入错误，浏览器会弹框提醒，如果输入密码正确，则解密后的正文标签outHtml会直接替换掉这个密码验证标签的outHtml，此时浏览器会自动将正文内容加载出来</p>
+<h4 id="密码验证思路" class="heading-element">
+  <a href="#%e5%af%86%e7%a0%81%e9%aa%8c%e8%af%81%e6%80%9d%e8%b7%af" class="heading-mark"></a>密码验证思路</h4><p>核心思路是提供一个 **前缀字符串(prefix_str)**来作为判断依据，最终整个流程如下所示：</p>
+<ul>
+<li>加密打包：<code>base64(xor(prefix_str+content))</code></li>
+<li>解密验证：<code>xor(unbase64(encode_str))</code>，再从中匹配前缀字符串是否刚好为 <strong>prefix_str</strong>，如果是，则密码正确，反之，提醒用户重新输入</li>
+</ul>
+<h4 id="加密解密思路" class="heading-element">
+  <a href="#%e5%8a%a0%e5%af%86%e8%a7%a3%e5%af%86%e6%80%9d%e8%b7%af" class="heading-mark"></a>加密/解密思路</h4><p>从html上提取到需要加密的正文tag之后，其加密、解密的流程设计如下所示：</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">           html encrytion                        html decrytion
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          +--------------+                      +--------------+
+</span></span><span class="line"><span class="cl">          |              |                      |              |
+</span></span><span class="line"><span class="cl">          |input html tag|                      |input html tag|
+</span></span><span class="line"><span class="cl">          |              |                      |              |
+</span></span><span class="line"><span class="cl">          +--------------+                      +--------------+
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">          +-------v--------+                  +---------v---------+
+</span></span><span class="line"><span class="cl">          |                |                  |                   |
+</span></span><span class="line"><span class="cl">          | xor encryption |                  | base64 encryption |
+</span></span><span class="line"><span class="cl">          |                |                  |                   |
+</span></span><span class="line"><span class="cl">          +----------------+                  +-------------------+
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">         +--------v----------+                  +-------v--------+
+</span></span><span class="line"><span class="cl">         |                   |                  |                |
+</span></span><span class="line"><span class="cl">         | base64 encryption |                  | xor encryption |
+</span></span><span class="line"><span class="cl">         |                   |                  |                |
+</span></span><span class="line"><span class="cl">         +-------------------+                  +----------------+
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">                  |                                     |
+</span></span><span class="line"><span class="cl">           +------v--------+                     +------v--------+
+</span></span><span class="line"><span class="cl">           |               |                     |               |
+</span></span><span class="line"><span class="cl">           |output html tag|                     |output html tag|
+</span></span><span class="line"><span class="cl">           |               |                     |               |
+</span></span><span class="line"><span class="cl">           +---------------+                     +---------------+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="技术选型" class="heading-element">
+  <a href="#%e6%8a%80%e6%9c%af%e9%80%89%e5%9e%8b" class="heading-mark"></a>技术选型</h4><p>此工具基于nodejs技术栈实现，经过对比，选择了下面这几个第三方库：</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/js-base64"target="_blank" rel="external nofollow noopener noreferrer">js-base64</a>
+<blockquote>
+<p>utf8支持良好的base64库</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/cheerio"target="_blank" rel="external nofollow noopener noreferrer">cheerio</a>
+<blockquote>
+<p>能够解析修改html的html库，多用于爬虫项目</p>
+</blockquote>
+</li>
+<li><a href="https://www.npmjs.com/package/yargs"target="_blank" rel="external nofollow noopener noreferrer">yargs</a>
+<blockquote>
+<p>能轻松配置命令，解析多个参数，并设置快捷方式等，还能自动生成帮助菜单的命令行辅助库</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="代码实现" class="heading-element">
+  <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" class="heading-mark"></a>代码实现</h4><ul>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js"target="_blank" rel="external nofollow noopener noreferrer">base64+xor加密解密库</a></li>
+<li><a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js"target="_blank" rel="external nofollow noopener noreferrer">html加密打包工具</a></li>
+</ul>
+<h4 id="后续迭代" class="heading-element">
+  <a href="#%e5%90%8e%e7%bb%ad%e8%bf%ad%e4%bb%a3" class="heading-mark"></a>后续迭代</h4><p>由于目前本人的博客都是采用hexo发布的，因此需要将这个加密逻辑整合成hexo插件，期间找到了一款同类型的插件<a href="https://github.com/D0n9X1n/hexo-blog-encrypt"target="_blank" rel="external nofollow noopener noreferrer">hexo-blog-encrypt</a>，这款hexo插件基本满足我最开始的要求了，但由于它是在我完成了<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/js/base64_with_xor.js"target="_blank" rel="external nofollow noopener noreferrer">base64+xor加密解密库</a>和<a href="https://github.com/YaoXuanZhi/base64_with_xor/blob/master/tools/package_encrypted_html.js"target="_blank" rel="external nofollow noopener noreferrer">html加密打包工具</a>后，打算整合到hexo的时候才找到的，本着不断学习的态度，借鉴这个插件的思路，自己也重写了一个 OMG，感兴趣的可前往<a href="https://github.com/YaoXuanZhi/hexo-encrypted-package-html"target="_blank" rel="external nofollow noopener noreferrer">hexo-encrypted-package-html</a></p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/a_way_of_html_encryption/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://example.org/posts/a_way_of_html_encryption/" data-title="谈一种页面加密技术" data-hashtags="html,hexo,encrypted"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://example.org/posts/a_way_of_html_encryption/" data-hashtag="html"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://example.org/posts/a_way_of_html_encryption/" data-title="谈一种页面加密技术"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/html/" class="post-tag" title="标签 - Html">Html</a><a href="/tags/hexo/" class="post-tag" title="标签 - Hexo">Hexo</a><a href="/tags/encrypted/" class="post-tag" title="标签 - Encrypted">Encrypted</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/auto-download-xdebug-for-php/" class="post-nav-item" rel="prev" title="PHP-XDebug安装脚本"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>PHP-XDebug安装脚本</a>
+      <a href="/posts/how_to_write_a_hexo_plugin/" class="post-nav-item" rel="next" title="Hexo插件-文章加密">Hexo插件-文章加密<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -1,0 +1,26 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Ocr识别 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>https://example.org/tags/ocr%E8%AF%86%E5%88%AB/</link>
+    <description>Ocr识别 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.org/tags/ocr%E8%AF%86%E5%88%AB/" rel="self" type="application/rss+xml" /><item>
+  <title>字符图片OCR工具</title>
+  <link>https://example.org/posts/char_images_ocr_tool/</link>
+  <pubDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/char_images_ocr_tool/</guid>
+  <description><![CDATA[<blockquote>
+<p>本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类事情的处理方式</p>
+</blockquote>]]></description>
+</item>
+<item>
+  <title>字符图片合并</title>
+  <link>https://example.org/posts/char_image_merge/</link>
+  <pubDate>Wed, 07 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/char_image_merge/</guid>
+  <description><![CDATA[<p>在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成<code>{图片名：字符}</code>的映射关系，需要耗时更少的方案</p>]]></description>
+</item>
+</channel>
+</rss>

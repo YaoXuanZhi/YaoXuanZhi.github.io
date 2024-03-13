@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>C&#43;&#43; 代码规范 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="
+    
+      
+        Google 开源项目风格指南
+        
+          
+          https://zh-google-styleguide.readthedocs.io
+        
+      " /><meta name="keywords" content='c&#43;&#43; style, code style, c&#43;&#43;代码风格' /><meta itemprop="name" content="C&#43;&#43; 代码规范">
+<meta itemprop="description" content="
+    
+      
+        Google 开源项目风格指南
+        
+          
+          https://zh-google-styleguide.readthedocs.io
+        
+      "><meta itemprop="datePublished" content="2017-07-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-08T13:49:19+08:00" />
+<meta itemprop="wordCount" content="5386">
+<meta itemprop="keywords" content="c&#43;&#43; style,code style,c&#43;&#43;代码风格," /><meta property="og:title" content="C&#43;&#43; 代码规范" />
+<meta property="og:description" content="
+    
+      
+        Google 开源项目风格指南
+        
+          
+          https://zh-google-styleguide.readthedocs.io
+        
+      " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/cplusplus_style_guide/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-08T13:49:19+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="C&#43;&#43; 代码规范"/>
+<meta name="twitter:description" content="
+    
+      
+        Google 开源项目风格指南
+        
+          
+          https://zh-google-styleguide.readthedocs.io
+        
+      "/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://example.org/posts/cplusplus_style_guide/" /><link rel="prev" href="https://example.org/abouts/about_me/" /><link rel="next" href="https://example.org/posts/thinking_about_the_concurrency_model/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "C++ 代码规范",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/example.org\/posts\/cplusplus_style_guide\/"
+    },"genre": "posts","keywords": "c\u002b\u002b style, code style, c\u002b\u002b代码风格","wordcount":  5386 ,
+    "url": "https:\/\/example.org\/posts\/cplusplus_style_guide\/","datePublished": "2017-07-10T00:00:00+00:00","dateModified": "2024-03-08T13:49:19+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>C&#43;&#43; 代码规范</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="post-category" title="分类 - 代码规范"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 代码规范</a></span></div><div class="post-meta-line"><span title="发布于 2017-07-10 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2017-07-10">2017-07-10</time></span>&nbsp;<span title="5386 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 5400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 11 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#命名规范">命名规范</a>
+      <ul>
+        <li><a href="#通用命名规则">通用命名规则</a></li>
+        <li><a href="#文件命名">文件命名</a></li>
+        <li><a href="#类型命名">类型命名</a></li>
+        <li><a href="#变量命名">变量命名</a></li>
+      </ul>
+    </li>
+    <li><a href="#注释规范">注释规范</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><a href="https://zh-google-styleguide.readthedocs.io" title="documentation of FixIt Theme"target="_blank" rel="external nofollow noopener noreferrer" class="card-link"><span class="cl-backdrop" style="--cl-bg-url: url(/images/fixit.min.svg);"></span>
+    <span class="cl-content">
+      <span class="cl-text">
+        <span class="cl-title">Google 开源项目风格指南</span>
+        <span class="cl-meta">
+          <svg class="cl-icon-link" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M574 665.4c-3.1-3.1-8.2-3.1-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8c-3.1-3.1-8.2-3.1-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zM832.6 191.4c-84.6-84.6-221.5-84.6-306 0L410.3 307.6c-3.1 3.1-3.1 8.2 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6c-3.1 3.1-3.1 8.2 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1z" fill="#a9a9b3"></path><path d="M610.1 372.3c-3.1-3.1-8.2-3.1-11.3 0L372.3 598.7c-3.1 3.1-3.1 8.2 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" fill="#a9a9b3"></path></svg>
+          <span class="cl-url">https://zh-google-styleguide.readthedocs.io</span>
+        </span>
+      </span><svg class="cl-icon-globe" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M960 512c0 249.408-203.2 448-448 448-244.778667 0-448-198.592-448-448S262.592 64 512 64s448 198.592 448 448" fill="#2196F3"></path><path d="M507.52 718.08c0-8.96-4.48-13.44-13.44-17.92-26.88-8.96-53.76-8.96-76.16-31.381333-4.48-8.96-4.48-17.92-8.96-26.88-8.96-8.96-31.36-13.44-44.8-17.92h-89.6c-13.44-4.48-22.4-22.4-31.36-35.84 0-4.48 0-13.461333-8.96-13.461334-8.96-4.458667-17.92 4.501333-26.88 0-4.48-4.458667-4.48-8.96-4.48-13.418666 0-13.461333 8.96-26.901333 17.92-35.861334 13.44-8.96 26.88 4.48 40.32 4.48 4.48 0 4.48 0 8.96 4.48 13.44 4.48 17.92 22.4 17.92 35.861334v8.96c0 4.48 4.48 4.48 8.96 4.48 4.48-22.4 4.48-44.821333 8.96-67.2 0-26.88 26.88-53.781333 49.28-62.72 8.96-4.458667 13.44 4.501333 22.4 0 26.88-8.96 94.08-35.84 80.64-71.658667-8.96-31.381333-35.84-62.698667-71.68-58.24-8.96 4.501333-13.44 8.96-22.4 13.461333-13.44 8.96-40.32 35.84-53.76 35.84-22.4-4.48-22.4-35.84-17.92-49.301333 4.48-17.92 44.8-76.138667 71.68-67.178667l17.92 17.92c8.96 4.48 22.4 4.48 35.84 4.48 4.48 0 8.96 0 13.44-4.48 4.48-4.48 4.48-4.48 4.48-8.96 0-13.44-13.44-26.901333-22.4-35.861333s-22.4-17.92-35.84-22.378667c-44.8-13.461333-116.48 4.458667-152.32 35.84-35.84 31.36-62.72 85.12-80.64 129.92-8.96 26.88-17.92 62.698667-22.4 94.08-4.48 22.4-8.96 40.32 4.48 62.698667 13.44 26.88 40.32 53.781333 67.2 71.68 17.92 13.44 53.76 13.44 71.68 35.84 13.44 17.941333 8.96 40.32 8.96 62.72 0 26.88 17.92 49.28 26.88 71.658667 4.48 13.461333 8.96 31.381333 13.44 44.821333 0 4.48 4.48 31.36 4.48 35.84 26.88 13.44 49.28 26.901333 80.64 35.861333 4.48 0 22.4-26.901333 22.4-31.381333 13.44-13.44 22.4-31.36 35.84-40.32 8.96-4.48 17.92-8.96 26.88-17.941333 8.96-8.96 13.44-26.88 17.92-40.32 4.48-8.938667 8.96-26.858667 4.48-40.298667M516.48 305.92c4.48 0 8.96-4.48 17.92-8.96 13.44-8.96 26.901333-22.4 40.32-31.36 13.461333-8.96 26.901333-22.4 35.861333-31.36 13.44-8.96 22.4-26.88 26.88-40.341333 4.48-8.96 17.941333-26.88 13.44-40.32-4.48-8.96-26.88-13.44-35.84-17.92C579.2 126.698667 547.84 122.24 512 122.24c-13.44 0-31.36 4.458667-35.84 17.92-4.48 22.4 13.44 17.92 31.36 22.4 0 0 4.48 35.84 4.48 40.32 4.48 22.421333-8.96 35.84-8.96 58.24 0 13.44 0 35.84 8.96 44.8h4.48zM892.8 619.52c4.501333-8.96 4.501333-22.4 8.96-31.36 4.501333-22.421333 4.501333-44.8 4.501333-67.2 0-44.8-4.501333-89.578667-17.92-129.92-8.96-13.44-13.461333-26.88-17.941333-40.341333-8.96-22.378667-22.4-44.8-40.32-62.698667-17.92-22.4-40.341333-85.12-80.64-67.2-13.44 4.501333-22.4 22.421333-31.36 31.381333l-26.88 40.32c-4.501333 4.48-8.96 13.44-4.501333 17.92 0 4.48 4.501333 4.48 8.96 4.48 8.96 4.501333 13.461333 4.501333 22.421333 8.96 4.48 0 8.96 4.501333 4.48 8.96 0 0 0 4.501333-4.48 4.501334-22.421333 22.4-44.8 40.32-67.2 62.698666-4.48 4.48-8.96 13.44-8.96 17.92s4.48 4.48 4.48 8.96c0 4.501333-4.48 4.501333-8.96 8.96-8.96 4.501333-17.92 8.96-22.4 13.461334-4.48 8.96 0 22.4-4.48 31.36-4.48 22.4-17.941333 40.32-26.901333 62.72-8.96 13.418667-13.418667 26.88-22.378667 40.32 0 17.92-4.501333 31.36 4.458667 44.8 22.421333 31.36 62.72 13.44 94.08 26.901333 8.96 4.458667 17.92 4.458667 22.421333 13.418667 13.418667 13.461333 13.418667 35.861333 17.92 49.301333 4.458667 17.92 8.96 35.84 17.92 53.76 4.48 22.421333 13.44 44.821333 17.92 62.72 40.341333-31.36 76.16-67.178667 103.04-112 26.88-31.424 40.341333-67.242667 53.76-103.104" fill="#CDDC39"></path></svg></span></a>
+<h2 id="前言" class="heading-element">
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark"></a>前言</h2><p>在c++这个大联盟里，有许许多多领导组织，微软、Google、IBM，还有国内各个大厂内部因地制宜定下的各种代码规范，而在我目前的职业生涯里，先后经历了两种c++代码规范洗礼，其实项目内部具体用什么代码规范，一般都由leader定下的，新加入团队的成员理应遵循已有的代码规范，保证团队工程风格的一致性</p>
+<p>但是，作为开发大军里的一员，除开企业内的团队开发，我们私下也会有自己的创造欲望，去捣弄自己的小项目，那么在这个时候，就需要定下一个从一而终的代码规范了，如果机遇一到，拉到融资或者和其它小伙伴一起创业，它就能作为团队规范的一部分了</p>
+<p>目前在业界之内，谷歌的开源氛围是较为浓厚的，它提供了许多深受业界认可的开源项目，比如chromium、grpc、protobuf、gson……，还往业界输出了它的<a href="https://zh-google-styleguide.readthedocs.io"target="_blank" rel="external nofollow noopener noreferrer">《Google 开源项目风格指南》</a>，而之前自己在c++学习的过程中，也用到了其中一些开源库</p>
+<p>而刚毕业那会，由于做的是windows下的win32软件开发，因此最开始用的是mfc那套规范；后续进了游戏行业，一直从事游戏服务端开发，此时起就采用google的代码规范了。现今反思了一些东西，自己要想长远发展的话，采用谷歌这套会更好些</p>
+<hr>
+<h2 id="命名规范" class="heading-element">
+  <a href="#%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83" class="heading-mark"></a>命名规范</h2><h3 id="通用命名规则" class="heading-element">
+  <a href="#%e9%80%9a%e7%94%a8%e5%91%bd%e5%90%8d%e8%a7%84%e5%88%99" class="heading-mark"></a>通用命名规则</h3><ul>
+<li>函数命名，变量命名，文件命名要有描述性；少用缩写。</li>
+<li>尽可能给有描述性的命名，别心疼空间，毕竟让代码易于新读者理解很重要。不要用只有项目开发者能理解的缩写，也不要通过砍掉几个字母来缩写单词。</li>
+</ul>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="c1">//示例：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">price_count_reader</span><span class="p">;</span>    <span class="c1">// 无缩写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">num_errors</span><span class="p">;</span>            <span class="c1">// “num” 本来就很常见
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">num_dns_connections</span><span class="p">;</span>   <span class="c1">// 人人都知道 “DNS” 是啥
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//反例：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>                     <span class="c1">// 莫名其妙。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">nerr</span><span class="p">;</span>                  <span class="c1">// 怪缩写。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">n_comp_conns</span><span class="p">;</span>          <span class="c1">// 怪缩写。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">wgc_connections</span><span class="p">;</span>       <span class="c1">// 只有贵团队知道是啥意思。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">pc_reader</span><span class="p">;</span>             <span class="c1">// &#34;pc&#34; 有太多可能的解释了。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">cstmr_id</span><span class="p">;</span>              <span class="c1">// 有删减若干字母。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文件命名" class="heading-element">
+  <a href="#%e6%96%87%e4%bb%b6%e5%91%bd%e5%90%8d" class="heading-mark"></a>文件命名</h3><ul>
+<li>
+<p>文件名要全部小写, 可以包含下划线 <code>(_)</code> 或连字符 <code>(-)</code>. 按项目约定来. 如果并没有项目约定，<code>_</code> 更好。接受的文件命名:</p>
+<ul>
+<li>my_useful_class.cc</li>
+<li>my-useful-class.cc</li>
+<li>myusefulclass.cc</li>
+<li>muusefulclass_test.cc // <code>_unittest</code> 和 <code>_regtest</code> 已弃用。</li>
+</ul>
+</li>
+<li>
+<p>C++ 文件要以 <strong>.cc</strong> 结尾, 头文件以 <strong>.h</strong> 结尾. 专门插入文本的文件则以 <strong>.inc</strong> 结尾，参见:<code>ref:self-contained headers</code>。</p>
+</li>
+<li>
+<p>不要使用已经存在于 <code>/usr/include</code> 下的文件名 (Yang.Y 注: 即编译器搜索系统头文件的路径), 如<code>db.h</code>.</p>
+</li>
+<li>
+<p>通常应尽量让文件名更加明确. <code>http_server_logs.h</code> 就比 <code>logs.h</code> 要好. 定义类时文件名一般成对出现, 如 <code>foo_bar.h</code> 和 <code>foo_bar.cc</code>, 对应于类 <code>FooBar</code>.</p>
+</li>
+<li>
+<p>内联函数必须放在 <code>.h</code> 文件中. 如果内联函数比较短, 就直接放在 <code>.h</code> 中.</p>
+</li>
+</ul>
+<h3 id="类型命名" class="heading-element">
+  <a href="#%e7%b1%bb%e5%9e%8b%e5%91%bd%e5%90%8d" class="heading-mark"></a>类型命名</h3><ul>
+<li>类型名称的每个单词首字母均大写, 不包含下划线: <code>MyExcitingClass</code>, <code>MyExcitingEnum</code>.</li>
+<li>所有类型命名 —— 类, 结构体, 类型定义 (typedef), 枚举 —— 均使用相同约定. 例如:</li>
+</ul>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="c1">// classes and structs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">class</span> <span class="nc">UrlTable</span> <span class="p">{</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">UrlTableTester</span> <span class="p">{</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">UrlTableProperties</span> <span class="p">{</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// typedefs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">typedef</span> <span class="n">hash_map</span><span class="o">&lt;</span><span class="n">UrlTableProperties</span> <span class="o">*</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">PropertiesMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// enums
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">enum</span> <span class="nc">UrlTableErrors</span> <span class="p">{</span> <span class="p">...</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="变量命名" class="heading-element">
+  <a href="#%e5%8f%98%e9%87%8f%e5%91%bd%e5%90%8d" class="heading-mark"></a>变量命名</h3><ul>
+<li>变量名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 但结构体的就不用，如<code>::a_local_variable</code>, <code>a_struct_data_member</code>, <code>a_class_data_member_</code>.</li>
+</ul>
+<ol>
+<li>【普通变量命名】:</li>
+</ol>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="c1">//举例:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">string</span> <span class="n">table_name</span><span class="p">;</span>  <span class="c1">// 可 - 用下划线。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">string</span> <span class="n">tablename</span><span class="p">;</span>   <span class="c1">// 可 - 全小写。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//反例:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">string</span> <span class="n">tableName</span><span class="p">;</span>   <span class="c1">// 差 - 混合大小写。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>【类数据成员】：
+不管是静态的还是非静态的，结构体数据成员都可以和普通变量一样, <strong>但要接下划线</strong>。</li>
+</ol>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">TableInfo</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">table_name_</span><span class="p">;</span>             <span class="c1">// 可 - 尾后加下划线。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">string</span> <span class="n">tablename_</span><span class="p">;</span>              <span class="c1">// 可。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">static</span> <span class="n">Pool</span><span class="o">&lt;</span><span class="n">TableInfo</span><span class="o">&gt;*</span> <span class="n">pool_</span><span class="p">;</span>  <span class="c1">// 可。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>【结构体变量】:
+不管是静态的还是非静态的，结构体数据成员都可以和普通变量一样, <strong>不用像类那样接下划线</strong>:</li>
+</ol>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">UrlTableProperties</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">num_entries</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>
+<p>【全局变量】:
+对全局变量没有特别要求, 少用就好, 但如果你要用, 可以用 <code>g_</code> 或其它标志作为前缀, 以便更好的区分局部变量.</p>
+</li>
+<li>
+<p>【常量命名】
+在全局或类里的常量名称前加 <code>k</code>: <code>kDaysInAWeek</code>. 且除去开头的 <code>k</code>之外每个单词开头字母均大写。
+所有编译时常量, 无论是局部的, 全局的还是类中的, 和其他变量稍微区别一下. 这规则适用于编译时的局部作用域常量，不过要按变量规则来命名也可以。
+<code>k</code>后接大写字母开头的单词:</p>
+</li>
+</ol>
+<div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">kDaysInAWeek</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>【函数命名】
+常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配:</li>
+</ol>
+<div class="highlight" id="id-7"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="n">MyExcitingFunction</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MyExcitingMethod</span><span class="p">(),</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">my_exciting_member_variable</span><span class="p">(),</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">set_my_exciting_member_variable</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="err">自定义函数不能与系统或库函数同名</span><span class="p">.</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>[常规函数]:
+函数名的<strong>每个单词首字母大写</strong>, <strong>没有下划线</strong>。
+如果您的某函数出错时就要直接 <code>crash</code>, 那么就在函数名加上 <code>OrDie</code>. 但这函数本身必须集成在产品代码里，且平时也可能会出错。</li>
+</ul>
+<div class="highlight" id="id-8"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="n">AddTableEntry</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DeleteUrl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OpenFileOrDie</span><span class="p">()</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>[取值和设值函数]:
+取值（<strong>Accessors</strong>）和设值（<strong>Mutators</strong>）函数要与存取的变量名匹配. 这儿摘录一个类,<code>num_entries_</code> 是该类的实例变量:</li>
+</ul>
+<div class="highlight" id="id-9"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">GetNumEntries</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">num_entries_</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">void</span> <span class="nf">SetNumEntries</span> <span class="p">(</span><span class="kt">int</span> <span class="n">num_entries</span><span class="p">)</span> <span class="p">{</span> <span class="n">num_entries_</span> <span class="o">=</span> <span class="n">num_entries</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">num_entries_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>其它非常短小的内联函数名也可以用小写字母, 例如. 如果你在循环中调用这样的函数甚至都不用缓存其返回值, 小写命名就可以接受.</li>
+</ul>
+<ol start="7">
+<li>【名字空间命名】</li>
+</ol>
+<ul>
+<li>名字空间用小写字母命名.</li>
+</ul>
+<ol start="8">
+<li>【枚举命名】</li>
+</ol>
+<ul>
+<li>枚举的命名应当和<code>常量</code>或<code>宏</code>一致: kEnumName 或是 ENUM_NAME.</li>
+<li>单独的枚举值应该优先采用<code>常量</code>的命名方式. 但<code>宏</code>方式的命名也可以接受.</li>
+<li>枚举名 UrlTableErrors(以及 AlternateUrlTableErrors) 是类型, 所以要用大小写混合的方式.</li>
+</ul>
+<div class="highlight" id="id-10"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">UrlTableErrors</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kOK</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kErrorOutOfMemory</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kErrorMalformedInput</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">AlternateUrlTableErrors</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">OK</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">OUT_OF_MEMORY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MALFORMED_INPUT</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="9">
+<li>【宏命名】
+你并不打算使用宏 <code>&lt;preprocessor-macros&gt;</code>, 对吧? 如果你一定要用, 像这样命名:<code>MY_MACRO_THAT_SCARES_SMALL_CHILDREN</code>.
+通常<code>不应该</code>使用宏. 如果不得不用, 其命名像枚举命名一样全部大写, 使用下划线:</li>
+</ol>
+<div class="highlight" id="id-11"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="cp">#define ROUND(x) ...
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#define PI_ROUNDED 3.0</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="10">
+<li>【命名规则的特例】
+[X]如果你命名的实体与已有 C/C++ 实体相似, 可参考现有命名策略.</li>
+</ol>
+<h2 id="注释规范" class="heading-element">
+  <a href="#%e6%b3%a8%e9%87%8a%e8%a7%84%e8%8c%83" class="heading-mark"></a>注释规范</h2><p>这块倾向使用doxgen提供的注释规范，因为如果后续需要自动生成一份开发文档，这个就比较方便</p>
+<p>不过，注释固然很重要, 但好的代码本身应该是自文档化的，有意义的类型名和变量名, 要远胜过要用注释解释的含糊不清的名字</p>
+<ol>
+<li>
+<p>【注释风格】</p>
+<ul>
+<li>使用 <code>//</code> 或 <code>/* */</code>, 统一就好</li>
+<li><code>//</code> 或 <code>/* */</code> 都可以; 但 <code>//</code> 更常用些</li>
+<li>要在如何注释及注释风格上确保统一</li>
+</ul>
+</li>
+<li>
+<p>【文件注释】</p>
+<ul>
+<li>.h 文件要对所声明的类的功能和用法作简单说明，如果可以的话，可以在文件头上罗列一份<code>feature_list</code>或者<code>todo_list</code></li>
+<li>.cc 文件通常包含了更多的实现细节或算法技巧讨论</li>
+<li>如果你感觉这些实现细节或算法技巧讨论对于理解<code>.h</code>文件有帮助, 可以该注释挪到<code>.h</code>, 并在<code>.cc</code>中指出文档在<code>.h</code>中</li>
+<li>不要简单的在<code>.h</code>和<code>.cc</code>间复制注释. 这种偏离了注释的实际意义</li>
+</ul>
+<p>文件头举例如下:</p>
+<div class="highlight" id="id-12"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*****************************************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">*  @file     auto_register_factory.h
+</span></span></span><span class="line"><span class="cl"><span class="cm">*  @brief    可注册的工厂类模板
+</span></span></span><span class="line"><span class="cl"><span class="cm">*  @note
+</span></span></span><span class="line"><span class="cl"><span class="cm">*  C++反射机制的一种实现，基于类行为抽象而成
+</span></span></span><span class="line"><span class="cl"><span class="cm">*****************************************************************************/</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>【类注释】
+每个类的定义都要附带一份注释, 描述类的功能和用法.</p>
+<p>举例如下:</p>
+<div class="highlight" id="id-13"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @class CSigleRegisterFactory
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief 一个支持自动注册的工厂类模板
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @note
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 注意，如果TKey是自定义数据类型，那么请重载其关系运算符哦，
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 具体看std::map的条件，通常仅需要重载运算符“&lt;”，详情请看
+</span></span></span><span class="line"><span class="cl"><span class="cm">* https://msdn.microsoft.com/ZH-CN/library/s44w4h2s(v=VS.100,d=hv.2).aspx
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 在gcc下编译可能遇到的问题：http://blog.csdn.net/pb1995/article/details/49532285
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 仅仅支持一对一的模式
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TKey</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TBase</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CSingleRegisteredFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>【函数注释】
+函数声明处注释描述函数功能，定义处描述函数实现</p>
+<p>[函数声明]:
+注释位于声明之前, 对函数功能及用法进行描述. 注释使用叙述式 (“Opens the file”) 而非指令式 (“Open the file”); 注释只是为了描述函数, 而不是命令函数做什么. 通常, 注释不会描述函数如何工作. 那是函数定义部分的事情</p>
+<p>函数声明处注释的内容:
+函数的输入输出.
+对类成员函数而言: 函数调用期间对象是否需要保持引用参数, 是否会释放这些参数.
+如果函数分配了空间, 需要由调用者释放.
+参数是否可以为 NULL.
+是否存在函数使用上的性能隐患.
+如果函数是可重入的, 其同步前提是什么?
+使用brief、param、return、note等来描述具体的注释块</p>
+<p>举例如下:</p>
+<div class="highlight" id="id-14"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief: 将某类注册到工厂类实例之中
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param[in] TKey  Key  某类在外部检索时所用到的条件，通常采用字符串或枚举等类型
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param[in|out] IForwarder&lt;TBase&gt;*  pobj  待注册到工厂类实例的基类指针，自动跳过空指针
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param[in] bool  bIsOverWrite  如果为true，则重新注册此类，否则，直接释放待注册的基类指针
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @return 无
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @note
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 本类会自动管理所有想要注册到本类工厂的基类指针，因此需要对重复注册的类指针自动进行释放
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">RegisterFactory</span><span class="p">(</span><span class="n">TKey</span> <span class="n">key</span><span class="p">,</span> <span class="n">ImpForwarder</span> <span class="o">*</span><span class="n">ptr_obj</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_overWrite</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>但也要避免啰啰嗦嗦, 或做些显而易见的说明. 下面的注释就没有必要加上 “returns false otherwise”, 因为已经暗含其中了:</p>
+<div class="highlight" id="id-15"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Returns true if the table cannot hold any more entries.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">IsTableFull</span><span class="p">();</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>注释构造/析构函数时, 切记读代码的人知道构造/析构函数是干啥的, 所以 “destroys this object” 这样的注释是没有意义的. 注明构造函数对参数做了什么 (例如, 是否取得指针所有权) 以及析构函数清理了什么. 如果都是些无关紧要的内容, 直接省掉注释. 析构函数前没有注释是很正常的.</p>
+<p>[函数定义]:
+每个函数定义时要用注释说明函数功能和实现要点. 比如说说你用的编程技巧, 实现的大致步骤, 或解释如此实现的理由, 为什么前半部分要加锁而后半部分不需要.
+不要 从 .h 文件或其他地方的函数声明处直接复制注释. 简要重述函数功能是可以的, 但注释重点要放在如何实现上.</p>
+</li>
+<li>
+<p>【变量注释】
+通常变量名本身足以很好说明变量用途. 某些情况下, 也需要额外的注释说明.</p>
+<p>[类数据成员]:
+每个类数据成员 (也叫实例变量或成员变量) 都应该用注释说明用途. 如果变量可以接受 NULL 或 -1 等警戒值, 须加以说明. 比如:</p>
+<div class="highlight" id="id-16"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Keeps track of the total number of entries in the table.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Used to ensure we do not go over the limit. -1 means
+</span></span></span><span class="line"><span class="cl"><span class="c1">// that we don&#39;t yet know how many entries the table has.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">num_total_entries_</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>[全局变量]:
+和数据成员一样, 所有全局变量也要注释说明含义及用途. 比如:</p>
+<div class="highlight" id="id-17"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="n">The</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">tests</span> <span class="n">cases</span> <span class="n">that</span> <span class="n">we</span> <span class="n">run</span> <span class="n">through</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">regression</span> <span class="n">test</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="ne">int</span> <span class="n">kNumTestCases</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>【实现注释】
+对于代码中巧妙的, 晦涩的, 有趣的, 重要的地方加以注释.
+[代码前注释]:
+巧妙或复杂的代码段前要加注释. 比如:</p>
+<div class="highlight" id="id-18"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Divide result by two, taking into account that x
+</span></span></span><span class="line"><span class="cl"><span class="c1">// contains the carry from the add.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">result</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">)[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">&amp;=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>[行注释]:
+比较隐晦的地方要在行尾加入注释. 在行尾空两格进行注释. 比如:</p>
+<div class="highlight" id="id-19"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// If we have enough memory, mmap the data portion too.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">mmap_budget</span> <span class="o">=</span> <span class="n">max</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mmap_budget</span> <span class="o">-</span> <span class="n">index_</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">mmap_budget</span> <span class="o">&gt;=</span> <span class="n">data_size_</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">MmapData</span><span class="p">(</span><span class="n">mmap_chunk_bytes</span><span class="p">,</span> <span class="n">mlock</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>  <span class="c1">// Error already logged.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意, 这里用了两段注释分别描述这段代码的作用, 和提示函数返回时错误已经被记入日志.</p>
+<p>如果你需要连续进行多行注释, 可以使之对齐获得更好的可读性:</p>
+<div class="highlight" id="id-20"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">DoSomething</span><span class="p">();</span>                  	<span class="c1">// Comment here so the comments line up.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DoSomethingElseThatIsLonger</span><span class="p">();</span>  	<span class="c1">// Comment here so there are two spaces between
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                <span class="c1">// the code and the comment.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span> <span class="c1">// One space before comment when opening a new scope is allowed,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// thus the comment lines up with the following comments and code.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DoSomethingElse</span><span class="p">();</span>  <span class="c1">// Two spaces before line comments normally.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">NULL</span><span class="p">,</span> <span class="nb">true</span><span class="o">/</span><span class="nb">false</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">..</span><span class="o">:</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>向函数传入 NULL, 布尔值或整数时, 要注释说明含义, 或使用常量让代码望文知意. 例如, 对比:</p>
+<div class="highlight" id="id-21"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="n">CalculateSomething</span><span class="p">(</span><span class="n">interesting_value</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="nb">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="nb">NULL</span><span class="p">);</span>  <span class="c1">// What are these arguments??
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>和:</p>
+<div class="highlight" id="id-22"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="n">CalculateSomething</span><span class="p">(</span><span class="n">interesting_value</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="mi">10</span><span class="p">,</span>     	<span class="c1">// Default base value.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                  <span class="nb">false</span><span class="p">,</span>  	<span class="c1">// Not the first time we&#39;re calling this.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                  <span class="nb">NULL</span><span class="p">);</span>  	<span class="c1">// No callback.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>或使用常量或描述性变量:</p>
+<div class="highlight" id="id-23"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">kDefaultBaseValue</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">bool</span> <span class="n">kFirstTimeCalling</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Callback</span> <span class="o">*</span><span class="n">null_callback</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="n">CalculateSomething</span><span class="p">(</span><span class="n">interesting_value</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">kDefaultBaseValue</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">kFirstTimeCalling</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">null_callback</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>不允许:
+注意 永远不要 用自然语言翻译代码作为注释. 要假设读代码的人 C++ 水平比你高, 即便他/她可能不知道你的用意:</p>
+<div class="highlight" id="id-24"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 现在, 检查 b 数组并确保 i 是否存在,
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 下一个元素是 i+1.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">...</span>        <span class="c1">// 天哪. 令人崩溃的注释.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>【标点, 拼写和语法】
+注意标点, 拼写和语法; 写的好的注释比差的要易读的多.
+注释的通常写法是包含正确大小写和结尾句号的完整语句. 短一点的注释 (如代码行尾注释) 可以随意点, 依然要注意风格的一致性. 完整的语句可读性更好, 也可以说明该注释是完整的, 而不是一些不成熟的想法.</p>
+<p>虽然被别人指出该用分号时却用了逗号多少有些尴尬, 但清晰易读的代码还是很重要的. 正确的标点, 拼写和语法对此会有所帮助.</p>
+</li>
+<li>
+<p>【TODO 注释】
+对那些临时的, 短期的解决方案, 或已经够好但仍不完美的代码使用 TODO 注释.
+TODO 注释要使用全大写的字符串 TODO, 在随后的圆括号里写上你的大名, 邮件地址, 或其它身份标识. 冒号是可选的. 主要目的是让添加注释的人 (也是可以请求提供更多细节的人) 可根据规范的 TODO 格式进行查找. 添加 TODO 注释并不意味着你要自己来修正.</p>
+<div class="highlight" id="id-25"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// TODO(kl@gmail.com): Use a &#34;*&#34; here for concatenation operator.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// TODO(Zeke) change this to use relations.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">如果加</span> <span class="n">TODO</span> <span class="err">是为了在</span> <span class="err">“将来某一天做某事”</span><span class="p">,</span> <span class="err">可以附上一个非常明确的时间</span> <span class="err">“</span><span class="n">Fix</span> <span class="n">by</span> <span class="n">November</span> <span class="mi">2005</span><span class="err">”</span><span class="p">),</span> <span class="err">或者一个明确的事项</span> <span class="p">(</span><span class="err">“</span><span class="n">Remove</span> <span class="k">this</span> <span class="n">code</span> <span class="n">when</span> <span class="n">all</span> <span class="n">clients</span> <span class="n">can</span> <span class="n">handle</span> <span class="n">XML</span> <span class="n">responses</span><span class="p">.</span><span class="err">”</span><span class="p">).</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>【弃用注释】
+通过弃用注释（DEPRECATED comments）以标记某接口点（interface points）已弃用。
+您可以写上包含全大写的 DEPRECATED 的注释，以标记某接口为弃用状态。注释可以放在接口声明前，或者同一行。</p>
+<p>在 DEPRECATED 一词后，留下您的名字，邮箱地址以及括号补充。</p>
+<p>仅仅标记接口为 DEPRECATED 并不会让大家不约而同地弃用，您还得亲自主动修正调用点（callsites），或是找个帮手。</p>
+<p>修正好的代码应该不会再涉及弃用接口点了，着实改用新接口点。如果您不知从何下手，可以找标记弃用注释的当事人一起商量。</p>
+</li>
+<li>
+<p>【其它】
+注释要言简意赅, 不要拖沓冗余, 复杂的东西简单化和简单的东西复杂化都是要被鄙视的;
+对于 Chinese coders 来说, 用英文注释还是用中文注释, <code>it is a problem</code>, 但不管怎样, 注释是为了让别人看懂, 难道是为了炫耀编程语言之外的你的母语或外语水平吗；
+注释不要太乱, 适当的缩进才会让人乐意看. 但也没有必要规定注释从第几列开始 (我自己写代码的时候总喜欢这样), UNIX/LINUX 下还可以约定是使用 tab 还是 space, 个人倾向于 space，并且是<code>4个space</code>;
+TODO 很不错, 有时候, 注释确实是为了标记一些未完成的或完成的不尽如人意的地方, 这样一搜索, 就知道还有哪些活要干, 日志都省了；另外，如果发现了一个bug，可以给它加个FIXME</p>
+<p>[代码段分隔]
+一个简单的函数里，其代码也是可以区分出不同的职能，在每部分职能切换的时候，加上换行</p>
+</li>
+</ol>
+<hr>
+<p><img loading="lazy" src="/assets/2021-04-27/google_cplusplus_style_guide.png" alt="Google C&#43;&#43; Style Guide" srcset="/assets/2021-04-27/google_cplusplus_style_guide.png?size=small, /assets/2021-04-27/google_cplusplus_style_guide.png?size=medium 1.5x, /assets/2021-04-27/google_cplusplus_style_guide.png?size=large 2x" sizes="auto" data-title="Google C&#43;&#43; Style Guide" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<hr>
+<h2 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h2><ul>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/"target="_blank" rel="external nofollow noopener noreferrer">Google 开源项目风格指南 - C++风格指南</a></li>
+<li><a href="https://google.github.io/styleguide/cppguide.html"target="_blank" rel="external nofollow noopener noreferrer">Google C++ Style Guide</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/cplusplus_style_guide/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://example.org/posts/cplusplus_style_guide/" data-title="C&#43;&#43; 代码规范" data-hashtags="c&#43;&#43; style,code style,c&#43;&#43;代码风格"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://example.org/posts/cplusplus_style_guide/" data-hashtag="c&#43;&#43; style"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://example.org/posts/cplusplus_style_guide/" data-title="C&#43;&#43; 代码规范"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/c&#43;&#43;-style/" class="post-tag" title="标签 - C&#43;&#43; Style">C&#43;&#43; Style</a><a href="/tags/code-style/" class="post-tag" title="标签 - Code Style">Code Style</a><a href="/tags/c&#43;&#43;%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/" class="post-tag" title="标签 - C&#43;&#43;代码风格">C&#43;&#43;代码风格</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav">
+      <a href="/posts/thinking_about_the_concurrency_model/" class="post-nav-item" rel="next" title="关于并发模型的思考">关于并发模型的思考<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

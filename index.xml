@@ -1,0 +1,92 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>YaoXuanZhi&#39;s Blog</title>
+    <link>https://example.org/</link>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+      <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+  <title>AI写作尝鲜</title>
+  <link>https://example.org/posts/ai_writer/</link>
+  <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/ai_writer/</guid>
+  <description><![CDATA[<p>从识字以来，已经遭遇了不少烂尾或太监的网络小说，每次遇到，都有很强的动力去想将它续写或者改变它虎头蛇尾的后半段，但是本人的写作水平一般，短篇都未曾驾驭过，更不用说那种动辄几百万字的网络小说，一直没去做，当然也是没那个闲工夫啦。幸运的是，现在在OpenAI等科技巨头的带动下，涌现了很多AI工具，其中就包括一些AI写作应用，ChatGpt4 和通义千问等问答语言模型。这些工具为写作提供了强大的辅助支持。在下面，我将整理下AI_Writer 的开源 AI 写作工具的试用体验</p>]]></description>
+</item>
+<item>
+  <title>简易的条件组分词器</title>
+  <link>https://example.org/posts/simple_condition_group_tokenizer/</link>
+  <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/simple_condition_group_tokenizer/</guid>
+  <description><![CDATA[<p>这是一个简单且易用的条件组分词器，提供了c#、c++、python等多种语言的实现和示例，如果你的项目里需要支持多层条件或组合条件之类的机制，那么它将非常适合你</p>]]></description>
+</item>
+<item>
+  <title>拓展Msys2</title>
+  <link>https://example.org/posts/improve_msys2/</link>
+  <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/improve_msys2/</guid>
+  <description><![CDATA[<p>由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程</p>]]></description>
+</item>
+<item>
+  <title>字符图片OCR工具</title>
+  <link>https://example.org/posts/char_images_ocr_tool/</link>
+  <pubDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/char_images_ocr_tool/</guid>
+  <description><![CDATA[<blockquote>
+<p>本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类事情的处理方式</p>
+</blockquote>]]></description>
+</item>
+<item>
+  <title>初探Cnocr</title>
+  <link>https://example.org/posts/cnocr/</link>
+  <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/cnocr/</guid>
+  <description><![CDATA[仓库地址 cnocr 在线安装 virtualenv/anaconda3 win32OpenSSL 1 2 3 4 conda create -n cnocr python=3.7 conda activate cnocr pip install cnocr pip install cnstd 注意，执行pip install cnstd之后，shapely的在线安装是有问题的，需要下载离线的shapely_xxx.whl文件(如Shapely-1.7.1-cp37-cp37m-win_amd64.whl)进行离线安装，如下所示： 1 2 pip uninstall Shapely pip install your_path/Shapely-1.7.1-cp37-cp37m-win_amd64.whl 源]]></description>
+</item>
+<item>
+  <title>字符图片合并</title>
+  <link>https://example.org/posts/char_image_merge/</link>
+  <pubDate>Wed, 07 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/char_image_merge/</guid>
+  <description><![CDATA[<p>在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成<code>{图片名：字符}</code>的映射关系，需要耗时更少的方案</p>]]></description>
+</item>
+<item>
+  <title>Hexo插件-文章加密</title>
+  <link>https://example.org/posts/how_to_write_a_hexo_plugin/</link>
+  <pubDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/how_to_write_a_hexo_plugin/</guid>
+  <description><![CDATA[前言之前在《谈一种页面加密技术》里谈到了自己捣弄了一个页面加密方案，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了 使用方式本人希望借助这款插件，只需要让那些想要加密的md的文件头上添加pass]]></description>
+</item>
+<item>
+  <title>谈一种页面加密技术</title>
+  <link>https://example.org/posts/a_way_of_html_encryption/</link>
+  <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/a_way_of_html_encryption/</guid>
+  <description><![CDATA[前言这段时间边练车边整理工作笔记，然后突然发现，有一些内容不适合直接公开分享，但是也希望发布出去，被那些想看的亲朋好友可以正常浏览，因此有了html的加密访问需求，另外，考虑到这些加密分享的内容并不适合被搜索引擎检索到它的正文，所以正文内容也是有加密需求的。于是就在网上检索有没有相关的技术实现的文章]]></description>
+</item>
+<item>
+  <title>PHP-XDebug安装脚本</title>
+  <link>https://example.org/posts/auto-download-xdebug-for-php/</link>
+  <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/auto-download-xdebug-for-php/</guid>
+  <description><![CDATA[前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查]]></description>
+</item>
+<item>
+  <title>谈谈Win10系统的折腾</title>
+  <link>https://example.org/posts/about-deploy-win10-environment/</link>
+  <pubDate>Tue, 07 May 2019 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/about-deploy-win10-environment/</guid>
+  <description><![CDATA[最近入手了台Surface Pro6，然后又重新捣弄起各种常用的开发环境了，C++、Python、Php的开发环境搞起等，不过很快就遇到了各种状况，这里特此记录下来，以前很多笔记都丢到有道云笔记上了，这里重新拾遗吧。 触摸板无法正常拖动文件和截图了其实这个在Win 10里面是可以设置的，通过开始菜单 &ndash;&gt; 设置]]></description>
+</item>
+</channel>
+</rss>

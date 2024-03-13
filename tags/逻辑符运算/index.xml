@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>逻辑符运算 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>https://example.org/tags/%E9%80%BB%E8%BE%91%E7%AC%A6%E8%BF%90%E7%AE%97/</link>
+    <description>逻辑符运算 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.org/tags/%E9%80%BB%E8%BE%91%E7%AC%A6%E8%BF%90%E7%AE%97/" rel="self" type="application/rss+xml" /><item>
+  <title>简易的条件组分词器</title>
+  <link>https://example.org/posts/simple_condition_group_tokenizer/</link>
+  <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>https://example.org/posts/simple_condition_group_tokenizer/</guid>
+  <description><![CDATA[<p>这是一个简单且易用的条件组分词器，提供了c#、c++、python等多种语言的实现和示例，如果你的项目里需要支持多层条件或组合条件之类的机制，那么它将非常适合你</p>]]></description>
+</item>
+</channel>
+</rss>
