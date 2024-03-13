@@ -4,6 +4,6 @@
 
 ---
 
-> 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
+> 作者:   
 > URL: https://yaoxuanzhi.github.io/abouts/my_music_play_list/  
 

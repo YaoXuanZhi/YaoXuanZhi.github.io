@@ -75,7 +75,7 @@
   2. 将ConditionToken进行解析并返回结果：将上述例子里的 `system_level-weapon_sys-50`、`system_level-mount_sys-30` 进一步解析，并且调用各个系统的数据判断该条件的结果，将结果结合`&amp;&amp;`逻辑运算符得出结果，可以简化成 `result1 &amp;&amp; result2`
 
 ### 功能实现
-根据游戏项目采用的编程语言，参考[condition_group_tokenizer](https://github.com/YaoXuanZhi/condition_group) 项目本身就是一个简单且易用的条件组分词器，提供了多种语言的实现，包含了c#、c&#43;&#43;、python等语言的支持，参考该项目的Demo示例，重载`ProxyCondition()`方法，在其内部直接一步到位进行步骤2即可
+参考[condition_group_tokenizer](https://github.com/YaoXuanZhi/condition_group) 里的Demo示例，重载`ProxyCondition()`方法，直接进入到步骤2即可
 
 这里贴了Python版的测试用例，其它语言依葫芦画瓢就行
 

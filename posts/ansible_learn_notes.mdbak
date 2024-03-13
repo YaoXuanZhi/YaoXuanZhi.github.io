@@ -1,0 +1,24 @@
+---
+title: ansible学习笔记
+date: 2024-02-10
+tags:
+- ansible
+categories:
+- Devops
+code:
+  maxShownLines: 11
+---
+
+{{< link href="https://cn-ansibledoc.readthedocs.io/zh-cn/latest/" content="ansible文档" title="documentation of FixIt Theme" card=true >}}
+
+<!--more-->
+
+```sh
+# 安装ansible
+pip install ansible -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+### 在vscode上安装ansible插件
+![](/assets/2024-03-13/1710327891309.png)
+
+目前发现，ansible在Windows下并不好，会出现 `ERROR: No module named 'fcntl'` 的问题，Windows下并没有这个模块来的，还是先观望下吧，网上的[讨论](https://segmentfault.com/q/1010000042819665)

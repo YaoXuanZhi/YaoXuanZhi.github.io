@@ -20,7 +20,7 @@
 # 关于本博客
 目前本人私下会用到好几个笔记/博客工具，主要如下：
  - Hexo=&gt;Hugo：主要做对外分享的
-   &gt;之所以转到Hugo是因为Hexo那边的Npm包依赖太重了，本人多台机器上复原发布环境过于麻烦（本人Hack了Hexo官网的主题），遂改成了Hugo
+   &gt;之所以转到Hugo是因为Hexo那边的Npm包依赖太重了，本人多台机器上复原发布环境过于麻烦（本人Hack了Hexo官网的主题），遂改成了Hugo，并且修改了Github Pages上的设置，详情参考 [这里](https://hugo.opendocs.io/zh-cn/hosting-and-deployment/hosting-on-github/)
  - amWiki：更多用于记录自己工作上的一些笔记
    &gt;因为之前本人特意为它开发了一款amWikiForVSCode，一直用到现在，也习惯了
  - Logseq：这个是新入手的笔记工具，用来作为OKR管理工具和ToDo管理工具
@@ -30,6 +30,13 @@
 
 ---
 
-> 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
+## 前进四
+ 1. 程序 = 算法 &#43; 数据结构
+ 2. 软件 = 程序 &#43; 软件工程
+ 3. 软件公司 = 软件 &#43; 商业模式
+
+---
+
+> 作者:   
 > URL: https://yaoxuanzhi.github.io/abouts/about_me/  
 
