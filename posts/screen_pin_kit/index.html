@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>自用工具-ScreenPinKit - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="本人之前比较常用Snipaste&#43;剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具" /><meta name="keywords" content='原创工具, 截图标注, 屏幕绘图, 屏幕标注' /><meta itemprop="name" content="自用工具-ScreenPinKit">
+<meta itemprop="description" content="本人之前比较常用Snipaste&#43;剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具"><meta itemprop="datePublished" content="2024-06-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-06-13T13:26:05+08:00" />
+<meta itemprop="wordCount" content="2436">
+<meta itemprop="keywords" content="原创工具,截图标注,屏幕绘图,屏幕标注," /><meta property="og:title" content="自用工具-ScreenPinKit" />
+<meta property="og:description" content="本人之前比较常用Snipaste&#43;剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/screen_pin_kit/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-13T13:26:05+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="自用工具-ScreenPinKit"/>
+<meta name="twitter:description" content="本人之前比较常用Snipaste&#43;剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具"/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/screen_pin_kit/" /><link rel="prev" href="http://localhost:1313/posts/cross-ide_keymapping_solution/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "自用工具-ScreenPinKit",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/screen_pin_kit\/"
+    },"genre": "posts","keywords": "原创工具, 截图标注, 屏幕绘图, 屏幕标注","wordcount":  2436 ,
+    "url": "http:\/\/localhost:1313\/posts\/screen_pin_kit\/","datePublished": "2024-06-06T00:00:00+00:00","dateModified": "2024-06-13T13:26:05+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>自用工具-ScreenPinKit</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" class="post-category" title="分类 - 原创工具"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 原创工具</a></span></div><div class="post-meta-line"><span title="发布于 2024-06-06 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-06-06">2024-06-06</time></span>&nbsp;<span title="2436 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#snipaste的贴图功能使用场景已满足">Snipaste的贴图功能使用场景(已满足)</a></li>
+                <li><a href="#ocr识别功能基本可用">OCR识别功能(基本可用)</a></li>
+                <li><a href="#屏幕标注待满足">屏幕标注(待满足)</a></li>
+                <li><a href="#自用需求汇总">自用需求汇总</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#方案选型">方案选型</a></li>
+        <li><a href="#后记">后记</a></li>
+        <li><a href="#吐槽">吐槽</a></li>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具</p>
+<a href="https://github.com/YaoXuanZhi/ScreenPinKit" title="documentation of FixIt Theme"target="_blank" rel="external nofollow noopener noreferrer" class="card-link"><span class="cl-backdrop" style="--cl-bg-url: url(/images/fixit.min.svg);"></span>
+    <span class="cl-content">
+      <span class="cl-text">
+        <span class="cl-title">ScreenPinKit</span>
+        <span class="cl-meta">
+          <svg class="cl-icon-link" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M574 665.4c-3.1-3.1-8.2-3.1-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8c-3.1-3.1-8.2-3.1-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zM832.6 191.4c-84.6-84.6-221.5-84.6-306 0L410.3 307.6c-3.1 3.1-3.1 8.2 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6c-3.1 3.1-3.1 8.2 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1z" fill="#a9a9b3"></path><path d="M610.1 372.3c-3.1-3.1-8.2-3.1-11.3 0L372.3 598.7c-3.1 3.1-3.1 8.2 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" fill="#a9a9b3"></path></svg>
+          <span class="cl-url">https://github.com/YaoXuanZhi/ScreenPinKit</span>
+        </span>
+      </span><svg class="cl-icon-globe" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M960 512c0 249.408-203.2 448-448 448-244.778667 0-448-198.592-448-448S262.592 64 512 64s448 198.592 448 448" fill="#2196F3"></path><path d="M507.52 718.08c0-8.96-4.48-13.44-13.44-17.92-26.88-8.96-53.76-8.96-76.16-31.381333-4.48-8.96-4.48-17.92-8.96-26.88-8.96-8.96-31.36-13.44-44.8-17.92h-89.6c-13.44-4.48-22.4-22.4-31.36-35.84 0-4.48 0-13.461333-8.96-13.461334-8.96-4.458667-17.92 4.501333-26.88 0-4.48-4.458667-4.48-8.96-4.48-13.418666 0-13.461333 8.96-26.901333 17.92-35.861334 13.44-8.96 26.88 4.48 40.32 4.48 4.48 0 4.48 0 8.96 4.48 13.44 4.48 17.92 22.4 17.92 35.861334v8.96c0 4.48 4.48 4.48 8.96 4.48 4.48-22.4 4.48-44.821333 8.96-67.2 0-26.88 26.88-53.781333 49.28-62.72 8.96-4.458667 13.44 4.501333 22.4 0 26.88-8.96 94.08-35.84 80.64-71.658667-8.96-31.381333-35.84-62.698667-71.68-58.24-8.96 4.501333-13.44 8.96-22.4 13.461333-13.44 8.96-40.32 35.84-53.76 35.84-22.4-4.48-22.4-35.84-17.92-49.301333 4.48-17.92 44.8-76.138667 71.68-67.178667l17.92 17.92c8.96 4.48 22.4 4.48 35.84 4.48 4.48 0 8.96 0 13.44-4.48 4.48-4.48 4.48-4.48 4.48-8.96 0-13.44-13.44-26.901333-22.4-35.861333s-22.4-17.92-35.84-22.378667c-44.8-13.461333-116.48 4.458667-152.32 35.84-35.84 31.36-62.72 85.12-80.64 129.92-8.96 26.88-17.92 62.698667-22.4 94.08-4.48 22.4-8.96 40.32 4.48 62.698667 13.44 26.88 40.32 53.781333 67.2 71.68 17.92 13.44 53.76 13.44 71.68 35.84 13.44 17.941333 8.96 40.32 8.96 62.72 0 26.88 17.92 49.28 26.88 71.658667 4.48 13.461333 8.96 31.381333 13.44 44.821333 0 4.48 4.48 31.36 4.48 35.84 26.88 13.44 49.28 26.901333 80.64 35.861333 4.48 0 22.4-26.901333 22.4-31.381333 13.44-13.44 22.4-31.36 35.84-40.32 8.96-4.48 17.92-8.96 26.88-17.941333 8.96-8.96 13.44-26.88 17.92-40.32 4.48-8.938667 8.96-26.858667 4.48-40.298667M516.48 305.92c4.48 0 8.96-4.48 17.92-8.96 13.44-8.96 26.901333-22.4 40.32-31.36 13.461333-8.96 26.901333-22.4 35.861333-31.36 13.44-8.96 22.4-26.88 26.88-40.341333 4.48-8.96 17.941333-26.88 13.44-40.32-4.48-8.96-26.88-13.44-35.84-17.92C579.2 126.698667 547.84 122.24 512 122.24c-13.44 0-31.36 4.458667-35.84 17.92-4.48 22.4 13.44 17.92 31.36 22.4 0 0 4.48 35.84 4.48 40.32 4.48 22.421333-8.96 35.84-8.96 58.24 0 13.44 0 35.84 8.96 44.8h4.48zM892.8 619.52c4.501333-8.96 4.501333-22.4 8.96-31.36 4.501333-22.421333 4.501333-44.8 4.501333-67.2 0-44.8-4.501333-89.578667-17.92-129.92-8.96-13.44-13.461333-26.88-17.941333-40.341333-8.96-22.378667-22.4-44.8-40.32-62.698667-17.92-22.4-40.341333-85.12-80.64-67.2-13.44 4.501333-22.4 22.421333-31.36 31.381333l-26.88 40.32c-4.501333 4.48-8.96 13.44-4.501333 17.92 0 4.48 4.501333 4.48 8.96 4.48 8.96 4.501333 13.461333 4.501333 22.421333 8.96 4.48 0 8.96 4.501333 4.48 8.96 0 0 0 4.501333-4.48 4.501334-22.421333 22.4-44.8 40.32-67.2 62.698666-4.48 4.48-8.96 13.44-8.96 17.92s4.48 4.48 4.48 8.96c0 4.501333-4.48 4.501333-8.96 8.96-8.96 4.501333-17.92 8.96-22.4 13.461334-4.48 8.96 0 22.4-4.48 31.36-4.48 22.4-17.941333 40.32-26.901333 62.72-8.96 13.418667-13.418667 26.88-22.378667 40.32 0 17.92-4.501333 31.36 4.458667 44.8 22.421333 31.36 62.72 13.44 94.08 26.901333 8.96 4.458667 17.92 4.458667 22.421333 13.418667 13.418667 13.461333 13.418667 35.861333 17.92 49.301333 4.458667 17.92 8.96 35.84 17.92 53.76 4.48 22.421333 13.44 44.821333 17.92 62.72 40.341333-31.36 76.16-67.178667 103.04-112 26.88-31.424 40.341333-67.242667 53.76-103.104" fill="#CDDC39"></path></svg></span></a>
+<hr>
+<h3 id="前言" class="heading-element">
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark"></a>前言</h3><p>在多年工作中，逐渐将Snipaste+离线ocr整合到自己的工作流上了，一般使用场景如下：</p>
+<h5 id="snipaste的贴图功能使用场景已满足" class="heading-element">
+  <a href="#snipaste%e7%9a%84%e8%b4%b4%e5%9b%be%e5%8a%9f%e8%83%bd%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af%e5%b7%b2%e6%bb%a1%e8%b6%b3" class="heading-mark"></a>Snipaste的贴图功能使用场景(已满足)</h5><ul>
+<li>讨论需求细节的时候，通常会提前将要讨论的要点截图并贴到屏幕上</li>
+<li>Review代码、追踪Bug的时候</li>
+</ul>
+<h5 id="ocr识别功能基本可用" class="heading-element">
+  <a href="#ocr%e8%af%86%e5%88%ab%e5%8a%9f%e8%83%bd%e5%9f%ba%e6%9c%ac%e5%8f%af%e7%94%a8" class="heading-mark"></a>OCR识别功能(基本可用)</h5><ul>
+<li>遇到防拷贝网页时</li>
+<li>观看视频时</li>
+<li>遇到PPT、Excel、PDF等文档时</li>
+</ul>
+<p>得益于AI大爆发，目前一些常用IM应用(比如QQ、微信)上已内置了图片OCR功能，但一般办公电脑出于安全考虑从不登微信和QQ，为此捣鼓了一个离线OCR方案，它由CnOcr/PaddleOcr实现ocr识别，并结合AutoHotKey=&gt;uTools提供的双击Alt触发剪贴板OCR识别</p>
+<p>虽然自己搞的这个剪贴板OCR方案可用，但是个人其实更喜欢微信图片OCR这种选择文本的交互方式，它更加无感一些。后续发现PixPin复刻了这个功能，而且OCR速度相当快</p>
+<h5 id="屏幕标注待满足" class="heading-element">
+  <a href="#%e5%b1%8f%e5%b9%95%e6%a0%87%e6%b3%a8%e5%be%85%e6%bb%a1%e8%b6%b3" class="heading-mark"></a>屏幕标注(待满足)</h5><p>后面发现在做教学讲解的时候，一个屏幕标注功能也变得不可或缺了，经过一番调研，ppInk、gInk、shareX等的操作要不过于复杂，要不界面过于老旧，逐渐有了这个小工具的需求雏形</p>
+<h5 id="自用需求汇总" class="heading-element">
+  <a href="#%e8%87%aa%e7%94%a8%e9%9c%80%e6%b1%82%e6%b1%87%e6%80%bb" class="heading-mark"></a>自用需求汇总</h5><p>整体的截图、贴图体验参考Snipaste的交互方式，绘图体验则借鉴excalidraw，在截图标注、屏幕标注的时候共用同一套绘画操作逻辑，截图OCR识别则参考微信OCR功能，它最好能跨平台，易于维护拓展</p>
+<h3 id="方案选型" class="heading-element">
+  <a href="#%e6%96%b9%e6%a1%88%e9%80%89%e5%9e%8b" class="heading-mark"></a>方案选型</h3><p>在将这些想法一一整理之后，在Flutter、Electron、Qt等技术上做了一次技术对比选型，但是一直不太满意</p>
+<p>在我看来，易于拓展意味着开发环境尽可能简单，想做离线OCR识别离不开Python，所以迟迟没动手；直至看到了 <a href="https://github.com/zhiyiYo/PyQt-Fluent-Widgets"target="_blank" rel="external nofollow noopener noreferrer">PyQt-Fluent-Widgets</a> 项目的演示，一下子被它所吸引了，之后陆陆续续基于PyQt5复刻了Snipaste上自己常用到的功能，并且结合excalidraw的操作方式封装了一套绘图层和相关示例</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">技术方案</th>
+<th style="text-align:center">UI风格</th>
+<th style="text-align:center">开发难度</th>
+<th style="text-align:center">拓展开发</th>
+<th style="text-align:center">是否支持开发热更新</th>
+<th style="text-align:center">是否已掌握</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Flutter</td>
+<td style="text-align:center">较为现代化</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">麻烦</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">仅了解</td>
+<td style="text-align:center">得掌握一门Dart语言，该语言比较小众，收益比太低，AndroidStudio内置了开发热更新支持，易于开发GUI，但是跨平台开发比较费功夫，配置开发环境复杂，不利于其它贡献者参与</td>
+</tr>
+<tr>
+<td style="text-align:center">Qt</td>
+<td style="text-align:center">相对硬核，但是结合QML机制，可以改得很好看</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">麻烦</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">熟悉C++，但不熟悉Qt框架</td>
+<td style="text-align:center">需要学习Qt框架，并且有多个Qt版本，网上资料丰富，但是配置Qt开发环境复杂，由于采用C++开发，这会过滤掉很多贡献者</td>
+</tr>
+<tr>
+<td style="text-align:center">Electron</td>
+<td style="text-align:center">较为现代化</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">有所耳闻</td>
+<td style="text-align:center">该方案会内置一个Web内核，过于重了，而且应用分发体积比较大，TypeScript比较少用，收益比太低</td>
+</tr>
+<tr>
+<td style="text-align:center">PyQt-Fluent-Widgets(PyQt5)</td>
+<td style="text-align:center">较为现代化</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">容易</td>
+<td style="text-align:center">支持，PyCharm安装Roadium插件即可</td>
+<td style="text-align:center">熟悉Python，但不熟悉Qt框架</td>
+<td style="text-align:center">它相当于一套FluentUI风格的PyQt5，而且Python易于学习上手，大多数开发者都掌握，另外以后若有商业化考虑可以无缝转译到Qt(C++)上</td>
+</tr>
+</tbody>
+</table>
+<h3 id="后记" class="heading-element">
+  <a href="#%e5%90%8e%e8%ae%b0" class="heading-mark"></a>后记</h3><p>在这个过程中，也留意到有个<a href="https://www.appinn.com/pixpin/"target="_blank" rel="external nofollow noopener noreferrer">PixPin应用</a>，该作者的开发动机同本人蛮接近的，如下图所示：</p>
+<p><img loading="lazy" src="/assets/2024-06-13/1718247982993.png" alt="/assets/2024-06-13/1718247982993.png" srcset="/assets/2024-06-13/1718247982993.png?size=small, /assets/2024-06-13/1718247982993.png?size=medium 1.5x, /assets/2024-06-13/1718247982993.png?size=large 2x" data-title="/assets/2024-06-13/1718247982993.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>经过一番对比后发现，他想做的东西无疑更大更全，它的截图OCR速度非常快，并且还支持滚动截图等方式，可谓是Snipaste的加强版，作者目前更新比较活跃。而我只是想要个自用的称手工具而已，很多高级特性根本用不上，因此本练手项目就继续推进了，另外，也给PixPin提了个屏幕标注的需求，希望能采纳吧</p>
+<p>Python版本升级太快了，目前社区很多库跟不上，现在这个小工具的兼容性一般，在Python 3.8和Python 3.9上可以完美运行，在更高级Python版本上，system_hotkey包、pillow等第三方包相继出现了问题，最终兼容性等我空闲之余再处理了</p>
+<p>这个练手项目里，会逐步将一些精华部分整理成文档放在doc目录内，有兴趣的童鞋可以用logseq加载该目录浏览；当然Snipaste还是有不少拿手绝活的，有一些机制我也暂且复刻不出来，但是不影响我目前的使用，以后随缘复刻吧，研究这个也挺有意思的</p>
+<h3 id="吐槽" class="heading-element">
+  <a href="#%e5%90%90%e6%a7%bd" class="heading-mark"></a>吐槽</h3><p>本次练手项目是在一个陌生的技术栈上进行的，在这个过程中大量用到了类ChatGpt等AI工具辅助开发，经过对比，Kimi目前准确度是比ChatGpt3.5好上一些，这个小工具的一些源码和思路提取自网络，有一些是从c++转译成PyQt版本的，总体上来说，效率确实有所提升，并且免去了各种广告，但是它只能解决一些常规性的问题，其无中生有的本事不小，需要我们仔细甄别；对于一些稍微专业性的需求开发，只能靠自己去摸索，拆解同类软件的实现思路了，至于具体用到哪些API，API使用示例之类的，这块倒是相信AI</p>
+<p>虽然瑕疵不少，但是类ChatGpt的出现，确实大大降低了我们跨技术栈开发的难度了，毕竟有个初中级的助手在旁辅助给思路还是挺爽的，对于单体的战斗力提升帮助还是巨大的，常规CURD的末路已经来临了，各种低代码平台解决的常规问题会逐步被它替换掉，而专业性强的应用护城河还是存在的，而且会一直存在~~</p>
+<p>经过这一番折腾，基本将PyQt需要踩的坑也过一遍了，逐渐熟悉了Qt框架；另外，随着对PyQt-Fluent-Widgets的熟悉，也逐渐发现了它的一些不足或者说Bug，后续给作者提个PR吧</p>
+<hr>
+<h3 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h3><ul>
+<li><a href="https://www.gechic.com/cn/best-free-annotation-software-tools/"target="_blank" rel="external nofollow noopener noreferrer">辅助教学与文件注解利器｜5个免费又好用的屏幕画笔软件
+在触摸屏上轻松手写涂鸦与注记</a></li>
+<li><a href="https://zh.snipaste.com/"target="_blank" rel="external nofollow noopener noreferrer">Snipaste: Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上</a></li>
+</ul>
+<ul>
+<li><a href="https://zh.snipaste.com/"target="_blank" rel="external nofollow noopener noreferrer"><strong>Snipaste</strong>: Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上</a></li>
+<li><a href="https://excalidraw.com/"target="_blank" rel="external nofollow noopener noreferrer"><strong>excalidraw</strong>: Design guidelines and toolkits for creating native app experiences</a></li>
+<li><a href="https://github.com/zhiyiYo/PyQt-Fluent-Widgets"target="_blank" rel="external nofollow noopener noreferrer"><strong>PyQt-Fluent-Widgets</strong>: A fluent design widgets library based on C++ Qt/PyQt/PySide. Make Qt Great Again.</a></li>
+<li><a href="https://github.com/ShareX/ShareX"target="_blank" rel="external nofollow noopener noreferrer"><strong>ShareX</strong>: Screen capture, file sharing and productivity tool</a></li>
+<li><a href="https://github.com/onyet/ppInk/"target="_blank" rel="external nofollow noopener noreferrer"><strong>ppInk</strong>: An easy to use on-screen annotation software inspired by Epic Pen.</a></li>
+<li><a href="https://pixpinapp.com/"target="_blank" rel="external nofollow noopener noreferrer"><strong>PixPin</strong>: 功能强大使用简单的截图/贴图工具，帮助你提高效率</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/screen_pin_kit/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span></span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" class="post-tag" title="标签 - 原创工具">原创工具</a><a href="/tags/%E6%88%AA%E5%9B%BE%E6%A0%87%E6%B3%A8/" class="post-tag" title="标签 - 截图标注">截图标注</a><a href="/tags/%E5%B1%8F%E5%B9%95%E7%BB%98%E5%9B%BE/" class="post-tag" title="标签 - 屏幕绘图">屏幕绘图</a><a href="/tags/%E5%B1%8F%E5%B9%95%E6%A0%87%E6%B3%A8/" class="post-tag" title="标签 - 屏幕标注">屏幕标注</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/cross-ide_keymapping_solution/" class="post-nav-item" rel="prev" title="一套自用的跨IDE键盘映射方案"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>一套自用的跨IDE键盘映射方案</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

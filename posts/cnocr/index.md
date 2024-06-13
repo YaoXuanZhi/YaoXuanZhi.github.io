@@ -1,8 +1,12 @@
 # 初探Cnocr
 
 
-#### 仓库地址
- - [cnocr](https://github.com/breezedeus/cnocr)
+在知乎上看到一篇不错的文章 [更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M](https://zhuanlan.zhihu.com/p/134115239)，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具
+
+&lt;!--more--&gt;
+
+{{&lt; link href=&#34;https://github.com/breezedeus/cnocr&#34; content=&#34;cnocr仓库地址&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+
 
 ### 在线安装
  - 1. virtualenv/anaconda3
@@ -465,19 +469,21 @@ GOTO :eof
    - ✔ 提供新字体的预训练脚本
    - ✔ 提供适合在windows下使用的脚本-Makefile.bat
  - ✔ 尝试改进它的文本方向纠正效果
-   &gt;现在它的文本校正方向很容易出现180度倒转的情况，看有没有啥办法处理下，已经找到问题了，OpenCv4.5的bug，通过`pip install opencv-python==4.4.0.46`降版本就行了，不过竖版文本的识别官方是暂不支持的，这个要另外项办法了
+   &gt;现在它的文本校正方向很容易出现180度倒转的情况，看有没有啥办法处理下，已经找到问题了，OpenCv4.5的bug，通过`pip install opencv-python==4.4.0.46`降版本就行了，不过竖版文本的识别官方是暂不支持的，这个要另外想办法了
 
 ### 后记
 在Python3.8下部署时候遇到问题，因此推荐使用Python3.7及其以下版本，详情看官方教程
 
 个人比对了一下各个ocr项目，cnocr对纯文本图片的识别的准确度非常高，并且速度较快，但限于文本方向必须正确，一旦出现文本垂直或水平翻转，精度会严重下降；另外它对于那些广告图的识别效果也较差，不过无论如何，肯定甩tesseract不止一条街
 
-如果你的需求大多集中在广告图等非纯文本图片上，那么建议使用paddleocr或chinesecor-lite，不过这些ocr项目的部署也相对复杂多了
+如果你的需求大多集中在广告图等非纯文本图片上，那么建议使用paddleocr或chinesecor-lite，不过这些ocr项目的部署也相对复杂些
 
 &gt;ps:mxnet库有个Warning一直很烦人，但是其不影响使用，直接在`site-packages\mxnet\symbol\symbol.py`里注释掉`line 925`的warning输出
 
 #### 离线工具包制作
-python3环境(从anaconda3中提取而得) &#43; 系统环境变量关联脚本 &#43; 官方模型
+离线工具包 = python3环境(从anaconda3中提取而得) &#43; 系统环境变量关联脚本 &#43; 官方模型
+
+同理，这个也是网络上各种开源AI工具离线包的制作方式
 
 ---
 
@@ -489,5 +495,5 @@ python3环境(从anaconda3中提取而得) &#43; 系统环境变量关联脚本 
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/cnocr/  
+> URL: http://localhost:1313/posts/cnocr/  
 

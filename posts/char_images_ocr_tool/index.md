@@ -1,9 +1,9 @@
 # 字符图片OCR工具
 
 
-&gt;本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类事情的处理方式
+&gt;本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类网页的处理方式
 
-&lt;!--more--&gt;
+---
 
 ### 前言
 由于自己的某些学习需求，不想一直联网浏览某些网页内容，因此想将这些站点的某些内容缓存到本地。另外，该网站为了防止内容*被爬虫抓取*或*被盗稿*，因此在页面渲染时对内容进行了一些加密处理：将纯文本内容拆分成**图文混合**形式渲染，格式如下所示：
@@ -74,11 +74,11 @@
 ---
 
 ### 参考资料
- - [字符图片合并](/dev/char_image_merge.html)
- - [初探cnocr](/open_source/cnocr.html)
+ - [字符图片合并](../char_image_merge/)
+ - [初探cnocr](../cnocr/)
 
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/char_images_ocr_tool/  
+> URL: http://localhost:1313/posts/char_images_ocr_tool/  
 

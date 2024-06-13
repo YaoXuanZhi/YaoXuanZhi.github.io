@@ -5,6 +5,8 @@
 
 &lt;!--more--&gt;
 
+---
+
 ## 前言
 在c&#43;&#43;这个大联盟里，有许许多多领导组织，微软、Google、IBM，还有国内各个大厂内部因地制宜定下的各种代码规范，而在我目前的职业生涯里，先后经历了两种c&#43;&#43;代码规范洗礼，其实项目内部具体用什么代码规范，一般都由leader定下的，新加入团队的成员理应遵循已有的代码规范，保证团队工程风格的一致性
 
@@ -407,5 +409,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/cplusplus_style_guide/  
+> URL: http://localhost:1313/posts/cplusplus_style_guide/  
 

@@ -175,5 +175,5 @@ if __name__ == &#39;__main__&#39;:
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/auto-download-xdebug-for-php/  
+> URL: http://localhost:1313/posts/auto-download-xdebug-for-php/  
 

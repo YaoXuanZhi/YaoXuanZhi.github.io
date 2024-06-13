@@ -1,14 +1,20 @@
 # Hexo插件-文章加密
 
 
-### 前言
 之前在[《谈一种页面加密技术》](../a_way_of_html_encryption/)里谈到了自己捣弄了一个页面加密方案，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了
+
+&lt;!--more--&gt;
+
+---
+
+### 前言
+这篇博客仅仅整理了本人开发这个加密插件的大体流程，由于互联网上关于Hexo插件的开发笔记早已汗牛充栋，在此就不再赘述了
 
 ### 使用方式
 本人希望借助这款插件，只需要让那些想要加密的md的文件头上添加`password: your_pwd`，即可在执行`hexo g`的时候，自动对生成的html的文章正文进行加密
 
 ### 开发笔记
-由于互联网上关于Hexo插件的开发笔记早已汗牛充栋，在此就不再赘述了，以下是本人在开发该插件时所检索到的有效资料：
+以下是本人在开发该插件时所检索到的有效资料和具体执行的插件学习&amp;开发流程：
 
  - 1. 了解hexo的插件工作机制
    - [插件|Hexo](https://hexo.io/zh-cn/docs/plugins.html)
@@ -48,5 +54,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/how_to_write_a_hexo_plugin/  
+> URL: http://localhost:1313/posts/how_to_write_a_hexo_plugin/  
 

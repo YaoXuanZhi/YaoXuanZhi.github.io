@@ -5,12 +5,12 @@
 
 &lt;!--more--&gt;
 
-{{&lt; link href=&#34;https://github.com/YaoXuanZhi/condition_group&#34; content=&#34;简易的条件组分词器&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{&lt; link href=&#34;https://github.com/YaoXuanZhi/condition_group_tokenizer&#34; content=&#34;简易的条件组分词器&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
 
-为了说明这个小玩具怎么用，这里以一个游戏项目为例
+---
 
 ## 前言
-在游戏项目的Gameplay开发中，条件配置是很大一项配置内容，而且经常变更，一个通用且可维护性强的条件支持机制就显得尤为重要了，这里提供了一种程序只需要为每类条件做机制支持，最终条件配置交由策划童鞋自行组合的配置方式，而且能够很好兼容excel、csv等配置
+为了说明这个工具库怎么用，这里以一个游戏项目为例，在这类项目中，条件配置是很大一项被频繁修改的内容，一个通用且可维护性强的条件支持机制在此显得尤为重要，这里提供了一种程序只需要为每类条件做一次机制支持，最终条件配置交由策划童鞋自行组合的配置方式，而且这类配置能够很好兼容excel、csv等格式
 
 ## 需求分析
 
@@ -24,7 +24,7 @@
 | 聊天系统  |   玩家等级达到30级【且】充值过    |
 | 公会系统  |   玩家等级达到100级【或】累计登录30天    |
 
-上述这些条件怎么在excel表上配置呢？
+上述这些条件又应该是怎么配置到配置表上呢，比如在excel表上怎么配置这些条件呢
 
 ### 配置表设计
 将罗列的开启条件进行整理，如下所示：
@@ -75,7 +75,7 @@
   2. 将ConditionToken进行解析并返回结果：将上述例子里的 `system_level-weapon_sys-50`、`system_level-mount_sys-30` 进一步解析，并且调用各个系统的数据判断该条件的结果，将结果结合`&amp;&amp;`逻辑运算符得出结果，可以简化成 `result1 &amp;&amp; result2`
 
 ### 功能实现
-参考[condition_group_tokenizer](https://github.com/YaoXuanZhi/condition_group) 里的Demo示例，重载`ProxyCondition()`方法，直接进入到步骤2即可
+参考[condition_group_tokenizer](https://github.com/YaoXuanZhi/condition_group_tokenizer) 里的Demo示例，重载`ProxyCondition()`方法，直接进入到步骤2即可
 
 这里贴了Python版的测试用例，其它语言依葫芦画瓢就行
 
@@ -282,9 +282,12 @@ if __name__ == &#39;__main__&#39;:
 ```
 
 ## 结尾
-在游戏项目里，我们仅需实现一次通用条件组件模块，然后在奖励发放、任务触发&amp;完成、成就事件达成等业务模块上，都调用这个通用组件来判断条件是否满足，大大减少同类设计，后续需要拓展条件类型支持的时候，只需维护 `ProxyCondition()` 即可
+在游戏项目里，我们仅需实现一次通用条件组件模块，然后在奖励发放、任务触发&amp;完成、成就事件达成等业务模块上，都调用这个通用组件来判断条件是否满足
 
-当然，真正要集成到项目里，还需要考虑到非法输入等情况，配置格式检查之类的事情，这块没法偷懒
+当然，真正要集成到项目里，还需要考虑到非法输入等情况，配置检查之类的事情，这块没法偷懒
+
+## 后记
+ - [ ] 为UE定制一个条件组插件，时间充足的话，还可以支持上DataTable
 
 ### 参考资料
  - [游戏内条件集合(与或非组合)的判定处理 C#版](https://zhuanlan.zhihu.com/p/98064735)
@@ -292,5 +295,5 @@ if __name__ == &#39;__main__&#39;:
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/simple_condition_group_tokenizer/  
+> URL: http://localhost:1313/posts/simple_condition_group_tokenizer/  
 

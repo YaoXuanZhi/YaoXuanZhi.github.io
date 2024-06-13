@@ -7,6 +7,7 @@
 
 这个时候图片合并就需要安排上了，将几百次的字符图片识别转换为识别若干次单行或多行文字图片，减少ocr识别次数，就能有效减少耗时了，另外，经过合并后的文字图片在保留合理的字符间隔后，其识别准度也会有所提升，可谓一箭双雕
 
+---
 
 ### 合并成单行文字图片
 实现思路上还是比较简单的，大致拆分成以下步骤：
@@ -167,5 +168,5 @@ def combine_image_with_multi(paths, merge_times, is_debug = False):
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/char_image_merge/  
+> URL: http://localhost:1313/posts/char_image_merge/  
 

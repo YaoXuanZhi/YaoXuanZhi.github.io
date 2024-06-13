@@ -5,6 +5,8 @@
 
 &lt;!--more--&gt;
 
+---
+
 ### 前言
 CMake是一个跨平台项目构建工具，主要对标C/C&#43;&#43;项目。其师出于automake，有其独有的DSL，详情请移步到[CMake官网](https://cmake.org/)
 
@@ -314,5 +316,5 @@ cmake --build .
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/use_cmake_notes/  
+> URL: http://localhost:1313/posts/use_cmake_notes/  
 

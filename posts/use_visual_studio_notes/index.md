@@ -5,6 +5,8 @@
 
 &lt;!--more--&gt;
 
+---
+
 ## 快捷键配置
 
 ### Visual Studio常用快捷键
@@ -122,5 +124,5 @@ inline int isinf(double x) { return !isnan(x) &amp;&amp; isnan(x - x); }
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/use_visual_studio_notes/  
+> URL: http://localhost:1313/posts/use_visual_studio_notes/  
 

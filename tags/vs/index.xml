@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Vs - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>https://yaoxuanzhi.github.io/tags/vs/</link>
+    <link>http://localhost:1313/tags/vs/</link>
     <description>Vs - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 16 Nov 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yaoxuanzhi.github.io/tags/vs/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 16 Nov 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vs/" rel="self" type="application/rss+xml" /><item>
   <title>Visual Studio使用笔记</title>
-  <link>https://yaoxuanzhi.github.io/posts/use_visual_studio_notes/</link>
+  <link>http://localhost:1313/posts/use_visual_studio_notes/</link>
   <pubDate>Thu, 16 Nov 2017 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>https://yaoxuanzhi.github.io/posts/use_visual_studio_notes/</guid>
+  <guid>http://localhost:1313/posts/use_visual_studio_notes/</guid>
   <description><![CDATA[<p>宇宙第一IDE，yyds</p>]]></description>
 </item>
 </channel>

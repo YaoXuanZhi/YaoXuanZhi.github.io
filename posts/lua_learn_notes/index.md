@@ -5,6 +5,8 @@
 
 &lt;!--more--&gt;
 
+---
+
 ### 在Lua实现带默认参数的函数
 在lua之中，它没有提供像C&#43;&#43;那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法
 
@@ -347,5 +349,5 @@ print(#tempString)
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/lua_learn_notes/  
+> URL: http://localhost:1313/posts/lua_learn_notes/  
 

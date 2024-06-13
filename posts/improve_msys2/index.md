@@ -5,10 +5,12 @@
 
 &lt;!--more--&gt;
 
-## 前言
-新项目的服务器工程其实是skynet for windows，基于msys2&#43;gcc来进行编译并运行，因此，日常开发工作中，需要经常打开msys2终端来输入各种shell指令，这并不方便
+---
 
-另外，本人更加偏好有个集成好的bat脚本，在上面输入【1】【2】【3】等数字之后，就能执行相应的【构建】【启动】【测试】等命令，最终调用msys2上的类linux环境来执行透传过来的命令，而且这种脚本也可以同配套环境打包给策划、测试童鞋，让他们快捷自建服务器完成功能验收和测试
+## 前言
+新项目的服务器框架基于skynet，后续考虑到Windows开发下的便捷性，支持了skynet for windows，基于msys2&#43;gcc来编译并运行，因此，日常开发工作中，需要经常打开msys2终端来输入各种shell指令，但这并不方便
+
+另外，本人更加偏好有个集成好的bat脚本，在上面输入`1` `2` `3`等数字之后，就能执行相应的`构建` `启动` `测试`等命令，最终调用msys2上的类linux环境来执行透传过来的命令，而且这种脚本也可以同配套环境打包给策划、测试童鞋，让他们快捷自建服务器完成功能验收和测试
 
 ## 为msys2的追加镜像源
 基于 [《MSYS2 镜像使用帮助》](https://mirrors.tuna.tsinghua.edu.cn/help/msys2/)提供的实现思路，最初使用Python来快速实现了一个脚本
@@ -270,5 +272,5 @@ GOTO :eof
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/improve_msys2/  
+> URL: http://localhost:1313/posts/improve_msys2/  
 

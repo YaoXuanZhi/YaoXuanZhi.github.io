@@ -1,0 +1,64 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>原创工具 - 分类 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/</link>
+    <description>原创工具 - 分类 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+  <title>自用工具-ScreenPinKit</title>
+  <link>http://localhost:1313/posts/screen_pin_kit/</link>
+  <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/screen_pin_kit/</guid>
+  <description><![CDATA[<p>本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具</p>]]></description>
+</item>
+<item>
+  <title>简易的条件组分词器</title>
+  <link>http://localhost:1313/posts/simple_condition_group_tokenizer/</link>
+  <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/simple_condition_group_tokenizer/</guid>
+  <description><![CDATA[<p>这是一个简单且易用的条件组分词器，提供了c#、c++、python等多种语言的实现和示例，如果你的项目里需要支持多层条件或组合条件之类的机制，那么它将非常适合你</p>]]></description>
+</item>
+<item>
+  <title>拓展Msys2</title>
+  <link>http://localhost:1313/posts/improve_msys2/</link>
+  <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/improve_msys2/</guid>
+  <description><![CDATA[<p>由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程</p>]]></description>
+</item>
+<item>
+  <title>字符图片OCR工具</title>
+  <link>http://localhost:1313/posts/char_images_ocr_tool/</link>
+  <pubDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/char_images_ocr_tool/</guid>
+  <description><![CDATA[本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类网页的处理方式 前言由于自己的某些学习需求，不想一直联网浏览某些网页内容，因此想将这些站点的某些内容缓存到本地。另外，该网站为了防止内容被爬虫抓取或被盗稿，因此在页面渲染时对内容进行了一些加密处理：]]></description>
+</item>
+<item>
+  <title>字符图片合并</title>
+  <link>http://localhost:1313/posts/char_image_merge/</link>
+  <pubDate>Wed, 07 Apr 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/char_image_merge/</guid>
+  <description><![CDATA[<p>在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成<code>{图片名：字符}</code>的映射关系，需要耗时更少的方案</p>]]></description>
+</item>
+<item>
+  <title>谈一种页面加密技术</title>
+  <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
+  <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
+  <description><![CDATA[<p>在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索</p>]]></description>
+</item>
+<item>
+  <title>PHP-XDebug安装脚本</title>
+  <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
+  <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
+  <description><![CDATA[前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查]]></description>
+</item>
+</channel>
+</rss>

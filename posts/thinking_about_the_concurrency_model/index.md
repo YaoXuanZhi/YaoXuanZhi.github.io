@@ -77,5 +77,5 @@ Actor之间直接通讯，而CSP是通过Channel通讯，在耦合度上两者�
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/thinking_about_the_concurrency_model/  
+> URL: http://localhost:1313/posts/thinking_about_the_concurrency_model/  
 

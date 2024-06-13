@@ -3,6 +3,10 @@
 
 &gt;最近入手了台Surface Pro6，然后又重新捣弄起各种常用的开发环境了，C&#43;&#43;、Python、Php的开发环境搞起等，不过很快就遇到了各种状况，这里特此记录下来，以前很多笔记都丢到有道云笔记上了，这里重新拾遗吧。
 
+&lt;!--more--&gt;
+
+---
+
 ## 触摸板无法正常拖动文件和截图了
 其实这个在Win 10里面是可以设置的，通过**开始菜单**  --&gt; **设置** --&gt; **设备** --&gt; **触摸板**，然后勾选 **☐点击两次之后再拖动及可多选** 即可，如下图所示：
  - ![](/assets/2019-05-08/1557245985050.png)
@@ -41,5 +45,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/about-deploy-win10-environment/  
+> URL: http://localhost:1313/posts/about-deploy-win10-environment/  
 

@@ -7,6 +7,8 @@
 
 {{&lt; link href=&#34;https://github.com/BlinkDL/AI-Writer&#34; content=&#34;AI-Writer仓库地址&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
 
+---
+
 #### 环境部署
 基于anaconda3的集成环境
 
@@ -48,5 +50,5 @@ python run.py
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: https://yaoxuanzhi.github.io/posts/ai_writer/  
+> URL: http://localhost:1313/posts/ai_writer/  
 
