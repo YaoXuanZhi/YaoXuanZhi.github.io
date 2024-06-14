@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Vim - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/tags/vim/</link>
+    <link>http://localhost:54598/tags/vim/</link>
     <description>Vim - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vim/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/vim/" rel="self" type="application/rss+xml" /><item>
   <title>拓展Msys2</title>
-  <link>http://localhost:1313/posts/improve_msys2/</link>
+  <link>http://localhost:54598/posts/improve_msys2/</link>
   <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/improve_msys2/</guid>
+  <guid>http://localhost:54598/posts/improve_msys2/</guid>
   <description><![CDATA[<p>由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程</p>]]></description>
 </item>
 </channel>

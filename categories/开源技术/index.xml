@@ -1,23 +1,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>开源技术 - 分类 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/</link>
+    <link>http://localhost:54598/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/</link>
     <description>开源技术 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+  <title>给扫描PDF添加OCR文本层 - OcrMyPdf</title>
+  <link>http://localhost:54598/posts/ocrmypdf/</link>
+  <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:54598/posts/ocrmypdf/</guid>
+  <description><![CDATA[<p>以前网络上收集到不少扫描版本的PDF文档，没有文字层，非常蛋疼，偶然发现了这个开源工具，非常推荐</p>]]></description>
+</item>
+<item>
+  <title>终端会话录制工具-asciinema/PowerSession-rs</title>
+  <link>http://localhost:54598/posts/asciinema/</link>
+  <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:54598/posts/asciinema/</guid>
+  <description><![CDATA[<p>发现了一个终端会话录制工具，非常不错，这里特意做下记录</p>]]></description>
+</item>
+<item>
   <title>AI写作尝鲜</title>
-  <link>http://localhost:1313/posts/ai_writer/</link>
+  <link>http://localhost:54598/posts/ai_writer/</link>
   <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/ai_writer/</guid>
+  <guid>http://localhost:54598/posts/ai_writer/</guid>
   <description><![CDATA[<p>从识字以来，已经遭遇了不少烂尾或太监的网络小说，每次遇到，都有很强的动力去想将它续写或者改变它虎头蛇尾的后半段，但是本人的写作水平一般，短篇都未曾驾驭过，更不用说那种动辄几百万字的网络小说，一直没去做，当然也是没那个闲工夫啦。幸运的是，现在在OpenAI等科技巨头的带动下，涌现了很多AI工具，其中就包括一些AI写作应用，ChatGpt4 和通义千问等问答语言模型。这些工具为写作提供了强大的辅助支持。在下面，我将整理下AI_Writer 的开源 AI 写作工具的试用体验</p>]]></description>
 </item>
 <item>
   <title>初探Cnocr</title>
-  <link>http://localhost:1313/posts/cnocr/</link>
+  <link>http://localhost:54598/posts/cnocr/</link>
   <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cnocr/</guid>
+  <guid>http://localhost:54598/posts/cnocr/</guid>
   <description><![CDATA[<p>在知乎上看到一篇不错的文章 <a href="https://zhuanlan.zhihu.com/p/134115239"target="_blank" rel="external nofollow noopener noreferrer">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a>，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具</p>]]></description>
 </item>
 </channel>

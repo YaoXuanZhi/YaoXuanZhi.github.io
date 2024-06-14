@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>音乐 - 分类 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/categories/%E9%9F%B3%E4%B9%90/</link>
+    <link>http://localhost:54598/categories/%E9%9F%B3%E4%B9%90/</link>
     <description>音乐 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 20 Jul 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9F%B3%E4%B9%90/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 20 Jul 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/categories/%E9%9F%B3%E4%B9%90/" rel="self" type="application/rss+xml" /><item>
   <title>我的音乐清单</title>
-  <link>http://localhost:1313/abouts/my_music_play_list/</link>
+  <link>http://localhost:54598/abouts/my_music_play_list/</link>
   <pubDate>Sat, 20 Jul 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/abouts/my_music_play_list/</guid>
+  <guid>http://localhost:54598/abouts/my_music_play_list/</guid>
   <description><![CDATA[<p>这里收集了一些个人喜欢的歌曲列表，仅自用</p>]]></description>
 </item>
 </channel>

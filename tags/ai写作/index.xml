@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>AI写作 - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/tags/ai%E5%86%99%E4%BD%9C/</link>
+    <link>http://localhost:54598/tags/ai%E5%86%99%E4%BD%9C/</link>
     <description>AI写作 - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ai%E5%86%99%E4%BD%9C/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/ai%E5%86%99%E4%BD%9C/" rel="self" type="application/rss+xml" /><item>
   <title>AI写作尝鲜</title>
-  <link>http://localhost:1313/posts/ai_writer/</link>
+  <link>http://localhost:54598/posts/ai_writer/</link>
   <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/ai_writer/</guid>
+  <guid>http://localhost:54598/posts/ai_writer/</guid>
   <description><![CDATA[<p>从识字以来，已经遭遇了不少烂尾或太监的网络小说，每次遇到，都有很强的动力去想将它续写或者改变它虎头蛇尾的后半段，但是本人的写作水平一般，短篇都未曾驾驭过，更不用说那种动辄几百万字的网络小说，一直没去做，当然也是没那个闲工夫啦。幸运的是，现在在OpenAI等科技巨头的带动下，涌现了很多AI工具，其中就包括一些AI写作应用，ChatGpt4 和通义千问等问答语言模型。这些工具为写作提供了强大的辅助支持。在下面，我将整理下AI_Writer 的开源 AI 写作工具的试用体验</p>]]></description>
 </item>
 </channel>

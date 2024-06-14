@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/abouts/</link>
+    <link>http://localhost:54598/abouts/</link>
     <description>Recent content in Abouts on YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
     <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
     <lastBuildDate>Fri, 05 Apr 2024 01:42:11 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/abouts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:54598/abouts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我的音乐清单</title>
-      <link>http://localhost:1313/abouts/my_music_play_list/</link>
+      <link>http://localhost:54598/abouts/my_music_play_list/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
-      <guid>http://localhost:1313/abouts/my_music_play_list/</guid>
+      <guid>http://localhost:54598/abouts/my_music_play_list/</guid>
       <description>&lt;p&gt;这里收集了一些个人喜欢的歌曲列表，仅自用&lt;/p&gt;</description>
     </item>
     <item>
       <title>待办事项</title>
-      <link>http://localhost:1313/abouts/todo_list/</link>
+      <link>http://localhost:54598/abouts/todo_list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
-      <guid>http://localhost:1313/abouts/todo_list/</guid>
+      <guid>http://localhost:54598/abouts/todo_list/</guid>
       <description>行业丛书 技术栈 《Unity网络游戏实战》 《Flutter实战》 《Flask入门教程》 《前端小课 第一、二期》 《修改代码的艺术》 《Codelife-不止代码》 文档 Django 2.2中文文档 Java开发手册 开发思维 游戏编程模式中文版 程序员的自我修养 算法 算法的乐趣 ACMICPC算法训练教程 labuladong的算法小</description>
     </item>
     <item>
       <title>争取做个懂生活的IT人</title>
-      <link>http://localhost:1313/abouts/about_me/</link>
+      <link>http://localhost:54598/abouts/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
-      <guid>http://localhost:1313/abouts/about_me/</guid>
+      <guid>http://localhost:54598/abouts/about_me/</guid>
       <description>关于我 与Bug兄打交道良久~ o(￣▽￣)o熟悉VS、VSCode、Vim、Idea、Sublime等软件的安装/卸载技巧，掌握C/C++、Lua、Erlang、Python、JavaScript等单词的各种拼写方式 世界那么大，总想去看看QAQ希望足迹可以遍布大江南北，目前只是到过广西北海、湖南岳麓书</description>
     </item>
   </channel>

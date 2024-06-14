@@ -1,88 +1,88 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>所有文章 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>http://localhost:54598/posts/</link>
     <description>所有文章 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/posts/" rel="self" type="application/rss+xml" /><item>
   <title>自用工具-ScreenPinKit</title>
-  <link>http://localhost:1313/posts/screen_pin_kit/</link>
+  <link>http://localhost:54598/posts/screen_pin_kit/</link>
   <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/screen_pin_kit/</guid>
+  <guid>http://localhost:54598/posts/screen_pin_kit/</guid>
   <description><![CDATA[<p>本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具</p>]]></description>
 </item>
 <item>
+  <title>给扫描PDF添加OCR文本层 - OcrMyPdf</title>
+  <link>http://localhost:54598/posts/ocrmypdf/</link>
+  <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:54598/posts/ocrmypdf/</guid>
+  <description><![CDATA[<p>以前网络上收集到不少扫描版本的PDF文档，没有文字层，非常蛋疼，偶然发现了这个开源工具，非常推荐</p>]]></description>
+</item>
+<item>
+  <title>终端会话录制工具-asciinema/PowerSession-rs</title>
+  <link>http://localhost:54598/posts/asciinema/</link>
+  <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:54598/posts/asciinema/</guid>
+  <description><![CDATA[<p>发现了一个终端会话录制工具，非常不错，这里特意做下记录</p>]]></description>
+</item>
+<item>
   <title>一套自用的跨IDE键盘映射方案</title>
-  <link>http://localhost:1313/posts/cross-ide_keymapping_solution/</link>
+  <link>http://localhost:54598/posts/cross-ide_keymapping_solution/</link>
   <pubDate>Wed, 13 Apr 2022 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cross-ide_keymapping_solution/</guid>
+  <guid>http://localhost:54598/posts/cross-ide_keymapping_solution/</guid>
   <description><![CDATA[<p>由于本人在日常开发工作中会在多种开发环境上切换，用得较多的是vscode、ideac、rider、pycharm等IDE，因此有了统一多个ide快捷键习惯的需求，这里记录了一套个人自用的快捷键设置方案，采取了【IDE插件开发】+【IDE设置配置】组合的方式来达成目的</p>]]></description>
 </item>
 <item>
   <title>AI写作尝鲜</title>
-  <link>http://localhost:1313/posts/ai_writer/</link>
+  <link>http://localhost:54598/posts/ai_writer/</link>
   <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/ai_writer/</guid>
+  <guid>http://localhost:54598/posts/ai_writer/</guid>
   <description><![CDATA[<p>从识字以来，已经遭遇了不少烂尾或太监的网络小说，每次遇到，都有很强的动力去想将它续写或者改变它虎头蛇尾的后半段，但是本人的写作水平一般，短篇都未曾驾驭过，更不用说那种动辄几百万字的网络小说，一直没去做，当然也是没那个闲工夫啦。幸运的是，现在在OpenAI等科技巨头的带动下，涌现了很多AI工具，其中就包括一些AI写作应用，ChatGpt4 和通义千问等问答语言模型。这些工具为写作提供了强大的辅助支持。在下面，我将整理下AI_Writer 的开源 AI 写作工具的试用体验</p>]]></description>
 </item>
 <item>
   <title>简易的条件组分词器</title>
-  <link>http://localhost:1313/posts/simple_condition_group_tokenizer/</link>
+  <link>http://localhost:54598/posts/simple_condition_group_tokenizer/</link>
   <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/simple_condition_group_tokenizer/</guid>
+  <guid>http://localhost:54598/posts/simple_condition_group_tokenizer/</guid>
   <description><![CDATA[<p>这是一个简单且易用的条件组分词器，提供了c#、c++、python等多种语言的实现和示例，如果你的项目里需要支持多层条件或组合条件之类的机制，那么它将非常适合你</p>]]></description>
 </item>
 <item>
   <title>拓展Msys2</title>
-  <link>http://localhost:1313/posts/improve_msys2/</link>
+  <link>http://localhost:54598/posts/improve_msys2/</link>
   <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/improve_msys2/</guid>
+  <guid>http://localhost:54598/posts/improve_msys2/</guid>
   <description><![CDATA[<p>由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程</p>]]></description>
 </item>
 <item>
   <title>字符图片OCR工具</title>
-  <link>http://localhost:1313/posts/char_images_ocr_tool/</link>
+  <link>http://localhost:54598/posts/char_images_ocr_tool/</link>
   <pubDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/char_images_ocr_tool/</guid>
+  <guid>http://localhost:54598/posts/char_images_ocr_tool/</guid>
   <description><![CDATA[本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类网页的处理方式 前言由于自己的某些学习需求，不想一直联网浏览某些网页内容，因此想将这些站点的某些内容缓存到本地。另外，该网站为了防止内容被爬虫抓取或被盗稿，因此在页面渲染时对内容进行了一些加密处理：]]></description>
 </item>
 <item>
   <title>初探Cnocr</title>
-  <link>http://localhost:1313/posts/cnocr/</link>
+  <link>http://localhost:54598/posts/cnocr/</link>
   <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cnocr/</guid>
+  <guid>http://localhost:54598/posts/cnocr/</guid>
   <description><![CDATA[<p>在知乎上看到一篇不错的文章 <a href="https://zhuanlan.zhihu.com/p/134115239"target="_blank" rel="external nofollow noopener noreferrer">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a>，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具</p>]]></description>
 </item>
 <item>
   <title>字符图片合并</title>
-  <link>http://localhost:1313/posts/char_image_merge/</link>
+  <link>http://localhost:54598/posts/char_image_merge/</link>
   <pubDate>Wed, 07 Apr 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/char_image_merge/</guid>
+  <guid>http://localhost:54598/posts/char_image_merge/</guid>
   <description><![CDATA[<p>在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成<code>{图片名：字符}</code>的映射关系，需要耗时更少的方案</p>]]></description>
-</item>
-<item>
-  <title>Hexo插件-文章加密</title>
-  <link>http://localhost:1313/posts/how_to_write_a_hexo_plugin/</link>
-  <pubDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/how_to_write_a_hexo_plugin/</guid>
-  <description><![CDATA[<p>之前在<a href="../a_way_of_html_encryption/">《谈一种页面加密技术》</a>里谈到了自己捣弄了一个页面加密方案，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了</p>]]></description>
-</item>
-<item>
-  <title>谈一种页面加密技术</title>
-  <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
-  <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
-  <description><![CDATA[<p>在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -50,5 +50,5 @@ python run.py
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:1313/posts/ai_writer/  
+> URL: http://localhost:54598/posts/ai_writer/  
 

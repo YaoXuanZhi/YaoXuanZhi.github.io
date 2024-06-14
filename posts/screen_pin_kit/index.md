@@ -66,16 +66,15 @@ Python版本升级太快了，目前社区很多库跟不上，现在这个小�
 ### 参考资料
  - [辅助教学与文件注解利器｜5个免费又好用的屏幕画笔软件
 在触摸屏上轻松手写涂鸦与注记](https://www.gechic.com/cn/best-free-annotation-software-tools/)
- - [Snipaste: Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上](https://zh.snipaste.com/)
-* [**Snipaste**: Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上](https://zh.snipaste.com/)
-* [**excalidraw**: Design guidelines and toolkits for creating native app experiences](https://excalidraw.com/)
-* [**PyQt-Fluent-Widgets**: A fluent design widgets library based on C&#43;&#43; Qt/PyQt/PySide. Make Qt Great Again.](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
-* [**ShareX**: Screen capture, file sharing and productivity tool](https://github.com/ShareX/ShareX)
-* [**ppInk**: An easy to use on-screen annotation software inspired by Epic Pen.](https://github.com/onyet/ppInk/)
-* [**PixPin**: 功能强大使用简单的截图/贴图工具，帮助你提高效率](https://pixpinapp.com/)
+ - [**Snipaste**: Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上](https://zh.snipaste.com/)
+ - [**excalidraw**: Design guidelines and toolkits for creating native app experiences](https://excalidraw.com/)
+ - [**PyQt-Fluent-Widgets**: A fluent design widgets library based on C&#43;&#43; Qt/PyQt/PySide. Make Qt Great Again.](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
+ - [**ShareX**: Screen capture, file sharing and productivity tool](https://github.com/ShareX/ShareX)
+ - [**ppInk**: An easy to use on-screen annotation software inspired by Epic Pen.](https://github.com/onyet/ppInk/)
+ - [**PixPin**: 功能强大使用简单的截图/贴图工具，帮助你提高效率](https://pixpinapp.com/)
 
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:1313/posts/screen_pin_kit/  
+> URL: http://localhost:54598/posts/screen_pin_kit/  
 

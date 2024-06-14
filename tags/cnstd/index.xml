@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Cnstd - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:1313/tags/cnstd/</link>
+    <link>http://localhost:54598/tags/cnstd/</link>
     <description>Cnstd - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cnstd/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/cnstd/" rel="self" type="application/rss+xml" /><item>
   <title>初探Cnocr</title>
-  <link>http://localhost:1313/posts/cnocr/</link>
+  <link>http://localhost:54598/posts/cnocr/</link>
   <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cnocr/</guid>
+  <guid>http://localhost:54598/posts/cnocr/</guid>
   <description><![CDATA[<p>在知乎上看到一篇不错的文章 <a href="https://zhuanlan.zhihu.com/p/134115239"target="_blank" rel="external nofollow noopener noreferrer">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a>，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具</p>]]></description>
 </item>
 </channel>
