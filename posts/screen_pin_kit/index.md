@@ -76,5 +76,5 @@ Python版本升级太快了，目前社区很多库跟不上，现在这个小�
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/screen_pin_kit/  
+> URL: http://localhost:1313/posts/screen_pin_kit/  
 

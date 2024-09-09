@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>全区全服 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%85%A8%E5%8C%BA%E5%85%A8%E6%9C%8D/</link>
+    <description>全区全服 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Tue, 19 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%85%A8%E5%8C%BA%E5%85%A8%E6%9C%8D/" rel="self" type="application/rss+xml" /><item>
+  <title>排行榜实现的二三事</title>
+  <link>http://localhost:1313/posts/global_rank_server_imp/</link>
+  <pubDate>Tue, 19 May 2020 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/global_rank_server_imp/</guid>
+  <description><![CDATA[<p>在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的常用实现</p>]]></description>
+</item>
+</channel>
+</rss>

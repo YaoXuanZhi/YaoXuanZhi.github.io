@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>NodeJs - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/nodejs/</link>
+    <description>NodeJs - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/nodejs/" rel="self" type="application/rss+xml" /><item>
+  <title>Debian的捣弄笔记</title>
+  <link>http://localhost:1313/posts/debian_notes/</link>
+  <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/debian_notes/</guid>
+  <description><![CDATA[<p>ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕</p>]]></description>
+</item>
+</channel>
+</rss>

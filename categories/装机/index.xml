@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>装机 - 分类 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:54598/categories/%E8%A3%85%E6%9C%BA/</link>
+    <link>http://localhost:1313/categories/%E8%A3%85%E6%9C%BA/</link>
     <description>装机 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Tue, 07 May 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/categories/%E8%A3%85%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Tue, 07 May 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%A3%85%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
   <title>谈谈Win10系统的折腾</title>
-  <link>http://localhost:54598/posts/about-deploy-win10-environment/</link>
+  <link>http://localhost:1313/posts/about-deploy-win10-environment/</link>
   <pubDate>Tue, 07 May 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/about-deploy-win10-environment/</guid>
+  <guid>http://localhost:1313/posts/about-deploy-win10-environment/</guid>
   <description><![CDATA[<blockquote>
 <p>最近入手了台Surface Pro6，然后又重新捣弄起各种常用的开发环境了，C++、Python、Php的开发环境搞起等，不过很快就遇到了各种状况，这里特此记录下来，以前很多笔记都丢到有道云笔记上了，这里重新拾遗吧。</p>
 </blockquote>]]></description>

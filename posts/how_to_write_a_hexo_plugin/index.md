@@ -54,5 +54,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/how_to_write_a_hexo_plugin/  
+> URL: http://localhost:1313/posts/how_to_write_a_hexo_plugin/  
 

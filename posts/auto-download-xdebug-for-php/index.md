@@ -1,32 +1,37 @@
 # PHP-XDebug安装脚本
 
 
-### 前言
 目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug
+
+&lt;!--more--&gt;
+
+---
+
+### 前言
 
 在idea里的php settings上有其安装指导，如下图所示：
 
 ![](/assets/2019-09-01/1567309969314.png)
 
 经过网上检索可知，安装php-xdebug的步骤如下：
- - 1. 查询phpinfo
- - 2. 拿phpinfo去[xdebug wizard](https://xdebug.org/wizard.php)查询其匹配的xdebug版本及其下载链接
- - 3. 然后下载dll并在`php.ini`里修改xdebug的配置项
+ 1. 查询phpinfo
+ 2. 拿phpinfo去[xdebug wizard](https://xdebug.org/wizard.php)查询其匹配的xdebug版本及其下载链接
+ 3. 然后下载dll并在`php.ini`里修改xdebug的配置项
 
 但由于本人有多台办公设备，并且其php版本都不太一样，所以需要开发一个快速下载/部署xdebug的脚本，能达到一键部署php的开发调试环境就最好了
 
 ### 基本思路
- - 1. ~~在shell上用`which php`查找到php的所在路径，并`cd $(dirname $(which php))`~~（将这个py脚本放置在php.exe的同级目录就行）
- - 2. ~~判断这个目录下是否有`php.ini`文件，如果没有的话，就`cp php.development php.ini`~~（这部分采用python来实现）
- - 3. ~~在shell上执行`php -i phpinfo(); &gt; phpinfo.txt`，将结果输出到文本上~~（在python中调用此shell指令，并将输出存放在变量中）
- - 4. 用输出的phpinfo信息粘贴在[xdebug.org-custom installation instructions](https://xdebug.org/wizard.php)上的文本框上查询，这里面会检测到xdebug版本
-   - ![在wizard上查询xdebug版本](/assets/2019-09-01/1567312543380.png)
-     - 具体的phpinfo的检测条件在[phpinfo-scanner.php](https://github.com/derickr/xdebug.org/blob/master/html/include/phpinfo-scanner.php)
-       &gt;这一步是关键，分析这个查询请求的`Responses Headers`和`Form Data`
-     - ![](/assets/2019-09-01/1567314064999.png)
- - 5. 采用bs4从html上提取php_xdebug_xxx.dll的下载链接
- - 6. 下载php_xdebug_xxx.dll到ext目录下
- - 7. 采用configparser来修改php.ini上的xdebug配置
+  1. ~~在shell上用`which php`查找到php的所在路径，并`cd $(dirname $(which php))`~~（将这个py脚本放置在php.exe的同级目录就行）
+  2. ~~判断这个目录下是否有`php.ini`文件，如果没有的话，就`cp php.development php.ini`~~（这部分采用python来实现）
+  3. ~~在shell上执行`php -i phpinfo(); &gt; phpinfo.txt`，将结果输出到文本上~~（在python中调用此shell指令，并将输出存放在变量中）
+  4. 用输出的phpinfo信息粘贴在[xdebug.org-custom installation instructions](https://xdebug.org/wizard.php)上的文本框上查询，这里面会检测到xdebug版本
+    - ![在wizard上查询xdebug版本](/assets/2019-09-01/1567312543380.png)
+      - 具体的phpinfo的检测条件在[phpinfo-scanner.php](https://github.com/derickr/xdebug.org/blob/master/html/include/phpinfo-scanner.php)
+        &gt;这一步是关键，分析这个查询请求的`Responses Headers`和`Form Data`
+      - ![](/assets/2019-09-01/1567314064999.png)
+  5. 采用bs4从html上提取php_xdebug_xxx.dll的下载链接
+  6. 下载php_xdebug_xxx.dll到ext目录下
+  7. 采用configparser来修改php.ini上的xdebug配置
 
 ### 代码实现
 
@@ -175,5 +180,5 @@ if __name__ == &#39;__main__&#39;:
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/auto-download-xdebug-for-php/  
+> URL: http://localhost:1313/posts/auto-download-xdebug-for-php/  
 

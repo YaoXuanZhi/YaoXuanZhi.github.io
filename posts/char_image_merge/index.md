@@ -168,5 +168,5 @@ def combine_image_with_multi(paths, merge_times, is_debug = False):
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/char_image_merge/  
+> URL: http://localhost:1313/posts/char_image_merge/  
 

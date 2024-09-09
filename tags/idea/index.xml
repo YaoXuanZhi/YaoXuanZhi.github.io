@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Idea - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:54598/tags/idea/</link>
+    <link>http://localhost:1313/tags/idea/</link>
     <description>Idea - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 13 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/idea/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 13 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/idea/" rel="self" type="application/rss+xml" /><item>
   <title>一套自用的跨IDE键盘映射方案</title>
-  <link>http://localhost:54598/posts/cross-ide_keymapping_solution/</link>
+  <link>http://localhost:1313/posts/cross-ide_keymapping_solution/</link>
   <pubDate>Wed, 13 Apr 2022 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/cross-ide_keymapping_solution/</guid>
+  <guid>http://localhost:1313/posts/cross-ide_keymapping_solution/</guid>
   <description><![CDATA[<p>由于本人在日常开发工作中会在多种开发环境上切换，用得较多的是vscode、ideac、rider、pycharm等IDE，因此有了统一多个ide快捷键习惯的需求，这里记录了一套个人自用的快捷键设置方案，采取了【IDE插件开发】+【IDE设置配置】组合的方式来达成目的</p>]]></description>
 </item>
 </channel>

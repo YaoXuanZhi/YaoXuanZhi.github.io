@@ -45,5 +45,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/about-deploy-win10-environment/  
+> URL: http://localhost:1313/posts/about-deploy-win10-environment/  
 

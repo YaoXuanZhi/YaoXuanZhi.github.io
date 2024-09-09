@@ -80,5 +80,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/char_images_ocr_tool/  
+> URL: http://localhost:1313/posts/char_images_ocr_tool/  
 

@@ -1,7 +1,7 @@
 # 简易的条件组分词器
 
 
-这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目里需要支持多层条件或组合条件之类的机制，那么它将非常适合你
+这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你
 
 &lt;!--more--&gt;
 
@@ -10,11 +10,13 @@
 ---
 
 ## 前言
-为了说明这个工具库怎么用，这里以一个游戏项目为例，在这类项目中，条件配置是很大一项被频繁修改的内容，一个通用且可维护性强的条件支持机制在此显得尤为重要，这里提供了一种程序只需要为每类条件做一次机制支持，最终条件配置交由策划童鞋自行组合的配置方式，而且这类配置能够很好兼容excel、csv等格式
+
+为了说明这个工具库怎么用，这里以一个游戏项目为例，在这类项目中，条件配置通常会被高频修改，一个通用且可维护性强的条件支持机制在此显得尤为重要。
+而在理想情况下，该模块的开发者只需在新增条件类型时才维护一次，至于怎么组合这个条件配置，全由策划折腾才对
 
 ## 需求分析
 
-策划童鞋设计一个功能开启需求，并且罗列了一些例子，如下所示：
+假设该游戏项目采用csv文件作为游戏数值配置，现在策划童鞋设计了一个功能开启需求，并在需求文档里罗列了一些配置示例，如下所示：
 
 |  系统功能名   |  开启条件   |
 | :----: | :----------: |
@@ -24,7 +26,13 @@
 | 聊天系统  |   玩家等级达到30级【且】充值过    |
 | 公会系统  |   玩家等级达到100级【或】累计登录30天    |
 
-上述这些条件又应该是怎么配置到配置表上呢，比如在excel表上怎么配置这些条件呢
+收到这个需求之后，我们直接面临以下问题：
+ - 怎么设计配置表？
+ - 多种条件组合配置得怎么设计，如何尽可能做到条件类型复用呢？
+ - 如果后续策划需要修改具体的条件组合，怎么尽可能减少程序的维护工作量？
+   &gt;总不能我在忙着其它开发任务，然后策划童鞋改个已有条件类型的配置还得找上我来配合着改代码吧
+ - 如果再发散下思维，成就模块、任务模块也会用到类似的东西，能不能将这套条件机制提供给其它系统模块复用呢？
+   &gt;只需要维护一次条件类型变动就能为多个模块提供了机制支持，岂不省时省力
 
 ### 配置表设计
 将罗列的开启条件进行整理，如下所示：
@@ -39,14 +47,14 @@
 | acc_charge_total  | 累计充值总额达到A   |  acc_charge_total-need_total  | 是否累计充值总额已达1000元：`acc_charge_total-1000`  |
 | acc_login_days  | 累计登录天数达到A   |  acc_login_days-need_days | 是否累计登录了30天：`acc_login_days-30`  |
 
-各个具体条件已经拆分好了，那么怎么表述它的【且】和【或】关系呢，在此，引入了另外两个特殊符号，如下所示：
+上述已经将配置示例上的条件内容共性部分拆解成一个个条件类型了，那么怎么表述它们组合时的逻辑关系呢，在此，引入了另外两个特殊符号，如下所示：
 
 |  符号  |  作用  |
 | :----: | :----------: |
 | `&amp;&amp;` | 完成`条件A`和`条件B`的且运算 |
 | `\|\|` | 完成`条件A`和`条件B`的或运算 |
 
-那么再来到复杂的条件示例上，它们将会简化成如下配置：
+现在，我们终于可以配置复杂的条件内容了，如下所示：
  - 描述：`玩家等级达到30级【且】充值过` ==&gt; 配置项：`player_level-30 &amp;&amp; acc_charge_total-1`
  - 描述：`玩家等级达到100级【或】累计登录30天` ==&gt; 配置项：`player_level-100 || acc_login_days-30`
 
@@ -60,19 +68,19 @@
 | 聊天系统  |   玩家等级达到30级【且】充值过    |  `player_level-30 &amp;&amp; acc_charge_total-1`  |
 | 公会系统  |   玩家等级达到100级【或】累计登录30天    |  `player_level-100 \|\| acc_login_days-30`  |
 
-上述条件配置项已经很像我们编程语言里的条件表达式了，比如C&#43;&#43;里面的if statement，与之相比我们还差了一个`小括号()`的功能和`逻辑运算符:非`的支持，不过`非`一般用不上，可以酌情考虑要不要搞，有了`小括号()`的支持后，我们可以表达更加复杂的条件了，诸如：
+老司机应该能很快意识到，上述的条件配置内容已经很像编程语言的条件表达式了，比如C&#43;&#43;里面的if statement，与之相比我们还差了一个`小括号()`的功能和`逻辑运算符:非`的支持，不过`非`一般用不上，可以酌情考虑要不要搞，有了`小括号()`的支持后，我们还加上了条件嵌套机制，如下所示：
 
  - 描述：`(武器系统升至50级 【且】锻造系统升至30级) 或 玩家充值达到10000元`
  - 配置项：`(system_level-weapon_sys-50 &amp;&amp; system_level-mount_sys-30) || acc_charge_total-10000`
 
-给这类复杂条件起个名字，叫做`条件组`，因为每个小括号包裹住的条件可以当作一个条件分层组，如果完全没有小括号的话，可以看作它有个隐藏的小括号，同策划童鞋沟通好，达成共识
+给这类复杂条件起个名字，叫做`条件组`，因为每个小括号包裹住的条件配置都被视为一个条件组，如果条件配置没有小括号，可以视为其最外层有个隐藏的小括号，同策划童鞋沟通好，达成共识
 
 ## 程序设计
-上面已经将相关复杂条件描述的条件配置都设计好了，相关测试用例也收集了一些，那么接下来就是提供功能支持来解析条件配置，并且封装好判断接口，再将各个条件类型的支持给加上
+既然配置表、配套测试配置都就位了，那接下来就是条件模块的功能设计啦，它需要将这些字符串解析成一个个条件类型，并且进行各种逻辑判断，返回最终判断结果
 
 程序实现步骤拆解：
   1. 实现一个Tokenizer：解析这个配置项文本，依据其设计好的分割规则，拆分成一个Token数组，然后提取里面的`条件块`和`逻辑运算符`和`层级关系`，举个简单例子：将 `system_level-weapon_sys-50 &amp;&amp; system_level-mount_sys-30` 解析成一个数组：`system_level-weapon_sys-50`、`&amp;&amp;`、`system_level-mount_sys-30`
-  2. 将ConditionToken进行解析并返回结果：将上述例子里的 `system_level-weapon_sys-50`、`system_level-mount_sys-30` 进一步解析，并且调用各个系统的数据判断该条件的结果，将结果结合`&amp;&amp;`逻辑运算符得出结果，可以简化成 `result1 &amp;&amp; result2`
+  2. 将ConditionToken进行解析并返回结果：将上述例子里的 `system_level-weapon_sys-50`、`system_level-mount_sys-30` 进一步解析，并且调用各个系统的数据判断该条件的结果，将结果结合`&amp;&amp;`逻辑运算符得出最终结果，可以简化成 `result1 &amp;&amp; result2`
 
 ### 功能实现
 参考[condition_group_tokenizer](https://github.com/YaoXuanZhi/condition_group_tokenizer) 里的Demo示例，重载`ProxyCondition()`方法，直接进入到步骤2即可
@@ -157,7 +165,7 @@ class PlayerConditionComponent(ConditionGroupTokenizer):
             assert False, f&#34;条件类型：{atomType} 还没支持，请完善相关条件判断逻辑&#34;
         return False
 
-class TestCondtionGroupComponent(unittest.TestCase):
+class TestConditionGroupComponent(unittest.TestCase):
     def __init__(self, methodName: str = &#34;且运算逻辑&#34;) -&gt; None:
         super().__init__(methodName)
     def test_and_operator_success(self):
@@ -219,7 +227,7 @@ class TestCondtionGroupComponent(unittest.TestCase):
 
     def test_or_operator_success(self):
         &#39;&#39;&#39;
-        测试用例-&amp;&amp;运算符:成功
+        测试用例-||运算符:成功
         &#39;&#39;&#39;
         class TestDataComponent(PlayerFakeDataComponent):
             def buildFakeDatas(self):
@@ -249,7 +257,7 @@ class TestCondtionGroupComponent(unittest.TestCase):
 
     def test_or_operator_fail(self):
         &#39;&#39;&#39;
-        测试用例-&amp;&amp;运算符:成功
+        测试用例-||运算符:失败
         &#39;&#39;&#39;
         class TestDataComponent(PlayerFakeDataComponent):
             def buildFakeDatas(self):
@@ -282,9 +290,9 @@ if __name__ == &#39;__main__&#39;:
 ```
 
 ## 结尾
-在游戏项目里，我们仅需实现一次通用条件组件模块，然后在奖励发放、任务触发&amp;完成、成就事件达成等业务模块上，都调用这个通用组件来判断条件是否满足
+在游戏项目里，我们仅需实现一次通用条件组件模块，然后在奖励发放、任务触发&amp;完成、成就事件达成等业务模块上，都调用这个通用组件来返回条件判断结果，就能大大减少重复配置设计了
 
-当然，真正要集成到项目里，还需要考虑到非法输入等情况，配置检查之类的事情，这块没法偷懒
+当然，在集成到项目的过程中，还得完善配置格式合法化检测、条件判断套娃检测等机制，这里就不展开了
 
 ## 后记
  - [ ] 为UE定制一个条件组插件，时间充足的话，还可以支持上DataTable
@@ -295,5 +303,5 @@ if __name__ == &#39;__main__&#39;:
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/simple_condition_group_tokenizer/  
+> URL: http://localhost:1313/posts/simple_condition_group_tokenizer/  
 

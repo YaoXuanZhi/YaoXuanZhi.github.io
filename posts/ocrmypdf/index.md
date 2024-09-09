@@ -57,5 +57,5 @@ git checkout learn
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/ocrmypdf/  
+> URL: http://localhost:1313/posts/ocrmypdf/  
 

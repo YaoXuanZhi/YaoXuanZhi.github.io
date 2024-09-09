@@ -11,7 +11,7 @@
 
 ### 使用场景
  - 特别适用于各种服务器部署使用等指导场景
- - 是演示各种各种cli工具使用的最佳方式，比起单纯的截图、视频录制更方便，它还能转换成svg动画，可以无损缩放，非常强大
+ - 是演示各种cli工具使用的最佳方式，比起单纯的截图、视频录制更方便，它还能转换成svg动画，可以无损缩放，非常强大
 
 ### Linux下安装
 看官方仓库ReadMe即可，这里不赘述
@@ -64,5 +64,5 @@ svg-term --in=misc/screencast/demo.cast --out=misc/screencast/demo.svg --window
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/asciinema/  
+> URL: http://localhost:1313/posts/asciinema/  
 

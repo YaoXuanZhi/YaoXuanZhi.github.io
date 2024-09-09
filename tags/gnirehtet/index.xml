@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Gnirehtet - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/gnirehtet/</link>
+    <description>Gnirehtet - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 13 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/gnirehtet/" rel="self" type="application/rss+xml" /><item>
+  <title>手机通过usb线使用pc电脑上网</title>
+  <link>http://localhost:1313/posts/mobile_internet_sharing_via_usb_to_pc/</link>
+  <pubDate>Mon, 13 Mar 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/mobile_internet_sharing_via_usb_to_pc/</guid>
+  <description><![CDATA[<p>需要协助跟进一个真机上手游包特有的登录问题，初步定位到问题出在包体上，但该包在首次安装启动的时候，需要下载10G+的资源包，每次出包，资源包都会有变更，而公司的内网资源服务器空间有限，并且wifi信道存在多人相互抢占的情况，最终导致资源下载特别慢，为了排查这么个问题，需要等待1h+才能进游戏；如果让手机通过usb线使用pc电脑上网，这样就能规避上述问题了，最终借助了<a href="https://github.com/Genymobile/gnirehtet"target="_blank" rel="external nofollow noopener noreferrer">gnirehtet</a>来达成目的</p>]]></description>
+</item>
+</channel>
+</rss>

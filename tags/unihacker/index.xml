@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>UniHacker - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/unihacker/</link>
+    <description>UniHacker - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 13 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/unihacker/" rel="self" type="application/rss+xml" /><item>
+  <title>Unity零元购</title>
+  <link>http://localhost:1313/posts/unity_zero_cost_acquisition_method/</link>
+  <pubDate>Sun, 13 Nov 2022 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/unity_zero_cost_acquisition_method/</guid>
+  <description><![CDATA[<p>最近，多位同事反馈，本地的私人Unity账号被封了，Unity检测到同事们的免费账号在企业里使用，想要解封，需要同Unity官方人员联系balabla，心痛已在<code>Unity AssetStore</code>里付费购买了多款插件的账号之余，搬砖还不能停，遂在网上检索一些Unity零元购的方法</p>]]></description>
+</item>
+</channel>
+</rss>

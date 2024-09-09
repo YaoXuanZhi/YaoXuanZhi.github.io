@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>流程制定 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%B5%81%E7%A8%8B%E5%88%B6%E5%AE%9A/</link>
+    <description>流程制定 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%B5%81%E7%A8%8B%E5%88%B6%E5%AE%9A/" rel="self" type="application/rss+xml" /><item>
+  <title>技术开发路线制定流程(备份)</title>
+  <link>http://localhost:1313/abouts/tech_development_roadmap_process/</link>
+  <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/abouts/tech_development_roadmap_process/</guid>
+  <description><![CDATA[概念定义 技术开发路线技术开发路线是指对一系列程序上的 关键性技术点 进行解决的路径表达，路线的制定有助于我们聚焦到关键性技术上来，每个关键性技术点往往包含以下几个部分 技术点简要 解决痛点 优先级 开展思路，人员配置，时间配置 技术开发路线正常情况下每个大版本初期由组长和专家发起拟定，版本过程中适量做合理调整，版]]></description>
+</item>
+</channel>
+</rss>

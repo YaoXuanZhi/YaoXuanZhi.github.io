@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>日常工具 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/</link>
+    <description>日常工具 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Tue, 21 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+  <title>全球互联笔记</title>
+  <link>http://localhost:1313/posts/global_network_build/</link>
+  <pubDate>Tue, 21 Mar 2023 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/global_network_build/</guid>
+  <description><![CDATA[<p>在2023年，由于各种AI应用的大爆发，简体中文互联网的高质量内容被各种量产垃圾内容掩盖住了，再叠加上各大日常App的大数据推荐系统，我们生活在一个个信息茧房中，为了避免坐井观天，需要整合国内外的高质量信息源，因此有了这篇笔记</p>]]></description>
+</item>
+</channel>
+</rss>

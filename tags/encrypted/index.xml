@@ -1,24 +1,24 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Encrypted - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:54598/tags/encrypted/</link>
+    <link>http://localhost:1313/tags/encrypted/</link>
     <description>Encrypted - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/encrypted/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/encrypted/" rel="self" type="application/rss+xml" /><item>
   <title>谈一种页面加密技术</title>
-  <link>http://localhost:54598/posts/a_way_of_html_encryption/</link>
+  <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
   <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/a_way_of_html_encryption/</guid>
+  <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
   <description><![CDATA[<p>在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索</p>]]></description>
 </item>
 <item>
   <title>PHP-XDebug安装脚本</title>
-  <link>http://localhost:54598/posts/auto-download-xdebug-for-php/</link>
+  <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
   <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/auto-download-xdebug-for-php/</guid>
-  <description><![CDATA[前言目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug 在idea里的php settings上有其安装指导，如下图所示： 经过网上检索可知，安装php-xdebug的步骤如下： 查询phpinfo 拿phpinfo去xdebug wizard查]]></description>
+  <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
+  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug</p>]]></description>
 </item>
 </channel>
 </rss>

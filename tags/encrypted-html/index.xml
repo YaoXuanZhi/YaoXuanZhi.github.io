@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Encrypted Html - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:54598/tags/encrypted-html/</link>
+    <link>http://localhost:1313/tags/encrypted-html/</link>
     <description>Encrypted Html - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/encrypted-html/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/encrypted-html/" rel="self" type="application/rss+xml" /><item>
   <title>Hexo插件-文章加密</title>
-  <link>http://localhost:54598/posts/how_to_write_a_hexo_plugin/</link>
+  <link>http://localhost:1313/posts/how_to_write_a_hexo_plugin/</link>
   <pubDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/how_to_write_a_hexo_plugin/</guid>
+  <guid>http://localhost:1313/posts/how_to_write_a_hexo_plugin/</guid>
   <description><![CDATA[<p>之前在<a href="../a_way_of_html_encryption/">《谈一种页面加密技术》</a>里谈到了自己捣弄了一个页面加密方案，并且也开发了一个cli工具用来对html或tag进行打包加密，由于本人的文章都是采用hexo来发布的，因此就需要将这个打包工具整合成hexo plugin了</p>]]></description>
 </item>
 </channel>

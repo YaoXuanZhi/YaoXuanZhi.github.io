@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Svn - 标签 - YaoXuanZhi&#39;s Blog</title>
-    <link>http://localhost:54598/tags/svn/</link>
+    <link>http://localhost:1313/tags/svn/</link>
     <description>Svn - 标签 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 02 Mar 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:54598/tags/svn/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 02 Mar 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/svn/" rel="self" type="application/rss+xml" /><item>
   <title>SVN爬坑</title>
-  <link>http://localhost:54598/posts/svn_except_notes/</link>
+  <link>http://localhost:1313/posts/svn_except_notes/</link>
   <pubDate>Wed, 02 Mar 2016 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
-  <guid>http://localhost:54598/posts/svn_except_notes/</guid>
+  <guid>http://localhost:1313/posts/svn_except_notes/</guid>
   <description><![CDATA[<p>在涉及到多工种协作时，大部分开发团队采用svn作为版本管理工具，这里记录了一些本人遇到的svn的疑难杂症和相关解决方案</p>]]></description>
 </item>
 </channel>

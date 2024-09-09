@@ -12,5 +12,5 @@
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:54598/posts/svn_except_notes/  
+> URL: http://localhost:1313/posts/svn_except_notes/  
 

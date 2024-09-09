@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Windows环境变量 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/windows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+    <description>Windows环境变量 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 03 Mar 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/windows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="self" type="application/rss+xml" /><item>
+  <title>Windows系统环境变量</title>
+  <link>http://localhost:1313/posts/windows_env_variants/</link>
+  <pubDate>Thu, 03 Mar 2016 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/windows_env_variants/</guid>
+  <description><![CDATA[<p>在Windows系统中进行各种开发任务时，遇到需要自动化执行一些命令时，经常会用到环境变量，这里特意记录下</p>]]></description>
+</item>
+</channel>
+</rss>
