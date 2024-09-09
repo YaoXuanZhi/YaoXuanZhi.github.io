@@ -18,7 +18,7 @@
   <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
-  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug</p>]]></description>
+  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug</p>]]></description>
 </item>
 </channel>
 </rss>

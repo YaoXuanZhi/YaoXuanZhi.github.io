@@ -13,7 +13,7 @@
   <description><![CDATA[<p>在整个工作生活中，我们都扮演着各种角色，亦因此需要用到各种工具，比如需求分析、架构设计、技术方案讲解等等，这里记录了本人用到的一些常用工具</p>]]></description>
 </item>
 <item>
-  <title>Debian的捣弄笔记</title>
+  <title>Debian的折腾笔记</title>
   <link>http://localhost:1313/posts/debian_notes/</link>
   <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
@@ -58,7 +58,7 @@
   <pubDate>Tue, 19 May 2020 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/global_rank_server_imp/</guid>
-  <description><![CDATA[<p>在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的常用实现</p>]]></description>
+  <description><![CDATA[<p>在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的实现</p>]]></description>
 </item>
 <item>
   <title>Visual Studio使用笔记</title>
@@ -74,7 +74,7 @@
   <pubDate>Thu, 03 Mar 2016 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/windows_env_variants/</guid>
-  <description><![CDATA[<p>在Windows系统中进行各种开发任务时，遇到需要自动化执行一些命令时，经常会用到环境变量，这里特意记录下</p>]]></description>
+  <description><![CDATA[<p>这里整理了可能会用到的Windows环境变量，方便查阅</p>]]></description>
 </item>
 </channel>
 </rss>

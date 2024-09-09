@@ -13,14 +13,6 @@
   <description><![CDATA[<p>本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具</p>]]></description>
 </item>
 <item>
-  <title>简易的条件组分词器</title>
-  <link>http://localhost:1313/posts/simple_condition_group_tokenizer/</link>
-  <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/simple_condition_group_tokenizer/</guid>
-  <description><![CDATA[<p>这是一个简单且易用的条件组分词器，提供了c#、c++、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你</p>]]></description>
-</item>
-<item>
   <title>拓展Msys2</title>
   <link>http://localhost:1313/posts/improve_msys2/</link>
   <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
@@ -58,7 +50,7 @@
   <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
-  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在ide上可以断点调试php，需要安装xdebug</p>]]></description>
+  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug</p>]]></description>
 </item>
 </channel>
 </rss>
