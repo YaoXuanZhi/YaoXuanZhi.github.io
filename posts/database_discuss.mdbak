@@ -1,0 +1,75 @@
+数据层设计的相关讨论
+
+- 熊猫：（纯净版）将ModelEty来全部展开成Component
+	- 实现方案：
+		- 需要将ModelEty上的各个Ety字段全部拆散形成各个小粒度Component，就能自动贴合ET框架的已有的数据库持久化方案了
+	- 优势：
+		- 更加贴合ET框架原汁原味的开发体验
+		- 数据库的持久化方案是已有的，不用重新实现
+	- 劣势
+		- 数据前后端分离：client-model和server-model不再自动同步
+			- 客户端和Model逻辑全部重写，涉及到所有系统组童鞋，并且重新梳理一遍相关业务开发流程，特别是前端的界面显示刷新逻辑都要大幅度改动，重新摸索一套合适的开发流程
+			- 有鉴于战斗底层重构的复杂性，在没有彻底启用新版战斗框架的情况下，战斗单位获取玩家系统数据的方式应该是不变的，那么ModelEty被干掉之后，这块逻辑也要跟着改，怎么改？我这边没办法确定
+		- 服务器测试用例搞不了
+			- 服务器测试用例的核心是模拟客户端可以知晓服务器对应系统模块的数据，也就是一份类似ServerModelEty的ClientModelEty，要不然，模拟协议发送的意义就不大，只能模拟不断的发起某些请求侦听协议返回，但是对关联模块的数据刷新是没有感知的，还不如纯黑盒测试，但是这样一来，后端功能模块的可靠性就存疑，数值正式配置之后，可能引起的功能异常没办法通过自动化的方式快速发现
+		- 服务器数据查询这个东西，不能在游戏UI上看到了，接入数据库的话，可以通过数据库浏览器来查询
+		- 比之当下后续系统业务开发的增加了额外工作量
+			- 数据没有一个统一的查询地方，后端模块还好，但是前端各个界面基本是各管各的，相关界面刷新显示，基本依靠的是各个界面专属的查询协议，后端童鞋得配合前端童鞋去组装各种要显示的数据并返回前端，最终导致前后端联调成本增加
+			- 一些判断消耗、进阶等条件的接口要写两遍
+				- 后端是所有模块都加载的，可以跨模块直接查
+				- 前端的模块数据是各个界面各自按需加载并管理的，无法知晓全局
+			- 可量化的：
+				- 纯服务器的系统内容
+					- 基础（基于ET已有的）：
+						- PlayerBaseData：登录、登出、重登、重连（1~2d）
+					- Gm模块（基于已实现的机制改造 1d）
+					- PlayerBattle（3d）
+					- PlayerBossFb+BossFbModelEty（2~3d）
+					- PlayerCityDefense (2~3d)
+					- PlayerDaily+PlayerWish (1d)
+					- PlayerFormationPreset+FormationPresetModel （3.5d）
+					- PlayerGuide (1.5d)
+					- PlayerFriend (待新需求出来再定)
+					- PlayerHome（2~3d）
+					- PlayerItem+PlayerStackItem+ItemModelEty (4~6d)
+					- PlayerKeyPositionInput (1.5d)
+					- PlayerLife+LifeModelEty (2~3d)
+					- PlayerLottery (1.5d)
+					- PlayerTask+PlayerTaskMaster+PlayerTaskCondition+PlayerTaskCondition+PlayerTaskCircle+PlayerTaskPlot以及相关联的ModelEty (6~8d)
+					- PlayerUserConfig (1d)
+					- PlayerStamina (1d)
+					- PlayerRollMsg (1.5d)
+					- PlayerPlot (1d)
+					- PlayerPlant (3~4d)
+					- PlayerPartner (2d)
+					- PlayerRefresh (1d)
+					- PlayerMissionMgr+PlayerMission (2~3d)
+					- PlayerMasterTalent (3d)
+					- PlayerMasterSkill 很多功能被删掉了 (1d)
+					- PlayerMasterJewel+MasterJewelModelEty (3~4d)
+					- PlayerMasterEquipment+MasterEquipmentModel (5~7d)
+					- PlayerMaster (3~4d)
+					- PlayerManual (1d)
+					- PlayerNpc (1.5d)
+					- PlayerResourcesFb (1d)
+					- PlayerShop (2d)
+					- PlayerMail (原有的3~4d，也可以待新需求出来再定)
+					- 预计`[70,86]`人天
+				- 客户端因此带来的新的工作量没办法量化
+
+
+- 观察下来，发现同ety那套东西的开发流程差距过大，评估下EtyComponent的合理性
+	- 熊猫指出几处
+		- 前端并不需要知道所有系统数据，比如有一些vip之类的信息，就是不希望客户端知道，这种怎么办
+		  > 可以在json上，新增字段，不针对它进行数据同步，自动导出的时候，可以通过宏来控制这些字段是否被识别  
+		- MMO项目里，会有好几百个系统，这些系统的数据怎么同步？数据量很大是否会存在问题？
+		  > 我们这个项目，首先可以明确到它并不是MMO类型，虽然包含了一些MMO之类的内容，但是系统量肯定不会这么大的；其次根据我们现在的游戏类型来说，其实系统的交互频率又不高，系统数据和战斗内的数据是分离的，针对这个同步频率，其实完全可以接受  
+		- 哪些好友、公会、聊天之类的公共玩法数据呢？怎么同步？
+		  > 可以在ClientModel上，挂上多个EtyRoot，比如SystemEtyRoot、GuildEtyRoot、ChatEtyRoot之类的，协议同步行为，可以按照Private和Public来进行广播式同步还是个人式同步，这都是不难做到的  
+		- 为啥偏好使用Ety Sync或者说，引入Component，它有啥好处
+			- client知道该系统要显示的所有数据，那么做系统ui需求的时候，就不需要新增协议从服务器上拿数据了
+			- ety sync同步之后，发现在Model下的字段产生了变动，会分发某Model下某字段变更的事件出来，可以节省时间，不需要额外新增协议来手动同步这个变更消息才能通知客户端刷新
+			- 目前战斗逻辑层的数据，就是ety这套，如果有这个EtyComponent的话，那么战斗逻辑层那边只需要改下获取接口的方式，其它地方基本不用动了，战斗童鞋那边的移植工作可以大大节省
+			-
+
+ - [ShareData](https://github.com/cloudwu/skynet/wiki/ShareData)

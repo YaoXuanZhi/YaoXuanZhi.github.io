@@ -48,11 +48,43 @@ git checkout learn
 
 用vscode打开仓库根目录，F5运行调试即可
 
+### 尝试使用pdf.js实现
+
+```python
+import sys
+from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+# pip install PyQtWebEngine
+
+PDFJS = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/viewer.html&#39;
+# PDFJS = &#39;file:///path/to/pdfjs-1.9.426-dist/web/viewer.html&#39;
+# PDFJS = &#39;file:///usr/share/pdf.js/web/viewer.html&#39;
+# PDF = &#39;file:///path/to/my/sample.pdf&#39;
+PDF = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/compressed.tracemonkey-pldi-09.pdf&#39;
+# PDF = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/Snipaste_2024-09-18_01-09-43.pdf&#39;
+
+class Window(QWebEngineView):
+    def __init__(self):
+        super().__init__()
+        self.load(QtCore.QUrl.fromUserInput(&#39;%s?file=%s&#39; % (PDFJS, PDF)))
+
+if __name__ == &#39;__main__&#39;:
+
+    app = QtWidgets.QApplication(sys.argv)
+    window = Window()
+    window.setGeometry(600, 50, 800, 600)
+    window.show()
+    sys.exit(app.exec_())
+```
+
 ### 后记
 之所以想要源码调试它，是想从其之中汲取到添加OCR文本层的思路，后续会将这块的分析整理成博客分享
 
 ### 参考资料
  - [关于win10原生系统下 OCRmyPDF安装使用](https://www.cnblogs.com/edisp/p/16667455.html)
+ - [三年磨一剑——微信OCR图片文字提取](https://cloud.tencent.com/developer/article/1798403)
+ - [PDF.js实现个性化PDF渲染（文本复制）](https://www.cnblogs.com/lalalagq/p/9939471.html)
+ - [PyQt 如何在PyQt中使用pdf.js查看器渲染PDF](https://geek-docs.com/pyqt/pyqt-questions/27_pyqt_how_to_render_pdf_using_pdfjs_viewer_in_pyqt.html)
 
 ---
 

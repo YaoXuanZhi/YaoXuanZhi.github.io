@@ -47,7 +47,7 @@ PowerSession.exe play example.cast
 
 ```sh
 #创建NodeJs环境
-conda create --name nodejs_env nodejs
+conda create -c conda-forge --name nodejs_env nodejs
 conda activate nodejs_env
 
 # 安装
@@ -56,6 +56,9 @@ npm install -g svg-term-cli
 # 使用示例
 svg-term --in=misc/screencast/demo.cast --out=misc/screencast/demo.svg --window
 ```
+
+### 演示效果
+{{&lt; asciinema id=550147 theme=solarized-dark autoplay=false speed=1 &gt;}}
 
 ### 参考资料
  - [asciinema](https://asciinema.org/)

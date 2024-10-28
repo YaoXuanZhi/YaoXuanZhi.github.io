@@ -19,6 +19,7 @@ conda activate ai_writer
 
 # 安装相关依赖包
 pip install torch==1.9.1
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install numpy
 pip install onnxruntime
 ```

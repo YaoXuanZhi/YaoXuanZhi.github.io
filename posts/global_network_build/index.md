@@ -13,6 +13,24 @@
 
 大多活跃中的开源项目都会开通配套的Discord，对某个开源项目比较感兴趣的话，可以加入项目Discord里蹲一手消息
 
+### Web3版的“公众号”Mirror
+https://mirror.xyz
+https://www.huxiu.com/article/590554.html
+
+mirror周报
+https://mcdao.mirror.xyz/
+
+#### 自建频道与Github活动绑定
+大部分开源项目团队自建的Discord都会接入一个Github Bot，将每次Github上的行为转发到Discord上，这里做下简单记录
+
+1. 在Discord上创建一个频道，并赋予频道管理员权限，并且在服务器设置上创建一个Webhook，如下图所示：
+  - ![](/assets/2024-10-15/1728978400795.png)
+2. 在Github Repo上设置该仓库的Webhook，如下图所示：
+  - ![](/assets/2024-10-15/1728978781537.png)
+
+##### 参考资料
+ - [How to Connect GitHub repo to Discord bot || Full Step By Step Process Explained](https://www.youtube.com/watch?v=yK1NHfKkW-0)
+
 ### Telegram
 这是一个匿名 IM工具，有一些比较硬核的技术在这里分享传播着
 
@@ -25,12 +43,34 @@
 
 #### 在Vps部署SSR-Server
 ```sh
-# [ssr-服务器介绍](https://git.io/v2ray.sh)
-# 可以使用这个一键脚本
-# bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
-# 本人用这个
+# 建议在centos上安装
+# 本人用这个，需要安装python2.x
+# 下载并运行ssh.sh脚本
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod &#43;x ssr.sh &amp;&amp; bash ssr.sh
+```
+
+```sh
+# python2_installer.sh
+# sudo apt install python2 #这个在ubuntu24上无法正常安装了，建议使用py_env来编译安装
+
+# 安装py_env
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+echo &#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39; &gt;&gt; ~/.bashrc
+echo &#39;export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+echo -e &#39;if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n eval &#34;$(pyenv init -)&#34;\nfi&#39; &gt;&gt; ~/.bashrc
+# exec &#34;$SHELL&#34;
+
+# 安装Python编译依赖
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+
+# 安装Python版本
+pyenv install 2.7.18
+
+# 设置全局Python版本
+# pyenv global 2.7.18
+
+# 关联上/usr/bin/python路径
+cp /root/.pyenv/shims/python /usr/bin/python
 ```
 
 #### 使用SSR-Client

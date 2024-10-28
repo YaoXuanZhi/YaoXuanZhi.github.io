@@ -43,6 +43,8 @@
 |  Electron | 较为现代化 | 一般 | 一般 | 不支持 | 有所耳闻 | 该方案会内置一个Web内核，过于重了，而且应用分发体积比较大，TypeScript比较少用，收益比太低 |
 |  PyQt-Fluent-Widgets(PyQt5) | 较为现代化 | 一般 | 容易 | 支持，PyCharm安装Roadium插件即可 | 熟悉Python，但不熟悉Qt框架 | 它相当于一套FluentUI风格的PyQt5，而且Python易于学习上手，大多数开发者都掌握，另外以后若有商业化考虑可以无缝转译到Qt(C&#43;&#43;)上 |
 
+后续如果需要开发一些重Web端的移植项目，还可以采用[pywebview](https://github.com/r0x0r/pywebview)方案
+
 ### 后记
 在这个过程中，也留意到有个[PixPin应用](https://www.appinn.com/pixpin/)，该作者的开发动机同本人蛮接近的，如下图所示：
 
