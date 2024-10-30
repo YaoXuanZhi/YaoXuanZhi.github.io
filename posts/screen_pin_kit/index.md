@@ -48,6 +48,9 @@
 ### 安装演示
 {{&lt; asciinema id=686488 theme=solarized-dark autoplay=false speed=1 &gt;}}
 
+### 运行截图
+![](/assets/2024-10-15/ScreenPinKit_Interface.png)
+
 ### 后记
 在这个过程中，也留意到有个[PixPin应用](https://www.appinn.com/pixpin/)，该作者的开发动机同本人蛮接近的，如下图所示：
 
