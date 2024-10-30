@@ -45,6 +45,9 @@
 
 后续如果需要开发一些重Web端的移植项目，还可以采用[pywebview](https://github.com/r0x0r/pywebview)方案
 
+### 安装演示
+{{&lt; asciinema id=686488 theme=solarized-dark autoplay=false speed=1 &gt;}}
+
 ### 后记
 在这个过程中，也留意到有个[PixPin应用](https://www.appinn.com/pixpin/)，该作者的开发动机同本人蛮接近的，如下图所示：
 
