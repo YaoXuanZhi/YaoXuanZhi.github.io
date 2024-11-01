@@ -78,6 +78,8 @@
 ## 程序设计
 既然配置表、配套测试配置都就位了，那接下来就是条件模块的功能设计啦，它需要将这些字符串解析成一个个条件类型，并且进行各种逻辑判断，返回最终判断结果
 
+![](/assets/2021-08-25/condition_tokenize_processing.svg)
+
 程序实现步骤拆解：
   1. 实现一个Tokenizer：解析这个配置项文本，依据其设计好的分割规则，拆分成一个Token数组，然后提取里面的`条件块`和`逻辑运算符`和`层级关系`，举个简单例子：将 `system_level-weapon_sys-50 &amp;&amp; system_level-mount_sys-30` 解析成一个数组：`system_level-weapon_sys-50`、`&amp;&amp;`、`system_level-mount_sys-30`
   2. 将ConditionToken进行解析并返回结果：将上述例子里的 `system_level-weapon_sys-50`、`system_level-mount_sys-30` 进一步解析，并且调用各个系统的数据判断该条件的结果，将结果结合`&amp;&amp;`逻辑运算符得出最终结果，可以简化成 `result1 &amp;&amp; result2`

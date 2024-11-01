@@ -25,6 +25,7 @@
   - AI编程助手
      - [CodeGeex(VSCode/IntelliJ IDE) 免费](https://codegeex.cn/zh-CN)
      - [Github Copilot(VSCode/IntelliJ IDE) 收费](https://www.microsoft.com/zh-cn/microsoft-copilot)
+     - [Github Copilot(VSCode/IntelliJ IDE) 收费](https://www.microsoft.com/zh-cn/microsoft-copilot)
 
   - 笔记应用
     - [logseq](https://logseq.com/)
@@ -32,6 +33,11 @@
   - 密码破解
     - [ciphey](https://github.com/Ciphey/Ciphey)
       &gt;docker run -it --rm remnux/ciphey ciphey -t &#34;aGVsbG8gbXkgbmFtZSBpcyBiZWU=&#34;
+
+  - 域名注册
+    - [namebeta](https://namebeta.com/)
+    - [namecheap](https://ap.www.namecheap.com/)
+      &gt;已购买
 
   - 自建博客
     - ~~[hexo](https://hexo.io/zh-cn/)~~
@@ -62,6 +68,8 @@
  - [Unity](https://unity.cn/)
  - [UE](https://www.unrealengine.com/zh-CN)
  - [Godot](https://godotengine.org/)
+ - 防破解
+   - [unity 游戏源码防破解](https://zhuanlan.zhihu.com/p/720289641)
 
 ## OCR识别
  - [PaddleOCR-多国语言文本识别](https://github.com/PaddlePaddle/PaddleOCR)
@@ -83,7 +91,10 @@
   - [头部说话演示](https://github.com/pkhungurn/talking-head-anime-demo)
     - [talking-head-anime-demo](https://www.bilibili.com/video/av91131149)
   - [如何使用Stable Difusion制作Live2D角色](https://www.youtube.com/watch?v=gdgvtaRJUNM)
+ - 抠图
   - [BiRefNet-AI抠图](https://github.com/ZhengPeng7/BiRefNet)
+  - ~~[batchtool](https://images.batchtool.com/zh)~~
+    &gt;效率不高，不建议使用
 
 ## 影视后期
  - 剪辑类
@@ -94,11 +105,23 @@
 
 ## 开发环境搭建
 ##### Golang
-
 ```sh
 # windows
 # winget search golang
 winget install GoLang.Go
+```
+
+##### Python
+```sh
+conda create -n python_env python=3.9
+conda activate python_env
+```
+
+##### NoeJs
+
+```sh
+conda create -c conda-forge --name nodejs_env nodejs
+conda activate nodejs_env
 ```
 
 ---

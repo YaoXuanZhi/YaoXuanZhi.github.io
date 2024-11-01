@@ -9,14 +9,14 @@
 <meta name="author-link" content="https://github.com/YaoXuanZhi">
 <meta name="description" content="这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你" /><meta name="keywords" content='条件组判断, 条件判断, 逻辑符运算' /><meta itemprop="name" content="简易的条件组分词器">
 <meta itemprop="description" content="这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你"><meta itemprop="datePublished" content="2021-08-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-09-10T01:48:02+08:00" />
+<meta itemprop="dateModified" content="2024-10-31T02:25:20+08:00" />
 <meta itemprop="wordCount" content="3269">
 <meta itemprop="keywords" content="条件组判断,条件判断,逻辑符运算," /><meta property="og:title" content="简易的条件组分词器" />
 <meta property="og:description" content="这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/posts/simple_condition_group_tokenizer/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-09-10T01:48:02+08:00" />
+<meta property="article:modified_time" content="2024-10-31T02:25:20+08:00" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="简易的条件组分词器"/>
 <meta name="twitter:description" content="这是一个简单且易用的条件组分词器，提供了c#、c&#43;&#43;、python等多种语言的实现和示例，如果你的项目需要支持复杂的条件组合和分层嵌套机制，那么它将非常适合你"/>
@@ -35,7 +35,7 @@
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/simple_condition_group_tokenizer\/"
     },"genre": "posts","keywords": "条件组判断, 条件判断, 逻辑符运算","wordcount":  3269 ,
-    "url": "http:\/\/localhost:1313\/posts\/simple_condition_group_tokenizer\/","datePublished": "2021-08-25T00:00:00+00:00","dateModified": "2024-09-10T01:48:02+08:00","publisher": {
+    "url": "http:\/\/localhost:1313\/posts\/simple_condition_group_tokenizer\/","datePublished": "2021-08-25T00:00:00+00:00","dateModified": "2024-10-31T02:25:20+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -359,6 +359,7 @@
 <p>给这类复杂条件起个名字，叫做<code>条件组</code>，因为每个小括号包裹住的条件配置都被视为一个条件组，如果条件配置没有小括号，可以视为其最外层有个隐藏的小括号，同策划童鞋沟通好，达成共识</p>
 <h2 id="程序设计" class="heading-element">
   <a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="heading-mark"></a>程序设计</h2><p>既然配置表、配套测试配置都就位了，那接下来就是条件模块的功能设计啦，它需要将这些字符串解析成一个个条件类型，并且进行各种逻辑判断，返回最终判断结果</p>
+<p><img loading="lazy" src="/assets/2021-08-25/condition_tokenize_processing.svg" alt="/assets/2021-08-25/condition_tokenize_processing.svg" srcset="/assets/2021-08-25/condition_tokenize_processing.svg?size=small, /assets/2021-08-25/condition_tokenize_processing.svg?size=medium 1.5x, /assets/2021-08-25/condition_tokenize_processing.svg?size=large 2x" data-title="/assets/2021-08-25/condition_tokenize_processing.svg" class="suffix-invalid suffix-invalid__small suffix-invalid__large" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>程序实现步骤拆解：</p>
 <ol>
 <li>实现一个Tokenizer：解析这个配置项文本，依据其设计好的分割规则，拆分成一个Token数组，然后提取里面的<code>条件块</code>和<code>逻辑运算符</code>和<code>层级关系</code>，举个简单例子：将 <code>system_level-weapon_sys-50 &amp;&amp; system_level-mount_sys-30</code> 解析成一个数组：<code>system_level-weapon_sys-50</code>、<code>&amp;&amp;</code>、<code>system_level-mount_sys-30</code></li>
