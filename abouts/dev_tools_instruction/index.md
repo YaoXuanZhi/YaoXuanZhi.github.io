@@ -25,7 +25,9 @@
   - AI编程助手
      - [CodeGeex(VSCode/IntelliJ IDE) 免费](https://codegeex.cn/zh-CN)
      - [Github Copilot(VSCode/IntelliJ IDE) 收费](https://www.microsoft.com/zh-cn/microsoft-copilot)
-     - [Github Copilot(VSCode/IntelliJ IDE) 收费](https://www.microsoft.com/zh-cn/microsoft-copilot)
+     - [marscode豆包AI编程助手，类似Copilot](https://www.marscode.cn/home)
+     - [screenshot-to-code 截图到代码，主要针对HTML](https://github.com/abi/screenshot-to-code)
+       - [前端开发利器—图片生成代码](https://blog.fxcxy.com/2024/06/05/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%88%A9%E5%99%A8%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/)
 
   - 笔记应用
     - [logseq](https://logseq.com/)
@@ -44,6 +46,9 @@
       &gt;nodejs各种第三方npm包依赖太重了，而且版本间兼容性差，已经改到hugo了
     - [hugo](https://gohugo.io/)
       &gt;由于互联网上的第三方文章链接可能会失效，如果遇到不错的文章，建议生成离线html文件保存到本地，本人在此采用 **简悦 - SimpRead Chrome插件**里的 `【动作】-&gt; 【导出为 离线 HTML】`功能来达成这一目的，它会将文章图片转换为base64编码，这样即使文章链接失效，各种图片也能正常显示
+
+## 商业源码购买&amp;出售
+ - [sellmyapp](https://www.sellmyapp.com/downloads/)
 
 
 ## 教学讲解
@@ -77,16 +82,25 @@
  - [TexTeller-LaTeX识别](https://github.com/OleehyO/TexTeller)
  - [OcrMyPdf-给扫描PDF添加OCR文本层](https://github.com/ocrmypdf/OCRmyPDF)
 
+## 分布式存储技术&amp;应用
+ - [ipfs-docs](https://docs.ipfs.tech/)
+  - [libp2p-webrtc](https://docs.libp2p.io/guides/getting-started/webrtc/)
+    &gt;基于这套技术，我们可以在浏览器中构建一个P2P网络，实现文件的共享和传输或者游戏联网
+ - [御宅室](https://www.otakuroom.top/cn/index.html)
+
 ## 美术资产
  - AI出图
    - StableDiffusion
    - [Flux](https://github.com/black-forest-labs/flux)
    - midjourny
    - 可灵
+ - 人物训练
+   - [NovelAI-人物训练及炼丹embedding指南](https://www.bilibili.com/read/cv19336836/)
  - 图片格式转换
   - [SVGcode](https://svgco.de/)：将位图转换成svg图片
   - [图片转文本](https://meatfighter.com/ascii-silhouettify/spa/index.html#/)：将位图转换成文字艺术，类似Bug佛祖图片
  - Live2D
+  - [live2d](https://www.live2d.com/)
   - [Live2Diff-通过单向视频扩散模型处理 Live2d 视频流的 Pipeline](https://github.com/open-mmlab/Live2Diff)
   - [头部说话演示](https://github.com/pkhungurn/talking-head-anime-demo)
     - [talking-head-anime-demo](https://www.bilibili.com/video/av91131149)
