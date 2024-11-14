@@ -2,8 +2,8 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>http://localhost:1313/posts/</loc><lastmod>2024-11-15T05:18:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>http://localhost:1313/</loc><lastmod>2024-11-15T05:18:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/posts/</loc><lastmod>2024-11-15T05:28:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/</loc><lastmod>2024-11-15T05:28:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/abouts/</loc><lastmod>2024-11-14T13:27:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/categories/</loc><lastmod>2024-11-15T05:18:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/</loc><lastmod>2024-11-15T05:18:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -22,7 +22,6 @@
       <loc>http://localhost:1313/tags/linux/</loc><lastmod>2024-11-11T09:25:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/categories/linux%E6%8A%80%E6%9C%AF/</loc><lastmod>2024-11-11T09:25:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/nodejs/</loc><lastmod>2024-11-11T09:25:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>http://localhost:1313/posts/ubuntu_notes/</loc><lastmod>2024-11-11T09:25:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/yarn/</loc><lastmod>2024-11-11T09:25:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/commonui/</loc><lastmod>2024-09-09T23:14:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>http://localhost:1313/tags/lyra/</loc><lastmod>2024-09-09T23:14:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
