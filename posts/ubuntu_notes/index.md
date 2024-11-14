@@ -1,4 +1,4 @@
-# Debian的折腾笔记
+# Ubuntu的折腾笔记
 
 
 ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕
@@ -120,10 +120,10 @@ sudo docker run -d -v ~/Software/zentao_data:/data -p 90:80 -e MYSQL_INTERNAL=tr
 ```
 
 ## 网络安全注意事项
- - [MongoDB的默认策略导致的安全问题](https://help.aliyun.com/zh/cloud-firewall/use-cases/best-practices-to-defend-against-unauthorized-access-to-a-mongodb-database)
+ - [VMware Tools灰色，无法直接安装解决办法【亲测有效】](https://blog.csdn.net/MelyLenient/article/details/109204228)
 
 ---
 
 > 作者: [YaoXuanZhi](https://github.com/YaoXuanZhi)  
-> URL: http://localhost:1313/posts/debian_notes/  
+> URL: http://localhost:1313/posts/ubuntu_notes/  
 

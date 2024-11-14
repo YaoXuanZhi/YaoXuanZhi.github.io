@@ -79,6 +79,7 @@
 ## OCR识别
  - [PaddleOCR-多国语言文本识别](https://github.com/PaddlePaddle/PaddleOCR)
  - [CnOCR-中英文文本识别](https://github.com/breezedeus/cnocr)
+ - [surya-OCR、布局分析、读取顺序、表格识别](https://github.com/VikParuchuri/surya)
  - [TexTeller-LaTeX识别](https://github.com/OleehyO/TexTeller)
  - [OcrMyPdf-给扫描PDF添加OCR文本层](https://github.com/ocrmypdf/OCRmyPDF)
 
@@ -124,6 +125,15 @@
 # winget search golang
 winget install GoLang.Go
 ```
+
+##### Miniconda3
+```sh
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
+start /wait &#34;&#34; .\miniconda.exe /S
+del miniconda.exe
+```
+
+ - [Miniconda](https://docs.anaconda.com/miniconda/)
 
 ##### Python
 ```sh
