@@ -21,6 +21,14 @@
   <description><![CDATA[<p>ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕</p>]]></description>
 </item>
 <item>
+  <title>通过小米音箱来播放小宇宙播客(非手机蓝牙)</title>
+  <link>http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/</link>
+  <pubDate>Thu, 25 Apr 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/</guid>
+  <description><![CDATA[<p>这两三年播客发展得如火如荼，本人也关注了好几个播客节目，由于在家里更希望通过音箱外放来收听播客频道，而手头的小米音箱本身不允许安装非官方App，因此有了这篇文章，希望能帮助到有同样需求的朋友</p>]]></description>
+</item>
+<item>
   <title>关于UE Lyra的Q&amp;A</title>
   <link>http://localhost:1313/posts/question_and_answer_on_ue_lyra/</link>
   <pubDate>Fri, 10 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -84,14 +92,6 @@
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/unity_zero_cost_acquisition_method/</guid>
   <description><![CDATA[<p>最近，多位同事反馈，本地的私人Unity账号被封了，Unity检测到同事们的免费账号在企业里使用，想要解封，需要同Unity官方人员联系balabla，心痛已在<code>Unity AssetStore</code>里付费购买了多款插件的账号之余，搬砖还不能停，遂在网上检索一些Unity零元购的方法</p>]]></description>
-</item>
-<item>
-  <title>一套自用的跨IDE键盘映射方案</title>
-  <link>http://localhost:1313/posts/cross-ide_keymapping_solution/</link>
-  <pubDate>Wed, 13 Apr 2022 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cross-ide_keymapping_solution/</guid>
-  <description><![CDATA[<p>由于本人在日常开发工作中会在多种开发环境上切换，用得较多的是vscode、ideac、rider、pycharm等IDE，因此有了统一多个ide快捷键习惯的需求，这里记录了一套个人自用的快捷键设置方案，采取了【IDE插件开发】+【IDE设置配置】组合的方式来达成目的</p>]]></description>
 </item>
 </channel>
 </rss>

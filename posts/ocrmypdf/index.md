@@ -48,20 +48,20 @@ git checkout learn
 
 用vscode打开仓库根目录，F5运行调试即可
 
-### 尝试使用pdf.js实现
+### FAQ
+
+#### 在Qt里如何加载Pdf？
 
 ```python
+# PyQt通过pdf.js来加载PDF文件，实现OCR文本选择层
+# pip install PyQtWebEngine
 import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-# pip install PyQtWebEngine
 
 PDFJS = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/viewer.html&#39;
-# PDFJS = &#39;file:///path/to/pdfjs-1.9.426-dist/web/viewer.html&#39;
-# PDFJS = &#39;file:///usr/share/pdf.js/web/viewer.html&#39;
 # PDF = &#39;file:///path/to/my/sample.pdf&#39;
 PDF = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/compressed.tracemonkey-pldi-09.pdf&#39;
-# PDF = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/Snipaste_2024-09-18_01-09-43.pdf&#39;
 
 class Window(QWebEngineView):
     def __init__(self):

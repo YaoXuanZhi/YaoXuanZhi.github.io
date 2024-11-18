@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Xiaomimusic - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/xiaomimusic/</link>
+    <description>Xiaomimusic - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 25 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/xiaomimusic/" rel="self" type="application/rss+xml" /><item>
+  <title>通过小米音箱来播放小宇宙播客(非手机蓝牙)</title>
+  <link>http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/</link>
+  <pubDate>Thu, 25 Apr 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/</guid>
+  <description><![CDATA[<p>这两三年播客发展得如火如荼，本人也关注了好几个播客节目，由于在家里更希望通过音箱外放来收听播客频道，而手头的小米音箱本身不允许安装非官方App，因此有了这篇文章，希望能帮助到有同样需求的朋友</p>]]></description>
+</item>
+</channel>
+</rss>

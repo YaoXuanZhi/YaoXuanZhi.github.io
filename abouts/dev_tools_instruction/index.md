@@ -29,6 +29,12 @@
      - [screenshot-to-code 截图到代码，主要针对HTML](https://github.com/abi/screenshot-to-code)
        - [前端开发利器—图片生成代码](https://blog.fxcxy.com/2024/06/05/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%88%A9%E5%99%A8%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/)
 
+  - 翻译工具
+     - [PDFMathTranslate 科学 PDF 文档翻译及双语对照工具](https://github.com/Byaidu/PDFMathTranslate)
+       &gt;沉浸式翻译也有类似效果，但是不够它好
+     - [Chrome扩展-沉浸式翻译 为网页提供双语翻译](https://chromewebstore.google.com/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6-pdf%E7%BF%BB%E8%AF%91-%E5%85%8D%E8%B4%B9/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
+       &gt;可以用在Discord上，但需要点击扩展图标才能正常翻译，或者开启悬停长按识别
+
   - 笔记应用
     - [logseq](https://logseq.com/)
 
@@ -75,6 +81,9 @@
  - [Godot](https://godotengine.org/)
  - 防破解
    - [unity 游戏源码防破解](https://zhuanlan.zhihu.com/p/720289641)
+ - 防作弊
+   - [pyod-异常行为检测库](https://github.com/yzhao062/pyod)
+     &gt;对局内的玩家某段时间的操作行为记录，并使用该库进行分析，发现异常行为，进行封号、警告等处理
 
 ## OCR识别
  - [PaddleOCR-多国语言文本识别](https://github.com/PaddlePaddle/PaddleOCR)
@@ -95,11 +104,16 @@
    - [Flux](https://github.com/black-forest-labs/flux)
    - midjourny
    - 可灵
+ - 人物表情迁移
+   - [HelloMeme：集成空间编织注意力，在扩散模型中嵌入高级别和保真度丰富的条件](https://github.com/HelloVision/HelloMeme)
+     - https://songkey.github.io/hellomeme/
+     &gt;可以将一些经典表情迁移到其它人物身上，并且不挑美术风格
  - 人物训练
    - [NovelAI-人物训练及炼丹embedding指南](https://www.bilibili.com/read/cv19336836/)
  - 图片格式转换
   - [SVGcode](https://svgco.de/)：将位图转换成svg图片
   - [图片转文本](https://meatfighter.com/ascii-silhouettify/spa/index.html#/)：将位图转换成文字艺术，类似Bug佛祖图片
+  - [开源-将位图转换为svg图像](https://svgstud.io/main.html?ref=taaft&amp;utm_source=taaft&amp;utm_medium=referral)
  - Live2D
   - [live2d](https://www.live2d.com/)
   - [Live2Diff-通过单向视频扩散模型处理 Live2d 视频流的 Pipeline](https://github.com/open-mmlab/Live2Diff)
@@ -147,6 +161,35 @@ conda activate python_env
 conda create -c conda-forge --name nodejs_env nodejs
 conda activate nodejs_env
 ```
+
+## 日常工具安装
+#### windows
+建议使用choco包管理进行安装即可，如果有其它偏好，下面有个对比图
+![](/assets/2024-11-16/1731733693108.png)
+
+```sh
+choco config set installLocation D:\ProgramData
+choco upgrade -y
+```
+
+```sh
+choco install powertoys
+choco install everythingpowertoys
+choco install 7zip.install
+```
+
+alt&#43;space=&gt;打开快捷搜索面板
+win&#43;ctrl&#43;shitf&#43;t =&gt; 窗口裁剪和锁定
+win&#43;ctrl&#43;t =&gt; 让某个窗口置顶
+&lt;!-- win&#43;shitf&#43;t =&gt; 选取区域进行OCR识别，并且将结果复制到剪贴板 --&gt;
+遇到某个文件被占用，无法删除，可以使用【使用文件锁定程序解锁】菜单项
+按住Shift键，拖动窗口，重新排版屏幕窗口布局
+ctrl&#43;space =&gt; 快速预览当前选中文件
+选择多个文件【使用PowerRename重命名】
+win&#43;ctrl&#43;` =&gt; 打开工作区
+
+期望支持
+支持设置窗口透明度 按住win&#43;ctrl&#43;滚轮时，可以往上或者往下设置窗口透明度
 
 ---
 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>通过rclone将Nas映射为网络磁盘(非局域网) - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？" /><meta name="keywords" content='rclone, Nas, 网络磁盘' /><meta itemprop="name" content="通过rclone将Nas映射为网络磁盘(非局域网)">
+<meta itemprop="description" content="前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？"><meta itemprop="datePublished" content="2022-10-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-12-23T22:26:13+08:00" />
+<meta itemprop="wordCount" content="1732">
+<meta itemprop="keywords" content="rclone,Nas,网络磁盘," /><meta property="og:title" content="通过rclone将Nas映射为网络磁盘(非局域网)" />
+<meta property="og:description" content="前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-12-23T22:26:13+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="通过rclone将Nas映射为网络磁盘(非局域网)"/>
+<meta name="twitter:description" content="前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？"/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/" /><link rel="prev" href="http://localhost:1313/posts/cross-ide_keymapping_solution/" /><link rel="next" href="http://localhost:1313/posts/unity_zero_cost_acquisition_method/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "通过rclone将Nas映射为网络磁盘(非局域网)",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/via_rclone_map_nas_as_network_disk\/"
+    },"genre": "posts","keywords": "rclone, Nas, 网络磁盘","wordcount":  1732 ,
+    "url": "http:\/\/localhost:1313\/posts\/via_rclone_map_nas_as_network_disk\/","datePublished": "2022-10-26T00:00:00+00:00","dateModified": "2024-12-23T22:26:13+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>通过rclone将Nas映射为网络磁盘(非局域网)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" class="post-category" title="分类 - 生活技巧"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 生活技巧</a></span></div><div class="post-meta-line"><span title="发布于 2022-10-26 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2022-10-26">2022-10-26</time></span>&nbsp;<span title="1732 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1800 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#需求痛点">需求&amp;痛点</a></li>
+    <li><a href="#方案选型">方案选型</a></li>
+    <li><a href="#动手">动手</a>
+      <ul>
+        <li><a href="#portable化处理">Portable化处理</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq">FAQ</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#为啥url填入了httpexamplecom依然无法正常访问账号密码都是正确的">为啥url填入了http://example.com依然无法正常访问，账号密码都是正确的？</a></li>
+            <li><a href="#如何指定webdav根目录呢">如何指定WebDav根目录呢？</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？</p>
+<a href="https://rclone.org" title="documentation of FixIt Theme"target="_blank" rel="external nofollow noopener noreferrer" class="card-link"><span class="cl-backdrop" style="--cl-bg-url: url(/images/fixit.min.svg);"></span>
+    <span class="cl-content">
+      <span class="cl-text">
+        <span class="cl-title">rclone官网</span>
+        <span class="cl-meta">
+          <svg class="cl-icon-link" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M574 665.4c-3.1-3.1-8.2-3.1-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8c-3.1-3.1-8.2-3.1-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zM832.6 191.4c-84.6-84.6-221.5-84.6-306 0L410.3 307.6c-3.1 3.1-3.1 8.2 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6c-3.1 3.1-3.1 8.2 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1z" fill="#a9a9b3"></path><path d="M610.1 372.3c-3.1-3.1-8.2-3.1-11.3 0L372.3 598.7c-3.1 3.1-3.1 8.2 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" fill="#a9a9b3"></path></svg>
+          <span class="cl-url">https://rclone.org</span>
+        </span>
+      </span><svg class="cl-icon-globe" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M960 512c0 249.408-203.2 448-448 448-244.778667 0-448-198.592-448-448S262.592 64 512 64s448 198.592 448 448" fill="#2196F3"></path><path d="M507.52 718.08c0-8.96-4.48-13.44-13.44-17.92-26.88-8.96-53.76-8.96-76.16-31.381333-4.48-8.96-4.48-17.92-8.96-26.88-8.96-8.96-31.36-13.44-44.8-17.92h-89.6c-13.44-4.48-22.4-22.4-31.36-35.84 0-4.48 0-13.461333-8.96-13.461334-8.96-4.458667-17.92 4.501333-26.88 0-4.48-4.458667-4.48-8.96-4.48-13.418666 0-13.461333 8.96-26.901333 17.92-35.861334 13.44-8.96 26.88 4.48 40.32 4.48 4.48 0 4.48 0 8.96 4.48 13.44 4.48 17.92 22.4 17.92 35.861334v8.96c0 4.48 4.48 4.48 8.96 4.48 4.48-22.4 4.48-44.821333 8.96-67.2 0-26.88 26.88-53.781333 49.28-62.72 8.96-4.458667 13.44 4.501333 22.4 0 26.88-8.96 94.08-35.84 80.64-71.658667-8.96-31.381333-35.84-62.698667-71.68-58.24-8.96 4.501333-13.44 8.96-22.4 13.461333-13.44 8.96-40.32 35.84-53.76 35.84-22.4-4.48-22.4-35.84-17.92-49.301333 4.48-17.92 44.8-76.138667 71.68-67.178667l17.92 17.92c8.96 4.48 22.4 4.48 35.84 4.48 4.48 0 8.96 0 13.44-4.48 4.48-4.48 4.48-4.48 4.48-8.96 0-13.44-13.44-26.901333-22.4-35.861333s-22.4-17.92-35.84-22.378667c-44.8-13.461333-116.48 4.458667-152.32 35.84-35.84 31.36-62.72 85.12-80.64 129.92-8.96 26.88-17.92 62.698667-22.4 94.08-4.48 22.4-8.96 40.32 4.48 62.698667 13.44 26.88 40.32 53.781333 67.2 71.68 17.92 13.44 53.76 13.44 71.68 35.84 13.44 17.941333 8.96 40.32 8.96 62.72 0 26.88 17.92 49.28 26.88 71.658667 4.48 13.461333 8.96 31.381333 13.44 44.821333 0 4.48 4.48 31.36 4.48 35.84 26.88 13.44 49.28 26.901333 80.64 35.861333 4.48 0 22.4-26.901333 22.4-31.381333 13.44-13.44 22.4-31.36 35.84-40.32 8.96-4.48 17.92-8.96 26.88-17.941333 8.96-8.96 13.44-26.88 17.92-40.32 4.48-8.938667 8.96-26.858667 4.48-40.298667M516.48 305.92c4.48 0 8.96-4.48 17.92-8.96 13.44-8.96 26.901333-22.4 40.32-31.36 13.461333-8.96 26.901333-22.4 35.861333-31.36 13.44-8.96 22.4-26.88 26.88-40.341333 4.48-8.96 17.941333-26.88 13.44-40.32-4.48-8.96-26.88-13.44-35.84-17.92C579.2 126.698667 547.84 122.24 512 122.24c-13.44 0-31.36 4.458667-35.84 17.92-4.48 22.4 13.44 17.92 31.36 22.4 0 0 4.48 35.84 4.48 40.32 4.48 22.421333-8.96 35.84-8.96 58.24 0 13.44 0 35.84 8.96 44.8h4.48zM892.8 619.52c4.501333-8.96 4.501333-22.4 8.96-31.36 4.501333-22.421333 4.501333-44.8 4.501333-67.2 0-44.8-4.501333-89.578667-17.92-129.92-8.96-13.44-13.461333-26.88-17.941333-40.341333-8.96-22.378667-22.4-44.8-40.32-62.698667-17.92-22.4-40.341333-85.12-80.64-67.2-13.44 4.501333-22.4 22.421333-31.36 31.381333l-26.88 40.32c-4.501333 4.48-8.96 13.44-4.501333 17.92 0 4.48 4.501333 4.48 8.96 4.48 8.96 4.501333 13.461333 4.501333 22.421333 8.96 4.48 0 8.96 4.501333 4.48 8.96 0 0 0 4.501333-4.48 4.501334-22.421333 22.4-44.8 40.32-67.2 62.698666-4.48 4.48-8.96 13.44-8.96 17.92s4.48 4.48 4.48 8.96c0 4.501333-4.48 4.501333-8.96 8.96-8.96 4.501333-17.92 8.96-22.4 13.461334-4.48 8.96 0 22.4-4.48 31.36-4.48 22.4-17.941333 40.32-26.901333 62.72-8.96 13.418667-13.418667 26.88-22.378667 40.32 0 17.92-4.501333 31.36 4.458667 44.8 22.421333 31.36 62.72 13.44 94.08 26.901333 8.96 4.458667 17.92 4.458667 22.421333 13.418667 13.418667 13.461333 13.418667 35.861333 17.92 49.301333 4.458667 17.92 8.96 35.84 17.92 53.76 4.48 22.421333 13.44 44.821333 17.92 62.72 40.341333-31.36 76.16-67.178667 103.04-112 26.88-31.424 40.341333-67.242667 53.76-103.104" fill="#CDDC39"></path></svg></span></a>
+<hr>
+<h2 id="需求痛点" class="heading-element">
+  <a href="#%e9%9c%80%e6%b1%82%e7%97%9b%e7%82%b9" class="heading-mark"></a>需求&amp;痛点</h2><p>本人并不想借助WinScp之类的第三方软件的GUI界面来访问Nas资源，如果能做到像本地磁盘那样的访问体验就好了。实际上如果访问设备在同一局域网内，是可以通过SMB协议来达到类似效果，但是当人在外面，这种方式就莫得了</p>
+<h2 id="方案选型" class="heading-element">
+  <a href="#%e6%96%b9%e6%a1%88%e9%80%89%e5%9e%8b" class="heading-mark"></a>方案选型</h2><p>经过一番检索，目前Nas的外部访问，提供了多种方式，如下：</p>
+<ul>
+<li>SMB协议：这个协议是局域网共享文件专用的，只能内网使用，外部设备可以通过VPN服务器跳入到家庭局域网内，进行访问，需要额外搭建一个VPN服务器，其实这种方式还是比较安全的，通过ssh流程，而不是http流量，一般家庭宽带不会被封，但是本人在部署<code>LT2P/IPSE</code>的时候遇到了其他棘手问题，尚未解决，暂且不表</li>
+<li>WebDav协议：基于Http协议的，将其包装成本地磁盘访问方式，因此检索到采用WebDav的方式共享到网络上，然后，在WebDav考虑到想要让多台办公设备都可以像访问本地磁盘那样访问了，目前发现RaiDrive，可以做到类似网络磁盘映射的效果，不过广告有点多，而且对第三方网盘的支持得付费支持；还有一个就是rclone，这个就是本文的最终选型</li>
+<li>其他的就不再罗列了，详情可看群晖Nas的网络协议支持列表</li>
+</ul>
+<h2 id="动手" class="heading-element">
+  <a href="#%e5%8a%a8%e6%89%8b" class="heading-mark"></a>动手</h2><p>参考 <a href="https://rclone.org/webdav/"target="_blank" rel="external nofollow noopener noreferrer">rclone-webdav</a> 的配置，结合网上相关文章，这边做下统一整理</p>
+<ul>
+<li>rclone的配置项放在<code>rclone.conf</code>文件上，其路径在<code>%APPDATA%/rclone/rclone.conf</code>上</li>
+<li>rclone的webui需要额外从<code>github.com</code>上下载到本地磁盘上，其路径在<code>%LOCALAPPDATA%/rclone</code></li>
+</ul>
+<p>进入Home/New Config上进行设置，选择WebDav，然后配置WebDav上的参数即可，</p>
+<ul>
+<li>默认端口：<code>http:5005</code>、<code>https:5006</code></li>
+<li>url：<code>http://myhome.yaoxuanzhi.xyz:5005</code></li>
+<li>选择Owncloud</li>
+<li>用户名：<code>user_name</code></li>
+<li>密码：<code>passwrd</code></li>
+<li>breatoken: <code>nas_config</code></li>
+</ul>
+<p>测试是否配置成功：罗列根目录:<code>rclone lsd nas:</code>
+<code>./rclone.exe mount nas:/  M: --cache-dir D:Temp --vfs-cache-mode writes &amp;</code></p>
+<h3 id="portable化处理" class="heading-element">
+  <a href="#portable%e5%8c%96%e5%a4%84%e7%90%86" class="heading-mark"></a>Portable化处理</h3><p>在摸索的过程中，为了方便重装电脑等情况下也能够快速部署回来，做了一定的资源整合，核心思路是：基于Windows系统的系统环境变量在程序间的传递关系链，将rclone用到的一些系统路径整合到rclone的运行目录上</p>
+<ul>
+<li>将 <code>%USERPROFILE%</code>、<code>%APPDATA%</code>、<code>%LOCALAPPDATA%</code> 都重定向到user目录里</li>
+<li>由于rclone挂载到系统磁盘上，需要有一个临时目录，将它也放在user同级目录下了</li>
+</ul>
+<p>详情如下所示：</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># set_rclone_env.bat</span>
+</span></span><span class="line"><span class="cl">@echo off
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">rclone_dir</span><span class="o">=</span>rclone-v1.60.1-windows-amd64
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">mine_root</span><span class="o">=</span>%~dp0
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">USERPROFILE</span><span class="o">=</span>%mine_root%user
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">APPDATA</span><span class="o">=</span>%USERPROFILE%<span class="se">\A</span>ppData<span class="se">\R</span>oaming
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">LOCALAPPDATA</span><span class="o">=</span>%USERPROFILE%<span class="se">\A</span>ppData<span class="se">\L</span>ocal
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">rclone_path</span><span class="o">=</span>%mine_root%%rclone_dir%
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">temp</span><span class="o">=</span>%mine_root%temp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">path</span><span class="o">=</span>%rclone_path%<span class="p">;</span>%path%</span></span></code></pre></td></tr></table>
+</div>
+</div><p>基于这个思路，你也可以使用rclone来直接挂载OneDrive等第三方网盘</p>
+<p>附件：<a href="/assets/2022-10-26/rclone_toolkit.zip">rclone_toolkit.zip</a></p>
+<h2 id="faq" class="heading-element">
+  <a href="#faq" class="heading-mark"></a>FAQ</h2><h4 id="为啥url填入了httpexamplecom依然无法正常访问账号密码都是正确的" class="heading-element">
+  <a href="#%e4%b8%ba%e5%95%a5url%e5%a1%ab%e5%85%a5%e4%ba%86httpexamplecom%e4%be%9d%e7%84%b6%e6%97%a0%e6%b3%95%e6%ad%a3%e5%b8%b8%e8%ae%bf%e9%97%ae%e8%b4%a6%e5%8f%b7%e5%af%86%e7%a0%81%e9%83%bd%e6%98%af%e6%ad%a3%e7%a1%ae%e7%9a%84" class="heading-mark"></a>为啥url填入了http://example.com依然无法正常访问，账号密码都是正确的？</h4><p>检查你的WebDav服务的端口和端口转发端口，如果不是80端口，则需要在host上追加port信息，比如如果WebDav服务采用的是默认端口&ndash;http协议默认访问端口是5005、https协议默认访问端口为5006，此时url应该填：<code>http://example.com:5005</code>、<code>https://example.com:5006</code></p>
+<h4 id="如何指定webdav根目录呢" class="heading-element">
+  <a href="#%e5%a6%82%e4%bd%95%e6%8c%87%e5%ae%9awebdav%e6%a0%b9%e7%9b%ae%e5%bd%95%e5%91%a2" class="heading-mark"></a>如何指定WebDav根目录呢？</h4><p><code>rclone.exe mount conf_name(配置名):relative_path(根目录相对路径)</code></p>
+<h2 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h2><ul>
+<li><a href="https://www.lucktang.com/3435.html"target="_blank" rel="external nofollow noopener noreferrer">Windows平台下使用 Rclone 挂载 OneDrive 为本地硬盘</a></li>
+<li><a href="https://blog.csdn.net/qq_27387809/article/details/105443924"target="_blank" rel="external nofollow noopener noreferrer">使用Rclone实现网盘挂载</a></li>
+<li><a href="https://blog.csdn.net/weixin_42325659/article/details/102889983"target="_blank" rel="external nofollow noopener noreferrer">【超详细】Windows利用rclone将GoogleDrive等网盘/云盘挂载到本地</a></li>
+</ul>
+<h2 id="后记" class="heading-element">
+  <a href="#%e5%90%8e%e8%ae%b0" class="heading-mark"></a>后记</h2><p>本人在<code>LT2P/IPSE</code>碰了壁，但是后续还了解到存在其它虚拟组网技术，比如ZeroTier，SMB协议在这种虚拟局域网内也是可以使用的，如果双方设备可以成功进行P2P打通的话(最好双方设备有IPV6，这样P2P打通成功率极高)，基本可以打满家里宽带上行速度的上限，否则的话，得经过中转服务器做流量转发，这种体验就一般了</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info"><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/via_rclone_map_nas_as_network_disk/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span></span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/rclone/" class="post-tag" title="标签 - Rclone">Rclone</a><a href="/tags/nas/" class="post-tag" title="标签 - Nas">Nas</a><a href="/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/" class="post-tag" title="标签 - 网络磁盘">网络磁盘</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/cross-ide_keymapping_solution/" class="post-nav-item" rel="prev" title="一套自用的跨IDE键盘映射方案"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>一套自用的跨IDE键盘映射方案</a>
+      <a href="/posts/unity_zero_cost_acquisition_method/" class="post-nav-item" rel="next" title="Unity零元购">Unity零元购<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -33,7 +33,7 @@
 这次主程决定引入了Unlua，这个由tx内部维护并开源，但是目前该插件已经是搁置维护的状态了，但是好在它基本够用，坑相对较少，但是它对GameplayMessageSubsystem的支持不好，下图是Unlua官方群上的说法
 ![](/assets/2024-07-22/1721637290077.png)
 
-&gt;早前还讨论过要不引入AngelScript，但是最终选了Unlua，私下了解到AngelScript在【双人成行】项目里被成功应用，但是国内目前是没有团队做这个事情的，所以选它风险是比较大的，不过它有一个好处，该团队改造了GameplayMessageSubsystem源码，针对AngelScript做了适配。不过还存在一个问题，就是它访问蓝图的变量这块做的一般，而且反射这块做得糙了些，没有Unlua那边做得那么齐全，并且官方也没有一个相对完整的可借鉴的项目示例(类似LyraWithUnLua)用来搭建新项目的Gameplay业务框架，举个例子：Gameplay的逻辑散布在cpp、蓝图、angelscript等脚本里，得自己去推导这整块流程，而且还无法借鉴Unlua的流程，属实不太方便
+&gt;早前还讨论过要不引入AngelScript，但是最终选了Unlua，私下了解到AngelScript在【双人成行】项目里被成功应用，但是国内目前是没有团队做这个事情的，所以选它风险是比较大的，不过它有一个好处，该团队改造了GameplayMessageSubsystem源码，针对AngelScript做了适配。不过还存在一个问题，就是它访问蓝图的变量这块做的一般，而且反射这块做得糙了些，没有Unlua那边做得那么齐全，并且官方也没有一个相对完整的可借鉴的项目示例(类似LyraWithUnLua)用来搭建新项目的Gameplay业务框架，举个例子：Gameplay的逻辑散布在cpp、蓝图、angelscript等脚本里，得自己去推导这整块流程，而且还无法借鉴Unlua的流程，属实不太方便。如果对该脚本方案实在感兴趣的话，推荐加入QQ讨论群：993011485
 
 #### 参考资料
  - [Lyra跨平台UI开发(官方字幕)](https://www.bilibili.com/video/BV1mT4y167Fm)

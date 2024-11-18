@@ -43,13 +43,15 @@
 |  Electron | 较为现代化 | 一般 | 一般 | 不支持 | 有所耳闻 | 该方案会内置一个Web内核，过于重了，而且应用分发体积比较大，TypeScript比较少用，收益比太低 |
 |  PyQt-Fluent-Widgets(PyQt5) | 较为现代化 | 一般 | 容易 | 支持，PyCharm安装Roadium插件即可 | 熟悉Python，但不熟悉Qt框架 | 它相当于一套FluentUI风格的PyQt5，而且Python易于学习上手，大多数开发者都掌握，另外以后若有商业化考虑可以无缝转译到Qt(C&#43;&#43;)上 |
 
-后续如果需要开发一些重Web端的移植项目，还可以采用[pywebview](https://github.com/r0x0r/pywebview)方案
+后续如果需要开发一些重Web端的移植项目，还可以采用[pywebview](https://github.com/r0x0r/pywebview)方案；如果需要开发某些针对性需求，又不想暴露源码的情况下提供给别人试用，也可以使用PyQt快速开发一个原型，然后用nuitka转换成C源码再编译成exe分发，后续反馈不错再用c&#43;&#43;完全重写也是一个快捷开发思路；要想开发跨平台的应用，只需要使用PyApp，就可以一键生成跨平台可执行文件，省时省力
 
 ### 安装演示
 {{&lt; asciinema id=686488 theme=solarized-dark autoplay=false speed=1 &gt;}}
 
 ### 运行截图
 ![](/assets/2024-10-15/ScreenPinKit_Interface.png)
+
+![](/assets/2024-10-15/ScreenPinKit_PluginMarket.png)
 
 ### 后记
 在这个过程中，也留意到有个[PixPin应用](https://www.appinn.com/pixpin/)，该作者的开发动机同本人蛮接近的，如下图所示：
@@ -80,6 +82,11 @@ Python版本升级太快了，目前社区很多库跟不上，现在这个小�
  - [**ShareX**: Screen capture, file sharing and productivity tool](https://github.com/ShareX/ShareX)
  - [**ppInk**: An easy to use on-screen annotation software inspired by Epic Pen.](https://github.com/onyet/ppInk/)
  - [**PixPin**: 功能强大使用简单的截图/贴图工具，帮助你提高效率](https://pixpinapp.com/)
+
+
+&lt;!-- ---
+ - ☐ 将这个应用上传到choco、Scoop这些软件包管理上
+ - ☐ 参考https://github.com/LiRenTech/project-graph和https://github.com/LiRenTech/visual-file-qt上面的动画特效效果挪过来丰富一下界面 --&gt;
 
 ---
 

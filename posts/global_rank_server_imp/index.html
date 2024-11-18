@@ -9,14 +9,14 @@
 <meta name="author-link" content="https://github.com/YaoXuanZhi">
 <meta name="description" content="在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的实现" /><meta name="keywords" content='排行榜, 全区全服, 分区分服' /><meta itemprop="name" content="排行榜实现的二三事">
 <meta itemprop="description" content="在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的实现"><meta itemprop="datePublished" content="2020-05-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-09-10T02:06:49+08:00" />
-<meta itemprop="wordCount" content="597">
+<meta itemprop="dateModified" content="2025-03-12T13:26:54+08:00" />
+<meta itemprop="wordCount" content="686">
 <meta itemprop="keywords" content="排行榜,全区全服,分区分服," /><meta property="og:title" content="排行榜实现的二三事" />
 <meta property="og:description" content="在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的实现" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/posts/global_rank_server_imp/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-05-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-09-10T02:06:49+08:00" />
+<meta property="article:modified_time" content="2025-03-12T13:26:54+08:00" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="排行榜实现的二三事"/>
 <meta name="twitter:description" content="在我们生活中有各种各样排行榜，比如电商、社交网站上的各种热度榜、周榜、月榜等等，而在游戏里，这类排行榜也是比较常见，比如战力榜、积分榜、鲜花榜啥的，下面谈谈它们在不同游戏服务器架构下的实现"/>
@@ -34,8 +34,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/global_rank_server_imp\/"
-    },"genre": "posts","keywords": "排行榜, 全区全服, 分区分服","wordcount":  597 ,
-    "url": "http:\/\/localhost:1313\/posts\/global_rank_server_imp\/","datePublished": "2020-05-19T00:00:00+00:00","dateModified": "2024-09-10T02:06:49+08:00","publisher": {
+    },"genre": "posts","keywords": "排行榜, 全区全服, 分区分服","wordcount":  686 ,
+    "url": "http:\/\/localhost:1313\/posts\/global_rank_server_imp\/","datePublished": "2020-05-19T00:00:00+00:00","dateModified": "2025-03-12T13:26:54+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -157,7 +157,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>排行榜实现的二三事</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="post-category" title="分类 - 开发技巧"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 开发技巧</a></span></div><div class="post-meta-line"><span title="发布于 2020-05-19 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2020-05-19">2020-05-19</time></span>&nbsp;<span title="597 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="post-category" title="分类 - 开发技巧"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 开发技巧</a></span></div><div class="post-meta-line"><span title="发布于 2020-05-19 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2020-05-19">2020-05-19</time></span>&nbsp;<span title="686 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -167,7 +167,15 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#全区全服架构">全区全服架构</a></li>
+        <li><a href="#全区全服架构">全区全服架构</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#技术demo">技术Demo</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#分区分服架构">分区分服架构</a></li>
         <li><a href="#参考链接">参考链接</a></li>
       </ul>
@@ -179,6 +187,15 @@
 <h3 id="全区全服架构" class="heading-element">
   <a href="#%e5%85%a8%e5%8c%ba%e5%85%a8%e6%9c%8d%e6%9e%b6%e6%9e%84" class="heading-mark"></a>全区全服架构</h3><p>各种社交类游戏，比如房间类PVP，Moba、棋牌、赛车类项目，这种比较常见，这种游戏一般都有一个登录大厅，然后匹配进到同一个房间PK，服务器的压力主要在于匹配大厅的承载量，以及全服排行榜、全服聊天等等公共服务上</p>
 <p>这类游戏一般会用到Redis中间件，可以直接基于Redis的有序集合zset来实现通用排行榜，这样一来该服务还拥有了备份、容灾及高可用等能力；不过如果项目没有使用到redis，那么自己手撸一个跳跃表(skip list)也可以做到，zset的底层实现是跳跃表，但是这样高可用以及容灾能力都得自己另外支持了，个人并不推荐</p>
+<h5 id="技术demo" class="heading-element">
+  <a href="#%e6%8a%80%e6%9c%afdemo" class="heading-mark"></a>技术Demo</h5><p>基于以上思路，本人实现了一个简单的技术 Demo，如下图所示：</p>
+<p><img loading="lazy" src="/assets/2020-05-19/17898798.png" alt="基于flask实现的全区全服排行榜Demo" srcset="/assets/2020-05-19/17898798.png?size=small, /assets/2020-05-19/17898798.png?size=medium 1.5x, /assets/2020-05-19/17898798.png?size=large 2x" data-title="基于flask实现的全区全服排行榜Demo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><strong>开启负载均衡</strong></p>
+<p>运行 <code>global_rank_server\deps\openresty-1.27.1.1-win64\nginx.exe</code> 则可以开启负载均衡，访问：<a href="http://127.0.0.1:8020/"target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8020/</a> 即可看到效果</p>
+<p><img loading="lazy" src="/assets/2020-05-19/17898710.png" alt="负载均衡后的效果" srcset="/assets/2020-05-19/17898710.png?size=small, /assets/2020-05-19/17898710.png?size=medium 1.5x, /assets/2020-05-19/17898710.png?size=large 2x" data-title="负载均衡后的效果" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<blockquote>
+<p>附件 <a href="/assets/2020-05-19/global_rank_server.zip">global_rank_server.zip</a></p>
+</blockquote>
 <h3 id="分区分服架构" class="heading-element">
   <a href="#%e5%88%86%e5%8c%ba%e5%88%86%e6%9c%8d%e6%9e%b6%e6%9e%84" class="heading-mark"></a>分区分服架构</h3><p>一般来说，分区分服多出现在各种MMO游戏项目，比如MMO 回合制、MMO Arpg、MMO SLG之类的，这类单服玩家数相对较少，因此即便排行榜采用全排序也能满足需求。然而，对于跨服排行榜，考虑到它的玩家规模不定，通常是高于单服至少一个数量级，建议借鉴全区全服的排行榜解决思路，如果项目里没有引入Redis，那就基于跳跃表实现一个高效通用的排行榜机制，这样可以确保排行榜的响应速度和数据处理能力，满足大规模玩家的需求</p>
 <h3 id="参考链接" class="heading-element">
@@ -208,7 +225,7 @@
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+            <span itemprop="copyrightYear">2016 - 2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
         </div></div><div id="mask"></div><noscript>

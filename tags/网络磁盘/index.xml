@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>网络磁盘 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/</link>
+    <description>网络磁盘 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 26 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/" rel="self" type="application/rss+xml" /><item>
+  <title>通过rclone将Nas映射为网络磁盘(非局域网)</title>
+  <link>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</link>
+  <pubDate>Wed, 26 Oct 2022 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</guid>
+  <description><![CDATA[<p>前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？</p>]]></description>
+</item>
+</channel>
+</rss>

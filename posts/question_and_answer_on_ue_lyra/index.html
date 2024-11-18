@@ -9,21 +9,21 @@
 <meta name="author-link" content="https://github.com/YaoXuanZhi">
 <meta name="description" content="公司高层做了一个从头再来的决策，团队由Unity3D引擎切换到UE5，我和一些小伙伴被留下来配合新大佬做UE Demo，这里记录了一些踩坑经历" /><meta name="keywords" content='CommonUI, Lyra, UE' /><meta itemprop="name" content="关于UE Lyra的Q&amp;A">
 <meta itemprop="description" content="公司高层做了一个从头再来的决策，团队由Unity3D引擎切换到UE5，我和一些小伙伴被留下来配合新大佬做UE Demo，这里记录了一些踩坑经历"><meta itemprop="datePublished" content="2023-11-10T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-09-09T23:14:03+08:00" />
-<meta itemprop="wordCount" content="937">
+<meta itemprop="dateModified" content="2025-03-11T00:45:51+08:00" />
+<meta itemprop="wordCount" content="973">
 <meta itemprop="keywords" content="CommonUI,Lyra,UE," /><meta property="og:title" content="关于UE Lyra的Q&amp;A" />
 <meta property="og:description" content="公司高层做了一个从头再来的决策，团队由Unity3D引擎切换到UE5，我和一些小伙伴被留下来配合新大佬做UE Demo，这里记录了一些踩坑经历" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/posts/question_and_answer_on_ue_lyra/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-09-09T23:14:03+08:00" />
+<meta property="article:modified_time" content="2025-03-11T00:45:51+08:00" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="关于UE Lyra的Q&amp;A"/>
 <meta name="twitter:description" content="公司高层做了一个从头再来的决策，团队由Unity3D引擎切换到UE5，我和一些小伙伴被留下来配合新大佬做UE Demo，这里记录了一些踩坑经历"/>
 <meta name="application-name" content="Hugo FixIt Blog">
 <meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/question_and_answer_on_ue_lyra/" /><link rel="prev" href="http://localhost:1313/posts/ocrmypdf/" /><link rel="next" href="http://localhost:1313/posts/debian_notes/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/question_and_answer_on_ue_lyra/" /><link rel="prev" href="http://localhost:1313/posts/ocrmypdf/" /><link rel="next" href="http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -34,8 +34,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/question_and_answer_on_ue_lyra\/"
-    },"genre": "posts","keywords": "CommonUI, Lyra, UE","wordcount":  937 ,
-    "url": "http:\/\/localhost:1313\/posts\/question_and_answer_on_ue_lyra\/","datePublished": "2023-11-10T00:00:00+00:00","dateModified": "2024-09-09T23:14:03+08:00","publisher": {
+    },"genre": "posts","keywords": "CommonUI, Lyra, UE","wordcount":  973 ,
+    "url": "http:\/\/localhost:1313\/posts\/question_and_answer_on_ue_lyra\/","datePublished": "2023-11-10T00:00:00+00:00","dateModified": "2025-03-11T00:45:51+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -157,7 +157,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>关于UE Lyra的Q&amp;A</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/ue/" class="post-category" title="分类 - UE"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> UE</a></span></div><div class="post-meta-line"><span title="发布于 2023-11-10 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-11-10">2023-11-10</time></span>&nbsp;<span title="937 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/ue/" class="post-category" title="分类 - UE"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> UE</a></span></div><div class="post-meta-line"><span title="发布于 2023-11-10 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-11-10">2023-11-10</time></span>&nbsp;<span title="973 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -206,7 +206,7 @@
   <a href="#%e5%9c%a8%e5%ae%9e%e9%99%85%e9%a1%b9%e7%9b%ae%e5%bc%80%e5%8f%91%e4%b8%ad%e9%87%87%e7%94%a8%e5%95%a5%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e6%9c%89%e5%95%a5%e4%bc%98%e5%8a%a3" class="heading-mark"></a>在实际项目开发中，采用啥脚本语言？有啥优劣？</h4><p>这次主程决定引入了Unlua，这个由tx内部维护并开源，但是目前该插件已经是搁置维护的状态了，但是好在它基本够用，坑相对较少，但是它对GameplayMessageSubsystem的支持不好，下图是Unlua官方群上的说法
 <img loading="lazy" src="/assets/2024-07-22/1721637290077.png" alt="/assets/2024-07-22/1721637290077.png" srcset="/assets/2024-07-22/1721637290077.png?size=small, /assets/2024-07-22/1721637290077.png?size=medium 1.5x, /assets/2024-07-22/1721637290077.png?size=large 2x" data-title="/assets/2024-07-22/1721637290077.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <blockquote>
-<p>早前还讨论过要不引入AngelScript，但是最终选了Unlua，私下了解到AngelScript在【双人成行】项目里被成功应用，但是国内目前是没有团队做这个事情的，所以选它风险是比较大的，不过它有一个好处，该团队改造了GameplayMessageSubsystem源码，针对AngelScript做了适配。不过还存在一个问题，就是它访问蓝图的变量这块做的一般，而且反射这块做得糙了些，没有Unlua那边做得那么齐全，并且官方也没有一个相对完整的可借鉴的项目示例(类似LyraWithUnLua)用来搭建新项目的Gameplay业务框架，举个例子：Gameplay的逻辑散布在cpp、蓝图、angelscript等脚本里，得自己去推导这整块流程，而且还无法借鉴Unlua的流程，属实不太方便</p>
+<p>早前还讨论过要不引入AngelScript，但是最终选了Unlua，私下了解到AngelScript在【双人成行】项目里被成功应用，但是国内目前是没有团队做这个事情的，所以选它风险是比较大的，不过它有一个好处，该团队改造了GameplayMessageSubsystem源码，针对AngelScript做了适配。不过还存在一个问题，就是它访问蓝图的变量这块做的一般，而且反射这块做得糙了些，没有Unlua那边做得那么齐全，并且官方也没有一个相对完整的可借鉴的项目示例(类似LyraWithUnLua)用来搭建新项目的Gameplay业务框架，举个例子：Gameplay的逻辑散布在cpp、蓝图、angelscript等脚本里，得自己去推导这整块流程，而且还无法借鉴Unlua的流程，属实不太方便。如果对该脚本方案实在感兴趣的话，推荐加入QQ讨论群：993011485</p>
 </blockquote>
 <h4 id="参考资料" class="heading-element">
   <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h4><ul>
@@ -236,7 +236,7 @@
   </div>
 
   <div class="post-nav"><a href="/posts/ocrmypdf/" class="post-nav-item" rel="prev" title="给扫描PDF添加OCR文本层 - OcrMyPdf"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>给扫描PDF添加OCR文本层 - OcrMyPdf</a>
-      <a href="/posts/debian_notes/" class="post-nav-item" rel="next" title="Debian的折腾笔记">Debian的折腾笔记<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+      <a href="/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/" class="post-nav-item" rel="next" title="通过小米音箱来播放小宇宙播客(非手机蓝牙)">通过小米音箱来播放小宇宙播客(非手机蓝牙)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article>
 
@@ -244,7 +244,7 @@
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2016 - 2024</span><span class="author" itemprop="copyrightHolder">
+            <span itemprop="copyrightYear">2016 - 2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
         </div></div><div id="mask"></div><noscript>
