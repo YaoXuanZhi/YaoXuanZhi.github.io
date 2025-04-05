@@ -5,6 +5,14 @@
     <description>所有文章 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
       <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 01 Jan 2088 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Hugo AsciinemaPlayer ShorCodes</title>
+  <link>http://localhost:1313/posts/hugo_asciinema_player_short_code/</link>
+  <pubDate>Wed, 30 Oct 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/hugo_asciinema_player_short_code/</guid>
+  <description><![CDATA[<p>考虑到现在各种网站可能会不再维护的情况，直接采用分享Id的方式并不能保证链接一直生效，因此希望shortcodes可支持asciinema可以传入相对文件路径来加载显示</p>]]></description>
+</item>
+<item>
   <title>自用工具-ScreenPinKit</title>
   <link>http://localhost:1313/posts/screen_pin_kit/</link>
   <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
@@ -84,14 +92,6 @@
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/mobile_internet_sharing_via_usb_to_pc/</guid>
   <description><![CDATA[<p>需要协助跟进一个真机上手游包特有的登录问题，初步定位到问题出在包体上，但该包在首次安装启动的时候，需要下载10G+的资源包，每次出包，资源包都会有变更，而公司的内网资源服务器空间有限，并且wifi信道存在多人相互抢占的情况，最终导致资源下载特别慢，为了排查这么个问题，需要等待1h+才能进游戏；如果让手机通过usb线使用pc电脑上网，这样就能规避上述问题了，最终借助了<a href="https://github.com/Genymobile/gnirehtet"target="_blank" rel="external nofollow noopener noreferrer">gnirehtet</a>来达成目的</p>]]></description>
-</item>
-<item>
-  <title>Unity零元购</title>
-  <link>http://localhost:1313/posts/unity_zero_cost_acquisition_method/</link>
-  <pubDate>Sun, 13 Nov 2022 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/unity_zero_cost_acquisition_method/</guid>
-  <description><![CDATA[<p>最近，多位同事反馈，本地的私人Unity账号被封了，Unity检测到同事们的免费账号在企业里使用，想要解封，需要同Unity官方人员联系balabla，心痛已在<code>Unity AssetStore</code>里付费购买了多款插件的账号之余，搬砖还不能停，遂在网上检索一些Unity零元购的方法</p>]]></description>
 </item>
 </channel>
 </rss>

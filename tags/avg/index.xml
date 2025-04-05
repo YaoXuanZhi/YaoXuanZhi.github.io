@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Avg - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/avg/</link>
+    <description>Avg - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/avg/" rel="self" type="application/rss+xml" /><item>
+  <title>AVG开发方案对比</title>
+  <link>http://localhost:1313/technical_survey/avg_plugin_compare/</link>
+  <pubDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/technical_survey/avg_plugin_compare/</guid>
+  <description><![CDATA[Storyteller Dialogue &amp; Interaction 优点： 与Unity集成程度高，提供可视化编辑&amp;预览功能，可以对于状态机、定制动作、对话等内容，做到编辑即所得 它是一套完整的解决方案，包含了各种角色交互、故事板、对话、语音、文本等本地化的支持 支持多种平台和设备，包括PC、手机、VR等 官方有指导教程：集中在Discord频道上 缺点： 插件]]></description>
+</item>
+</channel>
+</rss>

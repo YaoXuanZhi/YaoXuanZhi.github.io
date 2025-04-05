@@ -61,3 +61,16 @@ MMO类型
  - 单服、跨服
  - 逻辑服：管理玩家登录、登出、各种玩家系统功能的实现
  - 场景服：可能有可能没，一般单服都是放在逻辑服上的，减少数据交互，如果是跨服战斗，那么在玩法活动参与的时候，会有一个登录操作，从LogicMgr上获取到玩家角色数据，然后基于此创建一个场景玩家单位，让这个单位在场景上登录即可，这里采用的是状态同步机制，客户端就是服务器的表现层而已，战斗逻辑都在服务器上
+
+### 服务发现机制
+https://alexstocks.github.io/html/etcd.html
+
+### 全区全服和分区分服的思考
+https://blog.csdn.net/weixin_43679037/article/details/125546079
+https://blog.csdn.net/weixin_43679037/article/details/124263553
+https://blog.antsmallant.top/2024/08/20/game-study-4-new-way-to-dev-seperate-svr
+
+https://blog.antsmallant.top/
+
+https://blog.antsmallant.top/2016/01/01/redis-note-1-knowledge
+https://blog.antsmallant.top/2022/06/02/gamesvr-note-1-aoi

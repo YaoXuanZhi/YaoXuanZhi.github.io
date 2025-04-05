@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>开源配置表方案对比 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
+<meta name="author-link" content="https://github.com/YaoXuanZhi">
+<meta name="description" content="功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c&#43;&#43;、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内" /><meta name="keywords" content='配置表' /><meta itemprop="name" content="开源配置表方案对比">
+<meta itemprop="description" content="功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c&#43;&#43;、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内"><meta itemprop="datePublished" content="2025-04-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-06-07T13:54:45+08:00" />
+<meta itemprop="wordCount" content="1015">
+<meta itemprop="keywords" content="配置表," /><meta property="og:title" content="开源配置表方案对比" />
+<meta property="og:description" content="功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c&#43;&#43;、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/technical_survey/config_system_compare/" /><meta property="article:section" content="technical_survey" />
+<meta property="article:published_time" content="2025-04-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-06-07T13:54:45+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="开源配置表方案对比"/>
+<meta name="twitter:description" content="功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c&#43;&#43;、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内"/>
+<meta name="application-name" content="Hugo FixIt Blog">
+<meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/technical_survey/config_system_compare/" /><link rel="prev" href="http://localhost:1313/technical_survey/cs_protocol_library_compare/" /><link rel="next" href="http://localhost:1313/technical_survey/avg_plugin_compare/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "开源配置表方案对比",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/technical_survey\/config_system_compare\/"
+    },"genre": "technical_survey","keywords": "配置表","wordcount":  1015 ,
+    "url": "http:\/\/localhost:1313\/technical_survey\/config_system_compare\/","datePublished": "2025-04-02T00:00:00+00:00","dateModified": "2025-06-07T13:54:45+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "YaoXuanZhi"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/abouts/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/abouts/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">开源配置表方案对比</h1></div><div
+      class="content"
+      id="content"
+      data-password="518ef65b1b3a28fc9c707c47ac33c398"
+      data-content="PGgzIGlkPSL435aca0cdb8c66cd1910321cb70a0f8221c5eb412dc29db60278elip/og73lr7nmr5QiIGNsYXNzPSJoZWFkaW5nLWVsZW1lbnQiPg0KICA8YSBocmVmPSIjJWU1JThhJTlmJWU4JTgzJWJkJWU1JWFmJWI5JWU2JWFmJTk0IiBjbGFzcz0iaGVhZGluZy1tYXJrIj48L2E&#43;5Yqf6IO95a&#43;55q&#43;UPC9oMz48dGFibGU&#43;Cjx0aGVhZD4KPHRyPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7mioDmnK/mlrnmoYg8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7lm73pmYXljJbmlK/mjIE8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7ot6jor63oqIDmlK/mjIHmg4XlhrU8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7phY3nva7mlofku7bmoLzlvI/mlK/mjIE8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7nsbvlnovns7vnu5/mlK/mjIHmg4XlhrU8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7oh6rlrprkuYnnsbvlnovmg4XlhrU8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7niYjmnKzlhrLnqoHnrqHnkIbmlrnlvI88L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7lpJrph41LZXnmlK/mjIHmg4XlhrU8L3RoPgo8dGggc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7lrabkuaDmiJDmnKw8L3RoPgo8L3RyPgo8L3RoZWFkPgo8dGJvZHk&#43;Cjx0cj4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;PGEgaHJlZj0iaHR0cHM6Ly9naXRodWIuY29tL2ZvY3VzLWNyZWF0aXZlLWdhbWVzL2x1YmFuInRhcmdldD0iX2JsYW5rIiByZWw9ImV4dGVybmFsIG5vZm9sbG93IG5vb3BlbmVyIG5vcmVmZXJyZXIiPmx1YmFuPC9hPjwvdGQ&#43;Cjx0ZCBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXIiPjxhIGhyZWY9Imh0dHBzOi8vbHViYW4uZG9jLmNvZGUtcGhpbG9zb3BoeS5jb20vZG9jcy9tYW51YWwvbDEwbiJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj7lhoXnva7mlK/mjIE8L2E&#43;PC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5a6Y5pa55pSv5oyBYysr44CBYyPjgIFsdWHnrYnljYHlpJrnp43lvIDlj5Hor63oqIA8L3RkPgo8dGQgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7mlK/mjIFqc29u44CBY3N244CB5LqM6L&#43;b5Yi2562J5Y2B5aSa56eN5qC85byP5a&#43;85Ye6PC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5pSv5oyB57ud5aSn6YOo5YiG6K&#43;t6KiA55qE5Z&#43;656GA57G75Z6L5ZKM5Z&#43;656GA5a655Zmo77yM5Lul5Y&#43;K57un5om/562J54m55oCn77yM6K&#43;m5oOF5Y&#43;v55yL77yaPGEgaHJlZj0iaHR0cHM6Ly9sdWJhbi5kb2MuY29kZS1waGlsb3NvcGh5LmNvbS9kb2NzL21hbnVhbC90eXBlcyJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj7nsbvlnovns7vnu588L2E&#43;PC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;PGEgaHJlZj0iaHR0cHM6Ly9sdWJhbi5kb2MuY29kZS1waGlsb3NvcGh5LmNvbS9kb2NzL21hbnVhbC90ZW1wbGF0ZSJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj7lhoXnva7mlK/mjIE8L2E&#43;PC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5rqQ5pWw5o2u5ZyoZXhjZWzkuIrvvIzpg6jliIbnsbvlnovkv6Hmga/kuZ/lj6/og73kvJrph4fnlKh4bWzmnaXmj4/ov7A8L3RkPgo8dGQgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj48YSBocmVmPSJodHRwczovL2x1YmFuLmRvYy5jb2RlLXBoaWxvc29waHkuY29tL2RvY3MvaGVscC9mYXEjJUU2JTk0JUFGJUU2JThDJTgxJUU1JUE0JTlBJUU0JUI4JUJCJUU5JTk0JUFFJUU1JTkwJTk3InRhcmdldD0iX2JsYW5rIiByZWw9ImV4dGVybmFsIG5vZm9sbG93IG5vb3BlbmVyIG5vcmVmZXJyZXIiPuWGhee9ruaUr&#43;aMgTwvYT48L3RkPgo8dGQgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7pnIDopoHlrabkuaDlroPnmoTnsbvlnovns7vnu5/jgIFzY2hlbWEg6YC76L6R57uT5p6E562J5YmN572u55&#43;l6K&#43;G77yM6KeE5YiZ55u45a&#43;55Liw5a&#43;M77yM5pyJ5LiA5Lqb6auY6Zi255So5rOV6ZyA6KaB5Y&#43;C6ICD5qih5p2/56S65L6L5p2l5pS56YCg5L2/55So77yM5a6Y5pa55paH5qGj5YGa5b6X6b2Q5YWoPC90ZD4KPC90cj4KPHRyPgo8dGQgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj48YSBocmVmPSJodHRwczovL2dpdGh1Yi5jb20veHRvbTAzNjkvWENvbmZpZyJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj5YQ29uZmlnPC9hPjwvdGQ&#43;Cjx0ZCBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXIiPumcgOimgeaJi&#43;WKqOaUr&#43;aMgTwvdGQ&#43;Cjx0ZCBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXIiPuS7heaUr&#43;aMgWMjPC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5pSv5oyB5a&#43;85Ye65Li65LqM6L&#43;b5Yi25paH5Lu2PC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5pSv5oyB5Z&#43;656GA57G75Z6L5ZKM5bi46KeB5a655ZmoTGlzdOOAgeWtkOihqOW8leeUqOetiTwvdGQ&#43;Cjx0ZCBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXIiPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS94dG9tMDM2OS9YQ29uZmlnL2Jsb2IvbWFpbi9Bc3NldHMvRXhhbXBsZS9TY3JpcHQvQ3VzdG9tQ29uZmlnVHlwZS5jcyJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj7lhoXnva7mlK/mjIE8L2E&#43;77yM6ZyA6KaB5omL5Yqo5re75Yqg6Kej5p6Q5Luj56CBPC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;5rqQ5pWw5o2u5pivY3N25paH5Lu277yM5Lmf5bCx5piv57qv5paH5pys5qC85byP77yMc3ZuIGRpZmblj4vlpb08L3RkPgo8dGQgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyIj7mlK/mjIHlj4xrZXnvvIzlpoLmnpzov5jpnIDopoHmm7TliqDlpI3mnYLnmoRrZXnop4TliJnvvIzoh6rooYzpgJrov4c8YSBocmVmPSJodHRwczovL2dpdGh1Yi5jb20veHRvbTAzNjkvWENvbmZpZy9ibG9iL21haW4vQXNzZXRzL0V4YW1wbGUvU2NyaXB0L1BhcnRpYWxUYWJsZS5jcyJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj7phY3nva7nsbvmi5PlsZU8L2E&#43;5a6e546wPC90ZD4KPHRkIHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlciI&#43;55Sx5LqO6KeE5YiZ55u45a&#43;5566A5Y2V77yM5a2m5Lmg5oiQ5pys55u45a&#43;55bCPPC90ZD4KPC90cj4KPC90Ym9keT4KPC90YWJsZT4KPGg0IGlkPSJsdWJhbiIgY2xhc3M9ImhlYWRpbmctZWxlbWVudCI&#43;DQogIDxhIGhyZWY9IiNsdWJhbiIgY2xhc3M9ImhlYWRpbmctbWFyayI&#43;PC9hPmx1YmFuPC9oND48dWw&#43;CjxsaT7kvJjngrnvvJoKPHVsPgo8bGk&#43;5Liw5a&#43;M55qE6Leo6K&#43;t6KiA5pSv5oyB77yM5a6M5ZaE55qE6YWN572u57G75Z6L5pSv5oyB77yM6K6p5YW25oul5pyJ5Ye65LyX55qE5pWw5YC86KGo6L6&#43;6IO95Yqb77yM5YaN5Yqg5LiK5YaF572u5LqG5pWw5YC85ZCI5rOV5oCn5qOA5p&#43;l44CB5pys5Zyw5YyW562J5py65Yi25pSv5oyB77yM5Y&#43;v5Lul5ZuK5ous57ud5aSn6YOo5YiG5ri45oiP5Lia5Yqh5Zy65pmv77yM5Y&#43;v5Lul5aSn5aSn6IqC55yB5byA5Y&#43;R5oiQ5pysPC9saT4KPGxpPuacieeLrOeri&#43;eahOWvvOWHuuW3peWFt&#43;&#43;8jOW5tuS4lOi/mOaUr&#43;aMgeWinumHj&#43;WvvOWHujwvbGk&#43;CjxsaT7mlofmoaPlrozlloTvvIzlrpjmlrnmj5DkvpvkuobmlrDmiYvmlZnnqIvjgIHkvb/nlKjmjIfljZflkoxGQVHvvIzlj6/ku6Xnm7TmjqXnrZTnlpHvvIznm67liY3nm7jlhbPmioDmnK/orqjorrrnvqTkuZ/ovoPkuLrmtLvot4M8L2xpPgo8L3VsPgo8L2xpPgo8bGk&#43;57y654K577yaCjx1bD4KPGxpPueUseS6juaUr&#43;aMgeeahOWKn&#43;iDvei&#43;g&#43;Wkmu&#43;8jOiHqueEtuW4puadpemineWklueahOWtpuS5oOaIkOacrO&#43;8jOWtpuS5oOabsue6v&#43;ebuOWvuemVv&#43;S4gOeCuQo8YmxvY2txdW90ZT4KPHA&#43;5Y&#43;v5Lul5LuO5a6Y5pa555qE5qih5p2/56S65L6L5p2l5YWl5omL77yM6YCQ5riQ5bGV5byA5Yiw6auY57qn54m55oCn5Yip55So5LiKPC9wPgo8L2Jsb2NrcXVvdGU&#43;CjwvbGk&#43;CjwvdWw&#43;CjwvbGk&#43;CjwvdWw&#43;CjxoNCBpZD0ieGNvbmZpZyIgY2xhc3M9ImhlYWRpbmctZWxlbWVudCI&#43;DQogIDxhIGhyZWY9IiN4Y29uZmlnIiBjbGFzcz0iaGVhZGluZy1tYXJrIj48L2E&#43;WENvbmZpZzwvaDQ&#43;PHVsPgo8bGk&#43;5LyY54K577yaPC9saT4KPGxpPuiDnOWcqOeugOWNle&#43;8jOS4iuaJi&#43;WuueaYk&#43;&#43;8jOWtpuS5oOaIkOacrOS9jjwvbGk&#43;CjxsaT7lr7nkuo7lsI/op4TmqKHpobnnm67mnaXor7TvvIzln7rmnKzlpJ/nlKg8L2xpPgo8bGk&#43;57y654K577yaCjx1bD4KPGxpPuebruWJjeS7heaUr&#43;aMgWMj77yM5a&#43;56Leo6K&#43;t6KiA5pSv5oyB6L6D5byx77yM5a&#43;55LqO6Leo6K&#43;t6KiA5pSv5oyB55qE6aG555uu5p2l6K&#43;077yM6ZyA6KaB6aKd5aSW5YGa5omL5Yqo5pSv5oyBPC9saT4KPGxpPuWkjeadgueahOaVsOWAvOihqOiuvuiuoeiDveWKm&#43;i&#43;g&#43;W8se&#43;8jOmcgOimgeWkp&#43;W5heS&#43;nei1ljxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS94dG9tMDM2OS9YQ29uZmlnL2Jsb2IvbWFpbi9Bc3NldHMvRXhhbXBsZS9TY3JpcHQvUGFydGlhbFRhYmxlLmNzInRhcmdldD0iX2JsYW5rIiByZWw9ImV4dGVybmFsIG5vZm9sbG93IG5vb3BlbmVyIG5vcmVmZXJyZXIiPumFjee9ruexu&#43;aLk&#43;WxlTwvYT7mnaXlrp7njrA8L2xpPgo8L3VsPgo8L2xpPgo8L3VsPgo8cD7mi5PlsZXnn6Xor4Y8L3A&#43;Cjx1bD4KPGxpPuaUtumbhuS6huS4gOS6m1VuaXR55byA5rqQ5qGG5p6255qE6YWN572u57O757ufPC9saT4KPGxpPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS9lZ2FtZXRhbmcvRVQvdHJlZS9yZWxlYXNlOC4xL1VuaXR5L0Fzc2V0cy9Db25maWcvRXhjZWwidGFyZ2V0PSJfYmxhbmsiIHJlbD0iZXh0ZXJuYWwgbm9mb2xsb3cgbm9vcGVuZXIgbm9yZWZlcnJlciI&#43;RVQtRXhjZWw8L2E&#43;CjxibG9ja3F1b3RlPgo8cD7ph4fnlKhFeGNlbOihqOadpeWunueOsO&#43;8jOWKn&#43;iDveebuOWvueeugOWNle&#43;8jOavlFhDb25maWfov5jlvLHkuIrkuIDkups8L3A&#43;CjwvYmxvY2txdW90ZT4KPC9saT4KPGxpPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS9FbGxhbkppYW5nL1N0YXJGb3JjZSJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj5Vbml0eUdhbWVGcmFtZXdvcmstU3RhckZvcmNlPC9hPgo8YmxvY2txdW90ZT4KPHA&#43;6YeH55SoRXhjZWzooajmnaXlrp7njrDvvIzop4TliJnlkIxYQ29uZmln57G75Ly8PC9wPgo8L2Jsb2NrcXVvdGU&#43;CjwvbGk&#43;CjxsaT48YSBocmVmPSJodHRwczovL21yLWtlbGx5LmdpdGh1Yi5pby9LU0ZyYW1ld29yay9zZXR0aW5nL2d1aWRlLyJ0YXJnZXQ9Il9ibGFuayIgcmVsPSJleHRlcm5hbCBub2ZvbGxvdyBub29wZW5lciBub3JlZmVycmVyIj5LU0ZyYW1ld29yay1zZXR0aW5nPC9hPgo8YmxvY2txdW90ZT4KPHA&#43;5pys6LSo5LiK5ZCMWENvbmZpZ&#43;S4gOagt&#43;&#43;8jOmHh&#43;eUqOS6hmNzdu&#43;8jOS4jeWFt&#43;Wkh&#43;mAmueUqOaAp&#43;&#43;8jEtFbmdpbmVcS0VuZ2luZS5Vbml0eVByb2plY3RcUHJvZHVjdFxTZXR0aW5nXEV4YW1wbGUuYnl0ZXM8L3A&#43;CjwvYmxvY2txdW90ZT4KPC9saT4KPGxpPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS9sZWV2ZWVsL0dlZWtTZXJ2ZXIvdHJlZS9tYWluL1Rvb2xzL0V4Y2VsR2VuInRhcmdldD0iX2JsYW5rIiByZWw9ImV4dGVybmFsIG5vZm9sbG93IG5vb3BlbmVyIG5vcmVmZXJyZXIiPkdlZWtTZXJ2ZXItRXhjZWxHZW48L2E&#43;CjxibG9ja3F1b3RlPgo8cD7ph4fnlKhFeGNlbOihqOadpeWunueOsO&#43;8jOWKn&#43;iDveebuOWvueeugOWNle&#43;8jOavlFhDb25maWfov5jlvLHkuIrkuIDkups8L3A&#43;CjwvYmxvY2txdW90ZT4KPC9saT4KPC91bD4KPGgzIGlkPSLlj4LogIPotYTmlpkiIGNsYXNzPSJoZWFkaW5nLWVsZW1lbnQiPg0KICA8YSBocmVmPSIjJWU1JThmJTgyJWU4JTgwJTgzJWU4JWI1JTg0JWU2JTk2JTk5IiBjbGFzcz0iaGVhZGluZy1tYXJrIj48L2E&#43;5Y&#43;C6ICD6LWE5paZPC9oMz48dWw&#43;CjxsaT48YSBocmVmPSJodHRwczovL2Jsb2cuY3Nkbi5uZXQvY2hlbmJ5MTg2MTE5L2FydGljbGUvZGV0YWlscy8xNDQ3NTU3MDEidGFyZ2V0PSJfYmxhbmsiIHJlbD0iZXh0ZXJuYWwgbm9mb2xsb3cgbm9vcGVuZXIgbm9yZWZlcnJlciI&#43;5ri45oiP5byA5Y&#43;R5Lit5L2/55So55qE6YWN572u6KGo5bel5YW35ZKM5Y2P6K6u5bel5YW35ZOq5LqbPC9hPjwvbGk&#43;CjwvdWw&#43;CjxoMiBpZD0i5Liq5Lq657uT6K66IiBjbGFzcz0iaGVhZGluZy1lbGVtZW50Ij4NCiAgPGEgaHJlZj0iIyVlNCViOCVhYSVlNCViYSViYSVlNyViYiU5MyVlOCVhZSViYSIgY2xhc3M9ImhlYWRpbmctbWFyayI&#43;PC9hPuS4quS6uue7k&#43;iuujwvaDI&#43;PHA&#43;5LuO5pys5Lq655qE5bel5L2c57uP5Y6G5Lul5Y&#43;K6KeC5a&#43;f5Yiw5byA5rqQ56S&#43;5Yy655qE5Y&#43;R5bGV5oOF5Ya15p2l55yL77yM55uu5YmN5byA5rqQ6YWN572u6KGo5pa55qGI55u45a&#43;55oiQ5L2T57O755qE5Y&#43;q5pyJbHViYW7vvIzlj6/ku6Xnp7DlvpfkuIrmmK/phY3nva7ooajkuK3pl7Tku7bvvIzlhbblroPpg73mmK/lkITnp43lsI/nsbvlupPvvIzkuIDkupvlsI/lt6fova7lrZDvvIznp4Hku6XkuLrmsqHlv4XopoHlho3ph43mlrDpgKDova7lrZDkuoY8L3A&#43;Cg=="
+    ><div class="fixit-decryptor-container">
+    <img class="fixit-decryptor-loading" src="/images/loading.min.svg" alt="decryptor loading" />
+    <label for="fixit-decryptor-input" title='密码'>
+      <input type="password" id="fixit-decryptor-input" class="d-none" placeholder="🔑 自留地，仅本人可见" />
+    </label>
+    <button class="fixit-encryptor-btn d-none"><i class="fa-solid fa-lock" aria-hidden="true"></i> 重新加密</button>
+  </div></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2016 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/crypto-js/core.min.js" defer></script><script src="/lib/crypto-js/enc-base64.min.js" defer></script><script src="/lib/crypto-js/md5.min.js" defer></script><script src="/lib/crypto-js/sha256.min.js" defer></script><script src="/js/fixit-decryptor.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"encryption":{"all":true,"shortcode":false},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

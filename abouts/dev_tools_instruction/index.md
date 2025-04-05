@@ -176,6 +176,8 @@ choco upgrade -y
 choco install powertoys
 choco install everythingpowertoys
 choco install 7zip.install
+
+# Scoop install powertoys
 ```
 
 alt&#43;space=&gt;打开快捷搜索面板

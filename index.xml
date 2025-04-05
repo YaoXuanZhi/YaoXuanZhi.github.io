@@ -7,6 +7,14 @@
       <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 01 Jan 2088 00:00:00 &#43;0000</lastBuildDate>
       <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>Hugo AsciinemaPlayer ShorCodes</title>
+  <link>http://localhost:1313/posts/hugo_asciinema_player_short_code/</link>
+  <pubDate>Wed, 30 Oct 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/hugo_asciinema_player_short_code/</guid>
+  <description><![CDATA[<p>考虑到现在各种网站可能会不再维护的情况，直接采用分享Id的方式并不能保证链接一直生效，因此希望shortcodes可支持asciinema可以传入相对文件路径来加载显示</p>]]></description>
+</item>
+<item>
   <title>自用工具-ScreenPinKit</title>
   <link>http://localhost:1313/posts/screen_pin_kit/</link>
   <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>

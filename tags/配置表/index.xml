@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>配置表 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E9%85%8D%E7%BD%AE%E8%A1%A8/</link>
+    <description>配置表 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E9%85%8D%E7%BD%AE%E8%A1%A8/" rel="self" type="application/rss+xml" /><item>
+  <title>开源配置表方案对比</title>
+  <link>http://localhost:1313/technical_survey/config_system_compare/</link>
+  <pubDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/technical_survey/config_system_compare/</guid>
+  <description><![CDATA[功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c++、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内]]></description>
+</item>
+</channel>
+</rss>

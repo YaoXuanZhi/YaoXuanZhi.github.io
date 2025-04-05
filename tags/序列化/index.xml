@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>序列化 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%BA%8F%E5%88%97%E5%8C%96/</link>
+    <description>序列化 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="self" type="application/rss+xml" /><item>
+  <title>前后端通信序列化的方案对比</title>
+  <link>http://localhost:1313/technical_survey/cs_protocol_library_compare/</link>
+  <pubDate>Wed, 02 Apr 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/technical_survey/cs_protocol_library_compare/</guid>
+  <description><![CDATA[Google-protobuf 优点： 高效：二进制格式，传输效率高，空间占用小 易用：通过简单的语法定义结构化数据，自动生成代码，支持多种语言 跨平台、跨语言：支持多种编程语言和平台 IDE支持：社区上涌现各种配套IDE插件，丰富的智能提示 缺点： 由于内存二进制格式，dump后的数据很难看懂 只提供序列化和反序列化功能，RPC 实现需额外开]]></description>
+</item>
+</channel>
+</rss>

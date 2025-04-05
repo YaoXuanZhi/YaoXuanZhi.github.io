@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technical_surveys on YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/technical_survey/</link>
+    <description>Recent content in Technical_surveys on YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Sat, 07 Jun 2025 13:54:57 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/technical_survey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AVG开发方案对比</title>
+      <link>http://localhost:1313/technical_survey/avg_plugin_compare/</link>
+      <pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/technical_survey/avg_plugin_compare/</guid>
+      <description>Storyteller Dialogue &amp;amp; Interaction 优点： 与Unity集成程度高，提供可视化编辑&amp;amp;预览功能，可以对于状态机、定制动作、对话等内容，做到编辑即所得 它是一套完整的解决方案，包含了各种角色交互、故事板、对话、语音、文本等本地化的支持 支持多种平台和设备，包括PC、手机、VR等 官方有指导教程：集中在Discord频道上 缺点： 插件</description>
+    </item>
+    <item>
+      <title>开源配置表方案对比</title>
+      <link>http://localhost:1313/technical_survey/config_system_compare/</link>
+      <pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/technical_survey/config_system_compare/</guid>
+      <description>功能对比 技术方案 国际化支持 跨语言支持情况 配置文件格式支持 类型系统支持情况 自定义类型情况 版本冲突管理方式 多重Key支持情况 学习成本 luban 内置支持 官方支持c++、c#、lua等十多种开发语言 支持json、csv、二进制等十多种格式导出 支持绝大部分语言的基础类型和基础容器，以及继承等特性，详情可看：类型系统 内</description>
+    </item>
+    <item>
+      <title>前后端通信序列化的方案对比</title>
+      <link>http://localhost:1313/technical_survey/cs_protocol_library_compare/</link>
+      <pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/technical_survey/cs_protocol_library_compare/</guid>
+      <description>Google-protobuf 优点： 高效：二进制格式，传输效率高，空间占用小 易用：通过简单的语法定义结构化数据，自动生成代码，支持多种语言 跨平台、跨语言：支持多种编程语言和平台 IDE支持：社区上涌现各种配套IDE插件，丰富的智能提示 缺点： 由于内存二进制格式，dump后的数据很难看懂 只提供序列化和反序列化功能，RPC 实现需额外开</description>
+    </item>
+  </channel>
+</rss>

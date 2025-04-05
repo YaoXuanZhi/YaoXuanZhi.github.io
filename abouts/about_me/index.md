@@ -31,9 +31,18 @@
 ---
 
 ## 前进四
- 1. 程序 = 算法 &#43; 数据结构
- 2. 软件 = 程序 &#43; 软件工程
- 3. 软件公司 = 软件 &#43; 商业模式
+{{&lt;mermaid&gt;}}
+flowchart LR
+    A[程序] --&gt; B[算法]
+    A --&gt; C[数据结构]
+    D[软件] --&gt; A
+    D --&gt; E[软件工程]
+    F[软件公司] --&gt; D
+    F --&gt; G[商业模式]
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+    style F fill:#cfc,stroke:#333,stroke-width:2px
+{{&lt;/mermaid&gt;}}
 
 ---
 

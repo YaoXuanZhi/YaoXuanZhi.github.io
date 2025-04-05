@@ -4,7 +4,15 @@
     <link>http://localhost:1313/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/</link>
     <description>开发技巧 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Tue, 16 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 30 Oct 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="self" type="application/rss+xml" /><item>
+  <title>Hugo AsciinemaPlayer ShorCodes</title>
+  <link>http://localhost:1313/posts/hugo_asciinema_player_short_code/</link>
+  <pubDate>Wed, 30 Oct 2024 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/hugo_asciinema_player_short_code/</guid>
+  <description><![CDATA[<p>考虑到现在各种网站可能会不再维护的情况，直接采用分享Id的方式并不能保证链接一直生效，因此希望shortcodes可支持asciinema可以传入相对文件路径来加载显示</p>]]></description>
+</item>
+<item>
   <title>常用工具整理</title>
   <link>http://localhost:1313/abouts/dev_tools_instruction/</link>
   <pubDate>Tue, 16 Jul 2024 00:00:00 &#43;0000</pubDate>
