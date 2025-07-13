@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naninovels on YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/naninovel/</link>
+    <description>Recent content in Naninovels on YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Sun, 22 Jun 2025 13:58:07 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/naninovel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NaniNovel出包记录</title>
+      <link>http://localhost:1313/naninovel/naninovel_build_note/</link>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/naninovel/naninovel_build_note/</guid>
+      <description>&lt;p&gt;目前NaniNovel插件官方默认集成了Addressable资源管理方案，但是官方文档对出包相关的说明相对匮乏，这里做下记录&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

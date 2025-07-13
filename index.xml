@@ -4,9 +4,17 @@
     <link>http://localhost:1313/</link>
     <description>仰望星空，还需脚踏实地</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 01 Jan 2088 00:00:00 &#43;0000</lastBuildDate>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</lastBuildDate>
       <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>一种通用的Unity插件本地化思路</title>
+  <link>http://localhost:1313/posts/unity_plugin_localization/</link>
+  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/unity_plugin_localization/</guid>
+  <description><![CDATA[<p>最近在逛 <a href="https://assetstore.unity.com/"target="_blank" rel="external nofollow noopener noreferrer">Unity资源商城</a> 的时候发现，好多插件都没做多语言支持，用起来比较蛋疼，在项目组里不好推广。为此捣鼓了半天，总算整出一套相对通用的方案，发出来给大伙参考～</p>]]></description>
+</item>
+<item>
   <title>Hugo AsciinemaPlayer ShorCodes</title>
   <link>http://localhost:1313/posts/hugo_asciinema_player_short_code/</link>
   <pubDate>Wed, 30 Oct 2024 00:00:00 &#43;0000</pubDate>
@@ -86,14 +94,6 @@
   <author>YaoXuanZhi</author>
   <guid>http://localhost:1313/posts/global_network_build/</guid>
   <description><![CDATA[<p>在2023年，由于各种AI应用的大爆发，简体中文互联网的高质量内容被各种量产垃圾内容掩盖住了，再叠加上各大日常App的大数据推荐系统，我们生活在一个个信息茧房中，为了避免坐井观天，需要整合国内外的高质量信息源，因此有了这篇笔记</p>]]></description>
-</item>
-<item>
-  <title>手机通过usb线使用pc电脑上网</title>
-  <link>http://localhost:1313/posts/mobile_internet_sharing_via_usb_to_pc/</link>
-  <pubDate>Mon, 13 Mar 2023 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/mobile_internet_sharing_via_usb_to_pc/</guid>
-  <description><![CDATA[<p>需要协助跟进一个真机上手游包特有的登录问题，初步定位到问题出在包体上，但该包在首次安装启动的时候，需要下载10G+的资源包，每次出包，资源包都会有变更，而公司的内网资源服务器空间有限，并且wifi信道存在多人相互抢占的情况，最终导致资源下载特别慢，为了排查这么个问题，需要等待1h+才能进游戏；如果让手机通过usb线使用pc电脑上网，这样就能规避上述问题了，最终借助了<a href="https://github.com/Genymobile/gnirehtet"target="_blank" rel="external nofollow noopener noreferrer">gnirehtet</a>来达成目的</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>插件本地化 - 标签 - YaoXuanZhi&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%8F%92%E4%BB%B6%E6%9C%AC%E5%9C%B0%E5%8C%96/</link>
+    <description>插件本地化 - 标签 | YaoXuanZhi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%8F%92%E4%BB%B6%E6%9C%AC%E5%9C%B0%E5%8C%96/" rel="self" type="application/rss+xml" /><item>
+  <title>一种通用的Unity插件本地化思路</title>
+  <link>http://localhost:1313/posts/unity_plugin_localization/</link>
+  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/unity_plugin_localization/</guid>
+  <description><![CDATA[<p>目前发现 <a href="https://assetstore.unity.com/"target="_blank" rel="external nofollow noopener noreferrer">unity assetstore</a> 上面的许多插件都缺乏本地化支持，这实太不友好了，因此有了这么一番探索</p>]]></description>
+</item>
+</channel>
+</rss>

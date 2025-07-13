@@ -4,7 +4,23 @@
     <link>http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/</link>
     <description>原创工具 - 分类 | YaoXuanZhi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+  <title>一种通用的Unity插件本地化思路</title>
+  <link>http://localhost:1313/posts/unity_plugin_localization/</link>
+  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/unity_plugin_localization/</guid>
+  <description><![CDATA[<p>目前发现 <a href="https://assetstore.unity.com/"target="_blank" rel="external nofollow noopener noreferrer">unity assetstore</a> 上面的许多插件都缺乏本地化支持，这实太不友好了，因此有了这么一番探索</p>]]></description>
+</item>
+<item>
+  <title>原创Unity插件-CodeGenProvider</title>
+  <link>http://localhost:1313/posts/code_gen_provider_unity_plugin/</link>
+  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
+  <author>YaoXuanZhi</author>
+  <guid>http://localhost:1313/posts/code_gen_provider_unity_plugin/</guid>
+  <description><![CDATA[<p>目前项里会可能会用到多种代码生成工具，这里提供了一个原创的Unity插件，用来整合这些代码生成方案</p>]]></description>
+</item>
+<item>
   <title>自用工具-ScreenPinKit</title>
   <link>http://localhost:1313/posts/screen_pin_kit/</link>
   <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
