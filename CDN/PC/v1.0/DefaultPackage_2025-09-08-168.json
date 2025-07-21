@@ -1,0 +1,217 @@
+{
+    "FileVersion": "2.2.5",
+    "EnableAddressable": true,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 2,
+    "BuildBundleType": 2,
+    "BuildPipeline": "ScriptableBuildPipeline",
+    "PackageName": "DefaultPackage",
+    "PackageVersion": "2025-09-08-168",
+    "PackageNote": "2025/9/8 2:48:16",
+    "AssetList": [
+        {
+            "Address": "mscorlib.dll",
+            "AssetPath": "Assets/Bundles/AotDlls/mscorlib.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 0
+        },
+        {
+            "Address": "System.Core.dll",
+            "AssetPath": "Assets/Bundles/AotDlls/System.Core.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 0
+        },
+        {
+            "Address": "System.dll",
+            "AssetPath": "Assets/Bundles/AotDlls/System.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 0
+        },
+        {
+            "Address": "HotUpdate.dll",
+            "AssetPath": "Assets/Bundles/Code/HotUpdate.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 1
+        },
+        {
+            "Address": "UIManager.Runtime.dll",
+            "AssetPath": "Assets/Bundles/Code/UIManager.Runtime.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 1
+        },
+        {
+            "Address": "Unity.Codes.dll",
+            "AssetPath": "Assets/Bundles/Code/Unity.Codes.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [
+                "buildin"
+            ],
+            "BundleID": 1
+        },
+        {
+            "Address": "HomePanel",
+            "AssetPath": "Assets/Bundles/UI/HomePanel.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 2
+        },
+        {
+            "Address": "SettingPanel",
+            "AssetPath": "Assets/Bundles/UI/SettingPanel.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 2
+        },
+        {
+            "Address": "CommonBtn",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/CommonBtn.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "FullPanel1",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/FullPanel1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "FullPanel2",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/FullPanel2.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "FullPanel3",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/FullPanel3.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "FullPanel4",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/FullPanel4.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "FullPanel5",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/FullPanel5.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "PopWindow1",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/PopWindow1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "PopWindow2",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/PopWindow2.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        },
+        {
+            "Address": "TestBtnGroup",
+            "AssetPath": "Assets/Scripts/Plugins/UIManager/Runtime/Samples/Resources/Prefabs/UIPanel/TestBtnGroup.prefab",
+            "AssetGUID": "",
+            "AssetTags": [
+                "test"
+            ],
+            "BundleID": 3
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "defaultpackage_assets_bundles_aotdlls.bundle",
+            "UnityCRC": 1898319827,
+            "FileHash": "ab0db480bb7a12dfb09bb234c422f0cf",
+            "FileCRC": "30d8a442",
+            "FileSize": 1536845,
+            "Encrypted": false,
+            "Tags": [
+                "buildin"
+            ],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_bundles_code.bundle",
+            "UnityCRC": 2657687404,
+            "FileHash": "e4f166d3c4764d8b8db5431337fe38d6",
+            "FileCRC": "7a1ce821",
+            "FileSize": 17255,
+            "Encrypted": false,
+            "Tags": [
+                "buildin"
+            ],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_bundles_ui.bundle",
+            "UnityCRC": 785174039,
+            "FileHash": "b8836c19f624ae74e98297d7e275bfac",
+            "FileCRC": "48188172",
+            "FileSize": 19738,
+            "Encrypted": false,
+            "Tags": [
+                "test"
+            ],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_scripts_plugins_uimanager_runtime_samples_resources_prefabs_uipanel.bundle",
+            "UnityCRC": 470132931,
+            "FileHash": "650134b52d16769c7a34ed75ef743c8c",
+            "FileCRC": "8da15c84",
+            "FileSize": 27667,
+            "Encrypted": false,
+            "Tags": [
+                "test"
+            ],
+            "DependIDs": []
+        }
+    ]
+}
