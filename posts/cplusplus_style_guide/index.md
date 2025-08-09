@@ -1,18 +1,18 @@
-# C&#43;&#43; 代码规范
+# C++ 代码规范
 
 
-{{&lt; link href=&#34;https://zh-google-styleguide.readthedocs.io&#34; content=&#34;Google 开源项目风格指南&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://zh-google-styleguide.readthedocs.io" content="Google 开源项目风格指南" title="documentation of FixIt Theme" card=true >}}
 
-&lt;!--more--&gt;
+<!--more-->
 
 ---
 
 ## 前言
-在c&#43;&#43;这个大联盟里，有许许多多领导组织，微软、Google、IBM，还有国内各个大厂内部因地制宜定下的各种代码规范，而在我目前的职业生涯里，先后经历了两种c&#43;&#43;代码规范洗礼，其实项目内部具体用什么代码规范，一般都由leader定下的，新加入团队的成员理应遵循已有的代码规范，保证团队工程风格的一致性
+在c++这个大联盟里，有许许多多领导组织，微软、Google、IBM，还有国内各个大厂内部因地制宜定下的各种代码规范，而在我目前的职业生涯里，先后经历了两种c++代码规范洗礼，其实项目内部具体用什么代码规范，一般都由leader定下的，新加入团队的成员理应遵循已有的代码规范，保证团队工程风格的一致性
 
 但是，作为开发大军里的一员，除开企业内的团队开发，我们私下也会有自己的创造欲望，去捣弄自己的小项目，那么在这个时候，就需要定下一个从一而终的代码规范了，如果机遇一到，拉到融资或者和其它小伙伴一起创业，它就能作为团队规范的一部分了
 
-目前在业界之内，谷歌的开源氛围是较为浓厚的，它提供了许多深受业界认可的开源项目，比如chromium、grpc、protobuf、gson……，还往业界输出了它的[《Google 开源项目风格指南》](https://zh-google-styleguide.readthedocs.io)，而之前自己在c&#43;&#43;学习的过程中，也用到了其中一些开源库
+目前在业界之内，谷歌的开源氛围是较为浓厚的，它提供了许多深受业界认可的开源项目，比如chromium、grpc、protobuf、gson……，还往业界输出了它的[《Google 开源项目风格指南》](https://zh-google-styleguide.readthedocs.io)，而之前自己在c++学习的过程中，也用到了其中一些开源库
 
 而刚毕业那会，由于做的是windows下的win32软件开发，因此最开始用的是mfc那套规范；后续进了游戏行业，一直从事游戏服务端开发，此时起就采用google的代码规范了。现今反思了一些东西，自己要想长远发展的话，采用谷歌这套会更好些
 
@@ -22,7 +22,7 @@
 ### 通用命名规则
 - 函数命名，变量命名，文件命名要有描述性；少用缩写。
 - 尽可能给有描述性的命名，别心疼空间，毕竟让代码易于新读者理解很重要。不要用只有项目开发者能理解的缩写，也不要通过砍掉几个字母来缩写单词。
-```c&#43;&#43;
+```c++
     //示例：
     int price_count_reader;    // 无缩写
     int num_errors;            // “num” 本来就很常见
@@ -33,7 +33,7 @@
     int nerr;                  // 怪缩写。
     int n_comp_conns;          // 怪缩写。
     int wgc_connections;       // 只有贵团队知道是啥意思。
-    int pc_reader;             // &#34;pc&#34; 有太多可能的解释了。
+    int pc_reader;             // "pc" 有太多可能的解释了。
     int cstmr_id;              // 有删减若干字母。
 ```
 
@@ -44,7 +44,7 @@
     * myusefulclass.cc
     * muusefulclass_test.cc // ``_unittest`` 和 ``_regtest`` 已弃用。
 
-- C&#43;&#43; 文件要以 **.cc** 结尾, 头文件以 **.h** 结尾. 专门插入文本的文件则以 **.inc** 结尾，参见:``ref:self-contained headers``。
+- C++ 文件要以 **.cc** 结尾, 头文件以 **.h** 结尾. 专门插入文本的文件则以 **.inc** 结尾，参见:``ref:self-contained headers``。
 - 不要使用已经存在于 `/usr/include` 下的文件名 (Yang.Y 注: 即编译器搜索系统头文件的路径), 如`db.h`.
 - 通常应尽量让文件名更加明确. `http_server_logs.h` 就比 `logs.h` 要好. 定义类时文件名一般成对出现, 如 `foo_bar.h` 和 `foo_bar.cc`, 对应于类 `FooBar`.
 - 内联函数必须放在 `.h` 文件中. 如果内联函数比较短, 就直接放在 `.h` 中.
@@ -52,14 +52,14 @@
 ### 类型命名
 - 类型名称的每个单词首字母均大写, 不包含下划线: `MyExcitingClass`, `MyExcitingEnum`.
 - 所有类型命名 —— 类, 结构体, 类型定义 (typedef), 枚举 —— 均使用相同约定. 例如:
-```c&#43;&#43;
+```c++
     // classes and structs
     class UrlTable { ...
     class UrlTableTester { ...
     struct UrlTableProperties { ...
 
     // typedefs
-    typedef hash_map&lt;UrlTableProperties *, string&gt; PropertiesMap;
+    typedef hash_map<UrlTableProperties *, string> PropertiesMap;
 
     // enums
     enum UrlTableErrors { ...
@@ -69,7 +69,7 @@
 - 变量名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 但结构体的就不用，如`::a_local_variable`, `a_struct_data_member`, `a_class_data_member_`.
 
 1. 【普通变量命名】:
-```c&#43;&#43;
+```c++
     //举例:
     string table_name;  // 可 - 用下划线。
     string tablename;   // 可 - 全小写。
@@ -80,19 +80,19 @@
 
 2. 【类数据成员】：
 不管是静态的还是非静态的，结构体数据成员都可以和普通变量一样, **但要接下划线**。
-```c&#43;&#43;
+```c++
     class TableInfo 
     {
     private:
         string table_name_;             // 可 - 尾后加下划线。
         string tablename_;              // 可。
-        static Pool&lt;TableInfo&gt;* pool_;  // 可。
+        static Pool<TableInfo>* pool_;  // 可。
     };
 ```
 
 3. 【结构体变量】:
 不管是静态的还是非静态的，结构体数据成员都可以和普通变量一样, **不用像类那样接下划线**:
-```c&#43;&#43;
+```c++
     struct UrlTableProperties {
         string name;
         int num_entries;
@@ -106,13 +106,13 @@
 在全局或类里的常量名称前加 ``k``: `kDaysInAWeek`. 且除去开头的 ``k``之外每个单词开头字母均大写。
 所有编译时常量, 无论是局部的, 全局的还是类中的, 和其他变量稍微区别一下. 这规则适用于编译时的局部作用域常量，不过要按变量规则来命名也可以。
     ``k``后接大写字母开头的单词:
-```c&#43;&#43;
+```c++
     const int kDaysInAWeek = 7;
 ```
 
 6. 【函数命名】
 常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配: 
-```c&#43;&#43;
+```c++
     MyExcitingFunction(),
     MyExcitingMethod(), 
     my_exciting_member_variable(), 
@@ -123,7 +123,7 @@
 * [常规函数]:
 函数名的**每个单词首字母大写**, **没有下划线**。
 如果您的某函数出错时就要直接 `crash`, 那么就在函数名加上 `OrDie`. 但这函数本身必须集成在产品代码里，且平时也可能会出错。
-```c&#43;&#43;
+```c++
     AddTableEntry()
     DeleteUrl()
     OpenFileOrDie()
@@ -131,7 +131,7 @@
 
 * [取值和设值函数]:
 取值（**Accessors**）和设值（**Mutators**）函数要与存取的变量名匹配. 这儿摘录一个类,`num_entries_` 是该类的实例变量:
-```c&#43;&#43;
+```c++
     class MyClass {
     public:
         ...
@@ -152,7 +152,7 @@
 - 枚举的命名应当和``常量``或``宏``一致: kEnumName 或是 ENUM_NAME.
 - 单独的枚举值应该优先采用``常量``的命名方式. 但``宏``方式的命名也可以接受. 
 - 枚举名 UrlTableErrors(以及 AlternateUrlTableErrors) 是类型, 所以要用大小写混合的方式.
-```c&#43;&#43;
+```c++
     enum UrlTableErrors {
         kOK = 0,
         kErrorOutOfMemory,
@@ -166,15 +166,15 @@
 ```
 
 9. 【宏命名】
-你并不打算使用宏 ``&lt;preprocessor-macros&gt;``, 对吧? 如果你一定要用, 像这样命名:``MY_MACRO_THAT_SCARES_SMALL_CHILDREN``.
+你并不打算使用宏 ``<preprocessor-macros>``, 对吧? 如果你一定要用, 像这样命名:``MY_MACRO_THAT_SCARES_SMALL_CHILDREN``.
 通常``不应该``使用宏. 如果不得不用, 其命名像枚举命名一样全部大写, 使用下划线:
-```c&#43;&#43;
+```c++
     #define ROUND(x) ...
     #define PI_ROUNDED 3.0
 ```
 
 10. 【命名规则的特例】
-[X]如果你命名的实体与已有 C/C&#43;&#43; 实体相似, 可参考现有命名策略.
+[X]如果你命名的实体与已有 C/C++ 实体相似, 可参考现有命名策略.
 
 
 ## 注释规范
@@ -195,12 +195,12 @@
 
     文件头举例如下:
 
-    ```c&#43;&#43;
+    ```c++
     /*****************************************************************************
     *  @file     auto_register_factory.h
     *  @brief    可注册的工厂类模板
     *  @note
-    *  C&#43;&#43;反射机制的一种实现，基于类行为抽象而成
+    *  C++反射机制的一种实现，基于类行为抽象而成
     *****************************************************************************/
     ```
 
@@ -208,18 +208,18 @@
     每个类的定义都要附带一份注释, 描述类的功能和用法.
 
     举例如下:
-    ```c&#43;&#43;
+    ```c++
     /**
     * @class CSigleRegisterFactory
     * @brief 一个支持自动注册的工厂类模板
     * @note
     * 注意，如果TKey是自定义数据类型，那么请重载其关系运算符哦，
-    * 具体看std::map的条件，通常仅需要重载运算符“&lt;”，详情请看
+    * 具体看std::map的条件，通常仅需要重载运算符“<”，详情请看
     * https://msdn.microsoft.com/ZH-CN/library/s44w4h2s(v=VS.100,d=hv.2).aspx
     * 在gcc下编译可能遇到的问题：http://blog.csdn.net/pb1995/article/details/49532285
     * 仅仅支持一对一的模式
     */
-    template&lt;typename TKey, typename TBase&gt;
+    template<typename TKey, typename TBase>
     class CSingleRegisteredFactory {
     ...
     };
@@ -243,11 +243,11 @@
 
     举例如下:
 
-    ```c&#43;&#43;
+    ```c++
     /**
     * @brief: 将某类注册到工厂类实例之中
     * @param[in] TKey  Key  某类在外部检索时所用到的条件，通常采用字符串或枚举等类型
-    * @param[in|out] IForwarder&lt;TBase&gt;*  pobj  待注册到工厂类实例的基类指针，自动跳过空指针
+    * @param[in|out] IForwarder<TBase>*  pobj  待注册到工厂类实例的基类指针，自动跳过空指针
     * @param[in] bool  bIsOverWrite  如果为true，则重新注册此类，否则，直接释放待注册的基类指针
     * @return 无
     * @note
@@ -258,7 +258,7 @@
 
     但也要避免啰啰嗦嗦, 或做些显而易见的说明. 下面的注释就没有必要加上 “returns false otherwise”, 因为已经暗含其中了:
 
-    ```c&#43;&#43;
+    ```c++
     // Returns true if the table cannot hold any more entries.
     bool IsTableFull();
     ```
@@ -275,11 +275,11 @@
     [类数据成员]:
     每个类数据成员 (也叫实例变量或成员变量) 都应该用注释说明用途. 如果变量可以接受 NULL 或 -1 等警戒值, 须加以说明. 比如:
 
-    ```c&#43;&#43;
+    ```c++
     private:
     // Keeps track of the total number of entries in the table.
     // Used to ensure we do not go over the limit. -1 means
-    // that we don&#39;t yet know how many entries the table has.
+    // that we don't yet know how many entries the table has.
     int num_total_entries_;
     ```
 
@@ -295,30 +295,30 @@
     [代码前注释]:
     巧妙或复杂的代码段前要加注释. 比如:
 
-    ```c&#43;&#43;
+    ```c++
     // Divide result by two, taking into account that x
     // contains the carry from the add.
-    for (int i = 0; i &lt; result-&gt;size(); i&#43;&#43;) {
-        x = (x &lt;&lt; 8) &#43; (*result)[i];
-        (*result)[i] = x &gt;&gt; 1;
-        x &amp;= 1;
+    for (int i = 0; i < result->size(); i++) {
+        x = (x << 8) + (*result)[i];
+        (*result)[i] = x >> 1;
+        x &= 1;
     }
     ```
 
     [行注释]:
     比较隐晦的地方要在行尾加入注释. 在行尾空两格进行注释. 比如:
 
-    ```c&#43;&#43;
+    ```c++
     // If we have enough memory, mmap the data portion too.
-    mmap_budget = max&lt;int64&gt;(0, mmap_budget - index_-&gt;length());
-    if (mmap_budget &gt;= data_size_ &amp;&amp; !MmapData(mmap_chunk_bytes, mlock))
+    mmap_budget = max<int64>(0, mmap_budget - index_->length());
+    if (mmap_budget >= data_size_ && !MmapData(mmap_chunk_bytes, mlock))
         return;  // Error already logged.
     ```
     注意, 这里用了两段注释分别描述这段代码的作用, 和提示函数返回时错误已经被记入日志.
 
     如果你需要连续进行多行注释, 可以使之对齐获得更好的可读性:
 
-    ```c&#43;&#43;
+    ```c++
     DoSomething();                  	// Comment here so the comments line up.
     DoSomethingElseThatIsLonger();  	// Comment here so there are two spaces between
                                     // the code and the comment.
@@ -331,22 +331,22 @@
 
     向函数传入 NULL, 布尔值或整数时, 要注释说明含义, 或使用常量让代码望文知意. 例如, 对比:
 
-    ```c&#43;&#43;
+    ```c++
     bool success = CalculateSomething(interesting_value,
                                   10,
                                   false,
                                   NULL);  // What are these arguments??
     ```
     和:
-    ```c&#43;&#43;
+    ```c++
     bool success = CalculateSomething(interesting_value,
                                       10,     	// Default base value.
-                                      false,  	// Not the first time we&#39;re calling this.
+                                      false,  	// Not the first time we're calling this.
                                       NULL);  	// No callback.
     ```
 
     或使用常量或描述性变量:
-    ```c&#43;&#43;
+    ```c++
     const int kDefaultBaseValue = 10;
     const bool kFirstTimeCalling = false;
     Callback *null_callback = NULL;
@@ -357,10 +357,10 @@
     ```
 
     不允许:
-    注意 永远不要 用自然语言翻译代码作为注释. 要假设读代码的人 C&#43;&#43; 水平比你高, 即便他/她可能不知道你的用意:
-    ```c&#43;&#43;
+    注意 永远不要 用自然语言翻译代码作为注释. 要假设读代码的人 C++ 水平比你高, 即便他/她可能不知道你的用意:
+    ```c++
     // 现在, 检查 b 数组并确保 i 是否存在,
-    // 下一个元素是 i&#43;1.
+    // 下一个元素是 i+1.
     ...        // 天哪. 令人崩溃的注释.
     ```
 
@@ -373,8 +373,8 @@
 8. 【TODO 注释】
     对那些临时的, 短期的解决方案, 或已经够好但仍不完美的代码使用 TODO 注释.
     TODO 注释要使用全大写的字符串 TODO, 在随后的圆括号里写上你的大名, 邮件地址, 或其它身份标识. 冒号是可选的. 主要目的是让添加注释的人 (也是可以请求提供更多细节的人) 可根据规范的 TODO 格式进行查找. 添加 TODO 注释并不意味着你要自己来修正.
-    ```c&#43;&#43;
-    // TODO(kl@gmail.com): Use a &#34;*&#34; here for concatenation operator.
+    ```c++
+    // TODO(kl@gmail.com): Use a "*" here for concatenation operator.
     // TODO(Zeke) change this to use relations.
     如果加 TODO 是为了在 “将来某一天做某事”, 可以附上一个非常明确的时间 “Fix by November 2005”), 或者一个明确的事项 (“Remove this code when all clients can handle XML responses.”).
     ```
@@ -399,12 +399,12 @@
     一个简单的函数里，其代码也是可以区分出不同的职能，在每部分职能切换的时候，加上换行
 
 ---
-![Google C&#43;&#43; Style Guide](/assets/2021-04-27/google_cplusplus_style_guide.png)
+![Google C++ Style Guide](/assets/2021-04-27/google_cplusplus_style_guide.png)
 
 ---
 ## 参考资料
- - [Google 开源项目风格指南 - C&#43;&#43;风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)
- - [Google C&#43;&#43; Style Guide](https://google.github.io/styleguide/cppguide.html)
+ - [Google 开源项目风格指南 - C++风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)
+ - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
 ---
 

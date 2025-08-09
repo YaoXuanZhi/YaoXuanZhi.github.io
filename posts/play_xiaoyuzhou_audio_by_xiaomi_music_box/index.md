@@ -3,9 +3,9 @@
 
 这两三年播客发展得如火如荼，本人也关注了好几个播客节目，由于在家里更希望通过音箱外放来收听播客频道，而手头的小米音箱本身不允许安装非官方App，因此有了这篇文章，希望能帮助到有同样需求的朋友
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/hanxi/xiaomusic&#34; content=&#34;xiaomusic&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/hanxi/xiaomusic" content="xiaomusic" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
@@ -14,7 +14,7 @@
 
 一般而言，在外都是戴耳机来收听播客，免得影响其他人，而在家里，自然更想通过音响外放来收听啦，正好手头有个小米音箱，虽然通过手机蓝牙连到音箱的方式也可以播放播客，但是依然不甚方便，因为手机此时可能要玩游戏、刷视频等，并且如果有电话打过来，也会导致播客播放中断，因此，需要找到一种非手机蓝牙的方式来让小米音箱播放播客
 
-暂时采用了[xiaomusic](https://github.com/hanxi/xiaomusic)&#43;[cosmos-enhanced](https://github.com/LGiki/cosmos-enhanced)来结合实现
+暂时采用了[xiaomusic](https://github.com/hanxi/xiaomusic)+[cosmos-enhanced](https://github.com/LGiki/cosmos-enhanced)来结合实现
 
 ## 操作步骤
 

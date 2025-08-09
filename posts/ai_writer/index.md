@@ -3,9 +3,9 @@
 
 从识字以来，已经遭遇了不少烂尾或太监的网络小说，每次遇到，都有很强的动力去想将它续写或者改变它虎头蛇尾的后半段，但是本人的写作水平一般，短篇都未曾驾驭过，更不用说那种动辄几百万字的网络小说，一直没去做，当然也是没那个闲工夫啦。幸运的是，现在在OpenAI等科技巨头的带动下，涌现了很多AI工具，其中就包括一些AI写作应用，ChatGpt4 和通义千问等问答语言模型。这些工具为写作提供了强大的辅助支持。在下面，我将整理下AI_Writer 的开源 AI 写作工具的试用体验
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/BlinkDL/AI-Writer&#34; content=&#34;AI-Writer仓库地址&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/BlinkDL/AI-Writer" content="AI-Writer仓库地址" title="documentation of FixIt Theme" card=true >}}
 
 ---
 

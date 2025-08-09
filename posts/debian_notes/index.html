@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <title>Debian的折腾笔记 - YaoXuanZhi&#39;s Blog</title><meta name="author" content="YaoXuanZhi">
-<meta name="author-link" content="https://github.com/YaoXuanZhi">
-<meta name="description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕" /><meta name="keywords" content='Linux, Debian, Docker, Yarn, NodeJs' /><meta itemprop="name" content="Debian的折腾笔记">
-<meta itemprop="description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕"><meta itemprop="datePublished" content="2024-05-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-11-11T09:25:26+08:00" />
-<meta itemprop="wordCount" content="819">
-<meta itemprop="keywords" content="Linux,Debian,Docker,Yarn,NodeJs," /><meta property="og:title" content="Debian的折腾笔记" />
-<meta property="og:description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/debian_notes/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-05-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-11-11T09:25:26+08:00" />
+<meta name="description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕
+"><meta name="keywords" content='Linux, Debian, Docker, Yarn, NodeJs'>
+  <meta itemprop="name" content="Debian的折腾笔记">
+  <meta itemprop="description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕">
+  <meta itemprop="datePublished" content="2024-05-13T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-18T22:47:32+08:00">
+  <meta itemprop="wordCount" content="819">
+  <meta itemprop="keywords" content="Linux,Debian,Docker,Yarn,NodeJs"><meta property="og:url" content="http://localhost:1313/posts/debian_notes/">
+  <meta property="og:site_name" content="YaoXuanZhi&#39;s Blog">
+  <meta property="og:title" content="Debian的折腾笔记">
+  <meta property="og:description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-18T22:47:32+08:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Debian">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Yarn">
+    <meta property="article:tag" content="NodeJs">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Debian的折腾笔记"/>
-<meta name="twitter:description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Debian的折腾笔记">
+  <meta name="twitter:description" content="ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕">
 <meta name="application-name" content="Hugo FixIt Blog">
 <meta name="apple-mobile-web-app-title" content="Hugo FixIt Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/debian_notes/" /><link rel="prev" href="http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/" /><link rel="next" href="http://localhost:1313/posts/screen_pin_kit/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/debian_notes/" title="Debian的折腾笔记 - YaoXuanZhi&#39;s Blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/" title="通过小米音箱来播放小宇宙播客(非手机蓝牙)" /><link rel="next" type="text/html" href="http://localhost:1313/posts/screen_pin_kit/" title="自用工具-ScreenPinKit" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/debian_notes/index.md" title="Debian的折腾笔记 - YaoXuanZhi's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -35,44 +45,24 @@
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/debian_notes\/"
     },"genre": "posts","keywords": "Linux, Debian, Docker, Yarn, NodeJs","wordcount":  819 ,
-    "url": "http:\/\/localhost:1313\/posts\/debian_notes\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-11-11T09:25:26+08:00","publisher": {
+    "url": "http:\/\/localhost:1313\/posts\/debian_notes\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2025-09-18T22:47:32+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
         "name": "YaoXuanZhi"
       },"description": ""
   }
-  </script></head>
-  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="YaoXuanZhi&#39;s Blog" data-title="YaoXuanZhi&#39;s Blog" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="YaoXuanZhi&#39;s Blog"><img class="logo" src='/assets/logo.svg' alt="YaoXuanZhi&#39;s Blog" height="32" width="32"><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/archives/"
-                
-                
-              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/categories/"
-                
-                
-              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/tags/"
-                
-                
-              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/abouts/"
-                
-                
-              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/abouts/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
@@ -92,7 +82,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="YaoXuanZhi&#39;s Blog"><img loading="lazy" src="/assets/logo.svg" alt="/assets/logo.svg" data-title="/assets/logo.svg" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="YaoXuanZhi&#39;s Blog"><img class="logo" src='/assets/logo.svg' alt="YaoXuanZhi&#39;s Blog" height="26" width="26"><span class="header-title-text">YaoXuanZhi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -114,35 +104,7 @@
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
               取消
             </a>
-          </li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/archives/"
-                  
-                  
-                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/categories/"
-                  
-                  
-                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/tags/"
-                  
-                  
-                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/abouts/"
-                  
-                  
-                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          </li><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item"><a class="menu-link" href="/abouts/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
           <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
       </ul>
     </nav>
@@ -152,12 +114,12 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </div><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Debian的折腾笔记</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/assets/avatar.jpg" alt="YaoXuanZhi" data-title="YaoXuanZhi" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/linux%E6%8A%80%E6%9C%AF/" class="post-category" title="分类 - Linux技术"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Linux技术</a>&ensp;<a href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="post-category" title="分类 - 开发技巧"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 开发技巧</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-13 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-05-13">2024-05-13</time></span>&nbsp;<span title="819 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/YaoXuanZhi" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/assets/avatar.jpg' alt="YaoXuanZhi" height="16" width="16">&nbsp;YaoXuanZhi</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/linux%E6%8A%80%E6%9C%AF/" class="post-category" title="分类 - Linux技术"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Linux技术</a>&ensp;<a href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="post-category" title="分类 - 开发技巧"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 开发技巧</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-13 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-05-13">2024-05-13</time></span>&nbsp;<span title="819 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -181,9 +143,12 @@
 </nav></div>
       </div><div class="content" id="content"><p>ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕</p>
 <hr>
-<h2 id="账户权限设置" class="heading-element">
-  <a href="#%e8%b4%a6%e6%88%b7%e6%9d%83%e9%99%90%e8%ae%be%e7%bd%ae" class="heading-mark"></a>账户权限设置</h2><p>创建非root用户，并且设置ALL权限，否则不能使用sudo命令，想创建文件夹、安装docker等行为就无从谈起</p>
-<div class="highlight" id="id-1"><div class="chroma">
+<h2 class="heading-element" id="账户权限设置"><span>账户权限设置</span>
+  <a href="#%e8%b4%a6%e6%88%b7%e6%9d%83%e9%99%90%e8%ae%be%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>创建非root用户，并且设置ALL权限，否则不能使用sudo命令，想创建文件夹、安装docker等行为就无从谈起</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -195,24 +160,30 @@
 </span></span><span class="line"><span class="cl">sudo vim /etc/sudoers</span></span></code></pre></td></tr></table>
 </div>
 </div><p>添加上这行</p>
-<div class="highlight" id="id-2"><div class="chroma">
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">brew ALL=(ALL:ALL) ALL</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="docker相关" class="heading-element">
-  <a href="#docker%e7%9b%b8%e5%85%b3" class="heading-mark"></a>docker相关</h2><p>解决了国内docker被禁止之后，Linux下的docker安装部署问题，详情看这里：<a href="https://github.com/tech-shrimp/docker_installer"target="_blank" rel="external nofollow noopener noreferrer">解决Docker国内网络问题</a></p>
-<h3 id="安装docker" class="heading-element">
-  <a href="#%e5%ae%89%e8%a3%85docker" class="heading-mark"></a>安装docker</h3><div class="highlight" id="id-3"><div class="chroma">
+</div><h2 class="heading-element" id="docker相关"><span>docker相关</span>
+  <a href="#docker%e7%9b%b8%e5%85%b3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>解决了国内docker被禁止之后，Linux下的docker安装部署问题，详情看这里：<a href="https://github.com/tech-shrimp/docker_installer"target="_blank" rel="external nofollow noopener noreferrer">解决Docker国内网络问题</a></p>
+<h3 class="heading-element" id="安装docker"><span>安装docker</span>
+  <a href="#%e5%ae%89%e8%a3%85docker" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo curl -fsSL https://gitee.com/tech-shrimp/docker_installer/releases/download/latest/linux.sh<span class="p">|</span> bash -s docker --mirror Aliyun</span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight" id="id-4"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -233,8 +204,11 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 验证docker-compose命令是否安装成功</span>
 </span></span><span class="line"><span class="cl">docker-compose version</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="新增镜像站点" class="heading-element">
-  <a href="#%e6%96%b0%e5%a2%9e%e9%95%9c%e5%83%8f%e7%ab%99%e7%82%b9" class="heading-mark"></a>新增镜像站点</h3><div class="highlight" id="id-5"><div class="chroma">
+</div><h3 class="heading-element" id="新增镜像站点"><span>新增镜像站点</span>
+  <a href="#%e6%96%b0%e5%a2%9e%e9%95%9c%e5%83%8f%e7%ab%99%e7%82%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -242,7 +216,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /etc/docker/daemon.json</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输入下列内容，最后按ESC，输入 :wq! 保存退出</p>
-<div class="highlight" id="id-6"><div class="chroma">
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -262,15 +236,18 @@
 </span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><p>重启docker，让新增的镜像站点生效</p>
-<div class="highlight" id="id-7"><div class="chroma">
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo service docker restart</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="镜像操作" class="heading-element">
-  <a href="#%e9%95%9c%e5%83%8f%e6%93%8d%e4%bd%9c" class="heading-mark"></a>镜像操作</h3><div class="highlight" id="id-8"><div class="chroma">
+</div><h3 class="heading-element" id="镜像操作"><span>镜像操作</span>
+  <a href="#%e9%95%9c%e5%83%8f%e6%93%8d%e4%bd%9c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -299,8 +276,11 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 加载离线镜像</span>
 </span></span><span class="line"><span class="cl">sudo docker load -i v2raya.tar</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="容器实例操作" class="heading-element">
-  <a href="#%e5%ae%b9%e5%99%a8%e5%ae%9e%e4%be%8b%e6%93%8d%e4%bd%9c" class="heading-mark"></a>容器实例操作</h3><div class="highlight" id="id-9"><div class="chroma">
+</div><h3 class="heading-element" id="容器实例操作"><span>容器实例操作</span>
+  <a href="#%e5%ae%b9%e5%99%a8%e5%ae%9e%e4%be%8b%e6%93%8d%e4%bd%9c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -333,8 +313,11 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 移除容器实例</span>
 </span></span><span class="line"><span class="cl">sudo docker remove &lt;container_id&gt;</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="安装npm和yarn" class="heading-element">
-  <a href="#%e5%ae%89%e8%a3%85npm%e5%92%8cyarn" class="heading-mark"></a>安装npm和yarn</h2><div class="highlight" id="id-10"><div class="chroma">
+</div><h2 class="heading-element" id="安装npm和yarn"><span>安装npm和yarn</span>
+  <a href="#%e5%ae%89%e8%a3%85npm%e5%92%8cyarn" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -361,8 +344,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo npm install -g yarn --registry<span class="o">=</span>https://registry.npmmirror.com</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="禅道部署" class="heading-element">
-  <a href="#%e7%a6%85%e9%81%93%e9%83%a8%e7%bd%b2" class="heading-mark"></a>禅道部署</h2><div class="highlight" id="id-11"><div class="chroma">
+</div><h2 class="heading-element" id="禅道部署"><span>禅道部署</span>
+  <a href="#%e7%a6%85%e9%81%93%e9%83%a8%e7%bd%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -375,12 +361,15 @@
 </span></span><span class="line"><span class="cl">sudo mkdir ~/Software/zentao_data
 </span></span><span class="line"><span class="cl">sudo docker run -d -v ~/Software/zentao_data:/data -p 90:80 -e <span class="nv">MYSQL_INTERNAL</span><span class="o">=</span><span class="nb">true</span> hub.zentao.net/app/zentao:20.6</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="网络安全注意事项" class="heading-element">
-  <a href="#%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark"></a>网络安全注意事项</h2><ul>
+</div><h2 class="heading-element" id="网络安全注意事项"><span>网络安全注意事项</span>
+  <a href="#%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ul>
 <li><a href="https://help.aliyun.com/zh/cloud-firewall/use-cases/best-practices-to-defend-against-unauthorized-access-to-a-mongodb-database"target="_blank" rel="external nofollow noopener noreferrer">MongoDB的默认策略导致的安全问题</a></li>
 </ul></div><div class="post-footer" id="post-footer">
   <div class="post-info"><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/debian_notes/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-md"></div>
         <div class="post-info-share">
           <span></span>
         </div>
@@ -389,25 +378,23 @@
   <div class="post-info-more">
     <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/linux/" class="post-tag" title="标签 - Linux">Linux</a><a href="/tags/debian/" class="post-tag" title="标签 - Debian">Debian</a><a href="/tags/docker/" class="post-tag" title="标签 - Docker">Docker</a><a href="/tags/yarn/" class="post-tag" title="标签 - Yarn">Yarn</a><a href="/tags/nodejs/" class="post-tag" title="标签 - NodeJs">NodeJs</a></section>
     <section>
-      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/play_xiaoyuzhou_audio_by_xiaomi_music_box/" class="post-nav-item" rel="prev" title="通过小米音箱来播放小宇宙播客(非手机蓝牙)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>通过小米音箱来播放小宇宙播客(非手机蓝牙)</a>
-      <a href="/posts/screen_pin_kit/" class="post-nav-item" rel="next" title="自用工具-ScreenPinKit">自用工具-ScreenPinKit<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  <div class="post-nav"></div>
 </div>
 </article>
 
   <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.150.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.2-20250916043850-a228cce0"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2016 - 2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/YaoXuanZhi"target="_blank" rel="external nofollow noopener noreferrer">YaoXuanZhi</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
         </div></div><div id="mask"></div><noscript>
-    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":11},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"useExtendedSearch":false},"version":"v0.4.0-alpha.2-20250916043850-a228cce0"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
 </html>

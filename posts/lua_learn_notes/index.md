@@ -1,14 +1,14 @@
 # Lua学习笔记
 
 
-{{&lt; link href=&#34;https://www.lua.org/&#34; content=&#34;Lua官网&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://www.lua.org/" content="Lua官网" title="documentation of FixIt Theme" card=true >}}
 
-&lt;!--more--&gt;
+<!--more-->
 
 ---
 
 ### 在Lua实现带默认参数的函数
-在lua之中，它没有提供像C&#43;&#43;那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法
+在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法
 
 假设定义了一个有n个形参的函数 `SetArgs(arg1...argn)`，那么若果开发者在实际调用此函数的时候，填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持 `SetArgs(arg1 = 1,arg2 = 2, argn = n )`之类的语句，如下所示：
 
@@ -17,14 +17,14 @@ myTable = { a= 1, b=2, c=3, d=4 }
 
 --一种难以言喻的操作
 function myTable:SetParam(a1,b1,c1,d1)
-    self.a = a1 or &#34;a1&#34;
-    self.b = b1 or &#34;b1&#34;
-    self.c = c1 or &#34;c1&#34;
-    self.d = d1 or &#34;d1&#34;
+    self.a = a1 or "a1"
+    self.b = b1 or "b1"
+    self.c = c1 or "c1"
+    self.d = d1 or "d1"
 end
 
 --并没有这种骚操作
---function myTable:SetParam(a1 = &#34;a1&#34;,b1 = &#34;b1&#34;,c1 = &#34;c1&#34;,d1 = &#34;c1&#34;)
+--function myTable:SetParam(a1 = "a1",b1 = "b1",c1 = "c1",d1 = "c1")
 --    self.a = a1
 --    self.b = b1
 --    self.c = c1
@@ -32,28 +32,28 @@ end
 --end
 
 local temp = myTable
-temp:SetParam(&#34;Adobe&#34;)
+temp:SetParam("Adobe")
 print(temp.a)
 print(temp.b)
 print(temp.c)
 print(temp.d)
 
-print(&#34;end&#34;)
+print("end")
 ```
 
-### 模拟C&#43;&#43;的类的继承机制
+### 模拟C++的类的继承机制
 
 更多相关资料请看[Metatable In Lua 浅尝辄止](http://www.cnblogs.com/simonw/archive/2007/01/17/622032.html)
 
 ```lua
---lua仿写类似C&#43;&#43;的类
+--lua仿写类似C++的类
 --注意，lua的默认参数比较奇葩，在成员函数内部，直接添加xxx1 or xxx2即可
 people = { }
 
 function people:new( newName, newIdentity )
     obj = {}
-    obj.name = newName or &#34;unknown name1&#34;
-    obj.identity = newIdentity or &#34;unknown identity1&#34;
+    obj.name = newName or "unknown name1"
+    obj.identity = newIdentity or "unknown identity1"
     setmetatable(obj,self)
     self.__index = self
     return obj
@@ -69,7 +69,7 @@ function  people:GetIdentity()
 end
 
 function  people:PrintInfo()
-    print(&#34;object belong to people&#34;)
+    print("object belong to people")
 end
 
 --student继承people，此时是相当于将people的元表拷贝到student里面了
@@ -84,8 +84,8 @@ function student:new( newName, newIdentity, newClassroom, newIndex )
     self.__index = self
 
     --添加成员变量
-    obj.classroom = newClassroom or &#34;unknown classroom2&#34;
-    obj.index = newIndex or &#34;unknown index2&#34;
+    obj.classroom = newClassroom or "unknown classroom2"
+    obj.index = newIndex or "unknown index2"
     return obj
 end
 
@@ -100,43 +100,43 @@ end
 
 --重载基类的成员函数
 function  student:PrintInfo()
-    print(&#34;object belong to student&#34;)
+    print("object belong to student")
 end
 
-print(&#34;startup&#34;)
-temp = student:new(&#34;childname&#34;, 56579887, &#34;classroom1st&#34;, &#34;1&#34;)
+print("startup")
+temp = student:new("childname", 56579887, "classroom1st", "1")
 
 --开启了下面语句之后可以发现，此时temp的数值会被temp3所影响
-temp3 = student:new(&#34;childname3&#34;, 4987, &#34;classroom3rd&#34;, 10)
+temp3 = student:new("childname3", 4987, "classroom3rd", 10)
 
-baseObj =people:new(&#34;basename&#34;, 110)
+baseObj =people:new("basename", 110)
 
-baseObj3 =people:new(&#34;basename3&#34;, 10000000)
+baseObj3 =people:new("basename3", 10000000)
 
-print(&#34;---------打印类实例的信息--------&#34;)
-print(&#34;在子类实例中调用基类成员函数&#34;)
+print("---------打印类实例的信息--------")
+print("在子类实例中调用基类成员函数")
 print(temp:GetIdentity())
 print(temp:GetName())
 
-print(&#34;在子类实例中调用子类成员函数&#34;)
+print("在子类实例中调用子类成员函数")
 print(temp:GetClassroom())
 print(temp:GetIndex())
 
 temp:PrintInfo()
 
-print(&#34;调用基类实例的成员函数&#34;)
+print("调用基类实例的成员函数")
 print(baseObj:GetName())
 print(baseObj:GetIdentity())
 
-print(&#34;---------打印当前定义的基类与子类类型的数据--------&#34;)
-print(&#34;以下为基类的信息&#34;)
+print("---------打印当前定义的基类与子类类型的数据--------")
+print("以下为基类的信息")
 --而name和name是在执行new函数的时候，才为其类实例追加的成员变量，
 --而这些成员变量在原本的people里是没有的，因而为nil，正如people = {}
 print(people.name)
 print(people.name)
 people:PrintInfo()
 
-print(&#34;以下为子类类型的信息&#34;)
+print("以下为子类类型的信息")
 --name和identity是从people继承过来的，并且，在继承的时候，通过new函数临时为其创建的，因此数值有效
 print(student.name)
 print(student.identity)
@@ -146,9 +146,9 @@ print(student.classroom)
 print(student.index)
 student:PrintInfo()
 
-print(&#34;end&#34;)
+print("end")
 --注意，在new()内，修改self里面的数值的时候，会导致类的成员变量也同时改变，因为，在Lua里面，本身是没有类这个概念的，我们只可以通过Table来模拟类似的类行为，为了绕过Lua的固有限制，我们在通过new()等函数进行类实例创建的时候，使用临时Table来存放此类的特有的成员变量以及成员变量。
---在上述代码里面，student里的classroom和index是无效数值，都为nil，在student:new()函数体内，使用了临时变量obj来存放其基类的成员变量以及成员函数，通过setmetatable(obj,self)语句，让obj拥有了student里面的成员函数以及基类的特性。而之所以需要执行student = people:new()语句，这是为了可以让student继承people的特性了，否则，所有调用了student类实例所有用到基类的方法都将无效，总而言之，这个metatable的作用有点像C&#43;&#43;里面的虚表，专门用来定位子类实例和基类之间的成员函数以及成员变量的地址的
+--在上述代码里面，student里的classroom和index是无效数值，都为nil，在student:new()函数体内，使用了临时变量obj来存放其基类的成员变量以及成员函数，通过setmetatable(obj,self)语句，让obj拥有了student里面的成员函数以及基类的特性。而之所以需要执行student = people:new()语句，这是为了可以让student继承people的特性了，否则，所有调用了student类实例所有用到基类的方法都将无效，总而言之，这个metatable的作用有点像C++里面的虚表，专门用来定位子类实例和基类之间的成员函数以及成员变量的地址的
 ```
 
 ### 控制Table类型的访问权限
@@ -162,7 +162,7 @@ function cannotModifyHp(object)
     local mt = {
         __index = object,
     __newindex = function(k,v)
-        if k ~= &#34;hp&#34; then
+        if k ~= "hp" then
         object[k] = v
         end
     end
@@ -194,7 +194,7 @@ print(o.hp)
 
 ### Lua上的语法糖收集
 
-&gt; `v:name(args)` 可以被解析成 `v.name(v,args)` 或者 `v.name(self,args)` 
+> `v:name(args)` 可以被解析成 `v.name(v,args)` 或者 `v.name(self,args)` 
 
 举个栗子，如下所示：
 
@@ -219,7 +219,7 @@ end
 
 |  运算符   |  在Lua里的关键字   |                    意义                    |
 | :----: | :----------: | :--------------------------------------: |
-| &#43;  |   add    |                   加法运算                   |
+| +  |   add    |                   加法运算                   |
 | -  |   sub    |                   减法运算                   |
 | *  |   mul    |                   乘法运算                   |
 | /  |   div    |                   除法运算                   |
@@ -229,17 +229,17 @@ end
 | .. |  concat  |                   连接操作                   |
 | #  |   len    |           取数据类型的长度，比如table长度等            |
 | == |    eq    |                 关系运算符：相等                 |
-| &lt;  |    lt    |                 关系运算符：小于                 |
-| &lt;= |    le    |               关系运算符：小于或等于                |
+| <  |    lt    |                 关系运算符：小于                 |
+| <= |    le    |               关系运算符：小于或等于                |
 | [] |  index   |       通过下标访问`Table[key]`，仅用于读取数据       |
 | [] | newindex | 通过下标`Table[key]` ，仅用于修改数据，如`Table[key] = value` |
 | 未知 |   call   |             当Lua调用一个值时调用             |
 
-以下演示了如何重载支持特定格式的表的运算符操作，如`&#43;`和`-`
+以下演示了如何重载支持特定格式的表的运算符操作，如`+`和`-`
 
 ```lua
 --定义2个表
---a = {5, 6,10,8,69,10,&#34;hello&#34;}
+--a = {5, 6,10,8,69,10,"hello"}
 a = {5, 6}
 b = {7, 8}
 
@@ -253,14 +253,14 @@ c.__add = function(op1, op2)
     local lenght2 = table.maxn(op2)
     if lenght1 == lenght2 then
        for index,item in ipairs(op1) do
-           table.insert(result,op1[index]&#43;op2[index])
+           table.insert(result,op1[index]+op2[index])
        end
     end
     return result
---   --枚举op2的所有元素，将其插入到op1之中，相当于C&#43;&#43;里面的重载运算符&#43;
+--   --枚举op2的所有元素，将其插入到op1之中，相当于C++里面的重载运算符+
 --   for key, item in ipairs(op2) do
---      print(&#34;key = &#34;..key)
---      print(&#34;item = &#34;..item)
+--      print("key = "..key)
+--      print("item = "..item)
 --      --将item插入到op1之中
 --      table.insert(op1, item)
 --   end
@@ -284,15 +284,15 @@ end
 --setmetatable(a, c)
 setmetatable(b, c)
 --d现在的样子是{5,6,7,8}
-d = a &#43; b
---d = b &#43; a
+d = a + b
+--d = b + a
 for key1,value1 in ipairs(d) do
     print(value1)
 end
 --print(c.__add(a,b)[1])
 --print(c.__add(a,b)[1])
 e = a - b
---d = b &#43; a
+--d = b + a
 for key2,value2 in ipairs(e) do
     print(value2)
 end
@@ -300,9 +300,9 @@ end
 
 ---
 
-### 和C&#43;&#43;相比，那些常见的知识盲区
+### 和C++相比，那些常见的知识盲区
 
-1. Lua没有关系操作符`!=`，以`~=`来代替，其它的倒是和C&#43;&#43;一样
+1. Lua没有关系操作符`!=`，以`~=`来代替，其它的倒是和C++一样
 
 ```lua
 --如果a不为10的话，那么打印a
@@ -317,11 +317,11 @@ end
 function IsMatchedID(oldID, newID)
     if oldID == newID then
         return true
-    elseif oldID &gt; newID then
-        print(&#34;oldID &gt; newID&#34;)
+    elseif oldID > newID then
+        print("oldID > newID")
         return false
     else
-        print(&#34;oldID &lt; newID&#34;)
+        print("oldID < newID")
         return false
     end
 end
@@ -336,7 +336,7 @@ print(IsMatchedID(18,10))
 ```lua
 tempTable = {897,8,78,7,87,87,8,78,78,7,87,8,7}
 print(#tempTable)
-tempString = &#34;fadfadfadf&#34;
+tempString = "fadfadfadf"
 print(#tempString)
 ```
 

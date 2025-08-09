@@ -3,9 +3,9 @@
 
 这里整理了可能会用到的Windows环境变量，方便查阅
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://learn.microsoft.com/zh-cn/windows/win32/procthread/environment-variables&#34; content=&#34;Windows环境变量&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://learn.microsoft.com/zh-cn/windows/win32/procthread/environment-variables" content="Windows环境变量" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
@@ -55,7 +55,7 @@ set path=%app_path%;%app_path%\Scripts;%path%
 
 @echo off
 
-call &#34;%~dp0set_app_env.bat&#34;
+call "%~dp0set_app_env.bat"
 
 ::进入当前bat的所在目录
 cd /d %~dp0

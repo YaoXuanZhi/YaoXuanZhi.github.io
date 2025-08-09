@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PowerSession - 标签 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/tags/powersession/</link>
-    <description>PowerSession - 标签 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/powersession/" rel="self" type="application/rss+xml" /><item>
-  <title>终端会话录制工具-asciinema/PowerSession-rs</title>
-  <link>http://localhost:1313/posts/asciinema/</link>
-  <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/asciinema/</guid>
-  <description><![CDATA[<p>发现了一个终端会话录制工具，非常不错，这里特意做下记录</p>]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Thu, 18 Sep 2025 23:54:56 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/powersession/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>终端会话录制工具-asciinema/PowerSession-rs</title>
+      <link>http://localhost:1313/posts/asciinema/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/asciinema/</guid>
+      <category domain="http://localhost:1313/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/">开源技术</category>
+      <description>&lt;p&gt;发现了一个终端会话录制工具，非常不错，这里特意做下记录&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

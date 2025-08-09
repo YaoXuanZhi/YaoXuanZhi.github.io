@@ -3,9 +3,9 @@
 
 在知乎上看到一篇不错的文章 [更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M](https://zhuanlan.zhihu.com/p/134115239)，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/breezedeus/cnocr&#34; content=&#34;cnocr仓库地址&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/breezedeus/cnocr" content="cnocr仓库地址" title="documentation of FixIt Theme" card=true >}}
 
 
 ### 在线安装
@@ -39,7 +39,7 @@ python setup.py install
 
 下载链接：[cnocr离线工具包-cnocr_toolkit.zip](https://pan.baidu.com/s/1iIPuTI3OXZca1FqcmgKYEA)，提取码：`y80u`
 
-&gt;该离线包仅仅支持x64bit Windows系统
+>该离线包仅仅支持x64bit Windows系统
 
 ### 代码片段
 
@@ -48,20 +48,20 @@ python setup.py install
 ```python
 # 识别纯文字图片
 def ocr_single_png_from_cache(image):
-    nd_array = np.asarray(image.convert(&#39;RGB&#39;))
+    nd_array = np.asarray(image.convert('RGB'))
     res = cn_ocr.ocr(nd_array) 
-    res = [&#39;&#39;.join(line_p) for line_p in res]
-    temp_res = &#39;\n&#39;.join(res)
+    res = [''.join(line_p) for line_p in res]
+    temp_res = '\n'.join(res)
     return temp_res
 
 # 识别纯文字图片
 def ocr_single_png_from_cache_bak(image):
     img_bytes = BytesIO()
-    image.save(img_bytes, format=&#39;PNG&#39;)
+    image.save(img_bytes, format='PNG')
     nd_array = mx.image.imdecode(img_bytes.getvalue())
     res = cn_ocr.ocr(nd_array) 
-    res = [&#39;&#39;.join(line_p) for line_p in res]
-    temp_res = &#39;\n&#39;.join(res)
+    res = [''.join(line_p) for line_p in res]
+    temp_res = '\n'.join(res)
     return temp_res
 ```
 
@@ -72,15 +72,15 @@ def ocr_single_png_from_cache_bak(image):
 def popen_wrapper(cmd_line):
     p = subprocess.Popen(cmd_line, shell=True, stdout=subprocess.PIPE)
     lines = p.stdout.readlines()[1:]
-    temp_str = &#34;&#34;
+    temp_str = ""
     for str in lines:
-        utf8_str = str.decode(&#34;utf8&#34;)
-        temp_str = temp_str &#43; utf8_str
+        utf8_str = str.decode("utf8")
+        temp_str = temp_str + utf8_str
     return temp_str
 
 # 尝试进行OCR识别
 def try_ocr_image(image_path):
-    cmd_line = &#34;xxx/try_ocr_image.bat %s&#34; % (image_path)
+    cmd_line = "xxx/try_ocr_image.bat %s" % (image_path)
     ocr_str = popen_wrapper(cmd_line).strip()
     return ocr_str
 ```
@@ -98,47 +98,47 @@ def ocr_image_from_pil(image):
     from cnocr import CnOcr 
     import numpy as np
     cn_ocr = CnOcr() 
-    nd_array = np.asarray(image.convert(&#39;RGB&#39;))
+    nd_array = np.asarray(image.convert('RGB'))
     res_lines = cn_ocr.ocr(nd_array) 
-    res = [&#39;&#39;.join(line_p) for line_p in res_lines]
-    temp_res = &#39;\n&#39;.join(res)
+    res = [''.join(line_p) for line_p in res_lines]
+    temp_res = '\n'.join(res)
     return temp_res
 
 # 读取剪贴板上的图像数据进行OCR识别
 def try_ocr_clipboard():
-    ocr_result = &#34;&#34;
+    ocr_result = ""
     im = ImageGrab.grabclipboard()
     if not im == None:
         return ocr_image_from_pil(im)
     return ocr_result
 
 def set_text_to_clipboard(text):
-    text_bytes = bytes(text, encoding=&#34;utf8&#34;)
+    text_bytes = bytes(text, encoding="utf8")
     win32clipboard.OpenClipboard()
     win32clipboard.SetClipboardText(text)
     win32clipboard.CloseClipboard()
 
 def ocr_clipboard():
     ocr_result = try_ocr_clipboard()
-    if (len(ocr_result) &gt; 0):
+    if (len(ocr_result) > 0):
         set_text_to_clipboard(ocr_result)
-        print(&#34;剪贴板OCR结果：\n%s&#34; % (ocr_result))
-        os.system(&#34;pause&#34;)
+        print("剪贴板OCR结果：\n%s" % (ocr_result))
+        os.system("pause")
 
 ocr_clipboard()
 ```
 
  - [剪贴板OCR工具-ocr_clipboard.zip](/assets/2021-04-11/ocr_clipboard.zip)
 
- &gt;注意，Tim上有一个屏幕OCR功能，只需要Ctrl&#43;Alt&#43;O即可唤出，识别准度更高
+ >注意，Tim上有一个屏幕OCR功能，只需要Ctrl+Alt+O即可唤出，识别准度更高
 
 #### 训练新字体
 
 ##### 生成新字体的训练集
 先通过以下脚本来快速生成字体的训练集
 
-&lt;details&gt;
-  &lt;summary&gt;pre_train_for_font.py&lt;/summary&gt;
+<details>
+  <summary>pre_train_for_font.py</summary>
 
 ```python
 # !/user/bin/env python
@@ -154,88 +154,88 @@ def save_chars_image(text, image_path, font, is_debug = False):
     chars_w, chars_h = font.getsize(text)
   
     if is_debug == True:
-        chars_w = chars_w &#43; 2
-        chars_h = chars_h &#43; 2
+        chars_w = chars_w + 2
+        chars_h = chars_h + 2
   
-    im = Image.new(&#34;RGB&#34;, (chars_w, chars_h), (255, 255, 255))
+    im = Image.new("RGB", (chars_w, chars_h), (255, 255, 255))
     dr = ImageDraw.Draw(im)
   
     # 绘制文字边框
     if is_debug == True:
-        coords = [(chars_x&#43;1, chars_y&#43;1), (chars_x&#43;1, chars_y&#43;chars_h-1),
-                (chars_x&#43;chars_w-1, chars_y&#43;chars_h-1), (chars_x&#43;chars_w-1,chars_y&#43;1)]
+        coords = [(chars_x+1, chars_y+1), (chars_x+1, chars_y+chars_h-1),
+                (chars_x+chars_w-1, chars_y+chars_h-1), (chars_x+chars_w-1,chars_y+1)]
         dr.polygon(coords, outline=(255, 0, 10))
   
     # 居中绘制文字
-    dr.text((chars_x, chars_y), text, font=font, fill=(0,0,0), align=&#39;center&#39;)
+    dr.text((chars_x, chars_y), text, font=font, fill=(0,0,0), align='center')
     im.save(image_path)
  
 def indexing(standards, new_chars, text):
     res = []
     for i in range(len(text)):
         try:
-            res.append(standards.index(text[i])&#43;1)
+            res.append(standards.index(text[i])+1)
         except:
             new_chars.append(text[i])
-            res.append(len(standards)&#43;len(new_chars)&#43;1)
+            res.append(len(standards)+len(new_chars)+1)
     return res
   
 def clear_invalid_chars(char_array):
     for i in range(len(char_array)):
-        char_array[i] = char_array[i].strip(&#39;\n&#39;)
+        char_array[i] = char_array[i].strip('\n')
 
 def main():
-    parser = argparse.ArgumentParser(description=&#39;生成用于CnOcr训练的数据集&#39;)
+    parser = argparse.ArgumentParser(description='生成用于CnOcr训练的数据集')
 
-    parser.add_argument(&#34;-root&#34;, &#34;--root_dir&#34;,
-        default=&#34;data&#34;,
+    parser.add_argument("-root", "--root_dir",
+        default="data",
         type=str,
-        help=&#34;预训练配置目录&#34;,
+        help="预训练配置目录",
 	)
 
-    parser.add_argument(&#34;-examples&#34;, &#34;--examples_dir&#34;,
-        default=&#34;examples&#34;,
+    parser.add_argument("-examples", "--examples_dir",
+        default="examples",
         type=str,
-        help=&#34;图片样本所在目录&#34;,
+        help="图片样本所在目录",
 	)
 
-    parser.add_argument(&#34;-font&#34;, &#34;--font_path&#34;,
-        default=&#34;fonts/卷卷桃心中文字体.ttf&#34;,
+    parser.add_argument("-font", "--font_path",
+        default="fonts/卷卷桃心中文字体.ttf",
         type=str,
-        help=&#34;待训练的字体路径&#34;,
+        help="待训练的字体路径",
 	)
 
-    parser.add_argument(&#34;-font_size&#34;, &#34;--font_size&#34;,
+    parser.add_argument("-font_size", "--font_size",
         default=20,
         type=int,
-        help=&#34;待训练的字体大小&#34;,
+        help="待训练的字体大小",
 	)
 
-    parser.add_argument(&#34;-label&#34;, &#34;--label_path&#34;,
-        default=&#34;label_cn.txt&#34;,
+    parser.add_argument("-label", "--label_path",
+        default="label_cn.txt",
         type=str,
-        help=&#34;文本原料&#34;,
+        help="文本原料",
 	)
 
-    parser.add_argument(&#34;-train&#34;, &#34;--train_name&#34;,
-        default=&#34;train.txt&#34;,
+    parser.add_argument("-train", "--train_name",
+        default="train.txt",
         type=str,
-        help=&#34;训练样本名&#34;,
+        help="训练样本名",
 	)
 
-    parser.add_argument(&#34;-test&#34;, &#34;--test_name&#34;,
-        default=&#34;test.txt&#34;,
-        help=&#34;测试样本名&#34;,
+    parser.add_argument("-test", "--test_name",
+        default="test.txt",
+        help="测试样本名",
 	)
 
-    parser.add_argument(&#34;-is_test&#34;, &#34;--is_test&#34;,
-        action=&#34;store_true&#34;,
-        help=&#34;是否生成测试图片&#34;,
+    parser.add_argument("-is_test", "--is_test",
+        action="store_true",
+        help="是否生成测试图片",
 	)
 
-    parser.add_argument(&#34;-test_text&#34;, &#34;--test_text&#34;,
-        default=&#34;&#34;,
-        help=&#34;测试文本&#34;,
+    parser.add_argument("-test_text", "--test_text",
+        default="",
+        help="测试文本",
 	)
 
     args = parser.parse_args()
@@ -249,10 +249,10 @@ def main():
   
     font = ImageFont.truetype(args.font_path, args.font_size)
  
-    label_file = open(label_path, &#39;r&#39;, encoding=&#39;utf-8&#39;)
+    label_file = open(label_path, 'r', encoding='utf-8')
  
-    train_file = open(os.path.join(root_dir, train_path), &#39;w&#39;, encoding=&#39;utf-8&#39;)
-    test_file = open(os.path.join(root_dir, test_path), &#39;w&#39;, encoding=&#39;utf-8&#39;)
+    train_file = open(os.path.join(root_dir, train_path), 'w', encoding='utf-8')
+    test_file = open(os.path.join(root_dir, test_path), 'w', encoding='utf-8')
  
     standards = label_file.readlines()
     clear_invalid_chars(standards)
@@ -261,8 +261,8 @@ def main():
  
     label_file.close()
 
-    if args.is_test and len(args.test_text) &gt; 0:
-        image_path = &#34;test.png&#34;
+    if args.is_test and len(args.test_text) > 0:
+        image_path = "test.png"
         save_chars_image(args.test_text, image_path, font=font)
         return
   
@@ -271,48 +271,48 @@ def main():
         text = standards[i]
         idxes = indexing(standards, new_chars, text)
  
-        cnt = &#34;train_%06d.jpg&#34; % (i&#43;1)
+        cnt = "train_%06d.jpg" % (i+1)
         image_path = os.path.join(images_dir, cnt)
         save_chars_image(text, image_path, font=font)
   
         for idx in idxes:
-            cnt = cnt &#43; &#34; {}&#34;.format(idx)
-        train_file.write(cnt&#43;&#39;\n&#39;)
+            cnt = cnt + " {}".format(idx)
+        train_file.write(cnt+'\n')
     train_file.close()
  
     # 生成用于测试的图片集
     for i in range(len(standards)):
-        if (i&#43;1) % 30 == 0:
+        if (i+1) % 30 == 0:
             text = standards[i]
             idxes = indexing(standards, new_chars, text)
  
-            cnt = &#34;test_%06d.jpg&#34; % (i&#43;1)
+            cnt = "test_%06d.jpg" % (i+1)
             image_path = os.path.join(images_dir, cnt)
             save_chars_image(text, image_path, font=font)
   
             for idx in idxes:
-                cnt = cnt &#43; &#34; {}&#34;.format(idx)
-            test_file.write(cnt&#43;&#39;\n&#39;) 
+                cnt = cnt + " {}".format(idx)
+            test_file.write(cnt+'\n') 
     test_file.close()
  
     # 追加新增字符
-    label_file = open(label_path, &#39;a&#39;, encoding=&#39;utf-8&#39;)
+    label_file = open(label_path, 'a', encoding='utf-8')
     for new_char in new_chars:
-        label_file.write(new_char&#43;&#39;\n&#39;)
+        label_file.write(new_char+'\n')
     label_file.close()
 
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     main()
 ```
 
-&lt;/details&gt;
+</details>
 
 以下是生成某种字体对应的训练集的批处理
 
 ```bat
 @echo off
 
-call &#34;%~dp0..\set_ocr_env.bat&#34;
+call "%~dp0..\set_ocr_env.bat"
 
 cd /d %~dp0
 
@@ -341,13 +341,13 @@ train:
 
 为了在windows下也方便进行迭代训练，这边基于官方提供的Makefile文件，将其改造成了一个[Makefile.bat](https://github.com/YaoXuanZhi/cnocr/blob/master/Makefile.bat)
 
-&lt;details&gt;
-  &lt;summary&gt;Makefile.bat&lt;/summary&gt;
+<details>
+  <summary>Makefile.bat</summary>
 
 ```bat
 @echo off
 
-call &#34;%~dp0..\set_ocr_env.bat&#34;
+call "%~dp0..\set_ocr_env.bat"
 
 title cnstd-train
 
@@ -356,9 +356,9 @@ set DATA_ROOT_DIR=data/sample-data
 set REC_DATA_ROOT_DIR=data/sample-data-lst
 set IMAGES_DIR=examples
 
-:: `EMB_MODEL_TYPE` 可取值：[&#39;conv&#39;, &#39;conv-lite-rnn&#39;, &#39;densenet&#39;, &#39;densenet-lite&#39;]
+:: `EMB_MODEL_TYPE` 可取值：['conv', 'conv-lite-rnn', 'densenet', 'densenet-lite']
 set EMB_MODEL_TYPE=conv-lite
-:: `SEQ_MODEL_TYPE` 可取值：[&#39;lstm&#39;, &#39;gru&#39;, &#39;fc&#39;]
+:: `SEQ_MODEL_TYPE` 可取值：['lstm', 'gru', 'fc']
 set SEQ_MODEL_TYPE=fc
 set MODEL_NAME=%EMB_MODEL_TYPE%-%SEQ_MODEL_TYPE%
 
@@ -459,7 +459,7 @@ pause
 GOTO :eof
 ```
 
-&lt;/details&gt;
+</details>
 
 ### 学习计划
  - ✔ 跑通cnocr的识别流程
@@ -469,7 +469,7 @@ GOTO :eof
    - ✔ 提供新字体的预训练脚本
    - ✔ 提供适合在windows下使用的脚本-Makefile.bat
  - ✔ 尝试改进它的文本方向纠正效果
-   &gt;现在它的文本校正方向很容易出现180度倒转的情况，看有没有啥办法处理下，已经找到问题了，OpenCv4.5的bug，通过`pip install opencv-python==4.4.0.46`降版本就行了，不过竖版文本的识别官方是暂不支持的，这个要另外想办法了
+   >现在它的文本校正方向很容易出现180度倒转的情况，看有没有啥办法处理下，已经找到问题了，OpenCv4.5的bug，通过`pip install opencv-python==4.4.0.46`降版本就行了，不过竖版文本的识别官方是暂不支持的，这个要另外想办法了
 
 ### 后记
 在Python3.8下部署时候遇到问题，因此推荐使用Python3.7及其以下版本，详情看官方教程
@@ -478,10 +478,10 @@ GOTO :eof
 
 如果你的需求大多集中在广告图等非纯文本图片上，那么建议使用paddleocr或chinesecor-lite，不过这些ocr项目的部署也相对复杂些
 
-&gt;ps:mxnet库有个Warning一直很烦人，但是其不影响使用，直接在`site-packages\mxnet\symbol\symbol.py`里注释掉`line 925`的warning输出
+>ps:mxnet库有个Warning一直很烦人，但是其不影响使用，直接在`site-packages\mxnet\symbol\symbol.py`里注释掉`line 925`的warning输出
 
 #### 离线工具包制作
-离线工具包 = python3环境(从anaconda3中提取而得) &#43; 系统环境变量关联脚本 &#43; 官方模型
+离线工具包 = python3环境(从anaconda3中提取而得) + 系统环境变量关联脚本 + 官方模型
 
 同理，这个也是网络上各种开源AI工具离线包的制作方式
 
@@ -490,7 +490,7 @@ GOTO :eof
 ### 参考资料
  - [更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M](https://zhuanlan.zhihu.com/p/134115239)
  - [OCRSpace](https://ocr.space/)
-   &gt;支持超长图片的OCR识别
+   >支持超长图片的OCR识别
 
 ---
 

@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>自述 - 分类 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/categories/%E8%87%AA%E8%BF%B0/</link>
-    <description>自述 - 分类 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sat, 18 Jun 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%87%AA%E8%BF%B0/" rel="self" type="application/rss+xml" /><item>
-  <title>争取做个懂生活的IT人</title>
-  <link>http://localhost:1313/abouts/about_me/</link>
-  <pubDate>Sat, 18 Jun 2016 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/abouts/about_me/</guid>
-  <description><![CDATA[关于我 与Bug兄打交道良久~ o(￣▽￣)o熟悉VS、VSCode、Vim、Idea、Sublime等软件的安装/卸载技巧，掌握C/C++、Lua、Erlang、Python、JavaScript等单词的各种拼写方式 世界那么大，总想去看看QAQ希望足迹可以遍布大江南北，目前只是到过广西北海、湖南岳麓书]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Fri, 19 Sep 2025 00:05:41 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E8%87%AA%E8%BF%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>争取做个懂生活的IT人</title>
+      <link>http://localhost:1313/abouts/about_me/</link>
+      <pubDate>Sat, 18 Jun 2016 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/abouts/about_me/</guid>
+      <category domain="http://localhost:1313/categories/%E8%87%AA%E8%BF%B0/">自述</category>
+      <description>&lt;h1 class=&#34;heading-element&#34; id=&#34;关于我&#34;&gt;&lt;span&gt;关于我&lt;/span&gt;&#xD;&#xA;  &lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e6%88%91&#34; class=&#34;heading-mark&#34;&gt;&#xD;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&lt;h4 class=&#34;heading-element&#34; id=&#34;与bug兄打交道良久-oo&#34;&gt;&lt;span&gt;与Bug兄打交道良久~ o(&lt;em&gt;￣▽￣&lt;/em&gt;)o&lt;/span&gt;&#xD;&#xA;  &lt;a href=&#34;#%e4%b8%8ebug%e5%85%84%e6%89%93%e4%ba%a4%e9%81%93%e8%89%af%e4%b9%85-oo&#34; class=&#34;heading-mark&#34;&gt;&#xD;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h4&gt;&lt;p&gt;熟悉VS、VSCode、Vim、Idea、Sublime等软件的安装/卸载技巧，掌握C/C++、Lua、Erlang、Python、JavaScript等单词的各种拼写方式&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

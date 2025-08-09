@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cnocr - 标签 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/tags/cnocr/</link>
-    <description>Cnocr - 标签 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cnocr/" rel="self" type="application/rss+xml" /><item>
-  <title>初探Cnocr</title>
-  <link>http://localhost:1313/posts/cnocr/</link>
-  <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/cnocr/</guid>
-  <description><![CDATA[<p>在知乎上看到一篇不错的文章 <a href="https://zhuanlan.zhihu.com/p/134115239"target="_blank" rel="external nofollow noopener noreferrer">更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M</a>，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具</p>]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Thu, 18 Sep 2025 22:47:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cnocr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初探Cnocr</title>
+      <link>http://localhost:1313/posts/cnocr/</link>
+      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/cnocr/</guid>
+      <category domain="http://localhost:1313/categories/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF/">开源技术</category>
+      <description>&lt;p&gt;在知乎上看到一篇不错的文章 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/134115239&#34;target=&#34;_blank&#34; rel=&#34;external nofollow noopener noreferrer&#34;&gt;更轻量的中文OCR—— cnocr-V1.2.2 ：最小模型只有 4.7M&lt;/a&gt;，作者分享了一个体积小、横版中文识别速度快且准度高、部署简单且易用的中英文OCR Python库，因此试用下，结果发现还挺不错的，在它之上还搞了个自用的OCR工具&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

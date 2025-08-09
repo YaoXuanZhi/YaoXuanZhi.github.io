@@ -3,7 +3,7 @@
 
 在2023年，由于各种AI应用的大爆发，简体中文互联网的高质量内容被各种量产垃圾内容掩盖住了，再叠加上各大日常App的大数据推荐系统，我们生活在一个个信息茧房中，为了避免坐井观天，需要整合国内外的高质量信息源，因此有了这篇笔记
 
-&lt;!--more--&gt;
+<!--more-->
 
 ---
 
@@ -46,7 +46,7 @@ https://mcdao.mirror.xyz/
 # 建议在centos上安装
 # 本人用这个，需要安装python2.x
 # 下载并运行ssh.sh脚本
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod &#43;x ssr.sh &amp;&amp; bash ssr.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 ```
 
 ```sh
@@ -55,10 +55,10 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 # 安装py_env
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-echo &#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39; &gt;&gt; ~/.bashrc
-echo &#39;export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
-echo -e &#39;if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n eval &#34;$(pyenv init -)&#34;\nfi&#39; &gt;&gt; ~/.bashrc
-# exec &#34;$SHELL&#34;
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.bashrc
+# exec "$SHELL"
 
 # 安装Python编译依赖
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
@@ -112,7 +112,7 @@ docker run -d \
 # curl ifconfig.me
 ```
 
-&gt; 如果群晖上也想有一个全局梯子(比如想下载youtube上的视频)，建议通过ssh进入群晖内部，也通过上面命令行来启动v2raya docker
+> 如果群晖上也想有一个全局梯子(比如想下载youtube上的视频)，建议通过ssh进入群晖内部，也通过上面命令行来启动v2raya docker
 
 一般来说，这上面会增加不少延迟，并且比单独在[justmysocks](https://justmysocks3.net/)的速度会差上一些的，这个就看vps的服务器质量了，
 可以通过一个测速工具来进行实际测试，或者跑一个国外的测速网站

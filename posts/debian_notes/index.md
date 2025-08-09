@@ -3,7 +3,7 @@
 
 ubuntu镜像相对较大，并且UI风格相对老旧，后面遇到了Debian，看中它的全社区维护、永久开源的承诺和更现代的UI风格，因此入了坑，在此爬坑留痕
 
-&lt;!--more--&gt;
+<!--more-->
 
 ---
 
@@ -32,9 +32,9 @@ sudo curl -fsSL https://gitee.com/tech-shrimp/docker_installer/releases/download
 
 ```sh
 # 参考自：https://www.runoob.com/docker/docker-compose.html
-sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-sudo chmod &#43;x /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # 验证docker-compose命令是否安装成功
@@ -49,10 +49,10 @@ sudo vim /etc/docker/daemon.json
 输入下列内容，最后按ESC，输入 :wq! 保存退出
 ```text
 {
-    &#34;registry-mirrors&#34;: [
-        &#34;https://docker.m.daocloud.io&#34;,
-        &#34;https://docker.1panel.live&#34;,
-        &#34;https://hub.rat.dev&#34;
+    "registry-mirrors": [
+        "https://docker.m.daocloud.io",
+        "https://docker.1panel.live",
+        "https://hub.rat.dev"
     ]
 }
 ```
@@ -84,16 +84,16 @@ sudo docker load -i v2raya.tar
 sudo docker ps -a
 
 # 进入容器实例内部的bash
-sudo docker exec -it &lt;container_id&gt; /bin/bash
+sudo docker exec -it <container_id> /bin/bash
 
 # 运行容器实例
-sudo docker start &lt;container_id&gt;
+sudo docker start <container_id>
 
 # 停止容器实例
-sudo docker stop &lt;container_id&gt;
+sudo docker stop <container_id>
 
 # 移除容器实例
-sudo docker remove &lt;container_id&gt;
+sudo docker remove <container_id>
 ```
 
 ## 安装npm和yarn

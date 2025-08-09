@@ -1,24 +1,31 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hexo - 标签 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/tags/hexo/</link>
-    <description>Hexo - 标签 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/hexo/" rel="self" type="application/rss+xml" /><item>
-  <title>谈一种页面加密技术</title>
-  <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
-  <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
-  <description><![CDATA[<p>在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索</p>]]></description>
-</item>
-<item>
-  <title>PHP-XDebug安装脚本</title>
-  <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
-  <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
-  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug</p>]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Thu, 18 Sep 2025 22:47:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>谈一种页面加密技术</title>
+      <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <category domain="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/">技术选型</category>
+      <description>&lt;p&gt;在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PHP-XDebug安装脚本</title>
+      <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

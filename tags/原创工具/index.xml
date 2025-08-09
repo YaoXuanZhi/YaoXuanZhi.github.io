@@ -1,72 +1,71 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>原创工具 - 标签 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/tags/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/</link>
-    <description>原创工具 - 标签 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
-  <title>一种通用的Unity插件本地化思路</title>
-  <link>http://localhost:1313/posts/unity_plugin_localization/</link>
-  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/unity_plugin_localization/</guid>
-  <description><![CDATA[<p>目前发现 <a href="https://assetstore.unity.com/"target="_blank" rel="external nofollow noopener noreferrer">unity assetstore</a> 上面的许多插件都缺乏本地化支持，这实太不友好了，因此有了这么一番探索</p>]]></description>
-</item>
-<item>
-  <title>原创Unity插件-CodeGenProvider</title>
-  <link>http://localhost:1313/posts/code_gen_provider_unity_plugin/</link>
-  <pubDate>Sun, 13 Jul 2025 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/code_gen_provider_unity_plugin/</guid>
-  <description><![CDATA[<p>目前项里会可能会用到多种代码生成工具，这里提供了一个原创的Unity插件，用来整合这些代码生成方案</p>]]></description>
-</item>
-<item>
-  <title>自用工具-ScreenPinKit</title>
-  <link>http://localhost:1313/posts/screen_pin_kit/</link>
-  <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/screen_pin_kit/</guid>
-  <description><![CDATA[<p>本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具</p>]]></description>
-</item>
-<item>
-  <title>拓展Msys2</title>
-  <link>http://localhost:1313/posts/improve_msys2/</link>
-  <pubDate>Sat, 12 Jun 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/improve_msys2/</guid>
-  <description><![CDATA[<p>由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程</p>]]></description>
-</item>
-<item>
-  <title>字符图片OCR工具</title>
-  <link>http://localhost:1313/posts/char_images_ocr_tool/</link>
-  <pubDate>Sun, 25 Apr 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/char_images_ocr_tool/</guid>
-  <description><![CDATA[本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类网页的处理方式 前言由于自己的某些学习需求，不想一直联网浏览某些网页内容，因此想将这些站点的某些内容缓存到本地。另外，该网站为了防止内容被爬虫抓取或被盗稿，因此在页面渲染时对内容进行了一些加密处理：]]></description>
-</item>
-<item>
-  <title>字符图片合并</title>
-  <link>http://localhost:1313/posts/char_image_merge/</link>
-  <pubDate>Wed, 07 Apr 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/char_image_merge/</guid>
-  <description><![CDATA[<p>在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成<code>{图片名：字符}</code>的映射关系，需要耗时更少的方案</p>]]></description>
-</item>
-<item>
-  <title>谈一种页面加密技术</title>
-  <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
-  <pubDate>Mon, 15 Mar 2021 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
-  <description><![CDATA[<p>在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索</p>]]></description>
-</item>
-<item>
-  <title>PHP-XDebug安装脚本</title>
-  <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
-  <pubDate>Sun, 01 Sep 2019 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
-  <description><![CDATA[<p>目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug</p>]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Thu, 18 Sep 2025 22:47:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一种通用的Unity插件本地化思路</title>
+      <link>http://localhost:1313/posts/unity_plugin_localization/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/unity_plugin_localization/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;目前发现 &lt;a href=&#34;https://assetstore.unity.com/&#34;target=&#34;_blank&#34; rel=&#34;external nofollow noopener noreferrer&#34;&gt;unity assetstore&lt;/a&gt; 上面的许多插件都缺乏本地化支持，这实太不友好了，因此有了这么一番探索&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自用工具-ScreenPinKit</title>
+      <link>http://localhost:1313/posts/screen_pin_kit/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/screen_pin_kit/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;本人之前比较常用Snipaste+剪贴板OCR方案，但是随着时间推移，发现这套方案过于繁琐，并且想要一个屏幕标注功能，苦于Snipaste没有插件系统，并且市面上的屏幕标注工具没有用着舒服的，遂有了这个小工具&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>拓展Msys2</title>
+      <link>http://localhost:1313/posts/improve_msys2/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/improve_msys2/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;由于新工作的服务器开发环境相对麻烦，遂编写了一个集成脚本来简化了服务器环境部署和运行流程&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>字符图片OCR工具</title>
+      <link>http://localhost:1313/posts/char_images_ocr_tool/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/char_images_ocr_tool/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;本人在收集一些文章正文的时候，中途被一些采用图文混合形式加密保护的网页卡着了，这篇文章记录下了我针对该类网页的处理方式&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 class=&#34;heading-element&#34; id=&#34;前言&#34;&gt;&lt;span&gt;前言&lt;/span&gt;&#xD;&#xA;  &lt;a href=&#34;#%e5%89%8d%e8%a8%80&#34; class=&#34;heading-mark&#34;&gt;&#xD;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&lt;p&gt;由于自己的某些学习需求，不想一直联网浏览某些网页内容，因此想将这些站点的某些内容缓存到本地。另外，该网站为了防止内容&lt;em&gt;被爬虫抓取&lt;/em&gt;或&lt;em&gt;被盗稿&lt;/em&gt;，因此在页面渲染时对内容进行了一些加密处理：将纯文本内容拆分成&lt;strong&gt;图文混合&lt;/strong&gt;形式渲染，格式如下所示：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>字符图片合并</title>
+      <link>http://localhost:1313/posts/char_image_merge/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/char_image_merge/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;在ocr识别当中，单字识别效果一般不够准确，另外，对于一个ocr功能而言，最耗时的莫过于每次执行ocr识别了，假设现今有几百张字符图片，为了快速生成&lt;code&gt;{图片名：字符}&lt;/code&gt;的映射关系，需要耗时更少的方案&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>谈一种页面加密技术</title>
+      <link>http://localhost:1313/posts/a_way_of_html_encryption/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/a_way_of_html_encryption/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <category domain="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/">技术选型</category>
+      <description>&lt;p&gt;在一次练车的时候突发奇想，发现自己有些私密分享的需求，然后有了这次技术探索&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PHP-XDebug安装脚本</title>
+      <link>http://localhost:1313/posts/auto-download-xdebug-for-php/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/auto-download-xdebug-for-php/</guid>
+      <category domain="http://localhost:1313/categories/%E5%8E%9F%E5%88%9B%E5%B7%A5%E5%85%B7/">原创工具</category>
+      <description>&lt;p&gt;目前在项目里做导表工具改版，由于这个导表工具采用php实现的，希望在idea ide上可以断点调试php，需要安装配套版本的xdebug&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

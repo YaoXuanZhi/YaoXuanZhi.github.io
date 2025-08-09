@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>网络磁盘 - 标签 - YaoXuanZhi&#39;s Blog</title>
     <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/</link>
-    <description>网络磁盘 - 标签 | YaoXuanZhi&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
-      <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster><lastBuildDate>Wed, 26 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/" rel="self" type="application/rss+xml" /><item>
-  <title>通过rclone将Nas映射为网络磁盘(非局域网)</title>
-  <link>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</link>
-  <pubDate>Wed, 26 Oct 2022 00:00:00 &#43;0000</pubDate>
-  <author>YaoXuanZhi</author>
-  <guid>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</guid>
-  <description><![CDATA[<p>前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？</p>]]></description>
-</item>
-</channel>
+    <description>仰望星空，还需脚踏实地</description>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.2-20250916043850-a228cce0</generator>
+    <language>zh-cn</language>
+    <managingEditor>yaoxuanzhi@outlook.com (YaoXuanZhi)</managingEditor>
+    <webMaster>yaoxuanzhi@outlook.com (YaoXuanZhi)</webMaster>
+    <lastBuildDate>Thu, 18 Sep 2025 22:47:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E7%A3%81%E7%9B%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过rclone将Nas映射为网络磁盘(非局域网)</title>
+      <link>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate><author>yaoxuanzhi@outlook.com (YaoXuanZhi)</author>
+      <guid>http://localhost:1313/posts/via_rclone_map_nas_as_network_disk/</guid>
+      <category domain="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/">生活技巧</category>
+      <description>&lt;p&gt;前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

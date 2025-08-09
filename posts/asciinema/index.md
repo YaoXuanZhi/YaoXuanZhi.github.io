@@ -1,11 +1,11 @@
-# 终端会话录制工具-asciinema/PowerSession-rs
+# 终端会话录制工具-Asciinema/PowerSession-Rs
 
 
 发现了一个终端会话录制工具，非常不错，这里特意做下记录
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/asciinema/asciinema&#34; content=&#34;asciinema&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/asciinema/asciinema" content="asciinema" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
@@ -58,7 +58,15 @@ svg-term --in=misc/screencast/demo.cast --out=misc/screencast/demo.svg --window
 ```
 
 ### 演示效果
-{{&lt; asciinema id=550147 theme=solarized-dark autoplay=false speed=1 &gt;}}
+
+{{< asciinema 
+  file="casts/demo.cast"
+  speed="1"
+  autoplay="false"
+  loop="true"
+  markers="1.5:Installation,3.2:Configuration,5.8:Testing"
+  poster="npt:0:1"
+>}}
 
 ### 参考资料
  - [asciinema](https://asciinema.org/)

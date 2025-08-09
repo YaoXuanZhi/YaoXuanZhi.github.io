@@ -3,13 +3,13 @@
 
 前段时间，剁手购买了群晖Nas，正在向仓鼠的路上狂奔，经过一番捣鼓后，Nas上已经囤了好几T的资源了，怎么便捷地访问这些资源呢？
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://rclone.org&#34; content=&#34;rclone官网&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://rclone.org" content="rclone官网" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
-## 需求&amp;痛点
+## 需求&痛点
 本人并不想借助WinScp之类的第三方软件的GUI界面来访问Nas资源，如果能做到像本地磁盘那样的访问体验就好了。实际上如果访问设备在同一局域网内，是可以通过SMB协议来达到类似效果，但是当人在外面，这种方式就莫得了
 
 ## 方案选型
@@ -33,7 +33,7 @@
  - breatoken: `nas_config`
 
 测试是否配置成功：罗列根目录:`rclone lsd nas:`
-`./rclone.exe mount nas:/  M: --cache-dir D:Temp --vfs-cache-mode writes &amp;`
+`./rclone.exe mount nas:/  M: --cache-dir D:Temp --vfs-cache-mode writes &`
 
 ### Portable化处理
 在摸索的过程中，为了方便重装电脑等情况下也能够快速部署回来，做了一定的资源整合，核心思路是：基于Windows系统的系统环境变量在程序间的传递关系链，将rclone用到的一些系统路径整合到rclone的运行目录上

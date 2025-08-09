@@ -3,9 +3,9 @@
 
 以前网络上收集到不少扫描版本的PDF文档，没有文字层，非常蛋疼，偶然发现了这个开源工具，非常推荐
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/ocrmypdf/OCRmyPDF&#34; content=&#34;OCRmyPDF&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/ocrmypdf/OCRmyPDF" content="OCRmyPDF" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
@@ -21,10 +21,10 @@ pip install pip install ocrmypdf
 #### 安装OCR等依赖项
 ```sh
 # 以管理员身份运行cmd，执行以下命令：
-@&#34;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&#34; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &#34;[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))&#34; &amp;&amp; SET &#34;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&#34;
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 # 或者以管理员身份运行PowerShell，执行以下命令：
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 choco install --pre tesseract
 choco install ghostscript
@@ -59,16 +59,16 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
-PDFJS = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/viewer.html&#39;
-# PDF = &#39;file:///path/to/my/sample.pdf&#39;
-PDF = &#39;file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/compressed.tracemonkey-pldi-09.pdf&#39;
+PDFJS = 'file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/viewer.html'
+# PDF = 'file:///path/to/my/sample.pdf'
+PDF = 'file:///D:/OpenSources/ScreenPinKit/src/third_party/pdfjs-4.6.82-dist/web/compressed.tracemonkey-pldi-09.pdf'
 
 class Window(QWebEngineView):
     def __init__(self):
         super().__init__()
-        self.load(QtCore.QUrl.fromUserInput(&#39;%s?file=%s&#39; % (PDFJS, PDF)))
+        self.load(QtCore.QUrl.fromUserInput('%s?file=%s' % (PDFJS, PDF)))
 
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
 
     app = QtWidgets.QApplication(sys.argv)
     window = Window()

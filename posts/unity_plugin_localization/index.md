@@ -1,11 +1,11 @@
 # 一种通用的Unity插件本地化思路
 
 
-最近在逛 [Unity资源商城](https://assetstore.unity.com/) 的时候发现，好多插件都没做多语言支持，用起来比较蛋疼，在项目组里不好推广。为此捣鼓了半天，总算整出一套相对通用的方案，发出来给大伙参考～
+目前发现 [unity assetstore](https://assetstore.unity.com/) 上面的许多插件都缺乏本地化支持，这实太不友好了，因此有了这么一番探索
 
-&lt;!--more--&gt;
+<!--more-->
 
-{{&lt; link href=&#34;https://github.com/YaoXuanZhi/UnityPluginLocalization&#34; content=&#34;UnityPluginLocalization&#34; title=&#34;documentation of FixIt Theme&#34; card=true &gt;}}
+{{< link href="https://github.com/YaoXuanZhi/UnityPluginLocalization" content="UnityPluginLocalization" title="documentation of FixIt Theme" card=true >}}
 
 ---
 
@@ -23,7 +23,7 @@
 #### 工作流程
 
 1.  **初始化**: 编辑器或插件窗口启动时，`LocalizationManager` 会根据 `EditorPrefs` 中存储的语言（或默认语言）调用 `LoadLanguage`，加载对应的 JSON 文件到内存中的字典里
-2.  **UI 刷新**: 插件的各个部分通过调用 `LocalizationManager.Tr(&#34;some_key&#34;)` 来获取需要在 UI 上显示的文本
+2.  **UI 渲染**: 插件的各个部分通过调用 `LocalizationManager.Tr("some_key")` 来获取需要在 UI 上显示的文本
 3.  **用户切换语言**:
     1. 用户在 `LocalizationProvider` 提供的下拉菜单中选择一门新语言
     2. `LocalizationProvider` 检测到变更，调用 `LocalizationManager.SetLanguage` 并传入新的语言代码
